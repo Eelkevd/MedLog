@@ -16,7 +16,7 @@ A medical website build with laravel based on the userstories as described in th
 - thursday: 
 - friday:
 
-## Look for the latest online demo at: mycare.vps.codegorilla.nl
+## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
 
 ## Used php packages
 -
