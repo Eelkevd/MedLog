@@ -3,11 +3,11 @@
 	{{ csrf_field() }}
 
 	<div>
-
-		<input type="text" name="symptom" placeholder="naam symptom"> <br />
+		<h3>Symptomen</h3>
+		Creëer een nieuw symptoom:
 		<br />
-		<input type="submit" align="center" value="submit">
-
+		<input type="text" name="symptom" placeholder="naam symptom"> 
+		<input type="submit" align="center" value="ok">
 	</div>
 
 </form>

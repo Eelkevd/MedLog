@@ -20,6 +20,6 @@ class IllnessController extends Controller
             'illness'  => 'required',
         ]);
 		$illness = Illness::create(request(['illness']));
-        return view ('entries/create_entry');
+        return redirect ('entries/create_entry');
 	}
 }

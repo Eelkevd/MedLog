@@ -21,6 +21,6 @@ class SymptomController extends Controller
             'symptom'  => 'required',
         ]);
 		$symptom = Symptom::create(request(['symptom']));
-        return view ('entries/create_entry');
+        return redirect ('entries/create_entry');
 	}
 }
