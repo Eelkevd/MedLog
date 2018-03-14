@@ -12,7 +12,7 @@ A medical website build with laravel based on the userstories as described in th
 ### Workflow Week 11
 - monday: Project kick-off, made userstories for backlog, made sketches for websites, made shared trello
 - tuesday: Setting up shared github & laravel project, divided parts of the project per team-member, added time-management per userstory
-- wednesday: 
+- wednesday: Userstories Patient-1, Patient-3 and Patient-4 finished, discussed database topic with coach & improved userstories backlog 
 - thursday: 
 - friday:
 
@@ -20,6 +20,9 @@ A medical website build with laravel based on the userstories as described in th
 
 ## Used php packages
 -
+
+## Inspired by 
+- https://medapp.nu/
 
 # Sketches
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchhomepage.png?raw=true "Homepage")
