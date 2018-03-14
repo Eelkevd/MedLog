@@ -152,6 +152,21 @@
                                 @endif
                             </div>
                         </div>
+                        
+                         <!-- Register form BSN-->
+                        <div class="form-group row">
+                            <label for="bsn" class="col-md-4 col-form-label text-md-right">{{ __('Burgerservicenummer (BSN)') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="bsn" type="number" class="form-control{{ $errors->has('bsn') ? ' is-invalid' : '' }}" name="bsn" value="{{ old('bsn') }}" required>
+
+                                @if ($errors->has('bsn'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('bsn') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
 
                         <!-- Register form email-->
                         <div class="form-group row">
