@@ -1,8 +1,8 @@
 <!-- View for the login page (landing page) -->
 
-@extends('layouts.app')
+@extends('layouts.master')
 
-@section('content')           
+@section('content')
 <div class="content">
     <div class="title m-b-md">
             MedLog: jouw medisch dagboek
@@ -107,7 +107,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form firstname-->
                         <div class="form-group row">
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam') }}</label>
@@ -122,7 +122,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form middlename-->
                         <div class="form-group row">
                             <label for="middlename" class="col-md-4 col-form-label text-md-right">{{ __('Tussenvoegsel') }}</label>
@@ -137,7 +137,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form lastname-->
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam') }}</label>
@@ -152,7 +152,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form BSN-->
                         <div class="form-group row">
                             <label for="bsn" class="col-md-4 col-form-label text-md-right">{{ __('Burgerservicenummer (BSN)') }}</label>
@@ -167,7 +167,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form street-->
                         <div class="form-group row">
                             <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam') }}</label>
@@ -182,7 +182,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form house number-->
                         <div class="form-group row">
                             <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer') }}</label>
@@ -197,7 +197,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form house number suffix-->
                         <div class="form-group row">
                             <label for="housenumbersuffix" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer Toevoeging') }}</label>
@@ -212,7 +212,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form town-->
                         <div class="form-group row">
                             <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats') }}</label>
@@ -227,7 +227,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form postal code-->
                         <div class="form-group row">
                             <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode') }}</label>
@@ -257,7 +257,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form confirm email-->
                         <div class="form-group row">
                             <label for="email-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal E-Mailadres') }}</label>
