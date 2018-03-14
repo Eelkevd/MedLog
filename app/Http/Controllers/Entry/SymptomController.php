@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Entry;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Symptom;
 // use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class SymptomController extends Controller
@@ -14,7 +15,7 @@ class SymptomController extends Controller
 		$request->validate([
             'symptom'  => 'required',
         ]);
-
+		$symptom = Symptom::create(request(['symptom']));
         return view ('entry');
 	}
 }

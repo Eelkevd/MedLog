@@ -9,10 +9,10 @@ use App\Illness;
 
 class IllnessController extends Controller
 {
-	public function create(Illness $illness)
-   	{
-   	    return view('entry');
-   	}
+	// public function create(Illness $illness)
+ //   	{
+ //   	    return view('entry');
+ //   	}
 
 	public function store (Request $request) 
 	{
