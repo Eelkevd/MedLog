@@ -153,7 +153,7 @@
                             </div>
                         </div>
                         
-                         <!-- Register form BSN-->
+                        <!-- Register form BSN-->
                         <div class="form-group row">
                             <label for="bsn" class="col-md-4 col-form-label text-md-right">{{ __('Burgerservicenummer (BSN)') }}</label>
 
@@ -163,6 +163,81 @@
                                 @if ($errors->has('bsn'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('bsn') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <!-- Register form street-->
+                        <div class="form-group row">
+                            <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="street" type="text" class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" name="street" value="{{ old('street') }}" required autofocus>
+
+                                @if ($errors->has('street'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('street') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <!-- Register form house number-->
+                        <div class="form-group row">
+                            <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="housenumber" type="number" class="form-control{{ $errors->has('housenumber') ? ' is-invalid' : '' }}" name="housenumber" value="{{ old('housenumber') }}" required>
+
+                                @if ($errors->has('housenumber'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('housenumber') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <!-- Register form house number suffix-->
+                        <div class="form-group row">
+                            <label for="housenumbersuffix" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer Toevoeging') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="housenumbersuffix" type="text" class="form-control{{ $errors->has('housenumbersuffix') ? ' is-invalid' : '' }}" name="housenumbersuffix" value="{{ old('housenumbersuffix') }}">
+
+                                @if ($errors->has('housenumbersuffix'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('housenumbersuffix') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <!-- Register form town-->
+                        <div class="form-group row">
+                            <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="town" type="text" class="form-control{{ $errors->has('town') ? ' is-invalid' : '' }}" name="town" value="{{ old('town') }}" required autofocus>
+
+                                @if ($errors->has('town'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('town') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        
+                        <!-- Register form postal code-->
+                        <div class="form-group row">
+                            <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="postalcode" type="text" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}" name="postalcode" value="{{ old('postalcode') }}" required>
+
+                                @if ($errors->has('postalcode'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('postalcode') }}</strong>
                                     </span>
                                 @endif
                             </div>
