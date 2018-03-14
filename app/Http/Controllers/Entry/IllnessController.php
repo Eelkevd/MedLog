@@ -11,7 +11,7 @@ class IllnessController extends Controller
 {
 	// public function create(Illness $illness)
  //   	{
- //   	    return view('entry');
+ //   	    return view('entries/create_entry');
  //   	}
 
 	public function store (Request $request) 
@@ -20,6 +20,6 @@ class IllnessController extends Controller
             'illness'  => 'required',
         ]);
 		$illness = Illness::create(request(['illness']));
-        return view ('entry');
+        return view ('entries/create_entry');
 	}
 }

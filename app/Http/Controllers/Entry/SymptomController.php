@@ -9,6 +9,11 @@ use App\Symptom;
 
 class SymptomController extends Controller
 {
+	// public function create()
+	// {
+ //        $symptomes = Symptomes::all();
+ //        return view('entries.create_entry', compact('symptomes'));
+	// }
 
 	public function store (Request $request) 
 	{
@@ -16,6 +21,6 @@ class SymptomController extends Controller
             'symptom'  => 'required',
         ]);
 		$symptom = Symptom::create(request(['symptom']));
-        return view ('entry');
+        return view ('entries/create_entry');
 	}
 }
