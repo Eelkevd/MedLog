@@ -11,10 +11,6 @@
 |
 */
 
-// Route::get('/', function () {
-//     return view('welcome');
-// });
-
 
 ////// DIARY ENTRY PAGE DIRECTION //////
 
@@ -27,3 +23,11 @@ Route::post('/entries/create_illness', 'Entry\IllnessController@store');
 // Page to create and store symptom
 // Route::get('/entries/create_symptom', 'Entry\SymptomController@create');
 Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
+
+// Routes for login system
+Auth::routes();
+
+// Route to homepage
+Route::get('/', 'HomeController@index');
+Route::get('/home', 'HomeController@index');
+
