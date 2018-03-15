@@ -1,3 +1,5 @@
+<!-- View for the account page (loads users account data) -->
+
 <div>
     <!-- Show username -->
     <div>
