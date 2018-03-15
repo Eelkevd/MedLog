@@ -14,8 +14,10 @@
 
      <!-- Sidebar Links -->
      <ul class="list-unstyled components">
+
        <li class="active"><!-- Link with dropdown items -->
-           <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false">
+
+           <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false" role="button" aria-controls="kalenderSubmenu">
              Aankomende afspraken</a>
            <ul class="collapse list-unstyled" id="kalenderSubmenu">
                <li><a href="/kalender/afspraak1">12-04-2018 Doktersafspraak</a></li>
@@ -25,6 +27,7 @@
                <li><a href="/kalender/afspraak1">12-12-2018 Doktersafspraak</a></li>
            </ul>
         </li>
+
         <li>
            <a href="#">Kalender</a>
         </li>

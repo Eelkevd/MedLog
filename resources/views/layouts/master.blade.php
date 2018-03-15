@@ -7,10 +7,10 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Styles van Laravel -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Bootstrap CSS CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Styles van Laravel -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <!-- Scrollbar Custom CSS -->
@@ -39,7 +39,7 @@
 
 
     <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <!-- Popper CDN -->
