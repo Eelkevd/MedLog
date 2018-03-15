@@ -13,7 +13,7 @@ A medical website build with laravel based on the userstories as described in th
 - monday: Project kick-off, made userstories for backlog, made sketches for websites, made shared trello
 - tuesday: Setting up shared github & laravel project, divided parts of the project per team-member, added time-management per userstory
 - wednesday: Userstories Patient-1, Patient-3 and Patient-4 finished, discussed database topic with coach & improved userstories backlog 
-- thursday: 
+- thursday: Userstories Patient-2 & Patient-5 finished, object oriented programming lesson, improved database
 - friday:
 
 ## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
