@@ -15,13 +15,13 @@
 ////// DIARY ENTRY PAGE DIRECTION //////
 
 // Redirects to the create diary entry page
-// Route::get('/entries/create_entry', 'Entry\EntryController@home');
-Route::get('/entries/create_entry', 'Entry\EntryController@create');
+Route::get('/entries', 'Entry\EntryController@create');
+// Page to store diary entries
+Route::post('/entries/create_entry', 'Entry\EntryController@store');
 // Page to create and store user made illness
-// Route::get('/entries/create_illness', 'Entry\IllnessController@create');
 Route::post('/entries/create_illness', 'Entry\IllnessController@store');
+
 // Page to create and store symptom
-// Route::get('/entries/create_symptom', 'Entry\SymptomController@create');
 Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
 
 // Routes for login system

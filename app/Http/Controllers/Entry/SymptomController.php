@@ -9,18 +9,12 @@ use App\Symptom;
 
 class SymptomController extends Controller
 {
-	// public function create()
-	// {
- //        $symptomes = Symptomes::all();
- //        return view('entries.create_entry', compact('symptomes'));
-	// }
-
 	public function store (Request $request) 
 	{
 		$request->validate([
             'symptom'  => 'required',
         ]);
 		$symptom = Symptom::create(request(['symptom']));
-        return redirect ('entries/create_entry');
+        return redirect ('entries');
 	}
 }
