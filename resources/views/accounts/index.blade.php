@@ -16,9 +16,17 @@
                     @else
                     <!-- Show users account data -->
                         @foreach ($users as $user) 
-                            @include('accounts.account')
+                            @include('accounts/account')
                         @endforeach
                     @endguest
+            </div>
+            
+             <div class="form-group row mb-0">
+                    <div class="col-md-6 offset-md-4">
+                            <form action="account/edit" >
+                                <button type="submit">Wijzig account data</button>
+                            </form> 
+                    </div>
             </div>
         </div>
     </div>

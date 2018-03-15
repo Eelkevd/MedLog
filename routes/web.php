@@ -33,3 +33,5 @@ Route::get('/home', 'HomeController@index');
 
 // Route to account page
 Route::get('/account', 'AccountController@index');
+Route::get('/account/edit', 'AccountController@edit');
+Route::post('/account/edit', 'AccountController@update');
