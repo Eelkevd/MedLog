@@ -9,17 +9,12 @@ use App\Illness;
 
 class IllnessController extends Controller
 {
-	// public function create(Illness $illness)
- //   	{
- //   	    return view('entries/create_entry');
- //   	}
-
 	public function store (Request $request) 
 	{
 		$request->validate([
             'illness'  => 'required',
         ]);
 		$illness = Illness::create(request(['illness']));
-        return redirect ('entries/create_entry');
+        return redirect ('entries');
 	}
 }

@@ -17,4 +17,9 @@ class Symptom extends Model
     {
     	return 'symptom';
     }
+
+    public function entry()
+    {
+      return $this->belongsToMany(Entry::class);
+    }
 }
