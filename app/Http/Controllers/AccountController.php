@@ -35,6 +35,22 @@ class AccountController extends Controller
     public function update(Request $request)
     {
         $userid = Auth::id();
+        
+        $request->validate([
+            'username' => 'required|string|max:190|unique:users,username,'.$userid,
+            'firstname' => 'required|string|max:190',
+            'middlename' => 'max:190',
+            'lastname' => 'required|string|max:190',
+            'bsn' => 'required|digits_between:8,9|unique:users,bsn,'.$userid,
+            'street' => 'required|string|max:190',
+            'housenumber' => 'required|digits_between:1,5',
+            'housenumbersuffix' => 'max:10',
+            'town' => 'required|string|max:190',
+            'postalcode' => 'required|max:6|regex:/^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$/|min:6',
+            'email' => 'required|string|email|max:190|confirmed|unique:users,email,'.$userid,
+            'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/|confirmed',
+        ]);
+          
         User::where('id', $userid)->update([
             'username' => $request['username'],
             'firstname' => $request['firstname'],
@@ -50,7 +66,7 @@ class AccountController extends Controller
             'password' => Hash::make($request['password']),
         ]);
         $users = DB::table('users')->where ('id', $userid)->get();
-        return view('accounts.index', compact('users'));    
+        return view('home', compact('users'));    
     }  
     
 }
