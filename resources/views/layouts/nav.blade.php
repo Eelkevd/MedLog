@@ -1,11 +1,22 @@
 
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name') }}
-                    <br />
-                    {{ config('app.subtitle') }} 
-                </a>
+          <div class="container-fluid">
+
+              <div class="navbar-header">
+                  <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn hidemenu">
+                      <i class="glyphicon glyphicon-chevron-left"></i>
+                      <span>Verberg Menu</span>
+                  </button>
+              </div>
+
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <div class="appname">
+                    <a class="navbar-brand" href="{{ url('/') }}">
+                        {{ config('app.name') }}
+                        <br />
+                        {{ config('app.subtitle') }}
+                    </a>
+                </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
@@ -25,7 +36,7 @@
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->username }} <span class="caret"></span>
+                                    {{ Auth::user()->username }}
                                 </a>
 
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">

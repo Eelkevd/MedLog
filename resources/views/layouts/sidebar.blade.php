@@ -8,16 +8,18 @@
      <!-- buttons -->
      <ul class="list-unstyled CTAs">
          <!-- white button -->
-         <li><a href="/entries/create_entry" class="download">Nieuwe gebeurtenis</a></li>
-
+         <li>
+           <a href="/entries/create_entry" class="download">
+           Nieuwe gebeurtenis
+          </a>
+        </li>
      </ul>
 
      <!-- Sidebar Links -->
      <ul class="list-unstyled components">
 
        <li class="active"><!-- Link with dropdown items -->
-
-           <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false" role="button" aria-controls="kalenderSubmenu">
+           <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false" role="button">
              Aankomende afspraken</a>
            <ul class="collapse list-unstyled" id="kalenderSubmenu">
                <li><a href="/kalender/afspraak1">12-04-2018 Doktersafspraak</a></li>
