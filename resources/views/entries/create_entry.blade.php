@@ -1,8 +1,10 @@
 @extends ('layouts.master')
 
+@section('content')
+
     	@include ('entries.create_illness')
 
-    	of 
+    	of
 		<select>
 			@foreach($illnesses as $illness)
 				<option value="{{ $illness->id }}">{{ $illness->illness }}</option>
@@ -22,3 +24,4 @@
 
 		@endforeach()
 
+@endsection

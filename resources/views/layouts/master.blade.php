@@ -8,56 +8,53 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <!-- Bootstrap CSS CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="css/sidebar.css">
-    <!-- Styles -->
+    <!-- Styles van Laravel -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+    <!-- Scrollbar Custom CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+
   <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
 </head>
 <body>
     <div id="app">
       @include('layouts.nav')
 
-
       <div class="wrapper">
-          <!-- Sidebar -->
-        <nav id="sidebar">
-            <!-- Sidebar Header -->
-           <div class="sidebar-header">
-               <h3>Collapsible Sidebar</div>
-           </div>
-
-           <!-- Sidebar Links -->
-           <ul class="list-unstyled components">
-               <li class="active"><a href="#">Home</a></li>
-               <li><a href="#">About</a></li>
-
-               <li><!-- Link with dropdown items -->
-                   <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
-                   <ul class="collapse list-unstyled" id="homeSubmenu">
-                       <li><a href="#">Page</a></li>
-                       <li><a href="#">Page</a></li>
-                       <li><a href="#">Page</a></li>
-                   </ul>
-
-               <li><a href="#">Portfolio</a></li>
-               <li><a href="#">Contact</a></li>
-           </ul>
-        </nav>
+        @include('layouts.sidebar')
 
         <main class="py-4">
-            @yield('content')
-        </main>
-      </div>
+          @include('layouts.header_menu')
 
-    </div>
+          @yield('content')
+        </main>
+
+      </div> <!-- end div wrapper -->
+
+    </div> <!-- end div app -->
+
+
+
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery CDN -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <!-- Popper CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <!-- Bootstrap Js CDN -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <!-- Custom Scroller Js CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+    <script type="text/javascript">
+         $(document).ready(function () {
+             $('#sidebarCollapse').on('click', function () {
+                 $('#sidebar').toggleClass('active');
+             });
+         });
+     </script>
+
   </body>
 </html>
