@@ -1,4 +1,3 @@
-<div id="content">
 <nav class="navbar navbar-default">
     <div class="container-fluid">
 
@@ -11,7 +10,7 @@
 
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Page</a></li>
+                <li><a href="#click">Page</a></li>
                 <li><a href="#">Page</a></li>
                 <li><a href="#">Page</a></li>
                 <li><a href="#">Page</a></li>
@@ -19,4 +18,3 @@
         </div>
     </div>
 </nav>
-</div>

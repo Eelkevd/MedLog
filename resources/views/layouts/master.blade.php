@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <!-- Bootstrap CSS CDN-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
     <!-- Styles van Laravel -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS CDN-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
-  <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
+    <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
 </head>
 <body>
     <div id="app">
@@ -24,7 +25,7 @@
       <div class="wrapper">
         @include('layouts.sidebar')
 
-        <main class="py-4">
+        <main class="py-4" id="content">
           @include('layouts.header_menu')
 
           @yield('content')
