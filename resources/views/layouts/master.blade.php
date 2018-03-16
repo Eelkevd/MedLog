@@ -82,6 +82,7 @@
 <<<<<<< HEAD
   </body>
 </html>
+<<<<<<< HEAD
 =======
 </html>
 
@@ -128,3 +129,6 @@
 
 </script> -->
 >>>>>>> Patient-5: added option to select an illness for a entry. Also added option that allows multiple symptomes to one entry. Modded and created migrations
+=======
+
+>>>>>>> expanded entry form with date, time, recovery time/date, weather, comments, witnessreport and more. When submitted data is stored in DB.

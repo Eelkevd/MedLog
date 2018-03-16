@@ -30,8 +30,7 @@ class EntryController extends Controller
 			'illness_id' => 'required'
         ]);
 
-        $entry = Entry::create(request(['illness_id']));
-        // $entry->illness()->attach($request->illness);
+        $entry = Entry::create(request(['user_id', 'illness_id', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
         $entry->symptomes()->attach($request->symptom);
         return redirect ('entries');
 	}
