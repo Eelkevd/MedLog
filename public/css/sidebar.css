@@ -9,6 +9,27 @@ body {
     background: #fafafa;
 }
 
+.title{
+  background-color: #008B8B;
+  padding: 20px;
+}
+
+.title h1{
+  text-align: center;
+  font-size: 3em;
+  font-family: 'Poppins', sans-serif;
+  
+text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+}
+
+.title h2{
+  text-align: center;
+  font-size: 1.5em;
+  font-family: 'Poppins', sans-serif;
+  font-style: italic;
+  color: white;
+}
+
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;

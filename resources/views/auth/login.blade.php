@@ -9,18 +9,10 @@
 
     <!-- Bootstrap CSS CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
     <!-- Styles van Laravel -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <!-- Bootstrap glyphicons icons -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-    <!-- Scrollbar Custom CSS -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
 
     <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
 </head>
@@ -29,7 +21,8 @@
 
       <div class="content">
           <div class="title m-b-md">
-                  MedLog: jouw medisch dagboek
+              <h1>MedLog </h1>
+              <h2>jouw medisch dagboek</h2>
           </div>
       </div>
 
