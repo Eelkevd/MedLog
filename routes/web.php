@@ -24,10 +24,14 @@ Route::post('/entries/create_illness', 'Entry\IllnessController@store');
 // Page to create and store symptom
 Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
 
-// Routes for login system
+// Routes for login system / landing page
 Auth::routes();
 
 // Route to homepage
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
 
+// Route to account page
+Route::get('/account', 'AccountController@index');
+Route::get('/account/edit', 'AccountController@edit');
+Route::post('/account/edit', 'AccountController@update');
