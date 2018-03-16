@@ -1,16 +1,13 @@
 @extends ('layouts.master')
 
-	<h1>MEDISCH DAGBOEK</h1>
 
-		<p>Hou uw eigen overzicht door uw klachten hier te loggen!</p>
 
-	<h2>Nieuw</h2>
+@section('content')
 
-		<p>Creëer hier nieuwe onderwerpen voor ziektes en symptomen indien nodig. Zo niet ga dan verder naar het Medlogger formulier</p>
-	
-	@include ('entries.create_illness')
+    	@include ('entries.create_illness')
 
-	@include ('entries.create_symptom')
+    	@include ('entries.create_symptom')
+
 
 	<h2>MedLogger formulier</h2>
 	<form method="POST" action="/entries/create_entry">
@@ -35,3 +32,6 @@
 
 		<input type="submit" value="submit">
 	</form>
+
+@endsection
+
