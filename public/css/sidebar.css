@@ -43,6 +43,7 @@ body {
   font-size: 1.5em;
   padding-left: 20px;
   display: inline-block;
+  text-shadow: none;
 }
 
 p {
@@ -167,16 +168,22 @@ ul.CTAs a {
     border-radius: 5px;
     margin-bottom: 5px;
 }
-ul.CTAs a.download {
+ul.CTAs a.download{
     background: #fff;
     color: #7386D5;
     font-size: 1.2em !important;
     margin-bottom: 0px;
 }
-a.article, a.article:hover {
+a.article, a.download:hover{
     background: #6d7fcc !important;
     color: #fff !important;
 }
+
+ a.article:hover{
+    font-size: 0.9em !important;
+    background: #fff !important;
+    color: #7386D5 !important;
+ }
 
 
 /* ---------------------------------------------------

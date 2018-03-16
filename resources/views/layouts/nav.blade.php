@@ -34,13 +34,13 @@
                             <!--<li><a class="nav-link" href="{{ route('login') }}">{{ __('Login or Register') }}</a></li>-->
                             <!--<li><a class="nav-link" href="{{ route('login') }}">{{ __('Register') }}</a></li>-->
                         @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                            <li class="nav-item">
+                                <a href="#">
                                     {{ Auth::user()->username }}
                                 </a>
 
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
+                                <div class="">
+                                    <a href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
                                         {{ __('Logout') }}

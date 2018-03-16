@@ -29,10 +29,10 @@
 
 
       <div class="wrapper">
+
         <!-- Sidebar -->
         @include('layouts.sidebar')
-
-
+        
         <div id="content">
           @include('layouts.nav')
 
@@ -78,4 +78,3 @@
 
   </body>
 </html>
-

@@ -18,7 +18,7 @@
      <!-- Sidebar Links -->
      <ul class="list-unstyled components">
 
-       <li class="active"><!-- Link with dropdown items -->
+       <li><!-- Link with dropdown items -->
            <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false" role="button">
              Aankomende afspraken</a>
            <ul class="collapse list-unstyled" id="kalenderSubmenu">
@@ -41,7 +41,7 @@
         </li>
          <li><!-- Link with dropdown items -->
              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-               Medicijnkastje</a>
+               Middelen</a>
              <ul class="collapse list-unstyled" id="homeSubmenu">
                  <li><a href="/medicijnen">Medicijnen</a></li>
                  <li><a href="/hulpmiddelen">Hulpmiddelen</a></li>
@@ -52,9 +52,7 @@
     <ul class="list-unstyled CTAs">
         <!-- blue buttons -->
         <li><a href="/account" class="article">Account</a></li>
-        <li><a href="#" class="article">Settings</a></li>
-        <li><a href="#" class="article">About</a></li>
+        <li><a href="/about" class="article">About</a></li>
 
-        <li><a href="#">Terug</a></li>
     </ul>
   </nav>
