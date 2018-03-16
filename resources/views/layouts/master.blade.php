@@ -32,7 +32,7 @@
 
         <!-- Sidebar -->
         @include('layouts.sidebar')
-        
+
         <div id="content">
           @include('layouts.nav')
 
