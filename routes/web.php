@@ -35,3 +35,6 @@ Route::get('/home', 'HomeController@index');
 Route::get('/account', 'AccountController@index');
 Route::get('/account/edit', 'AccountController@edit');
 Route::post('/account/edit', 'AccountController@update');
+
+// Route to about us page
+Route::get('/aboutus', 'AboutusController@aboutus');
