@@ -10,12 +10,12 @@
               </div>
 
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <div class="appname">
-                    <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name') }}
-                        <br />
-                        {{ config('app.subtitle') }}
-                    </a>
+                <div class="title_app">
+                    <h1> {{ config('app.name') }}
+                    </h1>
+                    <h2>
+                          {{ config('app.subtitle') }}
+                    </h2>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -28,7 +28,7 @@
                     </ul>
 
                     <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
+                    <ul class="navbar-nav ml-auto navbar-right">
                         <!-- Authentication Links -->
                         @guest
                             <!--<li><a class="nav-link" href="{{ route('login') }}">{{ __('Login or Register') }}</a></li>-->
