@@ -25,7 +25,7 @@
 
 			@foreach($symptomes as $symptom)
 
-			     <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+			   <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
 				 <label for="subscribeNews">{{ $symptom->symptom }}</label>
 
 			@endforeach()
@@ -34,4 +34,3 @@
 	</form>
 
 @endsection
-
