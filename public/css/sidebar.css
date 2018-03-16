@@ -43,6 +43,7 @@ body {
   font-size: 1.5em;
   padding-left: 20px;
   display: inline-block;
+  text-shadow: none;
 }
 
 p {
