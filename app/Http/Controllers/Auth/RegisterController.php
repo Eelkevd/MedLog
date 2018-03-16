@@ -55,7 +55,7 @@ class RegisterController extends Controller
             'lastname' => 'required|string|max:190',
             'bsn' => 'required|unique:users|digits_between:8,9',
             'street' => 'required|string|max:190',
-            'housenumber' => 'required|unique:users|digits_between:1,5',
+            'housenumber' => 'required|digits_between:1,5',
             'housenumbersuffix' => 'max:10',
             'town' => 'required|string|max:190',
             'postalcode' => 'required|max:6|regex:/^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$/|min:6',
