@@ -9,7 +9,7 @@
      <ul class="list-unstyled CTAs">
          <!-- white button -->
          <li>
-           <a href="/entries/create_entry" class="download">
+           <a href="/entries" class="download">
            Nieuwe gebeurtenis
           </a>
         </li>
@@ -51,7 +51,7 @@
     <!-- buttons -->
     <ul class="list-unstyled CTAs">
         <!-- blue buttons -->
-        <li><a href="#" class="article">Account</a></li>
+        <li><a href="/account" class="article">Account</a></li>
         <li><a href="#" class="article">Settings</a></li>
         <li><a href="#" class="article">About</a></li>
 
