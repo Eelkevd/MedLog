@@ -10,7 +10,7 @@ body {
 }
 
 .title{
-  background-color: #008B8B;
+  background-color: #7386D5;
   padding: 20px;
 }
 
@@ -30,7 +30,6 @@ body {
   font-size: 1.5em;
   font-family: 'Poppins', sans-serif;
   font-style: italic;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
 .title_app h1{
@@ -43,7 +42,6 @@ body {
   font-size: 1.5em;
   padding-left: 20px;
   display: inline-block;
-  text-shadow: none;
 }
 
 p {
