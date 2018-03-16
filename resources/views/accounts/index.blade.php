@@ -1,6 +1,6 @@
 <!-- View for the account page -->
 
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content')
 <div class="container">
