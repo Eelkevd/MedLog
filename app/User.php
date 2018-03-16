@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'username', 'firstname', 'middlename', 'lastname', 'bsn', 'street', 
+        'username', 'firstname', 'middlename', 'lastname', 'bsn', 'street',
         'housenumber', 'housenumbersuffix', 'town', 'postalcode', 'email', 'password',
     ];
 
@@ -27,5 +27,18 @@ class User extends Authenticatable
      */
     protected $hidden = [
         'password', 'remember_token',
+    ];
+
+    use Traits\Encryptable;
+
+    protected $encryptable = [
+        'firstname',
+        'middlename',
+        'lastname',
+        'street',
+        'housenumber',
+        'housenumbersuffix',
+        'town',
+        'postalcode',
     ];
 }
