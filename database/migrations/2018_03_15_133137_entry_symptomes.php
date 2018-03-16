@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiaryentryTable extends Migration
+class EntrySymptomes extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateDiaryentryTable extends Migration
      */
     public function up()
     {
-        Schema::create('diaryentry', function (Blueprint $table) {
+        Schema::create('entry_symptom', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id');
-            
-            $table->timestamps();
-
-            //links diary entry to the user
-            // $table->foreign('user_id')->references('id')->on('users');
+            $table->integer('entry_id');
+            $table->integer('symptom_id');
         });
     }
 
@@ -31,6 +27,6 @@ class CreateDiaryentryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diaryentry');
+        Schema::dropIfExists('entry_symptom');
     }
 }

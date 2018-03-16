@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Symptom;
 use App\Illness;
+use App\Entry;
 // use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class EntryController extends Controller
@@ -23,9 +24,15 @@ class EntryController extends Controller
 	}
 
 	public function store (Request $request) 
-	{
+	{	
+		// dd($request);
 		$request->validate([
-            'name'  => 'required',
+			'illness_id' => 'required'
         ]);
+
+        $entry = Entry::create(request(['illness_id']));
+        // $entry->illness()->attach($request->illness);
+        $entry->symptomes()->attach($request->symptom);
+        return redirect ('entries');
 	}
 }
