@@ -29,3 +29,4 @@ Route::post('/account/edit', 'AccountController@update');
 
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
+Route::get('/about', 'AboutusController@aboutus');
