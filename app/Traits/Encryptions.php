@@ -1,9 +1,9 @@
-<?
+<?php
 
 namespace App\Traits;
 use Illuminate\Support\Facades\Crypt;
 
-trait Encryptable
+trait Encryptions
 {
 
     public function setAttribute($key, $value)
@@ -46,3 +46,4 @@ trait Encryptable
 
         return $attributes;
     }
+  }
