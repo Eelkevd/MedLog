@@ -26,3 +26,6 @@ Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
 Route::get('/account', 'AccountController@index');
 Route::get('/account/edit', 'AccountController@edit');
 Route::post('/account/edit', 'AccountController@update');
+
+// Route to about us page
+Route::get('/aboutus', 'AboutusController@aboutus');
