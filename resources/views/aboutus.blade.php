@@ -1,4 +1,6 @@
-@extends('layouts.app')
+<!-- View for the about us page -->
+
+@extends('layouts.master')
 
 @section('content')
 
