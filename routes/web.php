@@ -21,6 +21,7 @@ Route::post('/entries/create_entry', 'Entry\EntryController@store');
 // Page to create and store user made illness
 Route::post('/entries/create_illness', 'Entry\IllnessController@store');
 
+
 // Page to create and store symptom
 Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
 
@@ -35,3 +36,4 @@ Route::get('/home', 'HomeController@index');
 Route::get('/account', 'AccountController@index');
 Route::get('/account/edit', 'AccountController@edit');
 Route::post('/account/edit', 'AccountController@update');
+
