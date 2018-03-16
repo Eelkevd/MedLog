@@ -2,8 +2,8 @@
 
 @extends('layouts.master')
 
-@section('content') 
-@foreach ($users as $user) 
+@section('content')
+
 <!-- Edit data form -->
 <div class="container">
     <div class="row justify-content-center">
@@ -29,7 +29,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit firstname-->
                         <div class="form-group row">
                             <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam') }}</label>
@@ -44,7 +44,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit middlename-->
                         <div class="form-group row">
                             <label for="middlename" class="col-md-4 col-form-label text-md-right">{{ __('Tussenvoegsel') }}</label>
@@ -59,7 +59,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit lastname-->
                         <div class="form-group row">
                             <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam') }}</label>
@@ -74,7 +74,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit BSN-->
                         <div class="form-group row">
                             <label for="bsn" class="col-md-4 col-form-label text-md-right">{{ __('Burgerservicenummer (BSN)') }}</label>
@@ -89,7 +89,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit street-->
                         <div class="form-group row">
                             <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam') }}</label>
@@ -104,7 +104,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit house number-->
                         <div class="form-group row">
                             <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer') }}</label>
@@ -119,7 +119,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit house number suffix-->
                         <div class="form-group row">
                             <label for="housenumbersuffix" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer Toevoeging') }}</label>
@@ -134,7 +134,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit town-->
                         <div class="form-group row">
                             <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats') }}</label>
@@ -149,7 +149,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Edit postal code-->
                         <div class="form-group row">
                             <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode') }}</label>
@@ -179,7 +179,7 @@
                                 @endif
                             </div>
                         </div>
-                        
+
                         <!-- Register form confirm email-->
                         <div class="form-group row">
                             <label for="email-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal E-Mailadres') }}</label>
@@ -226,5 +226,4 @@
         </div>
     </div>
 </div>
-@endforeach
 @endsection
