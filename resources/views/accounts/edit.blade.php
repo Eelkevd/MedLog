@@ -1,6 +1,6 @@
 <!-- View for the edit page (to edit users account data) -->
 
-@extends('layouts.app')
+@extends('layouts.master')
 
 @section('content') 
 @foreach ($users as $user) 

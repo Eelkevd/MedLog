@@ -1,37 +1,104 @@
 @extends ('layouts.master')
 
-	<h1>MEDISCH DAGBOEK</h1>
-
-		<p>Hou uw eigen overzicht door uw klachten hier te loggen!</p>
-
-	<h2>Nieuw</h2>
-
-		<p>Creëer hier nieuwe onderwerpen voor ziektes en symptomen indien nodig. Zo niet ga dan verder naar het Medlogger formulier</p>
+@section('content')
 	
-	@include ('entries.create_illness')
+	<!-- form for submitting medical entry page -->
 
-	@include ('entries.create_symptom')
+    @include ('entries.create_illness')
 
-	<h2>MedLogger formulier</h2>
-	<form method="POST" action="/entries/create_entry">
+    @include ('entries.create_symptom')
 
-		{{ csrf_field() }}
+	<div class="card">
+		<div class="card-header">
+			<h4>Medisch Dagboek</h4>
+		</div>
 
-			Ziekte:
-			<select name="illness_id">
-				@foreach($illnesses as $illness)
-					<option value="{{ $illness->id }}">{{ $illness->illness }}</option>
-				@endforeach()
-			</select>
+		<div class="card-body">
+			<form method="POST" action="/entries/create_entry">
+				{{ csrf_field() }}
+				<!-- places all illnesses from db -->
+				<div>
+					<h5>Aandoening:</h5>
+					<select name="illness_id">
+							<option selected>-</option>
+						@foreach($illnesses as $illness)
+							<option value="{{ $illness->id }}">{{ $illness->illness }}</option>
+						@endforeach()
+					</select>
+				</div>
+				<hr>
+				<div>
+					<p>Symptomen:</p>
+					<!-- places all symptomes from db -->
+					@foreach($symptomes as $symptom)
+						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+						<label for="subscribeNews">{{ $symptom->symptom }}</label>
+					@endforeach()
+				</div>
+				<hr>
+				<div>
+					<p>Wanneer gebeurde het:</p>
+					<input type="date" name="timespan_date">
+					<input type="time" name="timespan_time">
+				</div>
+				<hr>
+				<div>
+					<p>Waar gebeurde het:</p>
+					<input type="text" name="location" placeholder="locatie">
+				</div>
+				<hr>
+				<div>
+					<p>Intensiteit</p>
+<!-- 						<input type="text" name="intensity" placeholder="locatie"> -->
+				</div>
+				<hr>
+				<div>
+					<p>Klachtsduur</p>
+					<input type="time" name="complaint_time"> (Tijd)
+				</div>
+				<hr>
+				<div>
+					<p>Hersteltijd</p>
+					<input type="time" name="recoverytime_time"> (Tijd)
+				</div>
+				<hr>
+				<div>
+					<p>Medicatie</p>
+					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
+					<label for="subscribeNews">MEDICATIE A</label>
+					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
+					<label for="subscribeNews">MEDICATIE B</label>
+					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
+					<label for="subscribeNews">MEDICATIE C</label>
+				</div>
+				<hr>
+				<div>
+					<p>Weer</p>
+					<textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden"></textarea>
+				</div>
+				<hr>
+				<div>
+					<p>Getuigen verslagen</p>
+					<textarea name="witness_report" placeholder="Getuigenverklaringen"></textarea>
+				</div>
+				<hr>
+				<div>
+					<p>Overig</p>
+					<textarea name="comments" placeholder="Overige aantekeningen"></textarea>
+				</div>
+				<div>
+					<p>Sla mijn dagboek op</p>
+					<input type="submit" value="save">
+				</div>
+			</form>
+		</div>
+	</div>
+<script>
 
-			<p>Selecteer uw bijbehorende symptomen:</p>
+    $('a.btnSub').click(function(e)
+        {
+            e.preventDefault();
+        });
 
-			@foreach($symptomes as $symptom)
-
-			     <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
-				 <label for="subscribeNews">{{ $symptom->symptom }}</label>
-
-			@endforeach()
-
-		<input type="submit" value="submit">
-	</form>
+</script>
+@endsection
