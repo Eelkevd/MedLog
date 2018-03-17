@@ -7,10 +7,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Contracts\Encryption\DecryptException;
+use Illuminate\Support\Facades\Crypt;
+use App\Traits\Encryptable;
 use App\User;
 
 class AccountController extends Controller
 {
+  use Encryptable;
+
   // Function to go to index page with users id if logged in
   public function index(User $user)
   {
@@ -19,14 +24,11 @@ class AccountController extends Controller
       return view('accounts.index', compact('users'));
   }
 
-    // Function to show user data
-    public function show(User $user)
+  // Function to show user data
+  public function show(User $user)
 	{
     $userid = Auth::id();
 		$users = DB::table('users')->where ('id', $userid)->get();
-    if (in_array($users, $this->encryptable)) {
-            $users = Crypt::decrypt($value);
-        }
 		return view('accounts.account', compact('users'));
 	}
 
