@@ -1,81 +1,52 @@
 <!-- View for the account page (loads users account data) -->
 
-<div>
-    <!-- Show username -->
-    <div>
-        <div ><b>{{ __('Gebruikersnaam: ') }}</b>
-              {{ $user -> username }}
-        </div>
-    </div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th></th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <!-- Show email -->
-    <div>
-        <div ><b>{{ __('Emailadres: ') }}</b>
-              {{ $user -> email }}
-        </div>
-    </div>
+        <!-- Show username -->
+      <tr>
+        <td><b>{{ __('Gebruikersnaam: ') }}</b></td>
+        <td>{{ $user -> username }}</td>
+      </tr>
 
-    <!-- Show firstname -->
-    <div>
-        <div ><b>{{ __('Voornaam: ') }}</b>
-                {{ $user -> firstname }}
-        </div>
-    </div>
+      <!-- Show email -->
+      <tr>
+        <td><b>{{ __('Emailadres: ') }}</b></td>
+        <td>{{ $user -> email }}</td>
+      </tr>
 
-    <!-- Show middlename -->
-    <div>
-        <div ><b>{{ __('Tussenvoegsel: ') }}</b>
-                {{ $user -> middlename }}
-        </div>
-    </div>
+      <!-- Show full name  -->
+      <tr>
+        <td><b>{{ __('Naam: ') }}</b></td>
+        <td>{{ $user -> firstname }}
+          @if (!empty( $user -> middlename ))
+            {{ $user -> middlename }}
+          @endif  
+             {{ $user -> lastname }}</td>
+      </tr>
 
-    <!-- Show lastname -->
-    <div>
-        <div ><b>{{ __('Achternaam: ') }}</b>
-                {{ $user -> lastname }}
-        </div>
-    </div>
+      <!-- Show street housenumber and housenumbersuffix-->
+      <tr>
+          <td><b>{{ __('Adres: ') }}</b></td>
+          <td>{{ $user -> street }} {{ $user -> housenumber }} {{ $user -> housenumbersuffix }}</td>
+      </tr>
 
-    <!-- Show BSN -->
-    <div>
-        <div ><b>{{ __('Burger service nummer: ') }}</b>
-                {{ $user -> bsn }}
-        </div>
-    </div>
-
-    <!-- Show street -->
-    <div>
-        <div ><b>{{ __('Straat: ') }}</b>
-                {{ $user -> street }}
-        </div>
-    </div>
-
-    <!-- Show housenumber -->
-    <div>
-        <div ><b>{{ __('Huisnummer: ') }}</b>
-                {{ $user -> housenumber }}
-        </div>
-    </div>
-
-    <!-- Show housenumbersuffix -->
-    <div>
-        <div ><b>{{ __('Huisnummer toevoeging: ') }}</b>
-                {{ $user -> housenumbersuffix }}
-        </div>
-    </div>
-
-    <!-- Show town -->
-    <div>
-        <div ><b>{{ __('Woonplaats: ') }}</b>
-                {{ $user -> town }}
-        </div>
-    </div>
+      <!-- Show town -->
+      <tr>
+        <td><b>{{ __('Woonplaats: ') }}</b></td>
+        <td>{{ $user -> town }} {{ $user -> housenumbersuffix }}</td>
+    </tr>
 
     <!-- Show postal code -->
-    <div>
-        <div ><b>{{ __('Postcode: ') }}</b>
-                {{ $user -> postalcode }}
-        </div>
-    </div>
+    <tr>
+        <td><b>{{ __('Postcode: ') }}</b></td>
+        <td>{{ $user -> postalcode }}</td>
+    </tr>
 
-</div>
+</table>
