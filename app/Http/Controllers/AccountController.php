@@ -7,8 +7,10 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use App\User;
+use Illuminate\Support\Facades\Crypt;
 use App\Traits\Encryptable;
+use App\User;
+
 
 class AccountController extends Controller
 {
@@ -58,15 +60,15 @@ class AccountController extends Controller
         // Update new edit data of user in database
         User::where('id', $id)->update([
             'username' => $request['username'],
-            'firstname' => $request['firstname'],
-            'middlename' => $request['middlename'],
-            'lastname' => $request['lastname'],
+            'firstname' => encrypt($request['firstname']),
+            'middlename' => encrypt($request['middlename']),
+            'lastname' => encrypt($request['lastname']),
             'bsn' => $request['bsn'],
-            'street' => $request ['street'],
-            'housenumber' => $request ['housenumber'],
-            'housenumbersuffix' => $request ['housenumbersuffix'],
-            'town' => $request ['town'],
-            'postalcode' => $request ['postalcode'],
+            'street' => encrypt($request ['street']),
+            'housenumber' => encrypt($request ['housenumber']),
+            'housenumbersuffix' => encrypt($request ['housenumbersuffix']),
+            'town' => encrypt($request ['town']),
+            'postalcode' => encrypt($request ['postalcode']),
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
