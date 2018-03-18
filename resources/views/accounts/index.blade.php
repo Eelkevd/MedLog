@@ -15,9 +15,9 @@
 
                     @else
                     <!-- Show users account data -->
-                        @foreach ($users as $user)
+
                             @include('accounts/account')
-                        @endforeach
+                      
 
                     <!-- Button to go to edit page of users account data-->
                     <div class="form-group row mb-0">
