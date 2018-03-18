@@ -3,7 +3,7 @@
 @extends('layouts.master')
 
 @section('content')
-@foreach ($users as $user)
+
 <!-- Edit data form -->
 <div class="container">
     <div class="row justify-content-center">
@@ -226,5 +226,5 @@
         </div>
     </div>
 </div>
-@endforeach
+
 @endsection

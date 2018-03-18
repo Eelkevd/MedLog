@@ -7,62 +7,56 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Contracts\Encryption\DecryptException;
-use Illuminate\Support\Facades\Crypt;
-use App\Traits\Encryptable;
 use App\User;
+use App\Traits\Encryptable;
 
 class AccountController extends Controller
 {
-  use Encryptable;
 
+  use Encryptable;
   // Function to go to index page with users id if logged in
   public function index(User $user)
   {
-      $userid = Auth::id();
-	    $users = DB::table('users')->where ('id', $userid)->get();
-      return view('accounts.index', compact('users'));
+    // Check if the user is logged in
+    if (Auth::check())
+    {
+      $id = Auth::id();
+      $user = User::findOrFail($id);
+      return view('accounts.index', compact ('user'));
+    }
   }
-
-  // Function to show user data
-  public function show(User $user)
-	{
-    $userid = Auth::id();
-		$users = DB::table('users')->where ('id', $userid)->get();
-		return view('accounts.account', compact('users'));
-	}
 
     // Function to show edit page of users data
     public function edit(User $user)
     {
-        $userid = Auth::id();
-		    $users = DB::table('users')->where ('id', $userid)->get();
-        return view('accounts.edit', compact('users'));
+      $id = Auth::id();
+      $user = User::findOrFail($id);
+      return view('accounts.edit', compact('user'));
     }
 
     // Function to update the database with the new edit data
     public function update(Request $request)
     {
-        $userid = Auth::id();
+        $id = Auth::id();
 
         // Validate new edit data of user
         $request->validate([
-            'username' => 'required|string|max:190|unique:users,username,'.$userid,
+            'username' => 'required|string|max:190|unique:users,username,'.$id,
             'firstname' => 'required|string|max:190',
             'middlename' => 'max:190',
             'lastname' => 'required|string|max:190',
-            'bsn' => 'required|digits_between:8,9|unique:users,bsn,'.$userid,
+            'bsn' => 'required|digits_between:8,9|unique:users,bsn,'.$id,
             'street' => 'required|string|max:190',
             'housenumber' => 'required|digits_between:1,5',
             'housenumbersuffix' => 'max:10',
             'town' => 'required|string|max:190',
             'postalcode' => 'required|max:6|regex:/^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$/|min:6',
-            'email' => 'required|string|email|max:190|confirmed|unique:users,email,'.$userid,
+            'email' => 'required|string|email|max:190|confirmed|unique:users,email,'.$id,
             'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/|confirmed',
         ]);
 
         // Update new edit data of user in database
-        User::where('id', $userid)->update([
+        User::where('id', $id)->update([
             'username' => $request['username'],
             'firstname' => $request['firstname'],
             'middlename' => $request['middlename'],
@@ -76,8 +70,10 @@ class AccountController extends Controller
             'email' => $request['email'],
             'password' => Hash::make($request['password']),
         ]);
-        $users = DB::table('users')->where ('id', $userid)->get();
-        return view('home', compact('users'));
+
+        $user = User::findOrFail($id);
+        return view('accounts.index', compact('user'));
+
     }
 
 }

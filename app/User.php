@@ -6,7 +6,6 @@ use DB;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Traits\Encryptable;
-use Illuminate\Support\Facades\Crypt;
 
 class User extends Authenticatable
 {
