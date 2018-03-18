@@ -15,9 +15,7 @@
 
                     @else
                     <!-- Show users account data -->
-
-                            @include('accounts/account')
-                      
+                    @include('accounts/account')
 
                     <!-- Button to go to edit page of users account data-->
                     <div class="form-group row mb-0">
