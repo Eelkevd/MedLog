@@ -17,14 +17,15 @@ class CreateEntriesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->nullable();
             $table->integer('illness_id');
-            // $table->date('date')->nullable();
-            // $table->string('location')->nullable();
-            // $table->integer('intensity')->nullable();
-            // $table->string('timespan')->nullable();
-            // $table->string('recover_time')->nullable();
-            // $table->string('weather')->nullable();
-            // $table->string('witness_report')->nullable();
-            // $table->string('comments')->nullable();
+            $table->date('timespan_date')->nullable();
+            $table->time('timespan_time')->nullable();
+            $table->string('location')->nullable();
+            $table->integer('intensity')->nullable();
+            $table->time('complaint_time')->nullable();
+            $table->time('recoverytime_time')->nullable();
+            $table->string('weather')->nullable();
+            $table->string('witness_report')->nullable();
+            $table->string('comments')->nullable();
             $table->timestamps();
 
             //links diary entry to the user

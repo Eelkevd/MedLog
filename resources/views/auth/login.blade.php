@@ -26,7 +26,17 @@
           </div>
       </div>
 
-      <hr><hr>
+      <hr>
+    <!-- Button to go to about us page-->
+      <div class="form-group row mb-0">
+          <div class="col-md-6 offset-md-4">
+              <form action="about" >
+                  <button type="submit">Over ons</button>
+              </form> 
+          </div>
+      </div>
+    
+      <hr>
 
       <!-- Login form -->
       <div class="container">

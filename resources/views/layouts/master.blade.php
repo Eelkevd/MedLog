@@ -53,7 +53,6 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- Custom Scroller Js CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
-
     <script type="text/javascript">
         $(document).ready(function () {
             $("#sidebar").mCustomScrollbar({
@@ -73,5 +72,49 @@
         });
      </script>
 
+
   </body>
 </html>
+
+<!-- <script>
+	
+	$('#btnIllness').on("click", function () {
+
+		
+    // evt.preventDefault();
+
+    var illness = $('#illness').val();
+    // alert(items);
+    // var data = { 
+    // 			// "_token": "{{ csrf_token() }}", 
+    // 			type: type, 
+    // 			items: items
+    // 		};
+
+
+
+    $.ajaxSetup({
+	    headers: {
+	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+	    }
+	})
+
+    $.ajax({
+        url: "/entries/create_illness",
+        type: "POST",
+        // data: { CSRF: getCSRFTokenValue(JSON.stringify(illness))},
+        data: {
+		        "_token": "{{ csrf_token() }}",
+		        "illness": illness
+        },
+        cache: false,
+        contentType: 'application/json; charset=utf-8',
+        processData: false,
+        success: function (response)
+        {
+            console.log(response);
+        }
+    });
+});
+
+</script> -->
