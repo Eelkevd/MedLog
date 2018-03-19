@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\Welcome;
 
 use Illuminate\Support\Str;
 use App\Mail;
@@ -95,7 +96,7 @@ class RegisterController extends Controller
         ]);
 
         $user->sendVerificationMail();
-        
+
         return $user;
     }
 
