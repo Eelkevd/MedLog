@@ -45,7 +45,7 @@ class VerifyEmail extends Notification
     {
         return (new MailMessage)
                     ->line('Bedankt voor het registreren bij MedLog. Bevestig uw email om het dagboek te activeren.')
-                    ->action('Bestig mijn email adres', route('verify', $this->user->token)
+                    ->action('Bestig mijn email adres', route('verify', $this->user->verifyToken))
                     ->line('Thank you for using our application!');
     }
 

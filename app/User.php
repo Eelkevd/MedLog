@@ -6,6 +6,7 @@ use DB;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Traits\Encryptable;
+use App\Notifications\VerifyEmail;
 
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable
 {
@@ -50,6 +51,18 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     public function verified()
     {
       return $this->status === 1;
+    }
+
+    /**
+    * send the user a verification email
+    *
+    * @return void
+    */
+    public function sendVerificationMail()
+    {
+
+      $this->notify(new VerifyEmail($this));
+
     }
 
 }

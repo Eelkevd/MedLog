@@ -8,7 +8,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Notifications\VerifyEmail;
+
 use Illuminate\Support\Str;
 use App\Mail;
 
@@ -94,10 +94,8 @@ class RegisterController extends Controller
             'verifyToken' => Str::random(40),
         ]);
 
-        $user->notify(new VerifyMail($user));
-
-        Flash::message('Bedankt voor je registratie! Open je email om je dagboek te activeren.');
-
+        $user->sendVerificationMail();
+        
         return $user;
     }
 
