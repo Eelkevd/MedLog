@@ -7,7 +7,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use App\Traits\Encryptable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable
 {
     use Notifiable;
     use Encryptable;
@@ -19,7 +19,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'username', 'firstname', 'middlename', 'lastname', 'bsn', 'street',
-        'housenumber', 'housenumbersuffix', 'town', 'postalcode', 'email', 'password',
+        'housenumber', 'housenumbersuffix', 'town', 'postalcode', 'email', 'password', 'verifyToken',
     ];
 
     /**
@@ -41,4 +41,15 @@ class User extends Authenticatable
         'town',
         'postalcode',
     ];
+
+    /**
+    * Returns true if the user is verified
+    *
+    * @return bool
+    */
+    public function verified()
+    {
+      return $this->status === 1;
+    }
+
 }

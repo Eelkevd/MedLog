@@ -3,11 +3,15 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Mail\Welcome;
+use App\Notifications\VerifyEmail;
+use Illuminate\Support\Str;
+use App\Mail;
+
 
 class RegisterController extends Controller
 {
@@ -73,7 +77,8 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::updateOrCreate([
+
+      $user = User::create([
             'username' => $data['username'],
             'firstname' => $data['firstname'],
             'middlename' => $data['middlename'],
@@ -86,13 +91,15 @@ class RegisterController extends Controller
             'postalcode' => $data ['postalcode'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'verifyToken' => Str::random(40),
         ]);
 
-        auth()->login($user);
+        $user->notify(new VerifyMail($user));
 
-        \Mail::to($user)->send(new Welcome($user));
+        Flash::message('Bedankt voor je registratie! Open je email om je dagboek te activeren.');
 
-        return redirect('/account')->with('status', 'We hebben je een email gestuurd met de link naar je dagboek.');
-
+        return $user;
     }
+
+
 }

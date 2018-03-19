@@ -8,6 +8,8 @@ Route::get('/home', 'HomeController@index');
 // Routes for login system
 Auth::routes();
 
+// verification of the email upon registration
+Route::get('/verify/{token}', 'VerifyController@verify')->name('verify');
 
 ////// DIARY ENTRY PAGE DIRECTION //////
 
