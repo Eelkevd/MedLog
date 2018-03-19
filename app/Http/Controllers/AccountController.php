@@ -14,19 +14,23 @@ use App\User;
 
 class AccountController extends Controller
 {
-
-  use Encryptable;
-  // Function to go to index page with users id if logged in
-  public function index(User $user)
-  {
-    // Check if the user is logged in
-    if (Auth::check())
+    public function __construct()
     {
-      $id = Auth::id();
-      $user = User::findOrFail($id);
-      return view('accounts.index', compact ('user'));
+        $this->middleware('auth');
     }
-  }
+
+    use Encryptable;
+    // Function to go to index page with users id if logged in
+    public function index(User $user)
+    {
+        // Check if the user is logged in
+        if (Auth::check())
+        {
+          $id = Auth::id();
+          $user = User::findOrFail($id);
+          return view('accounts.index', compact ('user'));
+        }
+    }
 
     // Function to show edit page of users data
     public function edit(User $user)

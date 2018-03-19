@@ -7,14 +7,15 @@ use Illuminate\Http\Request;
 use App\Symptom;
 use App\Illness;
 use App\Entry;
-// use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Facades\Auth;
 
 class EntryController extends Controller
 {
-	// public function home ()
-	// {
-	// 	return view ('entries/create_entry');
-	// }
+	//authentication requirement
+	public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
 	public function create()
 	{
@@ -23,15 +24,17 @@ class EntryController extends Controller
         return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
 
+	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes' 
 	public function store (Request $request) 
 	{	
-		// dd($request);
+		$request['user_id'] = Auth::id();
 		$request->validate([
 			'illness_id' => 'required'
         ]);
 
         $entry = Entry::create(request(['user_id', 'illness_id', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
         $entry->symptomes()->attach($request->symptom);
+        $entry->user()->attach($request->user_id);
         return redirect ('entries');
 	}
 }

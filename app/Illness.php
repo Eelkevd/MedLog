@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Illness extends Model
 
 {
-	protected $fillable = ['illness','start_date','end_date'];
+	protected $fillable = ['user_id', 'illness','start_date','end_date'];
 
     public function getRouteKeyName()
     {
@@ -17,5 +17,10 @@ class Illness extends Model
     public function entry()
     {
       return $this->belongsToMany(Entry::class);
+    }
+
+    public function user()
+    {
+      return $this->belongsTo(User::class);
     }
 }
