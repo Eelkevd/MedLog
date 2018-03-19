@@ -50,7 +50,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     */
     public function verified()
     {
-      return $this->status === 1;
+      return $this->verifyToken === null;
     }
 
     /**

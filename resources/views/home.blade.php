@@ -14,7 +14,13 @@
                         </div>
                     @endif
 
-                    You are logged in!
+                    Je bent ingelogd.
+                    <br />
+                    <br /><strong>
+                      Je dagboek is
+                        {{ auth()->user()->verified() ? 'geactiveerd' : 'nog niet geactiveerd. Bekijk je email om je dagboek te activeren.' }}
+                      </strong>
+
                 </div>
             </div>
         </div>

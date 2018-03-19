@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App/User;
+use App\User;
 
 class VerifyController extends Controller
 {
@@ -14,15 +14,13 @@ class VerifyController extends Controller
     * @return response
     */
 
-    public function verify($token)
+    public function verify($verifyToken)
     {
 
-      User::where('verifyToken', $token)->firstOrFail();
+      $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail()
+        ->update(['verifyToken' => null]);
 
-        ->update(['verifyToken' -> null, 'status' -> '1' ])
-
-        return redirect
-         -> route('home')
+        return redirect('/home')
          ->with('succes', 'Dagboek geactiveerd');
 
     }
