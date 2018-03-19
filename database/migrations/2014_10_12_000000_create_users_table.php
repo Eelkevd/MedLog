@@ -27,6 +27,8 @@ class CreateUsersTable extends Migration
             $table->text('postalcode');
             $table->string('email')->unique();
             $table->text('password');
+            $table->boolean('confirmed')->default(0);
+            $table->string('confirmation_code')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

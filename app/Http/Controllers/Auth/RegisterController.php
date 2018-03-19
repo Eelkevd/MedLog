@@ -73,7 +73,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        $user = User::updateOrCreate([
+        return User::updateOrCreate([
             'username' => $data['username'],
             'firstname' => $data['firstname'],
             'middlename' => $data['middlename'],
@@ -90,9 +90,9 @@ class RegisterController extends Controller
 
         auth()->login($user);
 
-        \Mail::to($user)->send(new Welcome);
+        \Mail::to($user)->send(new Welcome($user));
 
-        return view('accounts.index', compact ('user'));
+        return redirect('/account')->with('status', 'We hebben je een email gestuurd met de link naar je dagboek.');
 
     }
 }
