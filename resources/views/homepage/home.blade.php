@@ -1,3 +1,4 @@
+
 @extends('layouts.master')
 
 @section('content')
@@ -20,4 +21,6 @@
         </div>
     </div>
 </div>
+
+@include ('mycalender');
 @endsection

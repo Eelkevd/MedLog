@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Calendar;
+use App\Event;
 
 class HomeController extends Controller
 {
@@ -20,13 +24,22 @@ class HomeController extends Controller
         // $this->middleware('auth', ['except' => 'index']);
     }   
 
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        return view('home');
+       $events = [];
+       $data = Event::all();
+       if($data->count()){
+          foreach ($data as $key => $value) {
+            $events[] = Calendar::event(
+                $value->title,
+                true,
+                new \DateTime($value->start_date),
+                new \DateTime($value->end_date.' +1 day')
+            );
+          }
+       }
+
+        $calendar = Calendar::addEvents($events);
+        return view('homepage.home', compact('calendar'));
     }
 }
