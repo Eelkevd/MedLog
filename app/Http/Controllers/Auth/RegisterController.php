@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Mail\Welcome;
 
 class RegisterController extends Controller
 {
@@ -72,7 +73,7 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::updateOrCreate([
+        $user = User::updateOrCreate([
             'username' => $data['username'],
             'firstname' => $data['firstname'],
             'middlename' => $data['middlename'],
@@ -86,5 +87,12 @@ class RegisterController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+        auth()->login($user);
+
+        \Mail::to($user)->send(new Welcome);
+
+        return view('accounts.index', compact ('user'));
+
     }
 }
