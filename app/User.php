@@ -75,16 +75,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
         $this->notify(new MailResetPasswordToken($token));
     }
 
-    /**
-    * send the user a verification email
-    *
-    * @return void
-    */
-    public function sendVerificationMail()
-    {
-
-      $this->notify(new VerifyEmail($this));
-
-    }
+  
 
 }
