@@ -27,7 +27,7 @@
         <td>{{ $user -> firstname }}
           @if (!empty( $user -> middlename ))
             {{ $user -> middlename }}
-          @endif  
+          @endif
              {{ $user -> lastname }}</td>
       </tr>
 
@@ -40,7 +40,7 @@
       <!-- Show town -->
       <tr>
         <td><b>{{ __('Woonplaats: ') }}</b></td>
-        <td>{{ $user -> town }} {{ $user -> housenumbersuffix }}</td>
+        <td>{{ $user -> town }}</td>
     </tr>
 
     <!-- Show postal code -->
