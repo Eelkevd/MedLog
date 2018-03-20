@@ -20,7 +20,7 @@
                     <!-- Button to go to edit page of users account data-->
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
-                            <form action="account/edit" >
+                            <form action="{{ action('AccountController@edit') }}" >
                                 <button type="submit">Wijzig account data</button>
                             </form>
                         </div>
