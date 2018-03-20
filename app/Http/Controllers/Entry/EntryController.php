@@ -19,8 +19,8 @@ class EntryController extends Controller
 
 	public function create()
 	{
-    	$symptomes = Symptom::all();
-    	$illnesses = Illness::all();
+    	$symptomes = Symptom::all()->where('user_id', Auth::id());
+    	$illnesses = Illness::all()->where('user_id', Auth::id());;
         return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
 
