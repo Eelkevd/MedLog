@@ -1,24 +1,22 @@
-@extends ('layouts.layout')
+
+@extends('layouts.htmlheader_index')
 
 @section ('content')
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-md-8">
-                    <div class="card">
-                        <div class="card-header">Kalender</div>
+<hr>
+<!-- Button to go to about us page-->
+<div class="form-group row mb-0">
+    <div class="col-md-6 offset-md-4">
+        <form action="{{ action('HomeController@index') }}" >
+            <button type="submit" class="btn btn-primary">Welkomspagina</button>
+        </form>
+        <form action="{{ action('EventController@create') }}" >
+            <button type="submit" class="btn btn-primary">Zet een afspraak in je kalender</button>
+        </form>
+    </div>
+</div>
 
-                        <div class="card-body">
-                          <form action="{{ action('HomeController@index') }}" >
-                              <button type="submit">Terug</button>
-                          </form><br>
-                          <form action="{{ action('EventController@create') }}" >
-                          <button type="submit">Zet een afspraak in je kalender</button>
-                          </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><br><br>
+<hr>
+
         <!doctype html>
         <html lang="en">
         <head>
