@@ -5,6 +5,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+          <div class="card-body">
+              @if (!(auth()->user()->verified()))
+                  <div class="alert alert-success">
+                    <br /><strong>
+                      Je dagboek is nog niet geactiveerd. Check je email om je dagboek te activeren.
+                          </strong>
+                  </div>
+              @endif
+
+
+
+          </div>
             <div class="card">
                 <div class="card-header">Kalender</div>
 
@@ -19,7 +31,7 @@
                       <input type="text" name="search" placeholder="Zoekopdracht">
                       <button type="submit">zoek in je kalender</button>
                   </form><hr>
-                  
+
                 <b>Zoekresultaten:</b><br>
                 @foreach($events as $event)
                   {{ $event -> title }} <br>
