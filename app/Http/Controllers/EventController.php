@@ -53,6 +53,13 @@ class EventController extends Controller
         return redirect('home/mycalendar')->with(compact('calendar'));
     }
 
+    public function search(Request $request)
+    {
+        $search = $request->input('search');
+        $events = Event::where('title', 'LIKE', '%' . $search . '%')->get();
+        return view('homepage.home', compact('events'));
+   }
+
     public function show($id)
     {
         //

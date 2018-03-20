@@ -26,6 +26,8 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('homepage.home');
+        $search = "nope";
+        $events = Event::where('title', 'LIKE', '%' . $search . '%')->get();
+        return view('homepage.home', compact('events'));
     }
 }

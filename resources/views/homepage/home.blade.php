@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Welkom</div>
+                <div class="card-header">Kalender</div>
 
                 <div class="card-body">
                   <form action="{{ action('EventController@index') }}" >
@@ -14,7 +14,17 @@
                   </form><br>
                   <form action="{{ action('EventController@create') }}" >
                       <button type="submit">Zet een afspraak in je kalender</button>
-                  </form>
+                  </form><br>
+                  <form method="GET" action="{{ action('EventController@search') }}" >
+                      <input type="text" name="search" placeholder="Zoekopdracht">
+                      <button type="submit">zoek in je kalender</button>
+                  </form><hr>
+                  
+                <b>Zoekresultaten:</b><br>
+                @foreach($events as $event)
+                  {{ $event -> title }} <br>
+                  {{ $event -> start_date }} <br><br>
+                @endforeach
                 </div>
             </div>
         </div>
