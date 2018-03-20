@@ -6,7 +6,7 @@
       <div class="form-group row mb-0">
           <div class="col-md-6 offset-md-4">
               <form action="about" >
-                  <button type="submit" class="btn btn-primary">Over ons</button>
+                  <button type="submit" class="btn btn-info btn-md" style="width: 200px;">Over ons</button>
               </form>
           </div>
       </div>

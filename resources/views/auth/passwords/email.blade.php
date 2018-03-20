@@ -1,11 +1,15 @@
-@extends('layouts.master')
+@extends('layouts.htmlheader_index')
 
 @section('content')
 <div class="container">
+  <br />
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Reset Password') }}</div>
+                <div class="card-header">{{ __('Reset Password') }}
+                  <br />
+                  {{ __('Stuur mij een email om een nieuw wachtwoord op te vragen.') }}
+                </div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -34,7 +38,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Send Password Reset Link') }}
+                                    {{ __('Wijzig mijn wachtwoord') }}
                                 </button>
                             </div>
                         </div>

@@ -21,10 +21,21 @@
                     <div class="form-group row mb-0">
                         <div class="col-md-6 offset-md-4">
                             <form action="account/edit" >
-                                <button type="submit">Wijzig account data</button>
+                                <button type="submit" class="btn btn-info btn-md">Wijzig account data</button>
                             </form>
                         </div>
                     </div>
+
+                    <br />
+                    <!-- Button to go to edit page of users account data-->
+                    <div class="form-group row mb-0">
+                        <div class="col-md-6 offset-md-4">
+                            <form action="{{ route('password.request') }}">
+                                <button name="reset" type="submit" class="btn btn-info btn-md">{{ __('Wachtwoord wijzigen') }}</button>
+                            </form>
+                        </div>
+                    </div>
+
                     @endguest
             </div>
         </div>

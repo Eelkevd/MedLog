@@ -5,8 +5,10 @@ namespace App;
 use DB;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Auth\Passwords\CanResetPassword;
 use App\Traits\Encryptable;
 use App\Notifications\VerifyEmail;
+use App\Notifications\MailResetPasswordToken;
 
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable
 {
@@ -63,6 +65,14 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
 
       $this->notify(new VerifyEmail($this));
 
+    }
+
+    /**
+     * Send a password reset email to the user
+     */
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new MailResetPasswordToken($token));
     }
 
 }
