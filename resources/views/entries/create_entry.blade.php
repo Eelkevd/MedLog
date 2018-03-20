@@ -38,8 +38,8 @@
 				<hr>
 				<div>
 					<p>Wanneer gebeurde het:</p>
-					<input type="date" name="timespan_date">
-					<input type="time" name="timespan_time">
+					<input type="date" id='timespan_date' name="timespan_date">
+					<input type="time" name="timespan_time" value="now">
 				</div>
 				<hr>
 				<div>
@@ -93,12 +93,38 @@
 			</form>
 		</div>
 	</div>
+	
 <script>
 
+	// Function to determine current date
+	Date.prototype.toDateInputValue = (function() {
+	    var local = new Date(this);
+	    local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+	    return local.toJSON().slice(0,10);
+	})
+
+	// Places current date into input 'date' fields
+	document.getElementById('timespan_date').value = new Date().toDateInputValue();
+
+	// Function to keep pagescroll unchanged on buttonclick
     $('a.btnSub').click(function(e)
         {
             e.preventDefault();
         });
+
+    //
+    $(function(){  
+  $('input[type="time"][value="now"]').each(function(){    
+    var d = new Date(),        
+        h = d.getHours(),
+        m = d.getMinutes();
+    if(h < 10) h = '0' + h; 
+    if(m < 10) m = '0' + m; 
+    $(this).attr({
+      'value': h + ':' + m
+    });
+  });
+});
 
 </script>
 @endsection
