@@ -15,6 +15,7 @@ class EntrySymptomes extends Migration
     {
         Schema::create('entry_symptom', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->nullable();
             $table->integer('entry_id');
             $table->integer('symptom_id');
         });

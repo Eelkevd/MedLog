@@ -77,4 +77,18 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
 
 
 
+    public function entries()
+    {
+      return $this->hasMany(Entry::class);
+    }
+
+    public function illnesses()
+    {
+      return $this->hasMany(Illness::class);
+    }
+
+    public function symptomes()
+    {
+      return $this->hasMany(Symptom::class);
+    }
 }

@@ -3,7 +3,11 @@
 // Route to homepage
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
-
+Route::get('/home/create_event', 'EventController@create');
+Route::post('/home/store_event', 'EventController@store');
+Route::get('/home/search', 'EventController@search');
+Route::get('/home/edit_event', 'EventController@edit');
+Route::get('/home/mycalendar', 'EventController@index');
 
 // Routes for login system
 Auth::routes();

@@ -25,6 +25,11 @@ class Entry extends Model
 
     public function illness()
     {
-      return $this->hasOne(Illness::class);
+      return $this->belongsTo(Illness::class);
+    }
+
+    public function user()
+    {
+      return $this->belongsTo(User::class);
     }
 }
