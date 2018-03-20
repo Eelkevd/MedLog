@@ -141,6 +141,10 @@
 
 	sliderBar.oninput = function() {
   	sliderVal.innerHTML = this.value;
+  		if (this.value == 1) 
+  		{
+  			sliderVal.innerHTML = 'hallo';
+  		}
 }
 
 </script>
