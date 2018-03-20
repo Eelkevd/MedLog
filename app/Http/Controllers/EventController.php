@@ -44,13 +44,13 @@ class EventController extends Controller
                 $value->title,
                 $value->description,
                 new \DateTime($value->start_date),
-                new \DateTime($value->end_date.' +1 day')
+                new \DateTime($value->end_date)
             );
           }
         }
 
         $calendar = Calendar::addEvents($events);
-        return view('homepage.mycalendar', compact('calendar'));
+        return redirect('home/mycalendar')->with(compact('calendar'));
     }
 
     public function show($id)
