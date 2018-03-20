@@ -46,7 +46,7 @@ class MailResetPasswordToken extends Notification
         ->subject("Wachtwoord wijzigen")
         ->line("U heeft aangegeven uw wachtwoord voor uw medisch dagboek op MedLog te willen wijzigen. Om uw wachtwoord te kunnen wijzigen, klikt u op de onderstaande knop.")
         ->action('Wijzig wachtwoord', url('password/reset', $this->token))
-        ->line("Hartelijk dank voor uw vertrouwen in MedLog!);
+        ->line("Hartelijk dank voor uw vertrouwen in MedLog!");
     }
 
     /**
