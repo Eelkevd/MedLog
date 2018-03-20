@@ -6,7 +6,7 @@ Route::get('/home', 'HomeController@index');
 Route::get('/home/create_event', 'EventController@create');
 Route::post('/home/store_event', 'EventController@store');
 Route::get('/home/edit_event', 'EventController@edit');
-Route::get('events', 'EventController@index');
+Route::get('/home/mycalendar', 'EventController@index');
 
 // Routes for login system
 Auth::routes();
@@ -33,4 +33,3 @@ Route::post('/account/edit', 'AccountController@update');
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
 Route::get('/about', 'AboutusController@aboutus');
-

@@ -22,24 +22,10 @@ class HomeController extends Controller
         // Alternatives:
         // $this->middleware('auth', ['only' => 'index']);
         // $this->middleware('auth', ['except' => 'index']);
-    }   
+    }
 
     public function index()
     {
-       $events = [];
-       $data = Event::all();
-       if($data->count()){
-          foreach ($data as $key => $value) {
-            $events[] = Calendar::event(
-                $value->title,
-                true,
-                new \DateTime($value->start_date),
-                new \DateTime($value->end_date.' +1 day')
-            );
-          }
-       }
-
-        $calendar = Calendar::addEvents($events);
-        return view('homepage.home', compact('calendar'));
+        return view('homepage.home');
     }
 }

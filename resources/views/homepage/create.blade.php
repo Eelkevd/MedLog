@@ -13,16 +13,18 @@
                         <br />
                         <input type="text" name="title" />
                         <br /><br />
-                        Afspraak beschrijving:
+                        <!-- Afspraak beschrijving:
                         <br />
                         <textarea name="description"></textarea>
-                        <br /><br />
+                        <br /><br /> -->
                         Wanneer:
                         <br />
-                        <input type="text" name="event_date" class="date" />
-                        <input type="submit" value="Zet je afspraak in de kalender" />
+                        <input type="text" name="start_date" class="date" />
+                        Tot:
+                        <input type="text" name="end_date" class="date" />
+                        <input type="submit" value="Opslaan" /><br>
                         </form>
-                        
+
                         <script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
                         <script src="https://code.jquery.com/ui/1.11.3/jquery-ui.min.js"></script>
                         <script>

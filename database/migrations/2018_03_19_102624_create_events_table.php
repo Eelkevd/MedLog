@@ -18,7 +18,8 @@ class CreateEventsTable extends Migration
             $table->integer('user_id')->nullable();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->date('event_date');
+            $table->date('start_date');
+            $table->date('end_date');
             $table->timestamps();
         });
     }

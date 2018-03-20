@@ -24,8 +24,8 @@ class EventController extends Controller
           }
        }
 
-      $calendar = Calendar::addEvents($events); 
-      return view('mycalender', compact('calendar'));
+      $calendar = Calendar::addEvents($events);
+      return view('homepage.mycalendar', compact('calendar'));
     }
 
     public function create()
@@ -42,17 +42,17 @@ class EventController extends Controller
           foreach ($data as $key => $value) {
             $events[] = Calendar::event(
                 $value->title,
-                true,
+                $value->description,
                 new \DateTime($value->start_date),
                 new \DateTime($value->end_date.' +1 day')
             );
           }
         }
 
-        $calendar = Calendar::addEvents($events); 
-        return view('mycalender', compact('calendar'));
+        $calendar = Calendar::addEvents($events);
+        return view('homepage.mycalendar', compact('calendar'));
     }
-    
+
     public function show($id)
     {
         //
@@ -60,7 +60,7 @@ class EventController extends Controller
 
     public function edit($id)
     {
-        
+
     }
 
     public function update(Request $request, $id)

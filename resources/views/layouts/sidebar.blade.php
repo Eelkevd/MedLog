@@ -31,7 +31,7 @@
         </li>
 
         <li>
-           <a href="#">Kalender</a>
+           <a href="/home/mycalendar">Kalender</a>
         </li>
          <li>
            <a href="/entries/create_entry">Dagboek</a>
