@@ -22,7 +22,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      */
     protected $fillable = [
         'username', 'firstname', 'middlename', 'lastname', 'bsn', 'street',
-        'housenumber', 'housenumbersuffix', 'town', 'postalcode', 'email', 'password', 'verifyToken',
+        'housenumber', 'housenumbersuffix', 'town', 'postalcode', 'email', 'password', 'question', 'answer', 'verifyToken',
     ];
 
     /**
@@ -43,6 +43,8 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
         'housenumbersuffix',
         'town',
         'postalcode',
+        'question',
+        'answer',
     ];
 
     /**

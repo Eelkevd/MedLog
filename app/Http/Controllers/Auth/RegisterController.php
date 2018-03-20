@@ -58,10 +58,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'username' => 'required|string|unique:users|max:20',
-            'firstname' => 'required|string|max:20',
-            'middlename' => 'max:20',
-            'lastname' => 'required|string|max:20',
+            'username' => 'required|string|unique:users|max:35',
+            'firstname' => 'required|string|max:35',
+            'middlename' => 'max:35',
+            'lastname' => 'required|string|max:35',
             'bsn' => 'required|unique:users|digits_between:8,9',
             'street' => 'required|string|max:35',
             'housenumber' => 'required|digits_between:1,5',
@@ -69,6 +69,8 @@ class RegisterController extends Controller
             'town' => 'required|string|max:35',
             'postalcode' => 'required|max:6|regex:/^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$/|min:6',
             'email' => 'required|string|email|max:35|unique:users|confirmed',
+            'question' => 'required|string|max:35',
+            'answer' => 'required|string|max:35',
             'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/|confirmed',
         ]);
     }
@@ -94,6 +96,8 @@ class RegisterController extends Controller
             'town' => $data ['town'],
             'postalcode' => $data ['postalcode'],
             'email' => $data['email'],
+            'question' => $data['question'],
+            'answer' => $data['answer'],
             'password' => Hash::make($data['password']),
             'verifyToken' => Str::random(40),
         ]);

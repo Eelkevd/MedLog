@@ -245,16 +245,32 @@
                                   </div>
                               </div>
 
-                              <!-- Register form email-->
+                              <!-- Register form security question-->
                               <div class="form-group row">
-                                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mailadres') }}</label>
+                                  <label for="question" class="col-md-8 col-form-label text-md-right">
+                                    {{ __('Voer een controle vraag in waarmee u later uw gegevens kunt wijzigen. Bijvoorbeeld: Hoe heette uw eerste huisdier?') }}</label>
 
-                                  <div class="col-md-6">
-                                      <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
+                                  <div class="col-md-8">
+                                      <input id="question" type="text" class="form-control{{ $errors->has('question') ? ' is-invalid' : '' }}" name="question" value="{{ old('question') }}" required autofocus>
 
-                                      @if ($errors->has('email'))
+                                      @if ($errors->has('question'))
                                           <span class="invalid-feedback">
-                                              <strong>{{ $errors->first('email') }}</strong>
+                                              <strong>{{ $errors->first('question') }}</strong>
+                                          </span>
+                                      @endif
+                                  </div>
+                              </div>
+
+                              <!-- Register form answer-->
+                              <div class="form-group row">
+                                  <label for="answer" class="col-md-6 col-form-label text-md-right">{{ __('Uw antwoord op uw geheime vraag.') }}</label>
+
+                                  <div class="col-md-8">
+                                      <input id="answer" type="text" class="form-control{{ $errors->has('answer') ? ' is-invalid' : '' }}" name="answer" value="{{ old('answer') }}" required>
+
+                                      @if ($errors->has('answer'))
+                                          <span class="invalid-feedback">
+                                              <strong>{{ $errors->first('answer') }}</strong>
                                           </span>
                                       @endif
                                   </div>
