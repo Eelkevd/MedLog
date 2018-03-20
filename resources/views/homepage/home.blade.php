@@ -7,16 +7,18 @@
         <div class="col-md-8">
           <div class="card-body">
               @if (!(auth()->user()->verified()))
-                  <div class="alert alert-success">
+                  <div class="alert alert-danger">
                     <br /><strong>
-                      Je dagboek is nog niet geactiveerd. Check je email om je dagboek te activeren.
+                      Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
                           </strong>
                   </div>
-              @endif
-
-
-
           </div>
+      </div>
+  </div>
+</div>
+     
+          @else
+
             <div class="card">
                 <div class="card-header">Kalender</div>
 
@@ -42,4 +44,5 @@
         </div>
     </div>
 </div>
+  @endif
 @endsection
