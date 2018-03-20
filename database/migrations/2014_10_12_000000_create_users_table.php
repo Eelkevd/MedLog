@@ -19,7 +19,7 @@ class CreateUsersTable extends Migration
             $table->text('firstname');
             $table->text('middlename')->nullable();
             $table->text('lastname');
-            $table->string('bsn')->unique();
+            $table->string('bsn')->unique()->nullable();
             $table->text ('street');
             $table->text('housenumber');
             $table->text('housenumbersuffix')->nullable();
@@ -27,6 +27,7 @@ class CreateUsersTable extends Migration
             $table->text('postalcode');
             $table->string('email')->unique();
             $table->text('password');
+            $table->string('verifyToken')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

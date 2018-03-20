@@ -12,10 +12,13 @@ Route::get('/home/mycalendar', 'EventController@index');
 // Routes for login system
 Auth::routes();
 
+// verification of the email upon registration
+Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
+
 ////// DIARY ENTRY PAGE DIRECTION //////
 
 // Redirects to the create diary entry page
-Route::get('/entries', 'Entry\EntryController@create');
+Route::get('/entries', 'Entry\EntryController@create')->name('home');
 // Page to store diary entries
 Route::post('/entries/create_entry', 'Entry\EntryController@store');
 // Page to create and store user made illness

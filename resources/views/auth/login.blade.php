@@ -6,7 +6,7 @@
       <div class="form-group row mb-0">
           <div class="col-md-6 offset-md-4">
               <form action="about" >
-                  <button type="submit" class="btn btn-primary">Over ons</button>
+                  <button type="submit" class="btn btn-info btn-md" style="width: 200px;">Over ons</button>
               </form>
           </div>
       </div>
@@ -155,21 +155,6 @@
                                   </div>
                               </div>
 
-                              <!-- Register form BSN-->
-                              <div class="form-group row">
-                                  <label for="bsn" class="col-md-4 col-form-label text-md-right">{{ __('Burgerservicenummer (BSN)') }}</label>
-
-                                  <div class="col-md-6">
-                                      <input id="bsn" type="number" class="form-control{{ $errors->has('bsn') ? ' is-invalid' : '' }}" name="bsn" value="{{ old('bsn') }}" required>
-
-                                      @if ($errors->has('bsn'))
-                                          <span class="invalid-feedback">
-                                              <strong>{{ $errors->first('bsn') }}</strong>
-                                          </span>
-                                      @endif
-                                  </div>
-                              </div>
-
                               <!-- Register form street-->
                               <div class="form-group row">
                                   <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam') }}</label>
@@ -271,11 +256,15 @@
 
                               <!-- Register form password-->
                               <div class="form-group row">
-                                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Wachtwoord (minimaal 6 tekens: 3 kleine of hoofdletters, 1 cijfer en 1 speciaal teken)') }}</label>
+                                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Wachtwoord') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
+                                      <div class="col-md">
+                                        <em>
+                                        {{ __('(minimaal 6 tekens: 3 kleine of hoofdletters, 1 cijfer en 1 speciaal teken)') }}
+                                      </em>
+                                    </div>
                                       @if ($errors->has('password'))
                                           <span class="invalid-feedback">
                                               <strong>{{ $errors->first('password') }}</strong>
