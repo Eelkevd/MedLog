@@ -29,20 +29,6 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="question" class="col-md-4 col-form-label text-md-right">{{ __('Jouw geheime vraag:') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="question" type="text" class="form-control{{ $errors->has('question') ? ' is-invalid' : '' }}" name="question" value="{{ $question }}" required autofocus>
-
-                                @if ($errors->has('question'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('question') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Wachtwoord') }}</label>
 
                             <div class="col-md-6">
