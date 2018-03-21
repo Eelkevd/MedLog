@@ -25,11 +25,21 @@
                               </div>
                       </div>
                       @else
+
+                      <!-- When a theme is choosen, show alert for succes -->
+                      @if (\Session::has('success'))
+                        <div class="alert alert-success">
+                            <ul>
+                                <li>{!! \Session::get('success') !!}</li>
+                            </ul>
+                        </div>
+                      @endif
+
                       <!-- Show users account data -->
                       @include('accounts/account')
 
                 </div>
-                <br />
+          
                       <!-- Button to go to edit page of users account data-->
                       <div class="form-group row mb-0">
                           <div class="col-md-6 offset-md-4">
@@ -39,6 +49,10 @@
                           </div>
                       </div>
 
+              <br />
+              <br />
+              <div class="card">
+                <div class="card-header">Thema van uw layout</div>
                       <!-- layouts buttons to choose a theme -->
                       <table class="table table-striped">
                           <thead>
@@ -51,32 +65,51 @@
 
 
                           @if (auth()->user()->theme === null)
-                            <tr>
-                              <td>
+                          <!-- Show present theme -->
+                          <tr>
+                            <td><b>{{ __('Uw huidige thema') }}</b></td>
+                            <td><b>
+                              @if (auth()->user()->theme === null)
+                                U heeft nog geen thema gekozen.
+                              @else
+                                {{ $user -> theme }}
+                              @endif
+                            </b>
+                            </td>
+                          </tr>
+                          <tr>
+                            <td>
                               Kies voor een hoger contrast en grotere lettertype:
                             </td>
-                            >
-                          <!-- Button to go to edit page of users account data-->
 
+                          <!-- Button to go to edit page of users account data-->
                               <td>
-                                  <form action="{{ action('AccountController@theme') }}" >
-                                      <button type="submit" class="btn btn-info btn-md" value="hoog_contrast">Kies thema: Hoog_Contrast</button>
+                                  <form action="{{ action('ThemeController@update') }}" >
+                                      <button type="submit" class="btn btn-info btn-md" style="width:200px;" value="contrast">Hoog contrast</button>
                                   </form>
                               </td>
                           </tr>
 
-                        @else
-                          <!-- Show present theme -->
-                        <tr>
-                          <td><b>{{ __('Uw huidige theme') }}</b></td>
-                          <td>{{ $user -> theme }}</td>
-                        </tr>
+                          <tr>
+                            <td>
+                              Kies voor een kleurig thema:
+                            </td>
+
+                          <!-- Button to go to edit page of users account data-->
+                              <td>
+                                  <form action="{{ action('ThemeController@update') }}" >
+                                      <button type="submit" class="btn btn-info btn-md" style="width:200px;" value="vrolijk">Vrolijk</button>
+                                  </form>
+                              </td>
+                          </tr>
 
                         @endif
 
                       </table>
 
                       @endif
+                    </div>
+                  </div>
 
                     @endauth
             </div>

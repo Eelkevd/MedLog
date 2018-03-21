@@ -34,6 +34,9 @@ Route::get('/account', 'AccountController@index');
 Route::get('/account/edit', 'AccountController@edit');
 Route::post('/account/edit', 'AccountController@update');
 
+// Route to new themes
+Route::get('account/theme', 'ThemeController@update');
+
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
 Route::get('/about', 'AboutusController@aboutus');
