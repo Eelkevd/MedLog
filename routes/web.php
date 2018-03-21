@@ -1,5 +1,9 @@
 <?php
 
+Route::middleware('validate')->group(function () {
+  //validated routers
+});
+
 // Route to homepage
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');

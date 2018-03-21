@@ -26,20 +26,11 @@
                       </div>
                       @else
 
-                      <!-- When a theme is choosen, show alert for succes -->
-                      @if (\Session::has('success'))
-                        <div class="alert alert-success">
-                            <ul>
-                                <li>{!! \Session::get('success') !!}</li>
-                            </ul>
-                        </div>
-                      @endif
-
                       <!-- Show users account data -->
                       @include('accounts/account')
 
                 </div>
-          
+
                       <!-- Button to go to edit page of users account data-->
                       <div class="form-group row mb-0">
                           <div class="col-md-6 offset-md-4">
@@ -63,8 +54,6 @@
                           </thead>
                           <tbody>
 
-
-                          @if (auth()->user()->theme === null)
                           <!-- Show present theme -->
                           <tr>
                             <td><b>{{ __('Uw huidige thema') }}</b></td>
@@ -103,7 +92,7 @@
                               </td>
                           </tr>
 
-                        @endif
+
 
                       </table>
 
