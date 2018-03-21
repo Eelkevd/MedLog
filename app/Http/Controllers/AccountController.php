@@ -31,6 +31,8 @@ class AccountController extends Controller
           $user = User::findOrFail($id);
           return view('accounts.index', compact ('user'));
         }
+
+        //
     }
 
     // Function to show edit page of users data
