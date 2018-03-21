@@ -96,9 +96,7 @@
 				<div>
 					<p>Sla mijn dagboek op</p>
 					<input type="submit" value="save">
-				</div>
-
-				
+				</div>				
 			</form>
 		</div>
 	</div>
@@ -143,7 +141,7 @@
   	sliderVal.innerHTML = this.value;
   		if (this.value == 1) 
   		{
-  			sliderVal.innerHTML = 'hallo';
+  			sliderVal.innerHTML = '<i class="far fa-frown"></i>';
   		}
 }
 
