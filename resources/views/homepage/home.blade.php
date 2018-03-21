@@ -26,15 +26,16 @@
                     <form method="GET" action="{{ action('EventController@search') }}" >
                         <input type="text" name="search" placeholder="Zoekopdracht">
                         <button type="submit">zoek in je kalender</button>
-                    </form><hr>
+                    </form><br>    
 
-                  <b>Zoekresultaten:</b><br>
-                  @foreach($events as $event)
+                  <b>Resultaten:</b><br><br>
+                  @foreach($search as $event)
                     {{ $event -> title }} <br>
                     {{ $event -> start_date }} <br><br>
                   @endforeach
+
                   </div>
-              </div>
+              </div><br><br>
               @endif
           </div>
         </div>

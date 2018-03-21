@@ -64,9 +64,15 @@ class EventController extends Controller
     // searches all titles of events in database with keyword in text
     public function search(Request $request)
     {
-        $search = $request->input('search');
-        $events = Event::where('title', 'LIKE', '%' . $search . '%')->get();
-        return view('homepage.home', compact('events'));
+        $keyword = $request->input('search');
+        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
+        $start = date('Y-m-d');
+        $end ="5999-12-31";
+        $events = Event::whereBetween('start_date', array(
+          $start,
+          $end
+        ))->take(5)->orderBy('start_date')->get();
+        return view('homepage.home', compact('events','search'));
    }
 
     public function show($id)
