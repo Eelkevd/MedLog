@@ -73,8 +73,10 @@
 
                           <!-- Button to go to edit page of users account data-->
                               <td>
-                                  <form action="{{ action('ThemeController@update') }}" >
-                                      <button type="submit" class="btn btn-info btn-md" style="width:200px;" value="contrast">Hoog contrast</button>
+                                  <form action="{{ action('ThemeController@update_contrast') }}" >
+                                      {{ csrf_field() }}
+                                      <input type="hidden" name="contrast" value="contrast">
+                                      <button type="submit" class="btn btn-info btn-md" style="width:200px;">Hoog contrast</button>
                                   </form>
                               </td>
                           </tr>
@@ -86,8 +88,9 @@
 
                           <!-- Button to go to edit page of users account data-->
                               <td>
-                                  <form action="{{ action('ThemeController@update') }}" >
-                                      <button type="submit" class="btn btn-info btn-md" style="width:200px;" value="vrolijk">Vrolijk</button>
+                                  <form action="{{ action('ThemeController@update_vrolijk') }}" >
+                                    {{ csrf_field() }}
+                                    <button type="submit" class="btn btn-info btn-md" style="width:200px;">Vrolijk</button>
                                   </form>
                               </td>
                           </tr>

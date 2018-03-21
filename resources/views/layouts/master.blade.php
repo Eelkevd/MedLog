@@ -18,7 +18,7 @@
 
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-     
+
 <!--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
@@ -51,9 +51,9 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-    
+
     <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
-   
+
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <!--  initialize the plugin for the sidebar and use some of its options -->
     <!-- jQuery CDN -->
@@ -83,7 +83,36 @@
         });
      </script>
 
+<!-- implement the contrast theme -->
+@if (Auth::user()->theme === 'contrast')
 
+     <script>
+     src="jquery-3.3.1.min.js"
+     $().ready(function() {
+       $('body').css({
+          'font-size': '2em',
+      })
+        $('#sidebar, .sidebar-header').css({
+           'background-color': 'black',
+       })
+         $('p').css({
+             'color': 'black',
+         })
+         $('.btn').css({
+             'background-color': 'black',
+             'font-size': '1em',
+         })
+         $('.download').css({
+             'color': 'black',
+         })
+         $('.article').css({
+             'background-color': 'white',
+             'color': 'black',
+         })
+         ;
+     });
+     </script>
+@endif
   </body>
 </html>
 
