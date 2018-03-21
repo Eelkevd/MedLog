@@ -89,7 +89,7 @@
           <div class="row justify-content-center">
               <div class="col-md-8">
                   <div class="card">
-                      <div class="card-header">{{ __('Registreer') }}</div>
+                      <div class="card-header">{{ __('Registreer (velden met een * zijn verplicht)') }}</div>
 
                       <div class="card-body">
                           <form method="POST" action="{{ route('register') }}">
@@ -97,7 +97,7 @@
 
                               <!-- Register form username-->
                               <div class="form-group row">
-                                  <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Gebruikersnaam') }}</label>
+                                  <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Gebruikersnaam *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
@@ -112,7 +112,7 @@
 
                               <!-- Register form firstname-->
                               <div class="form-group row">
-                                  <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam') }}</label>
+                                  <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
@@ -142,7 +142,7 @@
 
                               <!-- Register form lastname-->
                               <div class="form-group row">
-                                  <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam') }}</label>
+                                  <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="{{ old('lastname') }}" required autofocus>
@@ -157,7 +157,7 @@
 
                               <!-- Register form street-->
                               <div class="form-group row">
-                                  <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam') }}</label>
+                                  <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="street" type="text" class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" name="street" value="{{ old('street') }}" required autofocus>
@@ -172,7 +172,7 @@
 
                               <!-- Register form house number-->
                               <div class="form-group row">
-                                  <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer') }}</label>
+                                  <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="housenumber" type="number" class="form-control{{ $errors->has('housenumber') ? ' is-invalid' : '' }}" name="housenumber" value="{{ old('housenumber') }}" required>
@@ -202,7 +202,7 @@
 
                               <!-- Register form town-->
                               <div class="form-group row">
-                                  <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats') }}</label>
+                                  <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="town" type="text" class="form-control{{ $errors->has('town') ? ' is-invalid' : '' }}" name="town" value="{{ old('town') }}" required autofocus>
@@ -217,7 +217,7 @@
 
                               <!-- Register form postal code-->
                               <div class="form-group row">
-                                  <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode') }}</label>
+                                  <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="postalcode" type="text" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}" name="postalcode" value="{{ old('postalcode') }}" required>
@@ -232,7 +232,7 @@
 
                               <!-- Register form email-->
                               <div class="form-group row">
-                                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mailadres') }}</label>
+                                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mailadres *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
@@ -247,7 +247,7 @@
 
                               <!-- Register form confirm email-->
                               <div class="form-group row">
-                                  <label for="email-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal E-Mailadres') }}</label>
+                                  <label for="email-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal E-Mailadres *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="email-confirm" type="email" class="form-control" name="email_confirmation" required>
@@ -256,13 +256,13 @@
 
                               <!-- Register form password-->
                               <div class="form-group row">
-                                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Wachtwoord') }}</label>
+                                  <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Wachtwoord *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
                                       <div class="col-md">
                                         <em>
-                                        {{ __('(minimaal 6 tekens: 3 kleine of hoofdletters, 1 cijfer en 1 speciaal teken)') }}
+                                        {{ __('(minimaal 6 tekens: minimaal 1 kleine letter en hoofdletter, 1 cijfer en 1 speciaal teken)') }}
                                       </em>
                                     </div>
                                       @if ($errors->has('password'))
@@ -275,7 +275,7 @@
 
                               <!-- Register form confirm password-->
                               <div class="form-group row">
-                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal Wachtwoord') }}</label>
+                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal Wachtwoord *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
