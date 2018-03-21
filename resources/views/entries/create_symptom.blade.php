@@ -1,3 +1,4 @@
+<!-- form for submitting new symptom -->
 
 <div class="card">
 	<div class="card-header">
@@ -14,7 +15,7 @@
 				<p>
 					Heeft u geen nieuwe symptomen? Ga dan verder naar het volgende onderwerp.
 				</p>
-				<input type="text" name="symptom" placeholder="naam symptom"> 
+				<input type="text" name="symptom" placeholder="naam symptom">
 				<input type="submit" align="center" class="btnSub" value="ok">
 			</div>
 

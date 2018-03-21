@@ -1,5 +1,4 @@
 <!-- View for the edit page (to edit users account data) -->
-
 @extends('layouts.master')
 
 @section('content')

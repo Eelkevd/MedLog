@@ -14,6 +14,7 @@ use App\User;
 
 class AccountController extends Controller
 {
+    // authentication requirement
     public function __construct()
     {
         $this->middleware('auth');
