@@ -1,3 +1,4 @@
+<!-- View for the login and register page -->
 @extends('layouts.htmlheader_index')
 
 @section('content')

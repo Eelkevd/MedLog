@@ -1,9 +1,9 @@
-
+<!-- View for the calendar page -->
 @extends('layouts.htmlheader_index')
 
 @section ('content')
 <hr>
-<!-- Button to go to about us page-->
+<!-- Buttons to go to homepage of create event page-->
 <div class="form-group row mb-0">
     <div class="col-md-6 offset-md-4">
         <form action="{{ action('HomeController@index') }}" >
@@ -16,7 +16,6 @@
 </div>
 
 <hr>
-
         <!doctype html>
         <html lang="en">
         <head>

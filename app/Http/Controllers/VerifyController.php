@@ -16,12 +16,10 @@ class VerifyController extends Controller
 
     public function verify($verifyToken)
     {
-
-      $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail()
+        $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail()
         ->update(['verifyToken' => null]);
 
         return redirect('/home')
-         ->with('succes', 'Dagboek geactiveerd');
-
+        ->with('succes', 'Dagboek geactiveerd');
     }
 }

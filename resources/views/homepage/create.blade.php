@@ -1,3 +1,4 @@
+<!-- View for the create event page -->
 @extends('layouts.master')
 
 @section('content')
@@ -14,10 +15,6 @@
                         <br />
                         <input type="text" name="title" />
                         <br /><br />
-                        <!-- Afspraak beschrijving:
-                        <br />
-                        <textarea name="description"></textarea>
-                        <br /><br /> -->
                         Wanneer:   *
                         <br />
                         <input type="text" name="start_date" class="date" />
