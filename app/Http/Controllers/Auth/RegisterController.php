@@ -3,10 +3,14 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use App\Notifications\VerifyEmail;
+use Illuminate\Support\Str;
+use App\Mail;
 
 class RegisterController extends Controller
 {
@@ -49,9 +53,17 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'username' => 'required|string|unique:users|max:35',
+            'firstname' => 'required|string|max:35',
+            'middlename' => 'max:35',
+            'lastname' => 'required|string|max:35',
+            'street' => 'required|string|max:35',
+            'housenumber' => 'required|digits_between:1,5',
+            'housenumbersuffix' => 'max:10',
+            'town' => 'required|string|max:35',
+            'postalcode' => 'required|max:6|regex:/^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$/|min:6',
+            'email' => 'required|string|email|max:35|unique:users|confirmed',
+            'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/|confirmed',
         ]);
     }
 
@@ -63,10 +75,26 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+
+      $user = User::create([
+            'username' => $data['username'],
+            'firstname' => $data['firstname'],
+            'middlename' => $data['middlename'],
+            'lastname' => $data['lastname'],
+            'street' => $data ['street'],
+            'housenumber' => $data ['housenumber'],
+            'housenumbersuffix' => $data ['housenumbersuffix'],
+            'town' => $data ['town'],
+            'postalcode' => $data ['postalcode'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'verifyToken' => Str::random(40),
         ]);
+
+        $user->sendVerificationMail();
+
+        return $user;
     }
+
+
 }

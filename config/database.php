@@ -13,6 +13,7 @@ return [
     |
     */
 
+    // Reference to .env file
     'default' => env('DB_CONNECTION', 'mysql'),
 
     /*
