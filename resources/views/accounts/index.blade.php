@@ -66,6 +66,22 @@
                             </b>
                             </td>
                           </tr>
+
+                          <tr>
+                            <td>
+                              Reset het thema naar de originele website:
+                            </td>
+
+                          <!-- Button to go to edit page of users account data-->
+                              <td>
+                                  <form action="{{ action('ThemeController@update') }}" >
+                                      {{ csrf_field() }}
+                                      <input type="hidden" name="contrast" value="default">
+                                      <button type="submit" class="btn btn-info btn-md" style="width:200px;">Default</button>
+                                  </form>
+                              </td>
+                          </tr>
+
                           <tr>
                             <td>
                               Kies voor een hoger contrast en grotere lettertype:

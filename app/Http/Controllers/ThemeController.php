@@ -9,6 +9,16 @@ use Illuminate\Http\Request;
 class ThemeController extends Controller
 {
 
+  public function update(Request $request)
+  {
+    $id = Auth::id();
+    $user = User::findOrFail($id);
+    User::where('id', $id)->update(['theme' => 'NULL' ]);
+
+    return back()
+    ->with('succes', 'Thema geactiveerd');
+  }
+
   public function update_contrast(Request $request)
   {
     $id = Auth::id();
@@ -17,7 +27,6 @@ class ThemeController extends Controller
 
     return back()
     ->with('succes', 'Thema geactiveerd');
-
   }
 
   public function update_vrolijk(Request $request)
@@ -28,7 +37,6 @@ class ThemeController extends Controller
 
     return back()
     ->with('succes', 'Thema geactiveerd');
-
   }
 
 }
