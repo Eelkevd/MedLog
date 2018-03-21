@@ -10,21 +10,27 @@
 
 	<div class="card">
 		<div class="card-header">
-			<h4>Medisch Dagboek</h4>
+			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
 		</div>
 
 		<div class="card-body">
 			<form method="POST" action="/entries/create_entry">
-				{{ csrf_field() }}
+				{{ csrf_field() }} 
 				<!-- places all illnesses from db -->
 				<div>
-					<h5>Aandoening:</h5>
-					<select name="illness_id">
-							<option selected>-</option>
+					<h5>Aandoening: *</h5>
+					<select name="illness_id" class="medform-control{{ $errors->has('illness_id') ? ' is-invalid' : '' }}" required>
+							<option selected></option>
 						@foreach($illnesses as $illness)
 							<option value="{{ $illness->id }}">{{ $illness->illness }}</option>
 						@endforeach()
 					</select>
+<!-- 					@if ($errors->has('illness_id'))
+                        <span class="invalid-feedback">
+                            <strong>{{ $errors->first('illness_id') }}</strong>
+                        </span>
+                 	@endif -->
+<!-- 					@include('layouts.error')	 -->
 				</div>
 				<hr>
 				<div>
@@ -33,7 +39,7 @@
 					@foreach($symptomes as $symptom)
 						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
 						<label for="subscribeNews">{{ $symptom->symptom }}</label>
-					@endforeach()
+					@endforeach()	
 				</div>
 				<hr>
 				<div>
@@ -49,7 +55,8 @@
 				<hr>
 				<div>
 					<p>Intensiteit</p>
-<!-- 						<input type="text" name="intensity" placeholder="locatie"> -->
+					<input type="range" min="1" max="10" value="5" class="slider" id="intensityRange">
+					<span id="intensityValue"></span>
 				</div>
 				<hr>
 				<div>
@@ -90,6 +97,8 @@
 					<p>Sla mijn dagboek op</p>
 					<input type="submit" value="save">
 				</div>
+
+				
 			</form>
 		</div>
 	</div>
@@ -112,19 +121,31 @@
             e.preventDefault();
         });
 
-    //
+    // Function to determine current time
     $(function(){  
-  $('input[type="time"][value="now"]').each(function(){    
-    var d = new Date(),        
-        h = d.getHours(),
-        m = d.getMinutes();
-    if(h < 10) h = '0' + h; 
-    if(m < 10) m = '0' + m; 
-    $(this).attr({
-      'value': h + ':' + m
-    });
-  });
-});
+		$('input[type="time"][value="now"]').each(function(){    
+		    var d = new Date(),        
+		        h = d.getHours(),
+		        m = d.getMinutes();
+		    if(h < 10) h = '0' + h; 
+		    if(m < 10) m = '0' + m; 
+		    $(this).attr({
+		      'value': h + ':' + m
+    		});
+  		});
+	});
+
+	var sliderBar = document.getElementById('intensityRange');
+	var sliderVal = document.getElementById('intensityValue');
+	sliderVal.innerHTML = sliderBar.value;
+
+	sliderBar.oninput = function() {
+  	sliderVal.innerHTML = this.value;
+  		if (this.value == 1) 
+  		{
+  			sliderVal.innerHTML = 'hallo';
+  		}
+}
 
 </script>
 @endsection
