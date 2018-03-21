@@ -19,7 +19,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">About us</div>
+                <div class="card-header">Over ons</div>
                     <div class="card-body">
 
                     <b>Over MedLog</b><br>
