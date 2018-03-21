@@ -4,7 +4,8 @@
   	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="{{asset('js/app.js')}}"></script>
+<!-- <script type="text/javascript" src="<?php echo asset('assets/js/jquery.min.js'); ?>"></script> -->
     <meta name="csrf-token" content="{{csrf_token()}}">
 
     <!-- Bootstrap CSS CDN-->
@@ -27,7 +28,7 @@
 </head>
 <body>
 
-
+    
       <div class="wrapper">
 
         <!-- Sidebar -->
@@ -46,7 +47,7 @@
 
 
       <!-- Scripts -->
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<!--      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script> -->
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 
@@ -57,7 +58,7 @@
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <!--  initialize the plugin for the sidebar and use some of its options -->
     <!-- jQuery CDN -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<!--     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script> -->
     <!-- Popper CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!-- Bootstrap Js CDN -->
@@ -146,46 +147,3 @@
 
   </body>
 </html>
-
-<!-- <script>
-
-	$('#btnIllness').on("click", function () {
-
-
-    // evt.preventDefault();
-
-    var illness = $('#illness').val();
-    // alert(items);
-    // var data = {
-    // 			// "_token": "{{ csrf_token() }}",
-    // 			type: type,
-    // 			items: items
-    // 		};
-
-
-
-    $.ajaxSetup({
-	    headers: {
-	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	    }
-	})
-
-    $.ajax({
-        url: "/entries/create_illness",
-        type: "POST",
-        // data: { CSRF: getCSRFTokenValue(JSON.stringify(illness))},
-        data: {
-		        "_token": "{{ csrf_token() }}",
-		        "illness": illness
-        },
-        cache: false,
-        contentType: 'application/json; charset=utf-8',
-        processData: false,
-        success: function (response)
-        {
-            console.log(response);
-        }
-    });
-});
-
-</script> -->
