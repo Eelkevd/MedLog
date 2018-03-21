@@ -18,7 +18,7 @@
 
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-     
+
 <!--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
@@ -27,9 +27,7 @@
 </head>
 <body>
 
-
       <div class="wrapper">
-
         <!-- Sidebar -->
         @include('layouts.sidebar')
 
@@ -41,19 +39,15 @@
 
       </div> <!-- end div wrapper -->
 
-    </div> <!-- end div app -->
-
-
-
       <!-- Scripts -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script>
-    
+
     <script src="http://fullcalendar.io/js/fullcalendar-2.1.1/lib/jquery-ui.custom.min.js"></script>
-   
+
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
     <!--  initialize the plugin for the sidebar and use some of its options -->
     <!-- jQuery CDN -->
@@ -82,50 +76,5 @@
 
         });
      </script>
-
-
   </body>
 </html>
-
-<!-- <script>
-
-	$('#btnIllness').on("click", function () {
-
-
-    // evt.preventDefault();
-
-    var illness = $('#illness').val();
-    // alert(items);
-    // var data = {
-    // 			// "_token": "{{ csrf_token() }}",
-    // 			type: type,
-    // 			items: items
-    // 		};
-
-
-
-    $.ajaxSetup({
-	    headers: {
-	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	    }
-	})
-
-    $.ajax({
-        url: "/entries/create_illness",
-        type: "POST",
-        // data: { CSRF: getCSRFTokenValue(JSON.stringify(illness))},
-        data: {
-		        "_token": "{{ csrf_token() }}",
-		        "illness": illness
-        },
-        cache: false,
-        contentType: 'application/json; charset=utf-8',
-        processData: false,
-        success: function (response)
-        {
-            console.log(response);
-        }
-    });
-});
-
-</script> -->
