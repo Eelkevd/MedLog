@@ -87,32 +87,63 @@
 @if (Auth::user()->theme === 'contrast')
 
      <script>
-     src="jquery-3.3.1.min.js"
-     $().ready(function() {
-       $('body').css({
-          'font-size': '2em',
-      })
-        $('#sidebar, .sidebar-header').css({
-           'background-color': 'black',
-       })
-         $('p').css({
-             'color': 'black',
-         })
-         $('.btn').css({
+       src="jquery-3.3.1.min.js"
+       $().ready(function() {
+         $('body').css({
+            'font-size': '2em',
+        })
+          $('#sidebar, .sidebar-header').css({
              'background-color': 'black',
-             'font-size': '1em',
          })
-         $('.download').css({
-             'color': 'black',
-         })
-         $('.article').css({
-             'background-color': 'white',
-             'color': 'black',
-         })
-         ;
-     });
+           $('p').css({
+               'color': 'black',
+           })
+           $('.btn').css({
+               'background-color': 'black',
+               'font-size': '1em',
+           })
+           $('.download').css({
+               'color': 'black',
+           })
+           $('.article').css({
+               'background-color': 'white',
+               'color': 'black',
+           })
+           ;
+       });
      </script>
+
+@elseif (Auth::user()->theme === 'vrolijk')
+
+     <script>
+       src="jquery-3.3.1.min.js"
+       $().ready(function() {
+         $('body').css({
+           'background-color': 'pink',
+            'font-color': 'black',
+        })
+          $('#sidebar, .sidebar-header').css({
+             'background-color': 'purple',
+         })
+           $('p').css({
+               'color': 'black',
+           })
+           $('.btn').css({
+               'background-color': 'purple',
+           })
+           $('.download').css({
+               'color': 'black',
+           })
+           $('.article').css({
+               'background-color': 'white',
+               'color': 'black',
+           })
+           ;
+       });
+     </script>
+
 @endif
+
   </body>
 </html>
 
