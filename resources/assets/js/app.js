@@ -7,7 +7,12 @@
 
 require('./bootstrap');
 
-require('./jquery-3.3.1.js');
+window.Popper = require('popper.js');
+
+window.$ = window.jQuery = require('jquery');
+
+
+// require('./jquery-3.3.1.js');
 
 window.Vue = require('vue');
 
