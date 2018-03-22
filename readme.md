@@ -1,4 +1,6 @@
-# MedLog Eelke, Jorik & Esmeralda
+# MedLog Eelke, Jorik & Esmeralda 
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Medlogo.png?raw=true "MedLogo")
+
 ### MedLog
 A medical website to store daily medical updates in your own online medical diary!
 A pair programming collaboration of Eelke, Jorik & Esmeralda during week 11, 12, 13 and 14 of 2018. 
@@ -7,26 +9,33 @@ A medical website build with laravel based on the userstories as described in th
 
 ## Follow the progression: https://trello.com/b/0KKvNyAv/medlog
 
+## Media:
+- https://www.codegorilla.nl/2018/03/19/medisch-dagboek-eindproject/
+
 ### Description
 
 ### Workflow Week 12
 - monday:  made userstories for sprintlog, updated trello, userstories Patient 46 & 12 work in progress
 - tuesday: finished userstories Patient 46, 12, 18, 19, 14, 47, verification email finished
-- wednesday: 
-- thursday: 
+- wednesday: finished userstories Patient 49, 8 & 21, started with downloading packages local to improve safety, Patient 23 work in progress
+- thursday: finished userstories Patient 23, 48, all packages downloaded local improved safety, Patient 10-3 work in progress, new sketch for database
 - friday: 
 
 ## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
 
 ## Used php packages
--
+- maddhatter/laravel-fullcalendar https://packagist.org/packages/maddhatter/laravel-fullcalendar
+- 
 
 ## Inspired by 
 - https://medapp.nu/
 
+# Screenshots
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/homepage.png?raw=true "Homepage")
+
 # Sketches
-![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchhomepage.png?raw=true "Homepage")
-![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchdagboekoverzicht.png?raw=true "Dagboek overzicht")
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchhomepage.png?raw=true "Homepage sketch")
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchdagboekoverzicht.png?raw=true "Dagboek overzicht sketch")
 
 ### Archive
 ### Workflow Week 11
