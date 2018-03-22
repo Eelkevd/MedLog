@@ -15,21 +15,23 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Bootstrap glyphicons icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-
+    <!-- Our own flavicon -->
+    <link rel="icon" type="img/ico" href="img/favicon.ico">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+<<<<<<< HEAD
 
 <!--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 
+=======
+>>>>>>> feature/adddiarytocalendar-feature
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
     <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
 </head>
 <body>
 
-
       <div class="wrapper">
-
         <!-- Sidebar -->
         @include('layouts.sidebar')
 
@@ -40,10 +42,6 @@
         </div>
 
       </div> <!-- end div wrapper -->
-
-    </div> <!-- end div app -->
-
-
 
       <!-- Scripts -->
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -146,46 +144,3 @@
 
   </body>
 </html>
-
-<!-- <script>
-
-	$('#btnIllness').on("click", function () {
-
-
-    // evt.preventDefault();
-
-    var illness = $('#illness').val();
-    // alert(items);
-    // var data = {
-    // 			// "_token": "{{ csrf_token() }}",
-    // 			type: type,
-    // 			items: items
-    // 		};
-
-
-
-    $.ajaxSetup({
-	    headers: {
-	        'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-	    }
-	})
-
-    $.ajax({
-        url: "/entries/create_illness",
-        type: "POST",
-        // data: { CSRF: getCSRFTokenValue(JSON.stringify(illness))},
-        data: {
-		        "_token": "{{ csrf_token() }}",
-		        "illness": illness
-        },
-        cache: false,
-        contentType: 'application/json; charset=utf-8',
-        processData: false,
-        success: function (response)
-        {
-            console.log(response);
-        }
-    });
-});
-
-</script> -->

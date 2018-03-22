@@ -22,11 +22,17 @@
            <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false" role="button">
              Aankomende afspraken</a>
            <ul class="collapse list-unstyled" id="kalenderSubmenu">
-               <li><a href="/kalender/afspraak1">12-04-2018 Doktersafspraak</a></li>
+               <!--<li><a href="/kalender/afspraak1">12-04-2018 Doktersafspraak</a></li>
                <li><a href="/kalender/afspraak1">05-06-2018 Doktersafspraak</a></li>
                <li><a href="/kalender/afspraak1">31-07-2018 Doktersafspraak</a></li>
                <li><a href="/kalender/afspraak1">01-08-2018 Doktersafspraak</a></li>
-               <li><a href="/kalender/afspraak1">12-12-2018 Doktersafspraak</a></li>
+               <li><a href="/kalender/afspraak1">12-12-2018 Doktersafspraak</a></li> -->
+               @foreach($events as $event)
+                 <li>
+                 {{ $event -> title }} <br>
+                 {{ $event -> start_date }} <br><br>
+               </li>
+               @endforeach
            </ul>
         </li>
 

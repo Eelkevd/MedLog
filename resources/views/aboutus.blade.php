@@ -1,5 +1,4 @@
 <!-- View for the about us page -->
-
 @extends('layouts.htmlheader_index')
 
 @section('content')
