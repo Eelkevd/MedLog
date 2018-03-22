@@ -55,7 +55,7 @@
 				<hr>
 				<div>
 					<p>Intensiteit</p>
-					<input type="range" min="1" max="10" value="5" class="slider" id="intensityRange">
+					<input type="range" name="intensity" min="1" max="9" value="5" class="slider" id="intensityRange">
 					<span id="intensityValue"></span>
 				</div>
 				<hr>
@@ -143,7 +143,7 @@
   	sliderVal.innerHTML = this.value;
   		if (this.value == 1) 
   		{
-  			sliderVal.innerHTML = 'hallo';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo1.svg') }}" height="100" width="100">';
   		}
 }
 
