@@ -11,11 +11,8 @@
 
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="title_app">
-                    <h1> {{ config('app.name') }}
-                    </h1>
-                    <h2>
-                          {{ config('app.subtitle') }}
-                    </h2>
+                  <h1> <img src="{{asset('img/MedLogo.svg')}}" height="120" width="240"></h1>
+                  <h2> {{ config('app.subtitle') }}</h2>
                 </div>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
