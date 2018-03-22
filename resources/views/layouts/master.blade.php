@@ -23,7 +23,8 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
-    <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
+    <!-- <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title> -->
+    <title>{{ asset('img/MedLogo.svg') }} - {{ config('app.subtitle') }}</title>
 </head>
 <body>
 

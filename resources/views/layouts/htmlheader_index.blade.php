@@ -18,10 +18,10 @@
 </head>
 <body>
   <!-- View for the login page (landing page) -->
-
       <div class="content">
           <div class="title m-b-md">
-              <h1>MedLog </h1>
+              <!-- <img src="{{asset('img/MedLogo.svg')}}" height="80" width="100"> -->
+              <h1><img src="{{asset('img/MedLogo.svg')}}" height="150" width="300"> </h1>
               <h2>jouw medisch dagboek</h2>
           </div>
       </div>

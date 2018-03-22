@@ -65,7 +65,7 @@ class EventController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('search');
-        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
+        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->orderBy('start_date','desc')->get();
         return view('homepage.home', compact('search'));
    }
 

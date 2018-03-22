@@ -11,7 +11,7 @@
 
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <div class="title_app">
-                    <h1> {{ config('app.name') }}
+                    <h1> <img src="{{asset('img/MedLogo.svg')}}" height="150" width="300">
                     </h1>
                     <h2>
                           {{ config('app.subtitle') }}
