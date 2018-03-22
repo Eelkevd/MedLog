@@ -1,5 +1,5 @@
 # MedLog Eelke, Jorik & Esmeralda 
-![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Medlogo.png?raw=true "MedLogo")
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/MedLogo.png?raw=true "MedLogo")
 
 ### MedLog
 A medical website to store daily medical updates in your own online medical diary!
