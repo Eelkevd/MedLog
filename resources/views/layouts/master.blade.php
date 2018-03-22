@@ -4,7 +4,7 @@
   	<meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <meta name="csrf-token" content="{{csrf_token()}}">
 
     <!-- Bootstrap CSS CDN-->
@@ -15,16 +15,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <!-- Bootstrap glyphicons icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <!-- Our own flavicon -->
     <link rel="icon" type="img/ico" href="img/favicon.ico">
-
-<!--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-
+    <!-- Our Custom CSS -->
+    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
-    <!-- <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title> -->
     <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
 </head>
 <body>
