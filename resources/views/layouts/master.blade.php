@@ -19,12 +19,7 @@
     <link rel="icon" type="img/ico" href="img/favicon.ico">
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-<<<<<<< HEAD
 
-<!--    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
-
-=======
->>>>>>> feature/adddiarytocalendar-feature
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
 
     <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
