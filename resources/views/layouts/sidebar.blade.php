@@ -59,6 +59,8 @@
         <!-- blue buttons -->
         <li><a href="/account" class="article">Account</a></li>
         <li><a href="/about" class="article">About</a></li>
+        <li><a href="{{ URL::previous() }}" class="article">Terug</a></li>
+        <li><a href="/home" class="article">Home</a></li>
 
     </ul>
   </nav>
