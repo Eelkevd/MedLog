@@ -27,13 +27,7 @@ class HomeController extends Controller
     public function index()
     {
         $keyword = "nope";
-        $start = date('Y-m-d');
-        $end ="5999-12-31";
-        $events = Event::whereBetween('start_date', array(
-          $start,
-          $end
-        ))->take(5)->orderBy('start_date')->get();
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
-        return view('homepage.home', compact('events', 'search'));
+        return view('homepage.home', compact('search'));
     }
 }
