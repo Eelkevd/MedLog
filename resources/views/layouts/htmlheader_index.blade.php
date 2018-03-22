@@ -7,6 +7,8 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- Our own flavicon -->
+    <link rel="icon" type="img/ico" href="img/favicon.ico">
     <!-- Bootstrap CSS CDN-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <!-- Styles van Laravel -->
@@ -20,8 +22,7 @@
   <!-- View for the login page (landing page) -->
       <div class="content">
           <div class="title m-b-md">
-              <!-- <img src="{{asset('img/MedLogo.svg')}}" height="80" width="100"> -->
-              <h1><img src="{{asset('img/MedLogo.svg')}}" height="150" width="300"> </h1>
+              <h1><img src="{{asset('img/MedLogo.svg')}}" height="150" width="220"> </h1>
               <h2>jouw medisch dagboek</h2>
           </div>
       </div>
