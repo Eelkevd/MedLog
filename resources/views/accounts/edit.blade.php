@@ -1,5 +1,4 @@
 <!-- View for the edit page (to edit users account data) -->
-
 @extends('layouts.master')
 
 @section('content')
@@ -9,7 +8,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Wijzig accountsgegens') }}</div>
+                <div class="card-header">{{ __('Wijzig accountsgegens (velden met een * zijn verplicht)') }}</div>
 
                 <div class="card-body">
                     <form method="POST" action="/account/edit">
@@ -17,7 +16,7 @@
 
                         <!-- Edit username-->
                         <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Gebruikersnaam') }}</label>
+                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Gebruikersnaam *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="username" type="text" value="{{ $user->username }}" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" required autofocus>
@@ -32,7 +31,7 @@
 
                         <!-- Edit firstname-->
                         <div class="form-group row">
-                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam') }}</label>
+                            <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="firstname" type="text" value="{{ $user->firstname }}" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
@@ -62,7 +61,7 @@
 
                         <!-- Edit lastname-->
                         <div class="form-group row">
-                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam') }}</label>
+                            <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lastname" type="text" value="{{ $user->lastname }}" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" required autofocus>
@@ -75,24 +74,9 @@
                             </div>
                         </div>
 
-                        <!-- Edit BSN-->
-                        <div class="form-group row">
-                            <label for="bsn" class="col-md-4 col-form-label text-md-right">{{ __('Burgerservicenummer (BSN)') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="bsn" type="number" value="{{ $user->bsn }}" class="form-control{{ $errors->has('bsn') ? ' is-invalid' : '' }}" name="bsn" required>
-
-                                @if ($errors->has('bsn'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('bsn') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
                         <!-- Edit street-->
                         <div class="form-group row">
-                            <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam') }}</label>
+                            <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="street" type="text" value="{{ $user->street }}" class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" name="street" required autofocus>
@@ -107,7 +91,7 @@
 
                         <!-- Edit house number-->
                         <div class="form-group row">
-                            <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer') }}</label>
+                            <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="housenumber" type="number" value="{{ $user->housenumber }}" class="form-control{{ $errors->has('housenumber') ? ' is-invalid' : '' }}" name="housenumber" required>
@@ -137,7 +121,7 @@
 
                         <!-- Edit town-->
                         <div class="form-group row">
-                            <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats') }}</label>
+                            <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="town" type="text" value="{{ $user->town }}" class="form-control{{ $errors->has('town') ? ' is-invalid' : '' }}" name="town" required autofocus>
@@ -152,7 +136,7 @@
 
                         <!-- Edit postal code-->
                         <div class="form-group row">
-                            <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode') }}</label>
+                            <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="postalcode" type="text" value="{{ $user->postalcode }}" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}" name="postalcode" required>
@@ -167,7 +151,7 @@
 
                         <!-- Edit email-->
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mailadres') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mailadres *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" value="{{ $user->email}}"class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" required>
@@ -182,34 +166,10 @@
 
                         <!-- Register form confirm email-->
                         <div class="form-group row">
-                            <label for="email-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal E-Mailadres') }}</label>
+                            <label for="email-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal E-Mailadres *') }}</label>
 
                             <div class="col-md-6">
                                 <input id="email-confirm" type="email" class="form-control" name="email_confirmation" required>
-                            </div>
-                        </div>
-
-                        <!-- Edit password-->
-                        <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Wachtwoord (minimaal 6 tekens: 3 kleine of hoofdletters, 1 cijfer en 1 speciaal teken)') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
-
-                                @if ($errors->has('password'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('password') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Edit confirm password-->
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal Wachtwoord') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
 

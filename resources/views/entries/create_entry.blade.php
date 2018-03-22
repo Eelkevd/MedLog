@@ -1,7 +1,8 @@
+<!-- View for the create_entry page -->
 @extends ('layouts.master')
 
 @section('content')
-	
+
 	<!-- form for submitting medical entry page -->
 
     @include ('entries.create_illness')
@@ -15,7 +16,7 @@
 
 		<div class="card-body">
 			<form method="POST" action="/entries/create_entry">
-				{{ csrf_field() }} 
+				{{ csrf_field() }}
 				<!-- places all illnesses from db -->
 				<div>
 					<h5>Aandoening: *</h5>
@@ -39,7 +40,7 @@
 					@foreach($symptomes as $symptom)
 						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
 						<label for="subscribeNews">{{ $symptom->symptom }}</label>
-					@endforeach()	
+					@endforeach()
 				</div>
 				<hr>
 				<div>
@@ -55,7 +56,7 @@
 				<hr>
 				<div>
 					<p>Intensiteit</p>
-					<input type="range" min="1" max="10" value="5" class="slider" id="intensityRange">
+					<input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
 					<span id="intensityValue"></span>
 				</div>
 				<hr>
@@ -96,11 +97,11 @@
 				<div>
 					<p>Sla mijn dagboek op</p>
 					<input type="submit" value="save">
-				</div>				
+				</div>
 			</form>
 		</div>
 	</div>
-	
+
 <script>
 
 	// Function to determine current date
@@ -120,13 +121,13 @@
         });
 
     // Function to determine current time
-    $(function(){  
-		$('input[type="time"][value="now"]').each(function(){    
-		    var d = new Date(),        
+    $(function(){
+		$('input[type="time"][value="now"]').each(function(){
+		    var d = new Date(),
 		        h = d.getHours(),
 		        m = d.getMinutes();
-		    if(h < 10) h = '0' + h; 
-		    if(m < 10) m = '0' + m; 
+		    if(h < 10) h = '0' + h;
+		    if(m < 10) m = '0' + m;
 		    $(this).attr({
 		      'value': h + ':' + m
     		});
@@ -139,11 +140,35 @@
 
 	sliderBar.oninput = function() {
   	sliderVal.innerHTML = this.value;
-  		if (this.value == 1) 
+  		if (this.value == 1)
   		{
-  			sliderVal.innerHTML = '<i class="far fa-frown"></i>';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo1.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 2) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo2.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 3) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo3.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 4) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo4.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 5) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo5.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 6) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo6.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 7) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo7.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 8) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo8.c.svg') }}" height="80" width="80">';
+  		}  		if (this.value == 9) 
+  		{
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
   		}
-}
+	}
 
 </script>
 @endsection

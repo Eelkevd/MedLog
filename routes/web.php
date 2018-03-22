@@ -7,6 +7,9 @@ Route::middleware('validate')->group(function () {
 // Route to homepage
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');
+Route::get('/home/events', 'HomeController@events');
+
+// Routes to do show, search in or create event in calendar
 Route::get('/home/create_event', 'EventController@create');
 Route::post('/home/store_event', 'EventController@store');
 Route::get('/home/search', 'EventController@search');

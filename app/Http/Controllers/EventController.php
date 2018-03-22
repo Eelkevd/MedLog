@@ -9,6 +9,13 @@ use App\Event;
 
 class EventController extends Controller
 {
+    // authentication requirement
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
+    // Requires data from database to fill in and show calendar
     public function index()
     {
        $events = [];
@@ -23,16 +30,17 @@ class EventController extends Controller
             );
           }
        }
-
       $calendar = Calendar::addEvents($events);
       return view('homepage.mycalendar', compact('calendar'));
     }
 
+    // goes to create a new event page/view
     public function create()
     {
       return view('homepage.create');
     }
 
+    // adds new event to the event database to show later in calendar
     public function store(Request $request)
     {
         Event::create($request->all());
@@ -53,11 +61,12 @@ class EventController extends Controller
         return redirect('home/mycalendar')->with(compact('calendar'));
     }
 
+    // searches all titles of events in database with keyword in text
     public function search(Request $request)
     {
-        $search = $request->input('search');
-        $events = Event::where('title', 'LIKE', '%' . $search . '%')->get();
-        return view('homepage.home', compact('events'));
+        $keyword = $request->input('search');
+        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
+        return view('homepage.home', compact('search'));
    }
 
     public function show($id)
