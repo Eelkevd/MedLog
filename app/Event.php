@@ -17,4 +17,9 @@ class Event extends Model
         $end
       ))->take(5)->orderBy('start_date')->get();
     }
+
+    public function user()
+    {
+      return $this->belongsTo('App\User');
+    }
 }

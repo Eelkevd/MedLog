@@ -8,23 +8,13 @@ class Symptom extends Model
 {
     protected $fillable = ['user_id', 'symptom','start_date','end_date'];
 
-    // public function symptomes()
-    // {
-    // 	return $this->belongsToMany(Article::class);
-    // }
-
     public function getRouteKeyName()
     {
     	return 'symptom';
     }
 
-    public function entry()
+    public function entries()
     {
-      return $this->belongsToMany(Entry::class);
-    }
-
-    public function user()
-    {
-      return $this->belongsTo(User::class);
+      return $this->belongsToMany('App\Entry');
     }
 }

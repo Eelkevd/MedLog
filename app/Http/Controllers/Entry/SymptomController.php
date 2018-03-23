@@ -18,11 +18,11 @@ class SymptomController extends Controller
     // stores symptomes into database
 	public function store (Request $request) 
 	{
-		$request['user_id'] = Auth::id();
+		// $request['user_id'] = Auth::id();
 		$request->validate([
             'symptom'  => 'required',
         ]);
-		$symptom = Symptom::create(request(['user_id', 'symptom']));
+		$symptom = Symptom::create(request(['symptom']));
         return redirect ('entries');
 	}
 }
