@@ -45,6 +45,10 @@ class EventController extends Controller
     {
         Event::create($request->all());
         $events = [];
+        $request->validate([
+            'title' => 'required',
+            'start_date' => 'required'
+        ]);
         $data = Event::all();
         if($data->count()){
           foreach ($data as $key => $value) {
