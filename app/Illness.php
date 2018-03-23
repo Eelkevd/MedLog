@@ -16,11 +16,6 @@ class Illness extends Model
 
     public function entry()
     {
-      return $this->belongsToMany(Entry::class);
-    }
-
-    public function user()
-    {
-      return $this->belongsTo(User::class);
+      return $this->hasMany('App\Entry');
     }
 }

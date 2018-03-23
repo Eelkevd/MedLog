@@ -14,10 +14,12 @@ class CreateIllnessesTable extends Migration
     public function up()
     {
         Schema::create('illnesses', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->nullable();
+            $table->increments('id')->unsigned();
+            $table->integer('entry_id')->unsigned();
             $table->string('illness');
             $table->timestamps();
+
+            $table->foreign('entry_id')->references('id')->on('entries');
         });
     }
 

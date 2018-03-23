@@ -75,20 +75,13 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
         $this->notify(new MailResetPasswordToken($token));
     }
 
-
-
-    public function entries()
+    public function diary()
     {
-      return $this->hasMany(Entry::class);
+      return $this->hasOne('App\Diary');
     }
 
-    public function illnesses()
+    public function events()
     {
-      return $this->hasMany(Illness::class);
-    }
-
-    public function symptomes()
-    {
-      return $this->hasMany(Symptom::class);
+      return $this->hasMany('App\Event');
     }
 }
