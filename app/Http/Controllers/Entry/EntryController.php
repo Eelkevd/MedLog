@@ -36,6 +36,9 @@ class EntryController extends Controller
    //    		]);
 
 		// $user = App\User::find(1);
+		$diary = Diary::create([
+            'user_id' => User::id(),
+        ]);
 
 		$entry = Entry::create(request(['timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 		$entry->symptomes()->attach($request->symptom);

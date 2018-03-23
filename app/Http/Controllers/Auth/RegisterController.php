@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Diary;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -90,6 +91,8 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
             'verifyToken' => Str::random(40),
         ]);
+
+        
 
         $user->sendVerificationMail();
 
