@@ -30,6 +30,17 @@ class EntryController extends Controller
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
 	{
+
+			// $request['user_id'] = Auth::id();
+			// $request->validate([
+			// 'illness_id' => 'required'
+   //    		]);
+
+		// $user = App\User::find(1);
+		$diary = Diary::create([
+            'user_id' => User::id(),
+        ]);
+
 		$entry = Entry::create(request(['timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 		$entry->symptomes()->attach($request->symptom);
 
