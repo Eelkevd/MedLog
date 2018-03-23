@@ -9,6 +9,10 @@ A medical website build with laravel based on the userstories as described in th
 
 ## Follow the progression: https://trello.com/b/0KKvNyAv/medlog
 
+## Testaccount for the live version:
+Email: jorik@testmail.com
+Password: @Insert12
+
 ## Media:
 - https://www.codegorilla.nl/2018/03/19/medisch-dagboek-eindproject/
 
@@ -19,13 +23,12 @@ A medical website build with laravel based on the userstories as described in th
 - tuesday: finished userstories Patient 46, 12, 18, 19, 14, 47, verification email finished
 - wednesday: finished userstories Patient 49, 8 & 21, started with downloading packages local to improve safety, Patient 23 work in progress
 - thursday: finished userstories Patient 23, 48, all packages downloaded local improved safety, Patient 10-3 work in progress, new sketch for database
-- friday: 
+- friday: finished userstories Bugfixes for npm & Patient 24, final sketch for database ready, prepared demo, retrospective, new live version online
 
 ## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
 
 ## Used php packages
 - maddhatter/laravel-fullcalendar https://packagist.org/packages/maddhatter/laravel-fullcalendar
-- 
 
 ## Inspired by 
 - https://medapp.nu/
