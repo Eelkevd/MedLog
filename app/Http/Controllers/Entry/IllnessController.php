@@ -17,12 +17,12 @@ class IllnessController extends Controller
 
 	public function store (Request $request) 
 	{
-		$request['user_id'] = Auth::id();
+
 		// dd($request);
 		$request->validate([
             'illness'  => 'required',
         ]);
-		$illness = Illness::create(request(['user_id', 'illness']));
+		$illness = Illness::create(request(['illness']));
         return redirect ('entries');
 	}
 }

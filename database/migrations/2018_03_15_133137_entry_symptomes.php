@@ -15,9 +15,11 @@ class EntrySymptomes extends Migration
     {
         Schema::create('entry_symptom', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->nullable();
-            $table->integer('entry_id');
-            $table->integer('symptom_id');
+            $table->integer('entry_id')->unsigned();
+            $table->integer('symptom_id')->unsigned();
+
+            $table->foreign('entry_id')->references('id')->on('entries');
+            $table->foreign('symptom_id')->references('id')->on('symptoms');
         });
     }
 

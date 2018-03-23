@@ -20,16 +20,21 @@ class Entry extends Model
 
     public function symptomes()
     {
-    	return $this->belongsToMany(Symptom::class);
+    	return $this->belongsToMany('App\Symptom');
     }
 
     public function illness()
     {
-      return $this->belongsTo(Illness::class);
+      return $this->belongsTo('App\Illness');
     }
 
-    public function user()
+    // public function user()
+    // {
+    //   return $this->belongsTo(User::class);
+    // }
+
+    public function diary()
     {
-      return $this->belongsTo(User::class);
+        return $this->belongsTo('App\Diary');
     }
 }

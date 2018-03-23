@@ -14,9 +14,8 @@ class CreateEntriesTable extends Migration
     public function up()
     {
         Schema::create('entries', function (Blueprint $table) {
-            $table->increments('id');
-            $table->integer('user_id')->nullable();
-            $table->integer('illness_id');
+            $table->increments('id')->unsigned();
+            $table->integer('diary_id')->unsigned();
             $table->date('timespan_date')->nullable();
             $table->time('timespan_time')->nullable();
             $table->string('location')->nullable();
@@ -28,8 +27,8 @@ class CreateEntriesTable extends Migration
             $table->string('comments')->nullable();
             $table->timestamps();
 
-            //links diary entry to the user
-            // $table->foreign('user_id')->references('id')->on('users');
+            //links entries to the diary
+            $table->foreign('diary_id')->references('id')->on('diary');
         });
     }
 
