@@ -23,13 +23,14 @@ class EntryController extends Controller
 	public function create()
 	{
     	$symptomes = Symptom::all()->where('user_id', Auth::id());
-    	$illnesses = Illness::all();
+    	$illnesses = Illness::all()->where('user_id', Auth::id());;
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
 
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
 	{
+
 
 			// $request['user_id'] = Auth::id();
 			// $request->validate([
@@ -38,7 +39,6 @@ class EntryController extends Controller
 
 		// $user = App\User::find(1);
 		
-
 		$entry = Entry::create(request([
 			'timespan_date', 
 			'timespan_time', 
@@ -50,6 +50,7 @@ class EntryController extends Controller
 			'witness_report', 
 			'comments'
 		]));
+
 		$entry->symptomes()->attach($request->symptom);
 
 		// add diary entry as event to the database
