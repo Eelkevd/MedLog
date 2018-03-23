@@ -19,4 +19,6 @@ window.fullcalendar = require('fullcalendar');
 
 window.moment = require('moment');
 
+window.axios = require('axios');
+
 
