@@ -6,9 +6,9 @@
 	<!-- form for submitting medical entry page -->
 
     @include ('entries.create_illness')
-
+    <br>
     @include ('entries.create_symptom')
-
+    <br>
 	<div class="card">
 		<div class="card-header">
 			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>

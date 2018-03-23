@@ -40,10 +40,10 @@
            <a href="/home/mycalendar">Kalender</a>
         </li>
          <li>
-           <a href="/entries/create_entry">Dagboek</a>
+           <a href="/overview">Dagboek</a>
         </li>
         <li>
-            <a href="/entries/create_entry">Export</a>
+            <a href="/export">Exporteer</a>
         </li>
          <li><!-- Link with dropdown items -->
              <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
@@ -58,7 +58,7 @@
     <ul class="list-unstyled CTAs">
         <!-- blue buttons -->
         <li><a href="/account" class="article">Account</a></li>
-        <li><a href="/about" class="article">About</a></li>
+        <li><a href="/about" class="article">Over ons</a></li>
         <li><a href="{{ URL::previous() }}" class="article">Terug</a></li>
         <li><a href="/home" class="article">Home</a></li>
 

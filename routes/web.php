@@ -31,10 +31,18 @@ Route::post('/entries/create_entry', 'Entry\EntryController@store');
 // Page to create and store user made illness
 Route::post('/entries/create_illness', 'Entry\IllnessController@store');
 
-
 // Page to create and store symptom
 Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
 
+// Route to diary overview page
+Route::get('/overview', 'OverviewController@index');
+Route::get('/overview/search', 'OverviewController@search');
+Route::get('/overview/sort', 'OverviewController@sort');
+
+// Route to export page
+Route::get('/export', 'ExportController@index');
+Route::Post('/export/period', 'ExportController@exportperiod');
+Route::Post('/export/illness', 'ExportController@exportillness');
 
 // Route to account page
 Route::get('/account', 'AccountController@index');
