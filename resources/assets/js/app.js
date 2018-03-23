@@ -7,16 +7,18 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+window.Popper = require('popper.js');
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
+window.$ = window.jQuery = require('jquery');
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+require('jquery-ui/ui/widgets/datepicker.js');
 
-const app = new Vue({
-    el: '#app'
-});
+require('malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js')
+
+window.fullcalendar = require('fullcalendar');
+
+window.moment = require('moment');
+
+window.axios = require('axios');
+
+

@@ -98,8 +98,6 @@
 					<p>Sla mijn dagboek op</p>
 					<input type="submit" value="Opslaan">
 				</div>
-
-
 			</form>
 		</div>
 	</div>
@@ -170,7 +168,7 @@
   		{
   			sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
   		}
-}
+	}
 
 </script>
 @endsection

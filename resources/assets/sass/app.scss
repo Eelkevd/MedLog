@@ -8,6 +8,12 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
+// Font Awesome
+@import "node_modules/font-awesome/scss/font-awesome.scss";
+
+// Fullcalendar
+@import "node_modules/fullcalendar/dist/fullcalendar.min";
+
 .navbar-laravel {
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
