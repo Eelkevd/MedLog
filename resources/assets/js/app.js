@@ -11,6 +11,8 @@ window.Popper = require('popper.js');
 
 window.$ = window.jQuery = require('jquery');
 
+require('jquery-ui/ui/widgets/datepicker.js');
+
 window.fullcalendar = require('fullcalendar');
 
 window.moment = require('moment');

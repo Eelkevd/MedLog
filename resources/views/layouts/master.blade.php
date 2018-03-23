@@ -25,7 +25,7 @@
 <!--     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.css"/>
  -->
     <!-- Our own flavicon -->
-    <link rel="icon" type="img/ico" href="img/favicon.ico">
+    <link rel="icon" type="/img/ico" href="img/favicon.ico">
     <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
 </head>
 <body>
