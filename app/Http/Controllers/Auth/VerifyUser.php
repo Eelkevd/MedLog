@@ -19,10 +19,11 @@ class AdminLoginController extends Controller
     {
         $this->validate($request, [
             'email' => 'required|email',
+            'token' => 'required',
             'password' => 'required'
         ]);
 
-        if (Auth::guard('admin')->attempt(['email'=> $request->email, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard('admin')->attempt(['email'=> $request->email, 'token'=> $request->token, 'password' => $request->password], $request->remember)) {
             //login successful
             return redirect()->intended(route('admin.dashboard'));
         }

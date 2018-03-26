@@ -1,7 +1,30 @@
 <!-- View for the calendar page -->
 @extends('layouts.htmlheader_index')
 
+ <script src="{{asset('js/app.js')}}"></script>
+
 @section ('content')
+
+@guest
+<!-- Show not logged in screen -->
+<div class="col-md-6">
+    <label >{{ __('Please log in to see your account data.') }}</label>
+</div>
+@endguest
+
+@auth
+
+  @if (!(auth()->user()->verified()))
+  <div class="card-body">
+          <div class="alert alert-danger">
+            <br /><strong>
+              Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
+                  </strong>
+          </div>
+  </div>
+  @else
+
+
 <hr>
 <!-- Buttons to go to homepage of create event page-->
 <div class="form-group row mb-0">
@@ -16,16 +39,7 @@
 </div>
 
 <hr>
-        <!doctype html>
-        <html lang="en">
-        <head>
-             <script src="{{asset('js/app.js')}}"></script>
-<!--             <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.9.0/moment.min.js"></script> -->
-<!--             <script src="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/2.2.7/fullcalendar.min.js"></script> -->
-<!--             <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.1.0/fullcalendar.min.css' /> -->
-        </head>
 
-        <body>
             <div class="container">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
@@ -38,6 +52,7 @@
                     </div>
                 </div>
             </div>
-        </body>
-        </html>
+@endif
+@endauth
+
 @endsection
