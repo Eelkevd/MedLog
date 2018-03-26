@@ -96,6 +96,10 @@ class RegisterController extends Controller
 
         $user->sendVerificationMail();
 
+        // $diary = new Diary();
+        // $diary->user_id = User::id();
+        // $diary->save();
+
         return $user;
     }
 
