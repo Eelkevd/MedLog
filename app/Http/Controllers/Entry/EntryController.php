@@ -31,6 +31,7 @@ class EntryController extends Controller
 	public function store (Request $request)
 	{
 
+
 			// $request['user_id'] = Auth::id();
 			// $request->validate([
 			// 'illness_id' => 'required'
@@ -38,7 +39,6 @@ class EntryController extends Controller
 
 		// $user = App\User::find(1);
 		
-
 		$entry = Entry::create(request([
 			'timespan_date', 
 			'timespan_time', 
@@ -50,6 +50,7 @@ class EntryController extends Controller
 			'witness_report', 
 			'comments'
 		]));
+
 		$entry->symptomes()->attach($request->symptom);
 
 		// add diary entry as event to the database

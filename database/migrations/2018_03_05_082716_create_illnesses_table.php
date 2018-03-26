@@ -20,6 +20,7 @@ class CreateIllnessesTable extends Migration
             $table->timestamps();
 
             $table->foreign('diary_id')->references('id')->on('diaries');
+
         });
     }
 

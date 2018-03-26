@@ -29,7 +29,8 @@ class VerifyController extends Controller
         // $user_id = $verifiedUser->id;
 
 
-        $verifiedUser->diary()->create();
+        $verifiedUser->diary()->create([]);
+        dd($verifiedUser);
         // $diary = new Diary(['user_id' => $user_id]);
         // $diary->save();
 
