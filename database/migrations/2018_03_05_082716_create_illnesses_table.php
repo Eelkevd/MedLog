@@ -15,11 +15,11 @@ class CreateIllnessesTable extends Migration
     {
         Schema::create('illnesses', function (Blueprint $table) {
             $table->increments('id')->unsigned();
-            $table->integer('entry_id')->unsigned();
+            $table->integer('diary_id')->unsigned();
             $table->string('illness');
             $table->timestamps();
 
-            $table->foreign('entry_id')->references('id')->on('entries');
+            $table->foreign('diary_id')->references('id')->on('diaries');
         });
     }
 
