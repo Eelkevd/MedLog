@@ -18,12 +18,14 @@ class VerifyController extends Controller
     public function verify($verifyToken)
     {
 
-        $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail()
-        ->update(['verifyToken' => null]);
+        $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail();
         $user_id = $verifiedUser->id;
 
         $diary = new Diary(['user_id' => $user_id]);
         $diary->save();
+
+        $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail()
+        ->update(['verifyToken' => null]);
 
         return redirect('/home')
         ->with('succes', 'Dagboek geactiveerd');
