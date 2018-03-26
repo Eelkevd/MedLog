@@ -8,6 +8,9 @@ use Calendar;
 use App\Event;
 use App\Symptom;
 use App\Illness;
+use App\Entry;
+use App\Medication;
+use App\Tool;
 
 class OverviewController extends Controller
 {
@@ -24,8 +27,11 @@ class OverviewController extends Controller
         $keyword = "";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());;
-        return view('overview', compact('sort','search', 'illnesses'));
+        $illnesses = Illness::all()->where('user_id', Auth::id());
+        $entries = Entry::all()->where('user_id', Auth::id());
+        // $medications = Medication::all()->where('user_id', Auth::id());
+        // $tools = Tools::all()->where('user_id', Auth::id());
+        return view('overview', compact('sort','search', 'illnesses','entries'));
     }
 
     public function search(Request $request)
@@ -34,7 +40,7 @@ class OverviewController extends Controller
         $keyword = $request->input('search');
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());;
+        $illnesses = Illness::all()->where('user_id', Auth::id());
         return view('overview', compact('sort','search', 'illnesses'));
     }
 
@@ -44,7 +50,7 @@ class OverviewController extends Controller
         $keyword = "nope";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());;
+        $illnesses = Illness::all()->where('user_id', Auth::id());
         return view('overview', compact('sort', 'search', 'illnesses'));
    }
 

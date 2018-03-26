@@ -15,7 +15,7 @@
 
               @else
               <div class="card">
-                  <div class="card-header">Kalender</div>
+                  <div class="card-header">Home</div>
                   <div class="card-body">
                     <form action="{{ action('EventController@index') }}" >
                         <button type="submit">Bekijk je kalender</button>
@@ -26,7 +26,7 @@
                     <form method="GET" action="{{ action('EventController@search') }}" >
                         <input type="text" name="search" placeholder="Zoekopdracht">
                         <button type="submit">zoek in je kalender</button>
-                    </form><br>    
+                    </form><br>
 
                   <b>Resultaten:</b><br><br>
                   @foreach($search as $event)

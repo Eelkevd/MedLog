@@ -11,7 +11,7 @@
                   <form method="GET" action="{{ action('OverviewController@search') }}" >
                       <input type="text" name="search" placeholder="Zoekopdracht">
                       <button type="submit">Zoek in je dagboek</button>
-                  </form>
+                  </form><br>
 
                   <form method="GET" id="illnessform" action="{{ action('OverviewController@sort') }}" >
                   <select form= 'illnessform' name="illness_id" class="sort_illness">
@@ -20,7 +20,27 @@
                       <option value="{{ $illness->id }}">{{ $illness->illness }}</option>
                     @endforeach()
                   </select>
-                  <button type="submit">Sorteer je dagboek</button>
+                  <button type="submit">Sorteer je dagboek op ziekte</button>
+                  </form>
+                  <br>
+
+                  <form method="GET" id="intensityform" action="{{ action('OverviewController@sort') }}" >
+                  <select form= 'intensityform' name="intensity_id" class="sort_intensity">
+                      <option selected></option>
+                    @foreach($entries as $entry)
+                      <option value="{{ $illness->intensity }}">{{ $entry->entry }}</option>
+                    @endforeach()
+                  </select>
+                  <button type="submit">Sorteer je dagboek op intentsiteit</button>
+                  </form>
+                  <br>
+
+                  <form method="GET" id="dateform" action="{{ action('OverviewController@sort') }}" >
+                  <select form= 'dateform' name="date_id" class="sort_date">
+                      <option selected value="chronologically">Laatste dagboek post bovenaan</option>
+                      <option value="nonchronologically">Eerste dagboek post bovenaan</option>
+                  </select>
+                  <button type="submit">Sorteer je dagboek op datum</button>
                   </form>
                   <br>
 
