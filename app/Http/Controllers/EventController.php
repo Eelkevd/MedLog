@@ -43,9 +43,11 @@ class EventController extends Controller
     // adds new event to the event database to show later in calendar
     public function store(Request $request)
     {
+        $id = Auth::id();
         Event::create($request->all());
         $events = [];
         $request->validate([
+
             'title' => 'required',
             'start_date' => 'required'
         ]);
