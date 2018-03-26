@@ -95,6 +95,7 @@ class RegisterController extends Controller
         
 
         $user->sendVerificationMail();
+
         return $user;
     }
 
