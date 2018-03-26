@@ -25,5 +25,8 @@ class AccountPatientEelke extends Seeder
             'email' => 'evandijk89@gmail.com',
             'password' => Hash::make('@Insert12'),
     	]);
+        DB::table('diaries')->insert([
+            'user_id' => '1',
+        ]);
     }
 }

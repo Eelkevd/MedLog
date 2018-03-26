@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class EntrySymptomes extends Migration
+class DiarySymptoms extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class EntrySymptomes extends Migration
      */
     public function up()
     {
-        Schema::create('entry_symptom', function (Blueprint $table) {
+        Schema::create('diary_symptoms', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('entry_id')->unsigned();
+            $table->integer('diary_id')->unsigned();
             $table->integer('symptom_id')->unsigned();
 
-            $table->foreign('entry_id')->references('id')->on('entries');
+            $table->foreign('diary_id')->references('id')->on('diaries');
             $table->foreign('symptom_id')->references('id')->on('symptoms');
         });
     }
@@ -30,6 +30,6 @@ class EntrySymptomes extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entry_symptom');
+        Schema::dropIfExists('diary_symptoms');
     }
 }
