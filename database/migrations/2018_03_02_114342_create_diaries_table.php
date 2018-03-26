@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiaryTable extends Migration
+class CreateDiariesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDiaryTable extends Migration
      */
     public function up()
     {
-        Schema::create('diary', function (Blueprint $table) {
+        Schema::create('diaries', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->timestamps();
@@ -29,6 +29,6 @@ class CreateDiaryTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diary');
+        Schema::dropIfExists('diaries');
     }
 }

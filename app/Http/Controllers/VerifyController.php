@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Diary;
 use Illuminate\Http\Request;
 use App\User;
 
@@ -16,8 +17,13 @@ class VerifyController extends Controller
 
     public function verify($verifyToken)
     {
+
         $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail()
         ->update(['verifyToken' => null]);
+        $user_id = $verifiedUser->id;
+
+        $diary = new Diary(['user_id' => $user_id]);
+        $diary->save();
 
         return redirect('/home')
         ->with('succes', 'Dagboek geactiveerd');
