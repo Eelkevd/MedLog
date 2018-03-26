@@ -19,6 +19,12 @@ class VerifyController extends Controller
         $verifiedUser = User::where('verifyToken', $verifyToken)->firstOrFail()
         ->update(['verifyToken' => null]);
 
+
+        $user_id = $verifiedUser->id;
+        dd($user_id);
+
+        $diary = Diary::create('id_user', $user_id );
+
         return redirect('/home')
         ->with('succes', 'Dagboek geactiveerd');
     }
