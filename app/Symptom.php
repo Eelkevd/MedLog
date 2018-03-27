@@ -17,4 +17,9 @@ class Symptom extends Model
     {
       return $this->belongsToMany('App\Entry');
     }
+
+    public function diary()
+    {
+      return $this->belongsToMany('App\Diary');
+    }
 }
