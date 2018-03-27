@@ -43,9 +43,9 @@ Route::get('/overview/sort', 'OverviewController@sort');
 Route::get('/export', 'ExportController@index');
 Route::post('/export/period', 'ExportController@exportperiod');
 Route::post('/export/illness', 'ExportController@exportillness');
-Route::get('/export/getPDF', 'ExportController@getillnessPDF');
+Route::post('/export/getillnessPDF', 'ExportController@getillnessPDF');
 Route::post('/export/getdatePDF', 'ExportController@getperiodPDF');
-Route::post('/export/getPDF', 'ExportController@getillnessPDF');
+Route::post('/export/getPDF', 'ExportController@getPDF');
 
 // Route to account page
 Route::get('/account', 'AccountController@index');

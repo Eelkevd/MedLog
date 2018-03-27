@@ -1,5 +1,6 @@
 <?php
 
+// Controller of the overview section
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -47,6 +48,4 @@ class OverviewController extends Controller
         $illnesses = Illness::all()->where('user_id', Auth::id());
         return view('overview', compact('sort', 'search', 'illnesses'));
    }
-
-
 }

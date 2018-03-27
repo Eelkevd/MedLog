@@ -1,3 +1,5 @@
+<!-- View for the export pdf dagboek page -->
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +15,7 @@
 
 <body>
   <table>
-    <caption><h1> Dagboek pagina's </h1></caption>
+    <caption><h1> Medlog dagboek pagina's</h1></caption>
      <thead>
      <tr>
        <th> Datum </th>

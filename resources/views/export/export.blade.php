@@ -6,9 +6,19 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card">
-            <div class="card-header">Exporteer je gegevens van ziekte</div>
+            <div class="card-header">Exporteer al je gegevens</div>
             <div class="card-body">
                 <form method="POST" action="/export/getPDF">
+                {{ csrf_field() }}
+                <input type="submit" value="Download al je gegevens als pdf" /><br>
+                </form>
+            </div>
+          </div><br><br>
+
+          <div class="card">
+            <div class="card-header">Exporteer je gegevens van ziekte</div>
+            <div class="card-body">
+                <form method="POST" action="/export/getillnessPDF">
                 {{ csrf_field() }}
                 Exporteer je gegevens van de ziekte:
                 <br />
