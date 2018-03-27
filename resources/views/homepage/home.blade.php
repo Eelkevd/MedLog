@@ -12,8 +12,16 @@
                       Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
                           </strong>
                   </div>
-
               @else
+
+                @if (session('succes'))
+                        <div class="alert alert-success">
+                            {{ session('succes') }}
+                        </div>
+                @endif        
+
+
+              </div>
               <div class="card">
                   <div class="card-header">Kalender</div>
                   <div class="card-body">
@@ -26,7 +34,7 @@
                     <form method="GET" action="{{ action('EventController@search') }}" >
                         <input type="text" name="search" placeholder="Zoekopdracht">
                         <button type="submit">zoek in je kalender</button>
-                    </form><br>    
+                    </form><br>
 
                   <b>Resultaten:</b><br><br>
                   @foreach($search as $event)
