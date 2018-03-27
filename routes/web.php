@@ -37,7 +37,7 @@ Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
 // Route to diary overview page
 Route::get('/overview', 'OverviewController@index');
 Route::get('/overview/search', 'OverviewController@search');
-Route::get('/overview/sort', 'OverviewController@sort');
+Route::get('/overview/sortillness', 'OverviewController@sortillness');
 
 // Route to export page
 Route::get('/export', 'ExportController@index');

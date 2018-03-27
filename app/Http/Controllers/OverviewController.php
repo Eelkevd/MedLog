@@ -23,10 +23,11 @@ class OverviewController extends Controller
     {
         $sortword = "nope";
         $keyword = "";
-        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
-        $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
+        $currentdate = date("Y-m-d H:i:s");
+        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->where('start_date', '<=' ,$currentdate)->get();
+        $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $illnesses = Illness::all()->where('user_id', Auth::id());
-        return view('overview', compact('sort','search', 'illnesses'));
+        return view('overview', compact('sortillness','search', 'illnesses'));
     }
 
     public function search(Request $request)
@@ -34,18 +35,18 @@ class OverviewController extends Controller
         $sortword = "nope";
         $keyword = $request->input('search');
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
-        $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
+        $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $illnesses = Illness::all()->where('user_id', Auth::id());
-        return view('overview', compact('sort','search', 'illnesses'));
+        return view('overview', compact('sortillness','search', 'illnesses'));
     }
 
-    public function sort(Request $request)
+    public function sortillness(Request $request)
     {
-        $sortword = $request->input('illness_id');
+        $sortword = $request->input('illness');
         $keyword = "nope";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
-        $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
+        $sortillness = Event::all()->where('title', $sortword);
         $illnesses = Illness::all()->where('user_id', Auth::id());
-        return view('overview', compact('sort', 'search', 'illnesses'));
+        return view('overview', compact('sortillness', 'search', 'illnesses'));
    }
 }

@@ -34,7 +34,7 @@
                 <form method="POST" action="/export/getdatePDF">
                 {{ csrf_field() }}
                 Exporteer je gegevens in de periode van:
-                <br />
+                <br/>
                 <input type="text" name="start_date" class="date" required/><br>
                 Exporteer je gegevens in de periode tot en met:<br>
                 <input type="text" name="end_date" class="date" required/>
@@ -48,7 +48,16 @@
                     });
                 </script>
               </div>
-          </div>
+          </div><br><br>
+
+          <div class="card">
+            <div class="card-header">Exporteer je medicijnen en hulpmiddelen</div>
+            <div class="card-body">
+
+            </div>
+          </div><br><br>
+
+
         </div>
     </div>
 </div>

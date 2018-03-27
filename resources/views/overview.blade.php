@@ -11,13 +11,13 @@
                   <form method="GET" action="{{ action('OverviewController@search') }}" >
                       <input type="text" name="search" placeholder="Zoekopdracht">
                       <button type="submit">Zoek in je dagboek</button>
-                  </form>
+                  </form><br>
 
-                  <form method="GET" id="illnessform" action="{{ action('OverviewController@sort') }}" >
-                  <select form= 'illnessform' name="illness_id" class="sort_illness">
-                      <option selected></option>
+                  <form method="GET" id="illnessform" action="{{ action('OverviewController@sortillness') }}" >
+                  <select form= 'illnessform' name="illness" class="sort_illness">
+                      <option value="" selected disabled hidden>Kies ziekte</option>
                     @foreach($illnesses as $illness)
-                      <option value="{{ $illness->id }}">{{ $illness->illness }}</option>
+                      <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
                     @endforeach()
                   </select>
                   <button type="submit">Sorteer je dagboek</button>
@@ -32,7 +32,7 @@
                   <b>Symptoom</b><br><br>
                 @endforeach
 
-                @foreach($sort as $event)
+                @foreach($sortillness as $event)
                   <b>Datum</b>
                   {{ $event -> start_date }}<br>
                   <b>Ziekte</b>
