@@ -24,7 +24,7 @@ class OverviewController extends Controller
         $keyword = "";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());;
+        $illnesses = Illness::all()->where('user_id', Auth::id());
         return view('overview', compact('sort','search', 'illnesses'));
     }
 
@@ -34,7 +34,7 @@ class OverviewController extends Controller
         $keyword = $request->input('search');
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());;
+        $illnesses = Illness::all()->where('user_id', Auth::id());
         return view('overview', compact('sort','search', 'illnesses'));
     }
 
@@ -44,7 +44,7 @@ class OverviewController extends Controller
         $keyword = "nope";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());;
+        $illnesses = Illness::all()->where('user_id', Auth::id());
         return view('overview', compact('sort', 'search', 'illnesses'));
    }
 
