@@ -21,12 +21,12 @@
           <div class="card">
             <div class="card-header">Exporteer je gegevens in tijdsperiode</div>
               <div class="card-body">
-                <form method="POST" action="/export/period">
+                <form method="POST" action="/export/getdatePDF">
                 {{ csrf_field() }}
                 Exporteer je gegevens in de periode van:
                 <br />
                 <input type="text" name="start_date" class="date" required/><br>
-                Exporteer je gegevens in de periode tot:<br>
+                Exporteer je gegevens in de periode tot en met:<br>
                 <input type="text" name="end_date" class="date" required/>
                 <input type="submit" value="Download als pdf" /><br>
                 </form>

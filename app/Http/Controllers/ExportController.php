@@ -25,10 +25,19 @@ class ExportController extends Controller
 
     public function getillnessPDF(Request $request)
     {
-      $illness = $request->input('illness');
-      $illness_id = Illness::where('illness', $illness)->value('id');
+      $illnesses = $request->input('illness');
+      $illness_id = Illness::where('illness', $illnesses)->value('id');
       $entries = Entry::all()->where('illness_id', $illness_id);
-      $pdf=PDF::loadView('export.entries', ['entries'=>$entries]);
+      $pdf=PDF::loadView('export.entries', ['entries'=>$entries ]);
+      return $pdf->download('entries.pdf');
+    }
+
+    public function getperiodPDF(Request $request)
+    {
+      $from_date = $request->input('from_date');
+      $end_date = $request->input('end_date');
+      $entries = Entry::all()->where('timespan_date', '>=' ,$from_date)->where('timespan_date', '=<' ,$end_date);
+      $pdf=PDF::loadView('export.entries', ['entries'=>$entries ]);
       return $pdf->download('entries.pdf');
     }
 
