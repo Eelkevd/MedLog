@@ -14,9 +14,13 @@ class CreateDiariesIllnessPivTable extends Migration
     public function up()
     {
         Schema::create('diaries_illness_piv', function (Blueprint $table) {
-            $table->increments('id');
-            $table->timestamps();
-        });
+          $table->increments('id');
+          $table->integer('diary_id')->unsigned();
+          $table->integer('illness_id')->unsigned();
+
+          $table->foreign('diary_id')->references('id')->on('diaries');
+          $table->foreign('illness_id')->references('id')->on('illnesses');
+      });
     }
 
     /**
