@@ -92,7 +92,14 @@ class RegisterController extends Controller
             'verifyToken' => Str::random(40),
         ]);
 
+        
+
         $user->sendVerificationMail();
+
+        // $diary = new Diary();
+        // $diary->user_id = User::id();
+        // $diary->save();
+
         return $user;
     }
 

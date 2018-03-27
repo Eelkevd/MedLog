@@ -23,7 +23,11 @@ class EntryController extends Controller
     // Gives data on symptomes and illnesses when user goes to the medform page
 	public function create()
 	{
+<<<<<<< HEAD
     	$symptomes = Symptom::all();
+=======
+    	$symptomes = Symptom::all()->where('user_id', Auth::id());
+>>>>>>> 2aac01e81f18a5a9b03a123cbaea2891313f635e
     	$illnesses = Illness::all();
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}

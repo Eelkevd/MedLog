@@ -17,8 +17,6 @@ class IllnessController extends Controller
 
 	public function store (Request $request) 
 	{
-
-		// dd($request);
 		$request->validate([
             'illness'  => 'required',
         ]);

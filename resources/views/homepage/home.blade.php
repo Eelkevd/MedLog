@@ -23,7 +23,7 @@
 
               </div>
               <div class="card">
-                  <div class="card-header">Kalender</div>
+                  <div class="card-header">Home</div>
                   <div class="card-body">
                     <form action="{{ action('EventController@index') }}" >
                         <button type="submit">Bekijk je kalender</button>
