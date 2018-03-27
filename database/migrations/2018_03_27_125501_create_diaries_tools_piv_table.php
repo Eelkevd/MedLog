@@ -19,7 +19,7 @@ class CreateDiariesToolsPivTable extends Migration
           $table->integer('diary_id')->unsigned();
 
           $table->foreign('tool_id')->references('id')->on('tools');
-          $table->foreign('medicine_id')->references('id')->on('medicines');
+          $table->foreign('diary_id')->references('id')->on('diaries');
       });
     }
 
