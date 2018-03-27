@@ -15,7 +15,13 @@ class CreateReadersTable extends Migration
     {
         Schema::create('readers', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('diary_id')->unsigned();
+            $table->integer('timeframe');
+            $table->string('password');
+            $table->text('token')->nullable();
             $table->timestamps();
+
+            $table->foreign('diary_id')->references('id')->on('diaries');
         });
     }
 

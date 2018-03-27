@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAidsDiariesPivTable extends Migration
+class CreateToolsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateAidsDiariesPivTable extends Migration
      */
     public function up()
     {
-        Schema::create('aids_diaries_piv', function (Blueprint $table) {
+        Schema::create('tools', function (Blueprint $table) {
             $table->increments('id');
             $table->timestamps();
         });
@@ -26,6 +26,6 @@ class CreateAidsDiariesPivTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('aids_diaries_piv');
+        Schema::dropIfExists('tools');
     }
 }
