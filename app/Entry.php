@@ -6,7 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Entry extends Model
 {
-    protected $fillable = ['user_id',
+    protected $fillable = [
+          'diary_id',
         	'timespan_date',
         	'timespan_time',
         	'location',
