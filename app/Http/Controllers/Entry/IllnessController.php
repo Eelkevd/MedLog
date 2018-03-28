@@ -15,7 +15,7 @@ class IllnessController extends Controller
         $this->middleware('auth');
     }
 
-	public function store (Request $request) 
+	public function store (Request $request)
 	{
 		$request->validate([
             'illness'  => 'required',

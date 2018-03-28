@@ -28,7 +28,7 @@ class CreateEntriesTable extends Migration
             $table->timestamps();
 
             //links entries to the diary
-            $table->foreign('diary_id')->references('id')->on('diary');
+            $table->foreign('diary_id')->references('id')->on('diaries');
         });
     }
 
