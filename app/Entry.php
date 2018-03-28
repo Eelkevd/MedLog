@@ -19,7 +19,7 @@ class Entry extends Model
         'witness_report',
         'comments'
         ];
-
+        
     public function diary()
     {
         return $this->belongsTo('App\Diary');
