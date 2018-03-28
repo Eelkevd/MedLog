@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Role;
 
 class RolesSeeder extends Seeder
 {
@@ -14,18 +15,18 @@ class RolesSeeder extends Seeder
         $reader=Role::create([
           'name' => 'Reader',
           'slug' => 'reader',
-          'permissions' => [
+          'permissions' => json_encode([
             'read_diary' => true,
-          ],
+          ]),
         ]);
 
         $patient=Role::create([
           'name' => 'Patient',
           'slug' => 'patient',
-          'permissions' => [
+          'permissions' => json_encode([
             'update-entry' => true,
             'save-entry' => true,
-          ],
+          ]),
         ]);
 
     }
