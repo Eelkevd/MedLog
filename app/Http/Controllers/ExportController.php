@@ -25,7 +25,7 @@ class ExportController extends Controller
     // function to export complete diary
     public function getPDF()
     {
-        $entries = Entry::sortByDesc('timespan_date')->get();
+        $entries = Entry::all()->sortByDesc('timespan_date');
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries ]);
         return $pdf->download('dagboek.pdf');
     }
