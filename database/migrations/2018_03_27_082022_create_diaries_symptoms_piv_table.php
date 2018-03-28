@@ -13,7 +13,7 @@ class CreateDiariesSymptomsPivTable extends Migration
      */
     public function up()
     {
-        Schema::create('diaries_symptoms_piv', function (Blueprint $table) {
+        Schema::create('diaries_symptoms', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('diary_id')->unsigned();
           $table->integer('symptom_id')->unsigned();

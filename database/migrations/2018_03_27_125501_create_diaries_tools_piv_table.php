@@ -13,7 +13,7 @@ class CreateDiariesToolsPivTable extends Migration
      */
     public function up()
     {
-        Schema::create('diaries_tools_piv', function (Blueprint $table) {
+        Schema::create('diaries_tools', function (Blueprint $table) {
           $table->increments('id');
           $table->integer('tool_id')->unsigned();
           $table->integer('diary_id')->unsigned();
