@@ -27,8 +27,10 @@ class OverviewController extends Controller
         $keyword = "";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sort = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());
-        $entries = Entry::all()->where('user_id', Auth::id());
+
+        $illnesses = Illness::where('user_id', Auth::id());
+        $entries = Entry::where('user_id', Auth::id());
+
         // $medications = Medication::all()->where('user_id', Auth::id());
         // $tools = Tools::all()->where('user_id', Auth::id());
         return view('overview', compact('sort','search', 'illnesses','entries'));
