@@ -13,7 +13,26 @@
       </div>
 
       <hr>
-
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-md">
+                  <div class="card">
+                    <div class="card-body">
+                      <p class="lead text-center" style="color:black;">
+                      {{ __('Begin vandaag nog met het bouwen van uw eigen medisch dosier.')}}
+                      <br />
+                      {{ __('Registreer als gebruiker om een eigen dagboek aan te maken.')}}
+                      <br />
+                      {{ __('Heeft u een uitnodiging gekregen om een dosier in te zien?') }}
+                      <br />
+                      {{ __('Registreer dan als lezer.')}}
+                    </p>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <br />
       <!-- Login form -->
       <div class="container">
           <div class="row justify-content-center">
@@ -90,11 +109,34 @@
           <div class="row justify-content-center">
               <div class="col-md-8">
                   <div class="card">
-                      <div class="card-header">{{ __('Registreer (velden met een * zijn verplicht)') }}</div>
+                      <div class="card-header">
+                        {{ __('Registreer als gebruiker of als lezer.') }}
+                        <br />
+                        <em>{{ __('velden met een * zijn verplicht') }}</em>
+                      </div>
 
                       <div class="card-body">
                           <form method="POST" action="{{ route('register') }}">
                               @csrf
+
+                              <!-- Register form choose role -->
+                              <div class="form-group row">
+                                  <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Ik ben een: ') }}</label>
+
+                                  <div class="col-md-6">
+                                    <select id="role" type="text" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" value="{{ old('role') }}" required>
+                                      @foreach($roles as $id=>$role)
+                                        <option value="{{ $id }}">{{ $role }} </option>
+                                      @endforeach
+                                    </select>
+
+                                      @if ($errors->has('role'))
+                                          <span class="invalid-feedback">
+                                              <strong>{{ $errors->first('role') }}</strong>
+                                          </span>
+                                      @endif
+                                  </div>
+                              </div>
 
                               <!-- Register form username-->
                               <div class="form-group row">

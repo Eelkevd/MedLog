@@ -13,16 +13,16 @@ class RolesSeeder extends Seeder
     public function run()
     {
         $reader=Role::create([
-          'name' => 'Reader',
-          'slug' => 'reader',
+          'name' => 'Hulpverlener',
+          'slug' => 'hulpverlener',
           'permissions' => json_encode([
             'read_diary' => true,
           ]),
         ]);
 
         $patient=Role::create([
-          'name' => 'Patient',
-          'slug' => 'patient',
+          'name' => 'Gebruiker',
+          'slug' => 'gebruiker',
           'permissions' => json_encode([
             'update-entry' => true,
             'save-entry' => true,

@@ -70,6 +70,7 @@ class RegisterController extends Controller
 
     /**
      * Create a new user instance after a valid registration.
+     * fill the token field in users to signify unverificated user
      *
      * @param  array  $data
      * @return \App\User
@@ -92,15 +93,22 @@ class RegisterController extends Controller
             'verifyToken' => Str::random(40),
         ]);
 
-        
-
         $user->sendVerificationMail();
-
-        // $diary = new Diary();
-        // $diary->user_id = User::id();
-        // $diary->save();
-
         return $user;
+    }
+
+    /**
+     * Show the application registration form.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    // add a role to the registration view in order to show the option to register as a reader
+    public function showRegistrationForm()
+    {
+      // checked, returns names of roles
+      $roles=\App\Role::orderBy('name')->pluck('name', 'id');
+
+      return view('auth.login', compact('roles'));
     }
 
 

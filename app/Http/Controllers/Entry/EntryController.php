@@ -32,6 +32,7 @@ class EntryController extends Controller
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
 	{
+
 		// Check if the user is logged in
 		if (Auth::check())
 		{

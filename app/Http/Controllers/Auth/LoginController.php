@@ -32,10 +32,17 @@ class LoginController extends Controller
      *
      * @return void
      */
-    
-    
+
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    public function showLoginForm()
+    {
+      // checked, returns names of roles
+      $roles=\App\Role::orderBy('name')->pluck('name', 'id');
+      return view('auth.login', compact('roles'));
     }
 }
