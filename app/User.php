@@ -46,6 +46,17 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     ];
 
     /**
+    *  Define the roles of the user
+    *
+    * @return integer
+    */
+    public function roles()
+    {
+      return $this->belongsToMany(Role::class, 'role_users');
+    }
+
+
+    /**
     * Returns true if the user is verified
     *
     * @return bool
