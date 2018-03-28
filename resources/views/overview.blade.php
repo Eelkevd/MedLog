@@ -14,6 +14,11 @@
                       <button type="submit">Zoek in je dagboek</button>
                   </form><br>
 
+                  <!-- button to get chronological order -->
+                  <form method="GET" action="{{ action('OverviewController@chronological') }}" >
+                      <button type="submit">Chronologische volgorde</button>
+                  </form><br>
+
                   <!-- sort function to sort by illness-->
                   <form method="GET" id="illnessform" action="{{ action('OverviewController@sortillness') }}" >
                   <select form= 'illnessform' name="illness" class="sort_illness">

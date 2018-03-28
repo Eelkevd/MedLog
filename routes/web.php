@@ -39,6 +39,8 @@ Route::get('/overview', 'OverviewController@index');
 Route::get('/overview/search', 'OverviewController@search');
 Route::get('/overview/sortillness', 'OverviewController@sortillness');
 Route::get('/overview/sortintensity', 'OverviewController@sortintensity');
+Route::get('/overview/chronological', 'OverviewController@chronological');
+
 
 
 // Route to export page

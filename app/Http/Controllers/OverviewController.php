@@ -25,12 +25,12 @@ class OverviewController extends Controller
         $sortword = "nope";
         $keyword = "";
         $currentdate = date("Y-m-d H:i:s");
-        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->where('start_date', '<=' ,$currentdate)->get();
+        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')
+                       ->where('start_date', '<=' ,$currentdate)->orderBy('start_date', 'DESC')->get();
         $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $illnesses = Illness::all()->where('user_id', Auth::id());
         $entries = Entry::all()->where('user_id', Auth::id());
-
         return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
     }
 
@@ -40,6 +40,21 @@ class OverviewController extends Controller
         $sortword = "nope";
         $keyword = $request->input('search');
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
+        $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
+        $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
+        $illnesses = Illness::all()->where('user_id', Auth::id());
+        $entries = Entry::all()->where('user_id', Auth::id());
+        return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
+    }
+
+    // function to make search function work
+    public function chronological()
+    {
+        $sortword = "nope";
+        $keyword = "";
+        $currentdate = date("Y-m-d H:i:s");
+        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')
+                       ->where('start_date', '<=' ,$currentdate)->orderBy('start_date', 'ASC')->get();
         $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $illnesses = Illness::all()->where('user_id', Auth::id());
