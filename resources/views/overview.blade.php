@@ -15,9 +15,9 @@
                   </form><br>
 
                   <!-- button to get chronological order -->
-                  <form method="GET" action="{{ action('OverviewController@chronological') }}" >
+                  <!-- <form method="GET" action="{{ action('OverviewController@chronological') }}" >
                       <button type="submit">Chronologische volgorde</button>
-                  </form><br>
+                  </form><br> -->
 
                   <!-- sort function to sort by illness-->
                   <form method="GET" id="illnessform" action="{{ action('OverviewController@sortillness') }}" >
@@ -71,4 +71,4 @@
         </div>
     </div>
   </div>
-  @endsection
+@endsection

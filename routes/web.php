@@ -1,5 +1,4 @@
 <?php
-
 Route::middleware('validate')->group(function () {
   //validated routers
 });
@@ -23,14 +22,12 @@ Auth::routes();
 Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
 
 ////// DIARY ENTRY PAGE DIRECTION //////
-
 // Redirects to the create diary entry page
 Route::get('/entries', 'Entry\EntryController@create')->name('home');
 // Page to store diary entries
 Route::post('/entries/create_entry', 'Entry\EntryController@store');
 // Page to create and store user made illness
 Route::post('/entries/create_illness', 'Entry\IllnessController@store');
-
 // Page to create and store symptom
 Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
 
@@ -40,8 +37,6 @@ Route::get('/overview/search', 'OverviewController@search');
 Route::get('/overview/sortillness', 'OverviewController@sortillness');
 Route::get('/overview/sortintensity', 'OverviewController@sortintensity');
 Route::get('/overview/chronological', 'OverviewController@chronological');
-
-
 
 // Route to export page
 Route::get('/export', 'ExportController@index');

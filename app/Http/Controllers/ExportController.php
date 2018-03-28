@@ -1,5 +1,4 @@
 <?php
-
 // Controller of the Export section
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -9,7 +8,6 @@ use App\Entry;
 use App\Illness;
 use Calendar;
 use PDF;
-
 class ExportController extends Controller
 {
     // authentication requirement
@@ -17,7 +15,7 @@ class ExportController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     // function to show export page
     public function index()
     {
