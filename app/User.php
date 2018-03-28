@@ -46,17 +46,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     ];
 
     /**
-    *  Define the roles of the user
-    *
-    * @return integer
-    */
-    public function roles()
-    {
-      return $this->belongsToMany(Role::class, 'role_user');
-    }
-
-
-    /**
     * Returns true if the user is verified
     *
     * @return bool
@@ -78,6 +67,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
 
     }
 
+
     /**
      * Send a password reset email to the user
      */
@@ -95,4 +85,32 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     {
       return $this->hasMany('App\Event');
     }
+
+    /**
+    *  Define the roles of the user
+    *
+    * @return integer
+    */
+    public function roles()
+    {
+      return $this->belongsToMany(Role::class, 'role_user');
+    }
+
+
+    /**
+    * Returns true if the user is a hulpverlener (reader)
+    *
+    * @return bool
+    */
+    public function hasAccess(array $permissions)
+    {
+      foreach($this->roles as $role){
+        if($role->hasAccess($permissions)){
+          return true;
+        }
+      }
+      return false;
+    }
+
+
 }

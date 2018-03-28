@@ -24,7 +24,54 @@ class AuthServiceProvider extends ServiceProvider
     public function boot()
     {
         $this->registerPolicies();
-
+        $this->registerReadPolicies();
         //
+    }
+
+    /**
+     * define the role
+     *
+     * @return bool
+     */
+    public function registerReadPolicies()
+    {
+      Gate::define('read-diary', function($user){
+        $user->hasAccess(['read-diary']);
+      });
+
+      Gate::define('create-diary', function($user){
+        $user->hasAccess(['create-diary']);
+      });
+
+      Gate::define('create_entry', function($user){
+        $user->hasAccess(['create_entry']);
+
+      Gate::define('update_entry', function($user, Entry $entry ){
+        $user->hasAccess(['update_entry']) or $user->id == $entry->user_id;
+      });
+
+      Gate::define('create-medicine', function($user){
+        $user->hasAccess(['create-medicine']);
+      });
+
+      Gate::define('update-medicine', function($user, Medicine $medicine){
+        $user->hasAccess(['update-medicine']) or $user->id == $medicine->user_id;
+      });
+
+      Gate::define('create-tool', function($user){
+        $user->hasAccess(['create-tool']);
+      });
+
+      Gate::define('update-tool', function($user, Tool $tool){
+        $user->hasAccess(['update-tool']) or $user->id == $tool->user_id;
+      });
+
+      Gate::define('create-event', function($user){
+        $user->hasAccess(['create-event']);
+      });
+
+      Gate::define('update-event', function($user, Event $event){
+        $user->hasAccess(['update-event']) or $user->id == $event->user_id;
+      });
     }
 }
