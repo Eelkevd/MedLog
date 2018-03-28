@@ -59,3 +59,6 @@ Route::get('account/theme_default', 'ThemeController@update');
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
 Route::get('/about', 'AboutusController@aboutus');
+
+// Route to medicine and aid pages
+Route::get('/medicine', 'MedicineController@create');
