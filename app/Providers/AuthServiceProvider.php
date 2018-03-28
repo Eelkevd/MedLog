@@ -39,40 +39,5 @@ class AuthServiceProvider extends ServiceProvider
         return $user->inRole(['hulpverlener']);
       });
 
-      Gate::define('create-diary', function($user){
-        return $user->hasAccess(['create-diary']);
-      });
-
-      Gate::define('create_entry', function($user){
-        return $user->hasAccess(['create_entry']);
-      });
-
-      Gate::define('update_entry', function($user, \App\Entry $entry ){
-        return $user->hasAccess(['update_entry']) or $user->id == $entry->user_id;
-      });
-
-      Gate::define('create-medicine', function($user){
-        return $user->hasAccess(['create-medicine']);
-      });
-
-      Gate::define('update-medicine', function($user, \App\Medicine $medicine){
-        return $user->hasAccess(['update-medicine']) or $user->id == $medicine->user_id;
-      });
-
-      Gate::define('create-tool', function($user){
-        return $user->hasAccess(['create-tool']);
-      });
-
-      Gate::define('update-tool', function($user, \App\Tool $tool){
-        return $user->hasAccess(['update-tool']) or $user->id == $tool->user_id;
-      });
-
-      Gate::define('create-event', function($user){
-        return $user->hasAccess(['create-event']);
-      });
-
-      Gate::define('update-event', function($user, \App\Event $event){
-        return $user->hasAccess(['update-event']) or $user->id == $event->user_id;
-      });
     }
 }

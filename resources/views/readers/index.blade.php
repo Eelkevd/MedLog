@@ -39,7 +39,7 @@
                           @foreach ($diaries as $diary)
                           <tr>
                             <td><b>{{ __('Clientnaam') }}</b></td>
-                            <td><a href="readers/show">
+                            <td><a href="readers/show">This will be a link with diary id = 
                             {{ $diary->id }}
                             </a></td>
                           </tr>
