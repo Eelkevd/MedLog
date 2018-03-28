@@ -9,6 +9,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use App\Traits\Encryptable;
 use App\Notifications\VerifyEmail;
 use App\Notifications\MailResetPasswordToken;
+use Auth;
 
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable
 {
@@ -44,6 +45,24 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
         'town',
         'postalcode',
     ];
+
+    /**
+    * Returns true if the user is a reader
+    *
+    * @return bool
+    */
+    public function reader()
+    {
+      if(Reader::where('user_id', Auth::id())->first())
+      {
+        return true;
+      }
+      else
+      {
+        return false;
+      }
+    }
+
 
     /**
     * Returns true if the user is verified

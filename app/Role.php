@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class Role extends Model
 {
@@ -35,6 +37,6 @@ class Role extends Model
     protected function hasPermission(string $permission)
     {
       $permissions = json_decode($this->permissions,true);
-      return $permissions[$permission]?$permissions[$permission]:false  
+      return $permissions[$permission]?$permissions[$permission]:false;
     }
 }
