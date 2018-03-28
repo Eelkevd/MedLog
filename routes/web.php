@@ -62,23 +62,23 @@ Route::middleware('validate')->group(function () {
   Route::post('/export/getdatePDF', 'ExportController@getperiodPDF');
   Route::post('/export/getPDF', 'ExportController@getPDF');
 
-  // Route to account page
-  Route::get('/account', 'AccountController@index');
-  Route::get('/account/edit', 'AccountController@edit');
-  Route::post('/account/edit', 'AccountController@update');
-
-  // Route to new themes
-  Route::get('account/theme_contrast', 'ThemeController@update_contrast');
-  Route::get('account/theme_vrolijk', 'ThemeController@update_vrolijk');
-  Route::get('account/theme_default', 'ThemeController@update');
-
 });
 
-// validated routers for readers
-Route::middleware('can:read-diary')->group(function () {
+// validated routers for readers middleware('can:read-diary')
+Route::middleware('auth')->group(function () {
   Route::get('/reader/login', 'ReaderController@login')
   ->name('reader_login');
 
-  Route::get('/reader/diary', 'ReaderController@show')
-  ->name('reader_diary');
+  Route::get('/reader/index', 'ReaderController@index')
+  ->name('reader_index');
 });
+
+// Route to account page
+Route::get('/account', 'AccountController@index');
+Route::get('/account/edit', 'AccountController@edit');
+Route::post('/account/edit', 'AccountController@update');
+
+// Route to new themes
+Route::get('account/theme_contrast', 'ThemeController@update_contrast');
+Route::get('account/theme_vrolijk', 'ThemeController@update_vrolijk');
+Route::get('account/theme_default', 'ThemeController@update');

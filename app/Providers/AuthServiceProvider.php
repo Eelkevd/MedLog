@@ -36,43 +36,43 @@ class AuthServiceProvider extends ServiceProvider
     public function registerReadPolicies()
     {
       Gate::define('read-diary', function($user){
-        $user->inRole(['hulpverlener']);
+        return $user->inRole(['hulpverlener']);
       });
 
       Gate::define('create-diary', function($user){
-        $user->hasAccess(['create-diary']);
+        return $user->hasAccess(['create-diary']);
       });
 
       Gate::define('create_entry', function($user){
-        $user->hasAccess(['create_entry']);
+        return $user->hasAccess(['create_entry']);
       });
 
       Gate::define('update_entry', function($user, \App\Entry $entry ){
-        $user->hasAccess(['update_entry']) or $user->id == $entry->user_id;
+        return $user->hasAccess(['update_entry']) or $user->id == $entry->user_id;
       });
 
       Gate::define('create-medicine', function($user){
-        $user->hasAccess(['create-medicine']);
+        return $user->hasAccess(['create-medicine']);
       });
 
       Gate::define('update-medicine', function($user, \App\Medicine $medicine){
-        $user->hasAccess(['update-medicine']) or $user->id == $medicine->user_id;
+        return $user->hasAccess(['update-medicine']) or $user->id == $medicine->user_id;
       });
 
       Gate::define('create-tool', function($user){
-        $user->hasAccess(['create-tool']);
+        return $user->hasAccess(['create-tool']);
       });
 
       Gate::define('update-tool', function($user, \App\Tool $tool){
-        $user->hasAccess(['update-tool']) or $user->id == $tool->user_id;
+        return $user->hasAccess(['update-tool']) or $user->id == $tool->user_id;
       });
 
       Gate::define('create-event', function($user){
-        $user->hasAccess(['create-event']);
+        return $user->hasAccess(['create-event']);
       });
 
       Gate::define('update-event', function($user, \App\Event $event){
-        $user->hasAccess(['update-event']) or $user->id == $event->user_id;
+        return $user->hasAccess(['update-event']) or $user->id == $event->user_id;
       });
     }
 }

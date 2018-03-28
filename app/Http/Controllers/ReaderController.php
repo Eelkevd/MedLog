@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Reader;
+use App\Diary;
 
 class ReaderController extends Controller
 {
@@ -11,8 +14,6 @@ class ReaderController extends Controller
   {
       $this->middleware('auth');
   }
-
-
 
     public function login()
     {
@@ -37,9 +38,15 @@ class ReaderController extends Controller
        ->with('succes', 'U kunt tijdelijk het dagboek inzien.');
     }
 
-    public function show()
+    // get all diaries that are available to the reader
+    public function index()
     {
+      $id = Auth::id();
+      $diaries = [];
+      $diary_id = Reader::where('user_id', $id)->pluck('diary_id');
+      $diaries = Diary::findOrFail($diary_id);
 
+      return view('readers/index', compact('diaries'));
     }
 
 }
