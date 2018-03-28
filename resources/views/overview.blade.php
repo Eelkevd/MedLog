@@ -34,7 +34,7 @@
                       <option value="{{ $entry->intensity }}">{{ $entry->intensity }}</option>
                     @endforeach()
                   </select>
-                  <button type="submit">Sorteer je dagboek op ziekte</button>
+                  <button type="submit">Sorteer je dagboek op intensiteit</button>
                   </form>
                   <br>
 
