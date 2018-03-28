@@ -33,7 +33,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/';
 
     /**
      * Create a new controller instance.
@@ -54,6 +54,7 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
+            'role' => 'required',
             'username' => 'required|string|unique:users|max:35',
             'firstname' => 'required|string|max:35',
             'middlename' => 'max:35',
@@ -93,7 +94,11 @@ class RegisterController extends Controller
             'verifyToken' => Str::random(40),
         ]);
 
+        // Attach th role of the user in the pivot table role_user
+        $user->roles()->attach($data['role']);
+        // Send an email with a verification link which redirects using the token
         $user->sendVerificationMail();
+
         return $user;
     }
 

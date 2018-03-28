@@ -52,7 +52,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     */
     public function roles()
     {
-      return $this->belongsToMany(Role::class, 'role_users');
+      return $this->belongsToMany(Role::class, 'role_user');
     }
 
 
