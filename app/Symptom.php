@@ -13,12 +13,7 @@ class Symptom extends Model
     	return 'symptom';
     }
 
-    public function entries()
-    {
-      return $this->belongsToMany('App\Entry');
-    }
-
-    public function diary()
+    public function diaries()
     {
       return $this->belongsToMany('App\Diary');
     }

@@ -18,7 +18,6 @@
 				<input type="text" name="symptom" placeholder="naam symptom">
 				<input type="submit" align="center" class="btnSub" value="ok">
 			</div>
-
 		</form>
 	</div>
 </div>

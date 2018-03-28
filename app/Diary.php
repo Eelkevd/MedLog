@@ -6,10 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
 {
-    protected $fillable = [
-        'user_id',
-    ];
-    
     public function user()
     {
     	return $this->belongsTo('App\User');
@@ -20,29 +16,23 @@ class Diary extends Model
     	return $this->hasMany('App\Entry');
     }
 
-    public function reader()
-    {
-    	return $this->hasMany('App\Reader');
-    }
-
-    public function sypmtom()
+    public function symptomes()
     {
     	return $this->belongsToMany('App\Symptom');
     }
 
     public function illness()
     {
-    	return $this->belongsToMany('App\Illness');
+      return $this->hasMany('App\Illness');
     }
 
-    public function medicine()
+    public function medicines()
     {
     	return $this->belongsToMany('App\Medicine');
     }
 
-    public function tool()
+    public function tools()
     {
     	return $this->belongsToMany('App\Tool');
     }
-
 }
