@@ -43,7 +43,8 @@
                   {{ $event -> start_date }}<br>
                   <b>Ziekte</b>
                   {{ $event -> title }} <br>
-                  <b>Symptoom</b><br><br>
+                  <b>Symptoom</b><br>
+                  <a href="{{ route('entries.show', $event->id) }}">Bekijk pagina</a><br><br>
                 @endforeach
 
                 @foreach($sortillness as $event)

@@ -18,7 +18,13 @@ class EntryController extends Controller
 	public function __construct()
 	{
       $this->middleware('auth');
-  	}
+  }
+
+	public function showentry($id)
+	{
+			$entry= Entry::findOrFail($id);
+    	return view('entries.show_entry', compact('entry'));
+	}
 
     // Gives data on symptomes and illnesses when user goes to the medform page
 	public function create()
