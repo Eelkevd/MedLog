@@ -17,8 +17,8 @@ class Medicine extends Model
 		'comment'
 	];
 
-  public function diaries()
-  {
-    return $this->belongsToMany('App\Diary');
-  }
+	public function diaries()
+	{
+		return $this->belongsToMany('App\Diary')->wherePivot('diary_id', 'medicine_id');
+	}
 }

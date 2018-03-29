@@ -19,6 +19,9 @@ class MedicineController extends Controller
   	// Function to go to te medicine page on nav btn click
 	public function home()
 	{
+		$medicine = Medicine::find(2);
+		dd($medicine->first()->get());
+
 		$medicines = Medicine::all();
 		return view('medicine/medicine', compact('medicines'));
 	}
@@ -35,8 +38,7 @@ class MedicineController extends Controller
 		// Check if user is logged in
 		if (Auth::check())
 		{
-			$medicine = Medicine::find(Auth::id());
-			dd($medicine->get());
+
 			// find the corresponding diary
 			$id = Auth::id();
 			$diary = Diary::where('user_id', $id)->first();
