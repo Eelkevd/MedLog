@@ -21,7 +21,7 @@ Password: @Insert12
 ### Workflow Week 13
 - monday: Restructing database, updated sprintlog/trello, fixed bugs, meeting with coaches
 - tuesday: Restructing database, finished userstories Patient-31, 32, 33 
-- wednesday:
+- wednesday: Restructing database, finished userstories Patient-10-2, 10-3, Reader-1, Patient 11-2 work in progress
 - thursday:
 - friday:
 
