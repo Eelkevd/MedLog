@@ -36,29 +36,28 @@ class MedicineController extends Controller
 	public function store(Request $request)
 	{
 		// Check if user is logged in
-		if (Auth::check())
-		{
+	if (Auth::check())
+	{
 
-			// find the corresponding diary
-			$id = Auth::id();
-			$diary = Diary::where('user_id', $id)->first();
+		// find the corresponding diary
+		$id = Auth::id();
+		$diary = Diary::where('user_id', $id)->first();
 
-			// add the diary_id to the request array
-			$request->request->add(['diary_id' => $diary->id]);
+		// add the diary_id to the request array
+		$request->request->add(['diary_id' => $diary->id]);
 
-			// add the entry into the tabel entries
-			$medicine = Medicine::create(request([
-				'medicine', 
-				'dose', 
-				'purpose', 
-				'side_effect', 
-				'expire_date',
-				'price', 
-				'comment'
-			]));
-			$medicine->diaries()->attach($request->diary_id);
+		// add the entry into the tabel entries
+		$medicine = Medicine::create(request([
+			'medicine', 
+			'dose', 
+			'purpose', 
+			'side_effect', 
+			'expire_date',
+			'price', 
+			'comment'
+		]));
+		$medicine->diaries()->attach($request->diary_id);
 
-			return redirect ('medicine');
-		}
+		return redirect ('medicine');
 	}
 }

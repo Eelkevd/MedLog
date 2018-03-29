@@ -41,4 +41,3 @@
 			</select>
 		</div>
 	</div>
-@endsection

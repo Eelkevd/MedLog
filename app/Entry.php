@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Entry extends Model
 {
     protected $fillable = [
+
         'diary_id',
         'illness_id',
         'timespan_date',
@@ -19,7 +20,7 @@ class Entry extends Model
         'witness_report',
         'comments'
         ];
-         
+
     public function diary()
     {
         return $this->belongsTo('App\Diary');
