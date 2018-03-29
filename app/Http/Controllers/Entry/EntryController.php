@@ -16,7 +16,14 @@ class EntryController extends Controller
 	{
       $this->middleware('auth');
   	}
-    // Gives data on symptomes and illnesses when user goes to the medform page
+
+		public function showentry($id)
+	{
+			$entry= Entry::findOrFail($id);
+    	return view('entries.show_entry', compact('entry'));
+	}
+
+  // Gives data on symptomes and illnesses when user goes to the medform page
 	public function create()
 	{
     	$symptomes = Symptom::all();
@@ -32,11 +39,13 @@ class EntryController extends Controller
 			// find the corresponding diary
 			$id = Auth::id();
 			$diary = Diary::where('user_id', $id)->first();
+
 			// add the diary_id to the request array
 			$request->request->add(['diary_id' => $diary->id]);
 			// add the entry into the tabel entries
 			$entry = Entry::create(request(['diary_id', 'illness_id', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 			$entry->symptomes()->attach($request->symptom);
+
 			// add diary entry as event to the database
 			$illness = Illness::where('id', $request->illness_id)->select('illness')->first();
 			Event::create([
@@ -45,6 +54,7 @@ class EntryController extends Controller
 			'start_date' => $request['timespan_date'],
 			'end_date' => $request['timespan_date'],
 			]);
+
 			// add diary entry/event to the calendar
 			$events = [];
 			$data = Event::all();
@@ -58,6 +68,7 @@ class EntryController extends Controller
 					);
 				}
 			}
+
 			$calendar = Calendar::addEvents($events);
 			return redirect ('entries');
 		}
