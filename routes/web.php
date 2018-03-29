@@ -66,4 +66,5 @@ Route::get('/about', 'AboutusController@aboutus');
 Route::get('/medicine', 'MedicineController@home');
 Route::get('/medicine/create_medicine', 'MedicineController@create');
 Route::post('/medicine/create_medicine', 'MedicineController@store');
+Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
 

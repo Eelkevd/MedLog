@@ -33,6 +33,11 @@
          <td> {{$entry->intensity}} </td>
        </tr>
        @endforeach
+<!--        @foreach ($illnesses as $key => $illness)
+       <tr>
+         <td> {{$illness->illness}} </td>
+       </tr>
+       @endforeach -->
      </tbody>
   </table>
 </body>

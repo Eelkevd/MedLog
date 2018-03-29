@@ -23,9 +23,9 @@ class Diary extends Model
     	return $this->belongsToMany('App\Symptom');
     }
 
-    public function illness()
+    public function illnesses()
     {
-      return $this->hasMany('App\Illness');
+      return $this->belongsToMany('App\Illness');
     }
 
     public function medicines()
