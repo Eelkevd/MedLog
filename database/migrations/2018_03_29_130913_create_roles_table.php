@@ -1,10 +1,9 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReaderTable extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +12,14 @@ class CreateReaderTable extends Migration
      */
     public function up()
     {
-        Schema::create('reader', function (Blueprint $table) {
+        Schema::create('roles', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
-            $table->integer('diary_id')->unsigned();
+            $table->string('name');
+            $table->string('slug')->unique();
+            $table->text('permissions')->nullable();
             $table->timestamps();
-
-            $table->foreign('user_id')->references('id')->on('users');
-            $table->foreign('diary_id')->references('id')->on('diaries');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -31,6 +27,6 @@ class CreateReaderTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reader');
+        Schema::dropIfExists('roles');
     }
 }

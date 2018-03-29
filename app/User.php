@@ -9,6 +9,7 @@ use Illuminate\Auth\Passwords\CanResetPassword;
 use App\Traits\Encryptable;
 use App\Notifications\VerifyEmail;
 use App\Notifications\MailResetPasswordToken;
+use Auth;
 
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable
 {
@@ -68,6 +69,34 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     }
 
     /**
+   * Returns true if the user is a reader
+   *
+   * @return bool
+   */
+   public function reader()
+   {
+     if(Reader::where('user_id', Auth::id())->first())
+     {
+       return true;
+     }
+     else
+     {
+       return false;
+     }
+   }
+
+   /**
+  * Returns true if the user is a reader
+  *
+  * @return bool
+  */
+  public function role()
+  {
+    $role = Role::where('user_id', Auth::id());
+
+  }
+
+    /**
      * Send a password reset email to the user
      */
     public function sendPasswordResetNotification($token)
@@ -84,4 +113,29 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     {
       return $this->hasMany('App\Event');
     }
+
+    /**
+    *  Define the roles of the user
+    *
+    * @return integer
+    */
+    public function roles()
+    {
+      return $this->belongsToMany(Role::class, 'role_user');
+    }
+    /**
+    * Returns true if the user is a hulpverlener (reader)
+    *
+    * @return bool
+    */
+    public function hasAccess(array $permissions)
+    {
+      foreach($this->roles as $role){
+        if($role->hasAccess($permissions)){
+          return true;
+        }
+      }
+      return false;
+    }
+
 }

@@ -40,11 +40,11 @@ class MedicineController extends Controller
 		{
 
 			// find the corresponding diary
-			$id = Auth::id();
-			$diary = Diary::where('user_id', $id)->first();
+			$user = Auth::user();
+			// $diary = Diary::where('user_id', $id)->first();
 
 			// add the diary_id to the request array
-			$request->request->add(['diary_id' => $diary->id]);
+			$request->request->add(['diary_id' => $user->diary->id]);
 
 			// add the entry into the tabel entries
 			$medicine = Medicine::create(request([
@@ -60,5 +60,12 @@ class MedicineController extends Controller
 
 			return redirect ('medicine');
 		}
+	}
+
+	// Function to show selected medicine
+	public function show($id)
+	{
+		$medicine= Medicine::findOrFail($id);
+    	return view('medicine.show_medicine', compact('medicine'));
 	}
 }

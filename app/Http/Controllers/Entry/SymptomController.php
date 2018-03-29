@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Entry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Symptom;
+use App\Diary;
 use Illuminate\Support\Facades\Auth;
 
 class SymptomController extends Controller
@@ -18,11 +19,17 @@ class SymptomController extends Controller
     // stores symptomes into database
 	public function store (Request $request) 
 	{
+		$user = Auth::user();
+		// $id = Auth::id();
+		// $diary = Diary::where('user_id', $id)->first();
+		
 		// $request['user_id'] = Auth::id();
+		$request->request->add(['diary_id' => $user->diary->id]);
 		$request->validate([
             'symptom'  => 'required',
         ]);
 		$symptom = Symptom::create(request(['symptom']));
+		$symptom->diaries()->attach($request->diary_id);
         return redirect ('entries');
 	}
 }

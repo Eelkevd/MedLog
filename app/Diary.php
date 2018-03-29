@@ -1,39 +1,39 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Diary extends Model
 {
-    protected $fillable = ['user_id'];
-    
+
+    protected $fillable = [
+        'user_id',
+    ];
+
     public function user()
     {
     	return $this->belongsTo('App\User');
     }
-
     public function entries()
     {
     	return $this->hasMany('App\Entry');
     }
-
-    public function symptomes()
+    public function reader()
+    {
+    	return $this->hasMany('App\Reader');
+    }
+    public function sypmtom()
     {
     	return $this->belongsToMany('App\Symptom');
     }
 
-    public function illness()
+    public function illnesses()
     {
-      return $this->hasMany('App\Illness');
+      return $this->belongsToMany('App\Illness');
     }
-
-    public function medicines()
+    public function medicine()
     {
     	return $this->belongsToMany('App\Medicine');
     }
-
-    public function tools()
+    public function tool()
     {
     	return $this->belongsToMany('App\Tool');
     }

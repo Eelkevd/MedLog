@@ -5,7 +5,6 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 
 class Illness extends Model
-
 {
 	protected $fillable = ['user_id', 'illness','start_date','end_date'];
 
@@ -19,7 +18,7 @@ class Illness extends Model
       return $this->hasMany('App\Entry');
     }
 
-		public function diary()
+	public function diary()
     {
     	return $this->belongsToMany('App\Diary');
     }

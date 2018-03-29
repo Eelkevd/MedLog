@@ -19,9 +19,10 @@ class EventController extends Controller
     // Requires data from database to fill in and show calendar
     public function index()
     {
-       $events = [];
-       $data = Event::all();
-       if($data->count()){
+        $user = Auth::user();
+        $events = [];
+        $data = $user->events;
+        if($data->count()){
           foreach ($data as $key => $value) {
             $events[] = Calendar::event(
                 $value->title,
@@ -30,32 +31,32 @@ class EventController extends Controller
                 new \DateTime($value->end_date.' +1 day')
             );
           }
-       }
-      $calendar = Calendar::addEvents($events);
-      return view('homepage.mycalendar', compact('calendar'));
+        }
+        $calendar = Calendar::addEvents($events);
+        return view('homepage.mycalendar', compact('calendar'));
     }
 
     // goes to create a new event page/view
     public function create()
     {
-      return view('homepage.create');
+        return view('homepage.create');
     }
 
     // adds new event to the event database to show later in calendar
     public function store(Request $request)
     {
         // add the user_id to the request array
-  			$user_id = Auth::id();
-  			$request->request->add(['user_id' => $user_id]);
+        $user = Auth::user();
+  		$request->request->add(['user_id' => $user->id]);
 
         // send the request information through the model to store
         Event::create($request->all());
         $events = [];
         $request->validate([
-
             'title' => 'required',
             'start_date' => 'required'
         ]);
+
         $data = Event::all();
         if($data->count()){
           foreach ($data as $key => $value) {

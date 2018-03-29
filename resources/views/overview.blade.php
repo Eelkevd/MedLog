@@ -38,13 +38,12 @@
                   </form>
                   <br>
 
-                @foreach($search as $event)
+                @foreach($entries as $entry)
                   <b>Datum</b>
-                  {{ $event -> start_date }}<br>
+                  {{ $entry -> timespan_date }}<br>
                   <b>Ziekte</b>
-                  {{ $event -> title }} <br>
-                  <b>Symptoom</b><br>
-                  <a href="{{ route('entries.show', $event->id) }}">Bekijk pagina</a><br><br>
+                  {{ $entry -> illness_id }} <br>
+                  <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
                 @endforeach
 
                 @foreach($sortillness as $event)

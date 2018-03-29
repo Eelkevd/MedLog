@@ -29,7 +29,7 @@
        <tr>
          <td> {{$entry->timespan_date}} </td>
          <td> {{$entry->timespan_time}} </td>
-         <td> {{$entry->illness_id}} </td>
+         <td> {{$entry->illness}} </td>
          <td> {{$entry->intensity}} </td>
        </tr>
        @endforeach

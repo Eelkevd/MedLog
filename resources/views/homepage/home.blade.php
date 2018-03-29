@@ -6,19 +6,36 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
           <div class="card-body">
-              @if (!(auth()->user()->verified()))
-                  <div class="alert alert-danger">
-                    <br /><strong>
-                      Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
-                          </strong>
-                  </div>
+
+            <!-- check to see if the user is a reader -->
+            @if (auth()->user()->role())
+            <div class="alert alert-success">
+              <strong>
+                Welkom lezer!<br/>
+                Heeft u een uitnodiging ontvangen om een dagboek te lezen?<br />
+                Gebruik dan het wachtwoord dat u heeft ontvangen om het dagboek te openen.
+                <br /><br />
+                <p>
+                Let op! Elk dagboek is slechts voor een bepaalde tijd in te zien.
+              </strong></p>
+            </div>
+
+
+          <!-- check to see if the user has verified their enmailadres -->
+            @elseif (!(auth()->user()->verified()))
+                <div class="alert alert-danger">
+                  <br /><strong>
+                    Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
+                        </strong>
+                </div>
+
               @else
 
                 @if (session('succes'))
                         <div class="alert alert-success">
                             {{ session('succes') }}
                         </div>
-                @endif        
+                @endif
 
 
               </div>
