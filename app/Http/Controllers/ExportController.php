@@ -15,7 +15,7 @@ class ExportController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     // function to show export page
     public function index()
     {
@@ -25,7 +25,7 @@ class ExportController extends Controller
     // function to export complete diary
     public function getPDF()
     {
-        $entries = Entry::orderBy('timespan_date', 'DESC')->get();
+        $entries = Entry::all()->sortByDesc('timespan_date');
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries ]);
         return $pdf->download('dagboek.pdf');
     }
@@ -35,7 +35,7 @@ class ExportController extends Controller
     {
         $illnesses = $request->input('illness');
         $illness_id = Illness::where('illness', $illnesses)->value('id');
-        $entries = Entry::all()->where('illness_id', $illness_id)->orderBy('timespan_date', 'DESC');
+        $entries = Entry::all()->where('illness_id', $illness_id)->sortByDesc('timespan_date');
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries]);
         return $pdf->download('dagboek.pdf');
     }

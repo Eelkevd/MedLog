@@ -18,12 +18,17 @@ class EntryController extends Controller
 	public function __construct()
 	{
       $this->middleware('auth');
-  	}
+  }
+
+	public function showentry($id)
+	{
+			$entry= Entry::findOrFail($id);
+    	return view('entries.show_entry', compact('entry'));
+	}
 
     // Gives data on symptomes and illnesses when user goes to the medform page
 	public function create()
 	{
-
     	$symptomes = Symptom::all();
     	$illnesses = Illness::all();
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
@@ -42,7 +47,7 @@ class EntryController extends Controller
 			// add the diary_id to the request array
 			$request->request->add(['diary_id' => $diary->id]);
 			// add the entry into the tabel entries
-			$entry = Entry::create(request(['diary_id', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
+			$entry = Entry::create(request(['diary_id', 'illness_id', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 			$entry->symptomes()->attach($request->symptom);
 
 			// add diary entry as event to the database

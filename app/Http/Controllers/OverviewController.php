@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Calendar;
 use App\Event;
+use App\Diary;
 use App\Entry;
 use App\Symptom;
 use App\Illness;
@@ -23,6 +24,8 @@ class OverviewController extends Controller
     // function to show overview page with all diary entries
     public function index()
     {
+        $id = Auth::id();
+        $diary = Diary::where('user_id', $id)->first();
         $sortword = "nope";
         $keyword = "";
         $currentdate = date("Y-m-d H:i:s");
@@ -30,8 +33,10 @@ class OverviewController extends Controller
                        ->where('start_date', '<=' ,$currentdate)->orderBy('start_date', 'DESC')->get();
         $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());
-        $entries = Entry::all()->where('user_id', Auth::id());
+        // $illnesses = Illness::all()->where('user_id', Auth::id());
+        $illnesses = Illness::all();
+        // $entries = Entry::all()->where('user_id', Auth::id());
+        $entries = Entry::all();
         return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
     }
 
@@ -43,8 +48,10 @@ class OverviewController extends Controller
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
         $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());
-        $entries = Entry::all()->where('user_id', Auth::id());
+        // $illnesses = Illness::all()->where('user_id', Auth::id());
+        $illnesses = Illness::all();
+        // $entries = Entry::all()->where('user_id', Auth::id());
+        $entries = Entry::all();
         return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
     }
 
@@ -56,8 +63,10 @@ class OverviewController extends Controller
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         $sortillness = Event::all()->where('title', $sortword);
         $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = Illness::all()->where('user_id', Auth::id());
-        $entries = Entry::all()->where('user_id', Auth::id());
+        // $illnesses = Illness::all()->where('user_id', Auth::id());
+        $illnesses = Illness::all();
+        // $entries = Entry::all()->where('user_id', Auth::id());
+        $entries = Entry::all();
         return view('overview', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
    }
 
@@ -70,8 +79,10 @@ class OverviewController extends Controller
        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
        $sortintensity = Event::all()->where('title', $illness_name->illness);
        $sortillness = Event::all()->where('title', $keyword);
-       $illnesses = Illness::all()->where('user_id', Auth::id());
-       $entries = Entry::all()->where('user_id', Auth::id());
+       // $illnesses = Illness::all()->where('user_id', Auth::id());
+       $illnesses = Illness::all();
+       // $entries = Entry::all()->where('user_id', Auth::id());
+       $entries = Entry::all();
        return view('overview', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
   }
 }
