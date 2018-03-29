@@ -41,10 +41,16 @@ class ReaderController extends Controller
     // get all diaries that are available to the reader
     public function index()
     {
+      // get id of reaer
       $id = Auth::id();
+      // start array
       $diaries = [];
+      // check reader table to see which diary id the reader can watch
       $diary_id = Reader::where('user_id', $id)->pluck('diary_id');
+      // get the diaries with the verified diary ids.
       $diaries = Diary::findOrFail($diary_id);
+      // get name of corresponding clients
+      
 
       return view('readers/index', compact('diaries'));
     }
