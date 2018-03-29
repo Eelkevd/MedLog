@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Entry extends Model
 {
     protected $fillable = [
+
         'diary_id',
         'illness_id',
         'timespan_date',
