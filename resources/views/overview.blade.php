@@ -42,11 +42,7 @@
                   <b>Datum</b>
                   {{ $entry -> timespan_date }}<br>
                   <b>Ziekte</b>
-                  {{ $entry -> illness }} <br>
-                  <b>Tijd</b>
-                  {{ $entry -> timespan_time }}<br>
-                  <b>Intensiteit</b>
-                  {{ $entry -> intensity }}<br>
+                  {{ $entry -> illness_id }} <br>
                   <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
                 @endforeach
 

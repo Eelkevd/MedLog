@@ -67,7 +67,7 @@
 
                               <!-- Show location -->
                               <tr>
-                                  <td><b>{{ __('Location: ') }}</b></td>
+                                  <td><b>{{ __('Locatie: ') }}</b></td>
                                   <td>{{ $entry-> location }}</td>
                               </tr>
                         </table>
