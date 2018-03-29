@@ -29,7 +29,7 @@ Route::get('/aboutus', 'AboutusController@aboutus');
 Route::get('/about', 'AboutusController@aboutus');
 
 // validated routers for users with a diary
-Route::middleware('validate')->group(function () {
+Route::middleware('auth')->group(function () {
 
   // Routes to do show, search in or create event in calendar
   Route::get('/home/create_event', 'EventController@create');
