@@ -23,11 +23,10 @@ class IllnessController extends Controller
         ]);
         // add the diary_id to the request array
 		// find the corresponding diary
-		$id = Auth::id();
-		$diary = Diary::where('user_id', $id)->first();
+		$user = Auth::user();
 
 		// add the diary_id to the request array
-		$request->request->add(['diary_id' => $diary->id]);
+		$request->request->add(['diary_id' => $user->diary->id]);
 		$illness = Illness::create(request(['illness']));
 
 		$illness->diary()->attach($request->diary_id);

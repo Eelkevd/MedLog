@@ -18,7 +18,7 @@ class Illness extends Model
       return $this->hasMany('App\Entry');
     }
 
-		public function diary()
+	public function diary()
     {
     	return $this->belongsToMany('App\Diary');
     }

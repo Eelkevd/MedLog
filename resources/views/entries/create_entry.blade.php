@@ -20,10 +20,10 @@
 				<!-- places all illnesses from db -->
 				<div>
 					<h5>Aandoening: *</h5>
-					<select name="illness_id" class="medform-control{{ $errors->has('illness_id') ? ' is-invalid' : '' }}" required>
+					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
 							<option selected></option>
 						@foreach($illnesses as $illness)
-							<option value="{{ $illness->id }}">{{ $illness->illness }}</option>
+							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
 						@endforeach()
 					</select>
 <!-- 					@if ($errors->has('illness_id'))

@@ -19,15 +19,16 @@ class EntryController extends Controller
 
 		public function showentry($id)
 	{
-			$entry= Entry::findOrFail($id);
+		$entry= Entry::findOrFail($id);
     	return view('entries.show_entry', compact('entry'));
 	}
 
   // Gives data on symptomes and illnesses when user goes to the medform page
 	public function create()
 	{
-    	$symptomes = Symptom::all();
-    	$illnesses = Illness::all();
+		$user = Auth::user();
+    	$symptomes = $user->diary->symptomes;
+    	$illnesses = $user->diary->illnesses;
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
@@ -37,19 +38,23 @@ class EntryController extends Controller
 		if (Auth::check())
 		{
 			// find the corresponding diary
-			$id = Auth::id();
-			$diary = Diary::where('user_id', $id)->first();
+			$user = Auth::user();
+			// $diary = $user->diary->entries->all();
+			// foreach ($entries as $entry){
+			// 	$entry->symptoms->all();
+			// }
+			// dd($diary);
 
 			// add the diary_id to the request array
-			$request->request->add(['diary_id' => $diary->id]);
+			$request->request->add(['diary_id' => $user->diary->id]);
 			// add the entry into the tabel entries
-			$entry = Entry::create(request(['diary_id', 'illness_id', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
+			$entry = Entry::create(request(['diary_id', 'illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 			$entry->symptomes()->attach($request->symptom);
 
-			// add diary entry as event to the database
-			$illness = Illness::where('id', $request->illness_id)->select('illness')->first();
+			//add diary entry as event to the database
+			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
 			Event::create([
-			'user_id' => $id,
+			'user_id' => $user->id,
 			'title' => $illness->illness,
 			'start_date' => $request['timespan_date'],
 			'end_date' => $request['timespan_date'],
@@ -58,8 +63,10 @@ class EntryController extends Controller
 			// add diary entry/event to the calendar
 			$events = [];
 			$data = Event::all();
-			if($data->count()){
-				foreach ($data as $key => $value) {
+			if($data->count())
+			{
+				foreach ($data as $key => $value) 
+				{
 					$events[] = Calendar::event(
 						$value->title,
 						$value->description,
