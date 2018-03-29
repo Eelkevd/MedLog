@@ -17,7 +17,6 @@ class CreateIllnessesTable extends Migration
             $table->increments('id')->unsigned();
             $table->string('illness');
             $table->timestamps();
-
         });
     }
 

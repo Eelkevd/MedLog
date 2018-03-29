@@ -16,6 +16,7 @@ class CreateEntriesTable extends Migration
         Schema::create('entries', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->integer('diary_id')->unsigned();
+            $table->integer('illness_id')->unsigned();
             $table->date('timespan_date')->nullable();
             $table->time('timespan_time')->nullable();
             $table->string('location')->nullable();

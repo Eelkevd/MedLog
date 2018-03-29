@@ -16,6 +16,12 @@ class CreateMedicinesTable extends Migration
         Schema::create('medicines', function (Blueprint $table) {
             $table->increments('id');
             $table->string('medicine');
+            $table->string('dose')->nullable();
+            $table->string('purpose')->nullable();
+            $table->string('side_effect')->nullable();
+            $table->date('expire_date')->nullable();
+            $table->decimal('price', 8, 2)->nullable();
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

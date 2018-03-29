@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDiariesMedicinesPivTable extends Migration
+class CreateReaderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,14 @@ class CreateDiariesMedicinesPivTable extends Migration
      */
     public function up()
     {
-        Schema::create('diary_medicine', function (Blueprint $table) {
+        Schema::create('reader', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned();
             $table->integer('diary_id')->unsigned();
-            $table->integer('medicine_id')->unsigned();
+            $table->timestamps();
 
+            $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('diary_id')->references('id')->on('diaries');
-            $table->foreign('medicine_id')->references('id')->on('medicines');
         });
     }
 
@@ -30,6 +31,6 @@ class CreateDiariesMedicinesPivTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('diaries_medicines_piv');
+        Schema::dropIfExists('reader');
     }
 }
