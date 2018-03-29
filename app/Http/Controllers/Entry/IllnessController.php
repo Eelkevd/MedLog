@@ -30,6 +30,8 @@ class IllnessController extends Controller
 		$request->request->add(['diary_id' => $diary->id]);
 		$illness = Illness::create(request(['illness']));
 
+		$illness->diary()->attach($request->diary_id);
+		
         return redirect ('entries');
 	}
 }
