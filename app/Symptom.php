@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Symptom extends Model
 {
-    protected $fillable = ['user_id', 'symptom','start_date','end_date'];
+    protected $fillable = ['diary_id', 'user_id', 'symptom','start_date','end_date'];
 
     public function getRouteKeyName()
     {
