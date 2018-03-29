@@ -1,9 +1,6 @@
 <?php
-
 namespace App;
-
 use Illuminate\Database\Eloquent\Model;
-
 class Entry extends Model
 {
     protected $fillable = [
@@ -24,9 +21,12 @@ class Entry extends Model
     {
         return $this->belongsTo('App\Diary');
     }
-
     public function symptomes()
     {
-        return $this->belongsToMany('App\Symptom');
+    	return $this->belongsToMany('App\Symptom');
+    }
+    public function illness()
+    {
+      return $this->belongsTo('App\Illness');
     }
 }

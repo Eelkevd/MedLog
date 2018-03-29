@@ -13,7 +13,7 @@ class DiarySymptoms extends Migration
      */
     public function up()
     {
-        Schema::create('diary_symptoms', function (Blueprint $table) {
+        Schema::create('diary_symptom', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('diary_id')->unsigned();
             $table->integer('symptom_id')->unsigned();

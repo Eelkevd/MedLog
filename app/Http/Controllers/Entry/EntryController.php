@@ -1,7 +1,5 @@
 <?php
-
 namespace App\Http\Controllers\Entry;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Symptom;
@@ -11,29 +9,27 @@ use Illuminate\Support\Facades\Auth;
 use Calendar;
 use App\Event;
 use App\Diary;
-
 class EntryController extends Controller
 {
 	//authentication requirement
 	public function __construct()
 	{
       $this->middleware('auth');
-  }
+  	}
 
-	public function showentry($id)
+		public function showentry($id)
 	{
 			$entry= Entry::findOrFail($id);
     	return view('entries.show_entry', compact('entry'));
 	}
 
-    // Gives data on symptomes and illnesses when user goes to the medform page
+  // Gives data on symptomes and illnesses when user goes to the medform page
 	public function create()
 	{
     	$symptomes = Symptom::all();
     	$illnesses = Illness::all();
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
-
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
 	{
@@ -72,6 +68,7 @@ class EntryController extends Controller
 					);
 				}
 			}
+
 			$calendar = Calendar::addEvents($events);
 			return redirect ('entries');
 		}

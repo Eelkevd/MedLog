@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Account</div>
+                <div class="card-header">Account
                     @guest
                     <!-- Show not logged in screen -->
                     <div class="col-md-6">
@@ -14,9 +14,13 @@
                     </div>
                     @endguest
 
-                    @auth
+                    @if (auth()->user()->roles('hulpverlener'))
 
-                      @if (!(auth()->user()->verified()))
+                      {{ __('Lezer: ') }}
+                      {{ $user -> username }}
+                      </div>
+                    @elseif (!(auth()->user()->verified()))
+                    </div>
                       <div class="card-body">
                               <div class="alert alert-danger">
                                 <br /><strong>
@@ -24,7 +28,8 @@
                                       </strong>
                               </div>
                       </div>
-                      @else
+
+                    @endif
 
                       <!-- Show users account data -->
                       @include('accounts/account')
@@ -115,11 +120,9 @@
 
                       </table>
 
-                      @endif
                     </div>
                   </div>
 
-                    @endauth
             </div>
         </div>
     </div>
