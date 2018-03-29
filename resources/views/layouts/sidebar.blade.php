@@ -54,7 +54,7 @@
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
               Middelen</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li><a href="/medicijnen">Medicijnen</a></li>
+                <li><a href="/medicine">Medicijnen</a></li>
                 <li><a href="/hulpmiddelen">Hulpmiddelen</a></li>
             </ul>
          </li>

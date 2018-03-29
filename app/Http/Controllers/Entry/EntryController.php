@@ -27,7 +27,7 @@ class EntryController extends Controller
 	public function create()
 	{
 		$user = Auth::user();
-    	$symptomes = $user->diary->symptomes;
+    	$symptomes = Symptom::all();
     	$illnesses = $user->diary->illnesses;
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
@@ -54,10 +54,10 @@ class EntryController extends Controller
 			//add diary entry as event to the database
 			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
 			Event::create([
-			'user_id' => $user->id,
-			'title' => $illness->illness,
-			'start_date' => $request['timespan_date'],
-			'end_date' => $request['timespan_date'],
+				'user_id' => $user->id,
+				'title' => $illness->illness,
+				'start_date' => $request['timespan_date'],
+				'end_date' => $request['timespan_date'],
 			]);
 
 			// add diary entry/event to the calendar
