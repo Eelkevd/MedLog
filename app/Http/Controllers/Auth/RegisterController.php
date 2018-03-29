@@ -100,6 +100,7 @@ class RegisterController extends Controller
     {
       // checked, returns names of roles
       $roles=\App\Role::orderBy('name')->pluck('name', 'id');
+      
       return view('auth.login', compact('roles'));
     }
 }

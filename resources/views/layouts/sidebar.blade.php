@@ -4,7 +4,7 @@
   <div class="sidebar-header">
       <h3>Menu</h3>
   </div>
-  @if (auth()->user()->reader())
+  @if (auth()->user()->roles('hulpverlener'))
     <!-- Sidebar Links for readers -->
     <ul class="list-unstyled CTAs">
         <!-- white button -->

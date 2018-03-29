@@ -14,7 +14,7 @@
                     </div>
                     @endguest
 
-                    @if (auth()->user()->reader())
+                    @if (auth()->user()->roles('hulpverlener'))
 
                       {{ __('Lezer: ') }}
                       {{ $user -> username }}

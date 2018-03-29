@@ -14,13 +14,13 @@
                     </div>
                     @endguest
 
-                    @if (!(auth()->user()->reader()))
+                    @if (!auth()->user()->roles('hulpverlener'))
 
                       <div class="col-md-6">
                           <label >{{ __('Je bent niet geregistreerd als lezer') }}</label>
                       </div>
 
-                    @elseif (auth()->user()->reader())
+                    @elseif (auth()->user()->roles('hulpverlener'))
 
                       <div class="card-header">
                         {{ __('Uw clienten') }}

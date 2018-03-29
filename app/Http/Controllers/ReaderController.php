@@ -11,10 +11,12 @@ class ReaderController extends Controller
   {
       $this->middleware('auth');
   }
+
     public function login()
     {
       return view('reader/login');
     }
+
     public function verify($verifyToken)
     {
         // find the correct diary by token
@@ -28,6 +30,7 @@ class ReaderController extends Controller
         return redirect('/reader/diary')
        ->with('succes', 'U kunt tijdelijk het dagboek inzien.');
     }
+    
     // get all diaries that are available to the reader
     public function index()
     {
