@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEventsTable extends Migration
+class CreateReaderTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,16 +13,14 @@ class CreateEventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('events', function (Blueprint $table) {
-            $table->increments('id')->unsigned();
+        Schema::create('reader', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id')->unsigned();
-            $table->string('title');
-            $table->text('description')->nullable();
-            $table->date('start_date');
-            $table->date('end_date')->nullable();
+            $table->integer('diary_id')->unsigned();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('diary_id')->references('id')->on('diaries');
         });
     }
 
@@ -33,6 +31,6 @@ class CreateEventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('events');
+        Schema::dropIfExists('reader');
     }
 }

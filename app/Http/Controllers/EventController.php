@@ -1,5 +1,6 @@
 <?php
 
+// Controller of the event section
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -43,9 +44,15 @@ class EventController extends Controller
     // adds new event to the event database to show later in calendar
     public function store(Request $request)
     {
+        // add the user_id to the request array
+  			$user_id = Auth::id();
+  			$request->request->add(['user_id' => $user_id]);
+
+        // send the request information through the model to store
         Event::create($request->all());
         $events = [];
         $request->validate([
+
             'title' => 'required',
             'start_date' => 'required'
         ]);

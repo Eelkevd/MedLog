@@ -16,11 +16,11 @@ class Illness extends Model
 
     public function entry()
     {
-      return $this->belongsToMany(Entry::class);
+      return $this->hasMany('App\Entry');
     }
 
-    public function user()
+		public function diary()
     {
-      return $this->belongsTo(User::class);
+    	return $this->belongsToMany('App\Diary');
     }
 }

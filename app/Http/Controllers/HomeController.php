@@ -10,11 +10,6 @@ use App\Event;
 
 class HomeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     public function __construct()
     {
         // First check if user is logged in

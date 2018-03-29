@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Diary;
 use Illuminate\Support\Facades\Input;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -91,7 +92,13 @@ class RegisterController extends Controller
             'verifyToken' => Str::random(40),
         ]);
 
+        
+
         $user->sendVerificationMail();
+
+        // $diary = new Diary();
+        // $diary->user_id = User::id();
+        // $diary->save();
 
         return $user;
     }
