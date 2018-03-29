@@ -85,6 +85,17 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      }
    }
 
+   /**
+  * Returns true if the user is a reader
+  *
+  * @return bool
+  */
+  public function role()
+  {
+    $role = Role::where('user_id', Auth::id());
+
+  }
+
     /**
      * Send a password reset email to the user
      */

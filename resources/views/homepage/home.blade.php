@@ -8,7 +8,7 @@
           <div class="card-body">
 
             <!-- check to see if the user is a reader -->
-            @if (auth()->user()->roles('hulpverlener'))
+            @if (auth()->user()->role())
             <div class="alert alert-success">
               <strong>
                 Welkom lezer!<br/>
