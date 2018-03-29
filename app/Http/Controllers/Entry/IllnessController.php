@@ -29,7 +29,7 @@ class IllnessController extends Controller
 		// add the diary_id to the request array
 		$request->request->add(['diary_id' => $diary->id]);
 		$illness = Illness::create(request(['illness']));
-		
+
         return redirect ('entries');
 	}
 }
