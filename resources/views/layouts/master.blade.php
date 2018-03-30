@@ -53,9 +53,37 @@
         });
      </script>
 
-<!-- implement the contrast theme -->
-@if (Auth::user()->theme === 'contrast')
 
+
+<!-- implement the default theme -->
+@if (Auth::user()->theme === 'default')
+
+     <script>
+       src="jquery-3.3.1.min.js"
+       $().ready(function() {
+         $('body').css({
+           'font-color': 'black',
+        })
+          $('#sidebar, .sidebar-header').css({
+             'background-color': '#7386D5',
+         })
+           $('p').css({
+               'color': 'black',
+           })
+           $('.btn').css({
+               'background-color': '7386D5',
+           })
+           $('.download').css({
+               'color': 'black',
+           })
+           $('.article').css({
+               'background-color': 'white',
+               'color': '7386D5',
+           })
+           ;
+       });
+
+@elseif (Auth::user()->theme === 'contrast')
      <script>
        src="jquery-3.3.1.min.js"
        $().ready(function() {
