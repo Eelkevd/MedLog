@@ -38,28 +38,29 @@
                   </form>
                   <br>
 
-                @foreach($entries as $entry)
+                @foreach($search as $entry)
                   <b>Datum</b>
                   {{ $entry -> timespan_date }}<br>
                   <b>Ziekte</b>
-                  {{ $entry -> illness_id }} <br>
+                  {{ $entry -> illness }} <br>
                   <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
                 @endforeach
 
-                @foreach($sortillness as $event)
+                @foreach($sortillness as $entry)
                   <b>Datum</b>
-                  {{ $event -> start_date }}<br>
+                  {{ $entry -> timespan_date }}<br>
                   <b>Ziekte</b>
-                  {{ $event -> title }} <br>
-                  <b>Symptoom</b><br><br>
+                  {{ $entry -> illness }} <br>
+                  <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
+
                 @endforeach
 
-                @foreach($sortintensity as $event)
+                @foreach($sortintensity as $entry)
                   <b>Datum</b>
-                  {{ $event -> start_date }}<br>
+                  {{ $entry -> timespan_date }}<br>
                   <b>Ziekte</b>
-                  {{ $event -> title }} <br>
-                  <b>Symptoom</b><br><br>
+                  {{ $entry -> illness }} <br>
+                  <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
                 @endforeach
                 </div>
             </div>

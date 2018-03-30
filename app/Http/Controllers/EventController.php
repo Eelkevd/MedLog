@@ -19,9 +19,13 @@ class EventController extends Controller
     // Requires data from database to fill in and show calendar
     public function index()
     {
-       $events = [];
-       $data = Event::all();
-       if($data->count()){
+
+        $user = Auth::user();
+        $events = [];
+        $data = $user->events;
+        
+        if($data->count()){
+
           foreach ($data as $key => $value) {
             $events[] = Calendar::event(
                 $value->title,

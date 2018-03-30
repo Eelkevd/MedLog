@@ -23,12 +23,9 @@ class Diary extends Model
     	return $this->hasMany('App\Reader');
     }
 
-    public function diaryUsers()
-    {
-      return $this->belongsToMany(User::class, 'readers');
-    }
-
-    public function sypmtom()
+    // might be used in controllers as symptom
+   // when bugs appear, check spelling in view and controllers
+    public function symptomes()
     {
     	return $this->belongsToMany('App\Symptom');
     }
@@ -38,7 +35,9 @@ class Diary extends Model
       return $this->belongsToMany('App\Illness');
     }
 
-    public function medicine()
+  // might be used in controllers as medicine
+   // when bugs appear, check spelling in view and controllers
+    public function medicines()
     {
     	return $this->belongsToMany('App\Medicine');
     }
