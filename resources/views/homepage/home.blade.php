@@ -8,7 +8,7 @@
           <div class="card-body">
 
             <!-- check to see if the user is a reader -->
-            @if (auth()->user()->role())
+            @if (auth()->user()->reader())
             <div class="alert alert-success">
               <strong>
                 Welkom lezer!<br/>
@@ -20,25 +20,27 @@
               </strong></p>
             </div>
 
-
           <!-- check to see if the user has verified their enmailadres -->
-            @elseif (!(auth()->user()->verified()))
-                <div class="alert alert-danger">
-                  <br /><strong>
-                    Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
-                        </strong>
-                </div>
-
-              @else
-
-                @if (session('succes'))
-                        <div class="alert alert-success">
-                            {{ session('succes') }}
-                        </div>
-                @endif
+            @elseif (!(auth()->user()->verified()) && !(auth()->user()->reader()))
+            <!-- else user is gebruiker en heeft nog niet geverificeerd -->
+            <div class="alert alert-danger">
+              <br /><strong>
+                Hartelijk dank voor uw registratie!<br />
+                Voor u verder kunt gaan, moet u uw email verificeren. <br />
+                Bekijk uw email om uw account te activeren.
+                    </strong>
+            </div>
 
 
-              </div>
+
+            @elseif (auth()->user()->verified())
+              @if (session('succes'))
+                      <div class="alert alert-success">
+                          {{ session('succes') }}
+                      </div>
+              @endif
+
+      </div>
               <div class="card">
                   <div class="card-header">Home</div>
                   <div class="card-body">
