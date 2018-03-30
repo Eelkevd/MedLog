@@ -24,20 +24,18 @@ class OverviewController extends Controller
     // function to show overview page with all diary entries
     public function index()
     {
-        $id = Auth::id();
-        $diary = Diary::where('user_id', $id)->first();
-        $sortword = "nope";
-        $keyword = "";
-        $currentdate = date("Y-m-d H:i:s");
-        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')
-                       ->where('start_date', '<=' ,$currentdate)->orderBy('start_date', 'DESC')->get();
-        $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
-        // $illnesses = Illness::all()->where('user_id', Auth::id());
-        $illnesses = Illness::all();
-        // $entries = Entry::all()->where('user_id', Auth::id());
-        $entries = Entry::all();
-        return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
+      $user = Auth::user();
+      $diary = $user->diary;
+      $sortword = "nope";
+      $keyword = "";
+      $currentdate = date("Y-m-d H:i:s");
+      $search = Event::where('title', 'LIKE', '%' . $keyword . '%')
+                     ->where('start_date', '<=' ,$currentdate)->orderBy('start_date', 'DESC')->get();
+      $sortillness = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
+      $sortintensity = Event::where('title', 'LIKE', '%' . $sortword . '%')->get();
+      $illnesses = $user->diary->illnesses;
+      $entries = $user->diary->entries;
+      return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
     }
 
     // function to make search function work

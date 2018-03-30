@@ -28,6 +28,7 @@ Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
 Route::get('/aboutus', 'AboutusController@aboutus');
 Route::get('/about', 'AboutusController@aboutus');
 
+
 // validated routers for users with a diary
 Route::middleware('auth')->group(function () {
 
@@ -65,10 +66,11 @@ Route::middleware('auth')->group(function () {
   Route::post('/export/getdatePDF', 'ExportController@getperiodPDF');
   Route::post('/export/getPDF', 'ExportController@getPDF');
 
-  // Route to medicine and aid pages
-  Route::get('/medicine', 'MedicineController@home');
-  Route::get('/medicine/create_medicine', 'MedicineController@create');
-  Route::post('/medicine/create_medicine', 'MedicineController@store');
+// Route to medicine and aid pages
+Route::get('/medicine', 'MedicineController@home');
+Route::get('/medicine/create_medicine', 'MedicineController@create');
+Route::post('/medicine/create_medicine', 'MedicineController@store');
+Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
 
 });
 
