@@ -1,11 +1,18 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Traits\Encryptable;
+use Illuminate\Support\Facades\Crypt;
 use Auth;
 use App\Reader;
 use App\Diary;
+use App\User;
+
+
 class ReaderController extends Controller
 {
+  use Encryptable;
+
   //authentication requirement
   public function __construct()
   {
@@ -30,14 +37,23 @@ class ReaderController extends Controller
         return redirect('/reader/diary')
        ->with('succes', 'U kunt tijdelijk het dagboek inzien.');
     }
-    
+
     // get all diaries that are available to the reader
     public function index()
     {
-      $id = Auth::id();
-      $diaries = [];
-      $diary_id = Reader::where('user_id', $id)->pluck('diary_id');
-      $diaries = Diary::findOrFail($diary_id);
-      return view('readers/index', compact('diaries'));
+
+      $reader_id= Auth::id();
+
+      $reader = [];
+      $reader = Reader::with('diary', 'user')
+      ->where('id', $reader_id)
+      ->get();
+
+      $clients = User::where('id', $reader->pluck('user_id'))
+      ->get();
+
+      $name = $clients->pluck('firstname');
+
+      return view('readers/index', compact('reader', 'clients', 'name'));
     }
 }

@@ -114,6 +114,12 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
       return $this->hasMany('App\Event');
     }
 
+    public function clients()
+    {
+      return $this->belongsToMany('App\Reader');
+    }
+
+
     /**
     *  Define the roles of the user
     *
@@ -137,5 +143,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
       }
       return false;
     }
+
 
 }

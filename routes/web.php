@@ -94,4 +94,3 @@ Route::middleware('auth')->group(function () {
   Route::get('account/theme_vrolijk', 'ThemeController@update_vrolijk');
   Route::get('account/theme_default', 'ThemeController@update');
 });
-

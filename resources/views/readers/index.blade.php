@@ -36,11 +36,11 @@
                           <tbody>
 
                           <!-- Show the clients -->
-                          @foreach ($diaries as $diary)
+                          @foreach ($clients as $client)
                           <tr>
                             <td><b>{{ __('Clientnaam') }}</b></td>
-                            <td><a href="readers/show">This will be a link with diary id =
-                            {{ $diary->id }}
+                            <td><a href="readers/show{{ $reader->pluck('diary_id') }}">This will be a link with diary id =
+                            {{ $name }}
                             </a></td>
                           </tr>
                           @endforeach
