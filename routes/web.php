@@ -80,7 +80,7 @@ Route::middleware('auth')->group(function () {
   // overview of the diaries to read for readers
   Route::get('/reader/index', 'ReaderController@index')
   ->name('reader_index');
-  Route::post('/reader/show{client}', 'ReaderController@show')
+  Route::get('/reader/show{client}', 'ReaderController@show')
   ->name('reader_index');
 
 });

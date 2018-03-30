@@ -28,15 +28,14 @@
 
                       @foreach($diaries as $diary)
                       <div class="card-body">
-                        <form method="POST" action="readers/show{{ $diary->id }}">
-                            @csrf
+
                         <!-- Choose the diary to read -->
                         <div class="form-group row">
                             <div class="col-md-2">
-                              <button type="submit" class="btn btn-primary">
+                              <a href="/reader/show{{ $diary->id }}" type="button" class="btn btn-primary">
                                   {{ __('Bekijk het dagboek van ') }}
                                   {{ $diary->user->firstname }}
-                              </button>
+                              </a>
                             </div>
                         </div>
                       </div>

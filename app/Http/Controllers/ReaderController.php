@@ -54,6 +54,16 @@ class ReaderController extends Controller
 
     public function show($client)
     {
+      // get the person that is logged in (reader)
+      $reader_id= Auth::id();
+      // add the symptoms and entries to the array
+      $user = User::with('userDiaries', 'userDiaries.user', 'userDiaries.entries.symptomes')
+        ->find($reader_id);
+
+      $diary = $user->userDiaries->find($client);
+
+      //$user->userDiaries->user->firstname
+      return view('readers/show', compact('diary'));
 
     }
 }

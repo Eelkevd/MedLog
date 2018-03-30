@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dagboek pagina</div>
+
                     @guest
                     <!-- Show not logged in screen -->
                     <div class="col-md-6">
@@ -20,57 +20,53 @@
                           <label >{{ __('Je bent niet geregistreerd als lezer') }}</label>
                       </div>
 
-                    @elseif @if (auth()->user()->reader())
+                    @elseif (auth()->user()->reader())
+
                       <!-- add a check to see if the reader can read this specifiek diary -->
+
+                      <div class="card-header">Dossier van
+                        {{ $diary->user->firstname }}
+                        @if(!empty( $diary->user->middlename ))
+                          {{ $diary->user->middlename }}
+                        @endif
+                        {{ $diary->user->lastname }}
+                      </div>
+
                       <div class="card-body">
                         <table class="table table-striped">
                             <thead>
                               <tr>
-                                <th></th>
-                                <th></th>
+                                <th>datum</th>
+                                <th>ziekte</th>
+                                <th>symptomen</th>
+                                <th>intensiteit</th>
+                                <th>duur</th>
+                                <th>herstel</th>
+                                <th>opmerkingen</th>
                               </tr>
                             </thead>
                             <tbody>
 
-                                <!-- Show entry id -->
+                              <!-- Show entries -->
+                              @foreach($diary->entries as $entry)
                               <tr>
-                                <td><b>{{ __('Dagboek pagina nummer: ') }}</b></td>
-                                <td>{{ $entry->id }}</td>
+                                <td width="110px"><b>{{ $entry->created_at }}</b></td>
+                                <td>{{ $entry->illness->illness }}</td>
+                                @foreach($entry->symptomes as $symptom)
+                                  <td>{{ $symptom->symptom }}</td>
+                                @endforeach
+                                <td>{{ $entry->intensity }}</td>
+                                <td>{{ $entry->complaint_time }}</td>
+                                <td>{{ $entry->recoverytime_time }}</td>
+                                <td>{{ $entry->comments }}</td>
                               </tr>
+                              @endforeach
 
-                              <!-- Show date -->
-                              <tr>
-                                <td><b>{{ __('Datum: ') }}</b></td>
-                                <td>{{ $entry->timespan_date }}</td>
-                              </tr>
 
-                              <!-- Show time  -->
-                              <tr>
-                                <td><b>{{ __('Tijd: ') }}</b></td>
-                                <td>{{ $entry->timespan_time }}</td>
-                              </tr>
-
-                              <!-- Show illness-->
-                              <tr>
-                                <td><b>{{ __('Ziekte: ') }}</b></td>
-                                <td>{{ $entry->illness_id }}</td>
-                              </tr>
-
-                              <!-- Show intensity -->
-                              <tr>
-                                <td><b>{{ __('Intensiteit: ') }}</b></td>
-                                <td>{{ $entry-> intensity}}</td>
-                              </tr>
-
-                              <!-- Show location -->
-                              <tr>
-                                  <td><b>{{ __('Locatie: ') }}</b></td>
-                                  <td>{{ $entry-> location }}</td>
-                              </tr>
                         </table>
                 </div>
                 @endif
-                @endauth
+
             </div>
         </div>
     </div>
