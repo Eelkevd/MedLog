@@ -5,7 +5,7 @@ class Entry extends Model
 {
     protected $fillable = [
         'diary_id',
-        'illness_id',
+        'illness',
         'timespan_date',
         'timespan_time',
         'location',

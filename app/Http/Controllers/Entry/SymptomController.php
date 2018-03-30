@@ -19,11 +19,12 @@ class SymptomController extends Controller
     // stores symptomes into database
 	public function store (Request $request) 
 	{
-		$id = Auth::id();
-		$diary = Diary::where('user_id', $id)->first();
+		$user = Auth::user();
+		// $id = Auth::id();
+		// $diary = Diary::where('user_id', $id)->first();
 		
 		// $request['user_id'] = Auth::id();
-		$request->request->add(['diary_id' => $diary->id]);
+		$request->request->add(['diary_id' => $user->diary->id]);
 		$request->validate([
             'symptom'  => 'required',
         ]);

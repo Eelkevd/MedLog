@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dagboek pagina</div>
+                <div class="card-header">Medicijn pagina</div>
                     @guest
                     <!-- Show not logged in screen -->
                     <div class="col-md-6">
@@ -37,38 +37,50 @@
 
                                 <!-- Show entry id -->
                               <tr>
-                                <td><b>{{ __('Dagboek pagina nummer: ') }}</b></td>
-                                <td>{{ $entry->id }}</td>
+                                <td><b>{{ __('Medicijn nummer: ') }}</b></td>
+                                <td>{{ $medicine->id }}</td>
                               </tr>
 
-                              <!-- Show date -->
+                              <!-- Show name -->
                               <tr>
-                                <td><b>{{ __('Datum: ') }}</b></td>
-                                <td>{{ $entry->timespan_date }}</td>
+                                <td><b>{{ __('Naam: ') }}</b></td>
+                                <td>{{ $medicine->medicine }}</td>
                               </tr>
 
-                              <!-- Show time  -->
+                              <!-- Show dose  -->
                               <tr>
-                                <td><b>{{ __('Tijd: ') }}</b></td>
-                                <td>{{ $entry->timespan_time }}</td>
+                                <td><b>{{ __('Dosering: ') }}</b></td>
+                                <td>{{ $medicine->dose }}</td>
                               </tr>
 
-                              <!-- Show illness-->
+                              <!-- Show purpose -->
                               <tr>
-                                <td><b>{{ __('Ziekte: ') }}</b></td>
-                                <td>{{ $entry->illness_id }}</td>
+                                <td><b>{{ __('Doel: ') }}</b></td>
+                                <td>{{ $medicine->purpose }}</td>
                               </tr>
 
-                              <!-- Show intensity -->
+                              <!-- Show side effects -->
                               <tr>
-                                <td><b>{{ __('Intensiteit: ') }}</b></td>
-                                <td>{{ $entry-> intensity}}</td>
+                                <td><b>{{ __('Bijwerkingen: ') }}</b></td>
+                                <td>{{ $medicine-> side_effect}}</td>
                               </tr>
 
-                              <!-- Show location -->
+                              <!-- Show expire date -->
                               <tr>
-                                  <td><b>{{ __('Location: ') }}</b></td>
-                                  <td>{{ $entry-> location }}</td>
+                                  <td><b>{{ __('Houdbaarheidsdatum: ') }}</b></td>
+                                  <td>{{ $medicine-> expire_date }}</td>
+                              </tr>
+
+                              <!-- Show price -->
+                              <tr>
+                                  <td><b>{{ __('Prijs: ') }}</b></td>
+                                  <td>{{ $medicine-> price }}</td>
+                              </tr>
+
+                              <!-- Show comment -->
+                              <tr>
+                                  <td><b>{{ __('Overig: ') }}</b></td>
+                                  <td>{{ $medicine-> comment }}</td>
                               </tr>
                         </table>
                 </div>
