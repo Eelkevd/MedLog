@@ -52,9 +52,11 @@
                               <tr>
                                 <td width="110px"><b>{{ $entry->created_at }}</b></td>
                                 <td>{{ $entry->illness->illness }}</td>
+                                <td>
                                 @foreach($entry->symptomes as $symptom)
-                                  <td>{{ $symptom->symptom }}</td>
+                                  {{ $symptom->symptom }}<br />
                                 @endforeach
+                                </td>
                                 <td>{{ $entry->intensity }}</td>
                                 <td>{{ $entry->complaint_time }}</td>
                                 <td>{{ $entry->recoverytime_time }}</td>

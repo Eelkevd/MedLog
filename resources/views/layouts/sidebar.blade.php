@@ -8,7 +8,7 @@
     <!-- Sidebar Links for readers -->
     <ul class="list-unstyled CTAs">
         <!-- white button -->
-      <a href="reader/index" class="download">
+      <a href="/reader/index" class="download">
         Uw clienten</a>
     </ul>
 

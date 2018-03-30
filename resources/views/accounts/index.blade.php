@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Account
+                <div class="card-header">
                     @guest
                     <!-- Show not logged in screen -->
                     <div class="col-md-6">
@@ -14,11 +14,19 @@
                     </div>
                     @endguest
 
-                    @if (auth()->user()->roles('hulpverlener'))
+                    @if (auth()->user()->reader())
 
-                      {{ __('Lezer: ') }}
+                      {{ __('Account van betrokkene: ') }}
                       {{ $user -> username }}
                       </div>
+
+                      @elseif (!(auth()->user()->reader()))
+
+                        {{ __('Medisch dagboek van :  ') }}
+                        {{ $user -> username }}
+                        </div>
+
+
                     @elseif (!(auth()->user()->verified()))
                     </div>
                       <div class="card-body">
