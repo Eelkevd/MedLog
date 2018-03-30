@@ -25,7 +25,6 @@ class OverviewController extends Controller
     public function index()
     {
       $user = Auth::user();
-      $diary = $user->diary;
       $sortword = "nope";
       $keyword = "";
       $currentdate = date("Y-m-d H:i:s");
@@ -42,7 +41,6 @@ class OverviewController extends Controller
     public function search(Request $request)
     {
       $user = Auth::user();
-      $diary = $user->diary;
       $sortword = "nope";
       $keyword = $request->input('search');
       $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->get();
@@ -57,7 +55,6 @@ class OverviewController extends Controller
     public function sortillness(Request $request)
     {
       $user = Auth::user();
-      $diary = $user->diary;
       $sortword = $request->input('illness');
       $keyword = "nope";
       $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->get();
@@ -72,7 +69,6 @@ class OverviewController extends Controller
    public function sortintensity(Request $request)
    {
       $user = Auth::user();
-      // $diary = $user->diary;
       $sortword = $request->input('intensity');
       $keyword = "nope";
       $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->get();
