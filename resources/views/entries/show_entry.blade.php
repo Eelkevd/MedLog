@@ -56,7 +56,7 @@
                               <!-- Show illness-->
                               <tr>
                                 <td><b>{{ __('Ziekte: ') }}</b></td>
-                                <td>{{ $entry->illness_id }}</td>
+                                <td>{{ $entry->illness }}</td>
                               </tr>
 
                               <!-- Show intensity -->
@@ -68,7 +68,7 @@
                               <!-- Show location -->
                               <tr>
                                   <td><b>{{ __('Locatie: ') }}</b></td>
-                                  <td>{{ $entry-> location }}</td>
+                                  <td>{{ $entry-> location}}</td>
                               </tr>
                         </table>
                 </div>
