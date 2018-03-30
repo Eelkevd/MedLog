@@ -20,6 +20,10 @@ class Diary extends Model
     {
     	return $this->hasMany('App\Reader');
     }
+    public function diaryUsers()
+    {
+      return $this->belongsToMany(User::class, 'readers');
+    }
     public function sypmtom()
     {
     	return $this->belongsToMany('App\Symptom');

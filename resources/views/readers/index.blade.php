@@ -26,26 +26,22 @@
                         {{ __('Uw clienten') }}
                       </div>
 
-                      <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
+                      <div class="card-body">
+                        <form method="POST" action="readers/show{{ $reader->pluck('diary_id') }}">
+                            @csrf
+                        <!-- Choose the diary to read -->
+                        @foreach($clients as $client)
+                        <div class="form-group row">
+                            <div class="col-md-6">
+                              <button type="submit" class="btn btn-primary">
+                                  {{ __('Bekijk het dagboek van ') }}
+                                  {{ $client->firstname }}
+                              </button>
+                            </div>
+                        </div>
 
-                          <!-- Show the clients -->
-                          @foreach ($clients as $client)
-                          <tr>
-                            <td><b>{{ __('Clientnaam') }}</b></td>
-                            <td><a href="readers/show{{ $reader->pluck('diary_id') }}">This will be a link with diary id =
-                            {{ $name }}
-                            </a></td>
-                          </tr>
-                          @endforeach
+                            @endforeach
 
-                        </table>
 
                     @endif
 
