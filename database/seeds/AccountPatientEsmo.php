@@ -25,8 +25,10 @@ class AccountPatientEsmo extends Seeder
             'email' => 'esmo@testmail.com',
             'password' => Hash::make('@Insert12'),
     	]);
+      
         DB::table('diaries')->insert([
             'user_id' => '3',
         ]);
+
     }
 }

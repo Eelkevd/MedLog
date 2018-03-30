@@ -1,11 +1,18 @@
 <?php
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
+use App\Traits\Encryptable;
+use Illuminate\Support\Facades\Crypt;
 use Auth;
 use App\Reader;
 use App\Diary;
+use App\User;
+
+
 class ReaderController extends Controller
 {
+  use Encryptable;
+
   //authentication requirement
   public function __construct()
   {
@@ -30,14 +37,33 @@ class ReaderController extends Controller
         return redirect('/reader/diary')
        ->with('succes', 'U kunt tijdelijk het dagboek inzien.');
     }
-    
+
     // get all diaries that are available to the reader
     public function index()
     {
-      $id = Auth::id();
-      $diaries = [];
-      $diary_id = Reader::where('user_id', $id)->pluck('diary_id');
-      $diaries = Diary::findOrFail($diary_id);
+      // get the person that is logged in (reader)
+      $reader_id= Auth::id();
+      // get the diaries and than the owners of those $diaries
+      // find where reader is allowed to read
+      $user = User::with('userDiaries', 'userDiaries.user')->find($reader_id);
+      // get the diaries
+      $diaries = $user->userDiaries;
+      //$user->userDiaries->user->firstname
       return view('readers/index', compact('diaries'));
+    }
+
+    public function show($client)
+    {
+      // get the person that is logged in (reader)
+      $reader_id= Auth::id();
+      // add the symptoms and entries to the array
+      $user = User::with('userDiaries', 'userDiaries.user', 'userDiaries.entries.symptomes')
+        ->find($reader_id);
+
+      $diary = $user->userDiaries->find($client);
+
+      //$user->userDiaries->user->firstname
+      return view('readers/show', compact('diary'));
+
     }
 }

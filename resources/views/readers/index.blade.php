@@ -26,26 +26,21 @@
                         {{ __('Uw clienten') }}
                       </div>
 
-                      <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th></th>
-                              <th></th>
-                            </tr>
-                          </thead>
-                          <tbody>
+                      @foreach($diaries as $diary)
+                      <div class="card-body">
 
-                          <!-- Show the clients -->
-                          @foreach ($diaries as $diary)
-                          <tr>
-                            <td><b>{{ __('Clientnaam') }}</b></td>
-                            <td><a href="readers/show">This will be a link with diary id =
-                            {{ $diary->id }}
-                            </a></td>
-                          </tr>
-                          @endforeach
+                        <!-- Choose the diary to read -->
+                        <div class="form-group row">
+                            <div class="col-md-2">
+                              <a href="/reader/show{{ $diary->id }}" type="button" class="btn btn-primary">
+                                  {{ __('Bekijk het dagboek van ') }}
+                                  {{ $diary->user->firstname }}
+                              </a>
+                            </div>
+                        </div>
+                      </div>
+                            @endforeach
 
-                        </table>
 
                     @endif
 

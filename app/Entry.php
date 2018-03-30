@@ -16,15 +16,17 @@ class Entry extends Model
         'witness_report',
         'comments'
         ];
-         
+
     public function diary()
     {
         return $this->belongsTo('App\Diary');
     }
+
     public function symptomes()
     {
     	return $this->belongsToMany('App\Symptom');
     }
+
     public function illness()
     {
       return $this->belongsTo('App\Illness');
