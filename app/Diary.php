@@ -20,7 +20,7 @@ class Diary extends Model
     {
     	return $this->hasMany('App\Reader');
     }
-    public function sypmtom()
+    public function symptomes()
     {
     	return $this->belongsToMany('App\Symptom');
     }
@@ -29,7 +29,7 @@ class Diary extends Model
     {
       return $this->belongsToMany('App\Illness');
     }
-    public function medicine()
+    public function medicines()
     {
     	return $this->belongsToMany('App\Medicine');
     }

@@ -27,10 +27,9 @@ class EntryController extends Controller
 	public function create()
 	{
 		$user = Auth::user();
-    	$symptomes = $user->diary->symptom;
-    	$medicines = $user->diary->medicine;
+    	$symptomes = $user->diary->symptomes;
+    	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
-    	dd($symptomes);
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
