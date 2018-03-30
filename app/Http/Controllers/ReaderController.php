@@ -41,15 +41,15 @@ class ReaderController extends Controller
     // get all diaries that are available to the reader
     public function index()
     {
-      // $diaries = Auth::user()->with('userDiaries', 'userDiaries.user');
-      // dd($diaries);
+      // get the person that is logged in (reader)
       $reader_id= Auth::id();
+      // get the diaries and than the owners of those $diaries
+      // find where reader is allowed to read
       $user = User::with('userDiaries', 'userDiaries.user')->find($reader_id);
-      dd($user);
-
+      // get the diaries
+      $diaries = $user->userDiaries;
       //$user->userDiaries->user->firstname
-
-      return view('readers/index', compact('reader', 'clients', 'name'));
+      return view('readers/index', compact('diaries'));
     }
 
     public function show($client)

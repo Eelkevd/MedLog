@@ -26,20 +26,20 @@
                         {{ __('Uw clienten') }}
                       </div>
 
+                      @foreach($diaries as $diary)
                       <div class="card-body">
-                        <form method="POST" action="readers/show{{ $reader->pluck('diary_id') }}">
+                        <form method="POST" action="readers/show{{ $diary->id }}">
                             @csrf
                         <!-- Choose the diary to read -->
-                        @foreach($clients as $client)
                         <div class="form-group row">
-                            <div class="col-md-6">
+                            <div class="col-md-2">
                               <button type="submit" class="btn btn-primary">
                                   {{ __('Bekijk het dagboek van ') }}
-                                  {{ $client->firstname }}
+                                  {{ $diary->user->firstname }}
                               </button>
                             </div>
                         </div>
-
+                      </div>
                             @endforeach
 
 
