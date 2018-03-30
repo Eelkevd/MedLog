@@ -22,6 +22,7 @@ class EventController extends Controller
         $user = Auth::user();
         $events = [];
         $data = $user->events;
+        
         if($data->count()){
           foreach ($data as $key => $value) {
             $events[] = Calendar::event(

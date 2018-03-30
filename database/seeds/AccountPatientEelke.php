@@ -12,6 +12,7 @@ class AccountPatientEelke extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'id' => '1',
             'username' => 'eelke',
             'firstname' => encrypt('Eelke'),
             'middlename' => encrypt('van'),
@@ -28,5 +29,12 @@ class AccountPatientEelke extends Seeder
         DB::table('diaries')->insert([
             'user_id' => '1',
         ]);
+        // DB::table('readers')->insert([
+        //     'user_id' => '1',
+        //     'diary_id' => '1',
+        //     'timeframe' => '24',
+        //     'password' => 'test',
+        //     'token' => '123',
+        // ]);
     }
 }
