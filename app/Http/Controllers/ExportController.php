@@ -55,8 +55,7 @@ class ExportController extends Controller
     public function getperiodPDF(Request $request)
     {
         $user = Auth::user();
-        $from_date = $request->input('from_date');
-        dd($from_date);
+        $from_date = $request->input('start_date');
         $end_date = $request->input('end_date');
         $entries = $user->diary->entries()
           ->where('timespan_date', '>=' ,$from_date)
