@@ -24,6 +24,16 @@
                                       </strong>
                               </div>
                       </div>
+
+                      @elseif (auth()->user()->roles('hulpverlener'))
+                      <div class="card-body">
+                              <div class="alert alert-danger">
+                                <br /><strong>
+                                  U heeft geen dagboek. Registreer als Gebruiker om een dagboek aan te maken.
+                                      </strong>
+                              </div>
+                      </div>
+
                       @else
                       <div class="card-body">
                         <table class="table table-striped">

@@ -6,7 +6,40 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dagboek overzicht</div>
+                <div class="card-header">
+
+                  <!-- check to see if user of page is guest, reader, user or validated user.
+                        Only let validated user throug -->
+                        @guest
+                        <!-- Show not logged in screen -->
+                        <div class="col-md-6">
+                            <label >{{ __('Please log in to see your account data.') }}</label>
+                        </div>
+                        @endguest
+
+                        @auth
+
+                          @if (!(auth()->user()->verified()))
+                          <div class="card-body">
+                                  <div class="alert alert-danger">
+                                    <br /><strong>
+                                      Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
+                                          </strong>
+                                  </div>
+                          </div>
+
+                          @elseif (auth()->user()->roles('hulpverlener'))
+                          <div class="card-body">
+                                  <div class="alert alert-danger">
+                                    <br /><strong>
+                                      U heeft geen dagboek. Registreer als Gebruiker om een dagboek aan te maken.
+                                          </strong>
+                                  </div>
+                          </div>
+
+                          @else
+
+                  Dagboek overzicht</div>
                 <div class="card-body">
                   <!-- Search function to search in events -->
                   <form method="GET" action="{{ action('OverviewController@search') }}" >
@@ -38,33 +71,111 @@
                   </form>
                   <br>
 
+              <!-- result of searchfield -->
+              @if(!empty($keyword))
+
                 @foreach($search as $entry)
-                  <b>Datum</b>
-                  {{ $entry -> timespan_date }}<br>
-                  <b>Ziekte</b>
-                  {{ $entry -> illness }} <br>
-                  <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
+                <div class="card">
+                  <div class="card-header">
+                    <b> {{ $entry -> illness }}</b>
+                    @if(!empty($entry->timespan_date))
+                      {{ __(', ')}}
+                      datum: {{ $entry -> timespan_date }}
+                    @endif
+                  </div>
+                  <div class="card-body">
+                    <br>
+                    <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
+                  </div>
+                </div>
                 @endforeach
+              @endif
 
+              <!-- view if user has sort by illness -->
                 @foreach($sortillness as $entry)
-                  <b>Datum</b>
-                  {{ $entry -> timespan_date }}<br>
-                  <b>Ziekte</b>
-                  {{ $entry -> illness }} <br>
-                  <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
-
+                  <div class="card">
+                    <div class="card-header">
+                    <b> {{ $entry -> illness }}</b>
+                    @if(!empty($entry->timespan_date))
+                      {{ __(', ')}}
+                      datum: {{ $entry -> timespan_date }}
+                    @endif
+                  </div>
+                  <div class="card-body">
+                    @foreach($entry->symptomes as $symptom)
+                      {{ $symptom->symptom }}
+                      {{ __(', ')}}
+                    @endforeach
+                    <br>
+                    Intensiteit:
+                    {{ $entry->intensity }}
+                    <br>
+                    <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a></em>
+                    </div>
+                  </div>
+                  <br>
                 @endforeach
 
+                <!-- result when user sorts on intensity -->
                 @foreach($sortintensity as $entry)
-                  <b>Datum</b>
-                  {{ $entry -> timespan_date }}<br>
-                  <b>Ziekte</b>
-                  {{ $entry -> illness }} <br>
-                  <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
+                  <div class="card">
+                    <div class="card-header">
+                    <b> {{ $entry -> illness }}</b>
+                    @if(!empty($entry->timespan_date))
+                      {{ __(', ')}}
+                      datum: {{ $entry -> timespan_date }}
+                    @endif
+                  </div>
+                  <div class="card-body">
+                    @foreach($entry->symptomes as $symptom)
+                      {{ $symptom->symptom }}
+                      {{ __(', ')}}
+                    @endforeach
+                    <br>
+                    Intensiteit:
+                    {{ $entry->intensity }}
+                    <br>
+                    <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a></em>
+                    </div>
+                  </div>
+                  <br>
                 @endforeach
+
+                <br /><br />
+
+                @if(empty($keyword))
+                <h3><center>Uw gehele overzicht</center></h3>
+                  @foreach($entries as $entry)
+                  <div class="card">
+                    <div class="card-header">
+                    <b> {{ $entry -> illness }}</b>
+                    @if(!empty($entry->timespan_date))
+                      {{ __(', ')}}
+                      datum: {{ $entry -> timespan_date }}
+                    @endif
+                  </div>
+                  <div class="card-body">
+                    @foreach($entry->symptomes as $symptom)
+                      {{ $symptom->symptom }}
+                      {{ __(', ')}}
+                    @endforeach
+                    <br>
+                    Intensiteit:
+                    {{ $entry->intensity }}
+                  <br>
+                  <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a></em>
+                  </div>
+                </div>
+                <br>
+                  @endforeach
+                @endif
+
                 </div>
             </div>
         </div>
     </div>
   </div>
+  @endif
+  @endauth
+
 @endsection
