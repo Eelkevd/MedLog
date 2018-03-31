@@ -12,6 +12,7 @@ class AccountPatientJorik extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'id' => '2',
             'username' => 'jorik',
             'firstname' => encrypt('Jorik'),
             'middlename' => encrypt('de'),
@@ -28,6 +29,11 @@ class AccountPatientJorik extends Seeder
         DB::table('diaries')->insert([
             'user_id' => '2',
         ]);
-        
+
+        DB::table('role_user')->insert([
+            'user_id' => '2',
+            'role_id' => '2',
+        ]);
+
     }
 }

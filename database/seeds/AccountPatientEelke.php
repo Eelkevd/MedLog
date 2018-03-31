@@ -29,12 +29,11 @@ class AccountPatientEelke extends Seeder
         DB::table('diaries')->insert([
             'user_id' => '1',
         ]);
-        // DB::table('readers')->insert([
-        //     'user_id' => '1',
-        //     'diary_id' => '1',
-        //     'timeframe' => '24',
-        //     'password' => 'test',
-        //     'token' => '123',
-        // ]);
+
+        DB::table('role_user')->insert([
+            'user_id' => '1',
+            'role_id' => '2',
+        ]);
+
     }
 }

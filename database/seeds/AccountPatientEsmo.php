@@ -12,6 +12,7 @@ class AccountPatientEsmo extends Seeder
     public function run()
     {
         DB::table('users')->insert([
+            'id' => '3',
             'username' => 'esmo',
             'firstname' => encrypt('Esmeralda'),
             'middlename' => encrypt(''),
@@ -25,9 +26,10 @@ class AccountPatientEsmo extends Seeder
             'email' => 'esmo@testmail.com',
             'password' => Hash::make('@Insert12'),
     	]);
-      
-        DB::table('diaries')->insert([
+
+        DB::table('role_user')->insert([
             'user_id' => '3',
+            'role_id' => '1',
         ]);
 
     }
