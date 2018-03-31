@@ -28,7 +28,7 @@
                                 </div>
                         </div>
 
-                        @elseif (auth()->user()->roles('hulpverlener'))
+                        @elseif (!(auth()->user()->diary()))
                         <div class="card-body">
                                 <div class="alert alert-danger">
                                   <br /><strong>

@@ -25,16 +25,24 @@ class OverviewController extends Controller
     public function index()
     {
       $user = Auth::user();
-      $sortword = "nope";
-      $keyword = "";
-      $currentdate = date("Y-m-d H:i:s");
-      $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')
-                     ->where('timespan_date', '<=' ,$currentdate)->orderBy('timespan_date', 'DESC')->get();
-      $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->get();
-      $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->get();
-      $illnesses = $user->diary->illnesses;
-      $entries = $user->diary->entries;
-      return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
+      if($user->diary)
+      {
+        $sortword = "nope";
+        $keyword = "";
+        $currentdate = date("Y-m-d H:i:s");
+        $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')
+                       ->where('timespan_date', '<=' ,$currentdate)->orderBy('timespan_date', 'DESC')->get();
+        $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->get();
+        $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->get();
+        $illnesses = $user->diary->illnesses;
+        $entries = $user->diary->entries;
+
+        return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
+      }
+      else
+        {
+          return view('overview');  
+        }
     }
 
     // function to make search function work
@@ -75,7 +83,7 @@ class OverviewController extends Controller
       $sortillness = $user->diary->entries()->where('illness', $keyword)->get();
       $sortintensity = $user->diary->entries()->where('intensity', $sortword)->get();
 
-      // 
+      //
       $illnesses = $user->diary->illnesses;
       $entries = $user->diary->entries;
       return view('overview', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));

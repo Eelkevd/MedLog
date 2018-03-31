@@ -28,7 +28,7 @@
                                   </div>
                           </div>
 
-                          @elseif (auth()->user()->roles('hulpverlener'))
+                          @elseif(!(auth()->user()->diary))
                           <div class="card-body">
                                   <div class="alert alert-danger">
                                     <br /><strong>
@@ -144,30 +144,32 @@
                 <br /><br />
 
                 @if(empty($keyword))
-                <h3><center>Uw gehele overzicht</center></h3>
-                  @foreach($entries as $entry)
-                  <div class="card">
-                    <div class="card-header">
-                    <b> {{ $entry -> illness }}</b>
-                    @if(!empty($entry->timespan_date))
-                      {{ __(', ')}}
-                      datum: {{ $entry -> timespan_date }}
-                    @endif
-                  </div>
-                  <div class="card-body">
-                    @foreach($entry->symptomes as $symptom)
-                      {{ $symptom->symptom }}
-                      {{ __(', ')}}
-                    @endforeach
+
+                  <h3><center>Uw gehele overzicht</center></h3>
+                    @foreach($entries as $entry)
+                    <div class="card">
+                      <div class="card-header">
+                      <b> {{ $entry -> illness }}</b>
+                      @if(!empty($entry->timespan_date))
+                        {{ __(', ')}}
+                        datum: {{ $entry -> timespan_date }}
+                      @endif
+                    </div>
+                    <div class="card-body">
+                      @foreach($entry->symptomes as $symptom)
+                        {{ $symptom->symptom }}
+                        {{ __(', ')}}
+                      @endforeach
+                      <br>
+                      Intensiteit:
+                      {{ $entry->intensity }}
                     <br>
-                    Intensiteit:
-                    {{ $entry->intensity }}
-                  <br>
-                  <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a></em>
+                    <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a></em>
+                    </div>
                   </div>
-                </div>
-                <br>
-                  @endforeach
+                  <br>
+                    @endforeach
+                  
                 @endif
 
                 </div>

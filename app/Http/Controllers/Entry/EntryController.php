@@ -40,12 +40,6 @@ class EntryController extends Controller
 		{
 			// find the corresponding diary
 			$user = Auth::user();
-			// $diary = $user->diary->entries->all();
-			// foreach ($entries as $entry){
-			// 	$entry->symptoms->all();
-			// }
-			// dd($diary);
-
 			// add the diary_id to the request array
 			$request->request->add(['diary_id' => $user->diary->id]);
 			// add the entry into the tabel entries
@@ -66,7 +60,7 @@ class EntryController extends Controller
 			$data = Event::all();
 			if($data->count())
 			{
-				foreach ($data as $key => $value) 
+				foreach ($data as $key => $value)
 				{
 					$events[] = Calendar::event(
 						$value->title,

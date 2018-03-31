@@ -9,6 +9,20 @@
       width: 70%;
       margin: 0 auto;
       border:1px solid;
+      border-collapse: collapse;
+
+  }
+  th{
+    padding: 5px;
+    border-bottom: 1px solid;
+  }
+  td{
+    border-bottom: 1px solid;
+    padding: 5px;
+    width: 100px;
+  }
+  .int{
+    width: 40px;
   }
   </style>
 </head>
@@ -18,10 +32,12 @@
     <caption><h1> Medlog dagboek pagina's</h1></caption>
      <thead>
      <tr>
-       <th> Datum </th>
-       <th> Tijd </th>
-       <th> Ziekte </th>
-       <th> intensity </th>
+       <th>Datum</th>
+       <th>Tijd</th>
+       <th>Ziekte</th>
+       <th>Symptomen</th>
+       <th class="int">Intensiteit</th>
+       <th>Opmerkingen</th>
      </tr>
      </thead>
      <tbody>
@@ -30,7 +46,13 @@
          <td> {{$entry->timespan_date}} </td>
          <td> {{$entry->timespan_time}} </td>
          <td> {{$entry->illness}} </td>
-         <td> {{$entry->intensity}} </td>
+         <td>
+           @foreach($entry->symptomes as $symptom)
+              {{ $symptom->symptom }}<br />
+            @endforeach
+          </td>
+         <td class="int"> {{$entry->intensity}} </td>
+         <td> {{ $entry->comments}}</td>
        </tr>
        @endforeach
      </tbody>
