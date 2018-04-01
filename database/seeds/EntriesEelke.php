@@ -14,7 +14,7 @@ class EntriesEelke extends Seeder
         DB::table('entries')->insert([
           'id' => '1',
           'diary_id' => '1',
-          'illness' => '1',
+          'illness' => 'Migraine',
           'timespan_date' => '2018-03-12',
           'timespan_time' => '23:00:00',
           'location' => 'thuis',
@@ -27,6 +27,73 @@ class EntriesEelke extends Seeder
           'created_at' => '2018-03-31 20:57:55',
           'updated_at' => '2018-03-31 20:57:55',
         ]);
+
+        DB::table('diary_illness')->insert([
+            'diary_id' => '1',
+            'illness_id' => '1',
+        ]);
+
+        DB::table('diary_illness')->insert([
+            'diary_id' => '1',
+            'illness_id' => '2',
+        ]);
+
+        DB::table('diary_illness')->insert([
+            'diary_id' => '1',
+            'illness_id' => '3',
+        ]);
+
+        DB::table('diary_illness')->insert([
+            'diary_id' => '1',
+            'illness_id' => '4',
+        ]);
+
+        DB::table('diary_illness')->insert([
+            'diary_id' => '1',
+            'illness_id' => '5',
+        ]);
+
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '1',
+        ]);
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '2',
+        ]);
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '3',
+        ]);
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '4',
+        ]);
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '5',
+        ]);
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '6',
+        ]);
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '7',
+        ]);
+
+        DB::table('diary_symptom')->insert([
+            'diary_id' => '1',
+            'symptom_id' => '8',
+        ]);
+
 
         DB::table('entry_symptom')->insert([
             'entry_id' => '1',
@@ -42,7 +109,7 @@ class EntriesEelke extends Seeder
         DB::table('entries')->insert([
           'id' => '2',
           'diary_id' => '1',
-          'illness' => '1',
+          'illness' => 'Mirgraine',
           'timespan_date' => '2018-03-16',
           'timespan_time' => '23:50:00',
           'location' => 'kantoor',
@@ -76,7 +143,7 @@ class EntriesEelke extends Seeder
         DB::table('entries')->insert([
           'id' => '3',
           'diary_id' => '1',
-          'illness' => '1',
+          'illness' => 'Migraine',
           'timespan_date' => '2018-03-20',
           'timespan_time' => '23:50:00',
           'location' => 'thuis',

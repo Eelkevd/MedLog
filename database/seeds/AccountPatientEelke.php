@@ -25,6 +25,8 @@ class AccountPatientEelke extends Seeder
             'postalcode' => encrypt('9788 BB'),
             'email' => 'evandijk89@gmail.com',
             'password' => Hash::make('@Insert12'),
+            'created_at' => '2018-03-31 20:57:55',
+            'updated_at' => '2018-03-31 20:57:55',
     	]);
         DB::table('diaries')->insert([
             'user_id' => '1',

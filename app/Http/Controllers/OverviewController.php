@@ -41,7 +41,7 @@ class OverviewController extends Controller
       }
       else
         {
-          return view('overview');  
+          return view('overview');
         }
     }
 

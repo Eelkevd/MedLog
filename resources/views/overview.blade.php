@@ -149,7 +149,7 @@
                     @foreach($entries as $entry)
                     <div class="card">
                       <div class="card-header">
-                      <b> {{ $entry -> illness }}</b>
+                      <b> {{ $entry->illness }}</b>
                       @if(!empty($entry->timespan_date))
                         {{ __(', ')}}
                         datum: {{ $entry -> timespan_date }}
@@ -169,7 +169,7 @@
                   </div>
                   <br>
                     @endforeach
-                  
+
                 @endif
 
                 </div>

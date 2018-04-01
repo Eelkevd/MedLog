@@ -25,6 +25,8 @@ class AccountPatientEsmo extends Seeder
             'postalcode' => encrypt('9718 BB'),
             'email' => 'esmo@testmail.com',
             'password' => Hash::make('@Insert12'),
+            'created_at' => '2018-03-31 20:57:55',
+            'updated_at' => '2018-03-31 20:57:55',
     	]);
 
         DB::table('role_user')->insert([
