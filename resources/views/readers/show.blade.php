@@ -51,7 +51,7 @@
                               @foreach($diary->entries as $entry)
                               <tr>
                                 <td width="110px"><b>{{ $entry->created_at }}</b></td>
-                                <td>{{ $entry->illness->illness }}</td>
+                                <td>{{ $entry->illness }}</td>
                                 <td>
                                 @foreach($entry->symptomes as $symptom)
                                   {{ $symptom->symptom }}<br />
