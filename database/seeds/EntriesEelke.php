@@ -109,7 +109,7 @@ class EntriesEelke extends Seeder
         DB::table('entries')->insert([
           'id' => '2',
           'diary_id' => '1',
-          'illness' => 'Mirgraine',
+          'illness' => 'Migraine',
           'timespan_date' => '2018-03-16',
           'timespan_time' => '23:50:00',
           'location' => 'kantoor',

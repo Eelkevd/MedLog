@@ -56,7 +56,7 @@
 
 
 <!-- implement the default theme -->
-@if (!(Auth::user()->theme ))
+@if (Auth::user()->theme === 'default')
 
      <script>
      src="jquery-3.3.1.min.js"
