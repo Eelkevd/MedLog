@@ -4,8 +4,8 @@
 	<div class="card-header">
 		<h4>Nieuwe symptomen</h4>
 	</div>
-
-	<div class="card-body">
+	<button type="button" data-toggle="collapse" data-target="#form_symptom">Nieuw</button>
+	<div class="collapse" class="card-body"  id="form_symptom">
 		<form method="POST" action="/entries/create_symptom">
 			{{ csrf_field() }}
 			<div>
