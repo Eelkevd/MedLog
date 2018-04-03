@@ -41,6 +41,7 @@
 
                   Dagboek overzicht</div>
                 <div class="card-body">
+                  <h3><center>Zoekfuncties</center></h3><br>
                   <!-- Search function to search in events -->
                   <form method="GET" action="{{ action('OverviewController@search') }}" >
                       <input type="text" name="search" placeholder="Zoekopdracht">

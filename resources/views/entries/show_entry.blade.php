@@ -105,7 +105,10 @@
                               <!-- Show medicatie -->
                               <tr>
                                   <td><b>{{ __('Medicatie: ') }}</b></td>
-                                  <td></td>
+                                  <td>@foreach($entry->medicines as $medicine)
+                                      {{ $medicine->medicine }}
+                                      {{ __(', ')}}
+                                    @endforeach</td>
                               </tr>
 
                               <!-- Show weer-->
