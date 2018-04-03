@@ -4,6 +4,8 @@ use Illuminate\Database\Eloquent\Model;
 class Entry extends Model
 {
     protected $fillable = [
+        'entry_id',
+        'medicine_id',
         'diary_id',
         'illness',
         'timespan_date',
@@ -30,5 +32,10 @@ class Entry extends Model
     public function illness()
     {
       return $this->belongsTo('App\Illness');
+    }
+
+    public function medicines()
+    {
+        return $this->belongsToMany('App\Medicine');
     }
 }

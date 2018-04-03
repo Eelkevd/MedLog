@@ -30,7 +30,8 @@ class EntryController extends Controller
     	$symptomes = $user->diary->symptomes;
     	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
-    	return view('entries/create_entry', compact('symptomes', 'illnesses'));
+
+    	return view('entries/create_entry', compact('symptomes', 'illnesses', 'medicines'));
 	}
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
@@ -45,6 +46,7 @@ class EntryController extends Controller
 			// add the entry into the tabel entries
 			$entry = Entry::create(request(['diary_id', 'illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 			$entry->symptomes()->attach($request->symptom);
+			$entry->medicines()->attach($request->medicine);
 
 			//add diary entry as event to the database
 			$illness = Illness::where('illness', $request->illness)->select('illness')->first();

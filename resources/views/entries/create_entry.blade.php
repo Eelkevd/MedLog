@@ -58,12 +58,6 @@
 							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
 						@endforeach()
 					</select>
-<!-- 					@if ($errors->has('illness_id'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('illness_id') }}</strong>
-                        </span>
-                 	@endif -->
-<!-- 					@include('layouts.error')	 -->
 				</div>
 				<hr>
 				<div>
@@ -104,12 +98,10 @@
 				<hr>
 				<div>
 					<p>Medicatie</p>
-					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
-					<label for="subscribeNews">MEDICATIE A</label>
-					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
-					<label for="subscribeNews">MEDICATIE B</label>
-					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
-					<label for="subscribeNews">MEDICATIE C</label>
+					@foreach($medicines as $medicine)
+						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
+						<label for="subscribeNews">{{ $medicine->medicine }}</label>
+					@endforeach()
 				</div>
 				<hr>
 				<div>
