@@ -29,6 +29,7 @@ class ExportController extends Controller
         $entries = $user->diary->entries()
           ->orderBy('timespan_date', 'DESC')
           ->with('symptomes')
+          ->with('medicines')
           ->get();
 
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries ]);
@@ -46,6 +47,7 @@ class ExportController extends Controller
           ->where('illness', $illness_name)
           ->orderBy('timespan_date', 'DESC')
           ->with('symptomes')
+          ->with('medicines')
           ->get();
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries]);
         return $pdf->download('dagboek.pdf');
@@ -60,6 +62,7 @@ class ExportController extends Controller
         $entries = $user->diary->entries()
           ->where('timespan_date', '>=' ,$from_date)
           ->with('symptomes')
+          ->with('medicines')
           ->get();
 
         // ->and('timespan_date', '<=' ,$end_date)->sortByDesc('timespan_date')->get();
