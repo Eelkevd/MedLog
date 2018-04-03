@@ -15,7 +15,7 @@ class ExportController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     // function to show export page
     public function index()
     {
@@ -25,7 +25,12 @@ class ExportController extends Controller
     // function to export complete diary
     public function getPDF()
     {
-        $entries = Entry::orderBy('timespan_date', 'DESC')->get();
+        $user = Auth::user();
+        $entries = $user->diary->entries()
+          ->orderBy('timespan_date', 'DESC')
+          ->with('symptomes')
+          ->get();
+
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries ]);
         return $pdf->download('dagboek.pdf');
     }
@@ -35,10 +40,13 @@ class ExportController extends Controller
     {
         $user = Auth::user();
         $illnesses = $user->diary->illnesses;
-
         $illness_name = $request->input('illness');
         // $illness = Illness::where('illness', $illness_name)->value('id');
-        $entries = Entry::all()->where('illness', $illness_name)->sortByDesc('timespan_date');
+        $entries = $user->diary->entries()
+          ->where('illness', $illness_name)
+          ->orderBy('timespan_date', 'DESC')
+          ->with('symptomes')
+          ->get();
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries]);
         return $pdf->download('dagboek.pdf');
     }
@@ -46,30 +54,16 @@ class ExportController extends Controller
     // function to export diary in certain period
     public function getperiodPDF(Request $request)
     {
-        $from_date = $request->input('from_date');
+        $user = Auth::user();
+        $from_date = $request->input('start_date');
         $end_date = $request->input('end_date');
-        $entries = Entry::all()->where('timespan_date', '>=' ,$from_date)->where('timespan_date', '<=' ,$end_date)->sortByDesc('timespan_date');
+        $entries = $user->diary->entries()
+          ->where('timespan_date', '>=' ,$from_date)
+          ->with('symptomes')
+          ->get();
+
+        // ->and('timespan_date', '<=' ,$end_date)->sortByDesc('timespan_date')->get();
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries ]);
         return $pdf->download('dagboek.pdf');
     }
 }
-
-        // $user = Auth::user();
-
-        // $illnesses = $request->input('illness');
-        // // $illness = $user->diary->illnesses;
-
-        
-        // // foreach ($user->diary->illnesses as $illness) {
-        // //     $illness->illness->all();
-        // // }
-        // // $diary = $user->diary->entries->all();
-        // // foreach ($entries as $entry){
-        // //  $entry->symptoms->all();
-        //  // }
-
-        // // dd($illness);
-        // $illness_id = Illness::where('illness', $illnesses)->value('id');
-        // $entries = Entry::all()->where('illness_id', $illnesses->id)->sortByDesc('timespan_date');
-        // $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries]);
-        // return $pdf->download('dagboek.pdf');

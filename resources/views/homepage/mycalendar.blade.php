@@ -5,24 +5,37 @@
 
 @section ('content')
 
-@guest
-<!-- Show not logged in screen -->
-<div class="col-md-6">
-    <label >{{ __('Please log in to see your account data.') }}</label>
-</div>
-@endguest
+<!-- check to see if user of page is guest, reader, user or validated user.
+      Only let validated user throug -->
+      @guest
+      <!-- Show not logged in screen -->
+      <div class="col-md-6">
+          <label >{{ __('Please log in to see your account data.') }}</label>
+      </div>
+      @endguest
 
-@auth
+      @auth
 
-  @if (!(auth()->user()->verified()))
-  <div class="card-body">
-          <div class="alert alert-danger">
-            <br /><strong>
-              Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
-                  </strong>
-          </div>
-  </div>
-  @else
+        @if (!(auth()->user()->verified()))
+        <div class="card-body">
+                <div class="alert alert-danger">
+                  <br /><strong>
+                    Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
+                        </strong>
+                </div>
+        </div>
+
+        @elseif (!(auth()->user()->diary()))
+        <div class="card-body">
+                <div class="alert alert-danger">
+                  <br /><strong>
+                    U heeft geen dagboek. Registreer als Gebruiker om een dagboek aan te maken.
+                        </strong>
+                </div>
+        </div>
+
+        @else
+
 
 
 <hr>

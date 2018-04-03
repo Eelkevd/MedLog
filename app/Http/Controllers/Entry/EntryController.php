@@ -28,6 +28,7 @@ class EntryController extends Controller
 	{
 		$user = Auth::user();
     	$symptomes = $user->diary->symptomes;
+    	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
     	return view('entries/create_entry', compact('symptomes', 'illnesses'));
 	}
@@ -39,12 +40,6 @@ class EntryController extends Controller
 		{
 			// find the corresponding diary
 			$user = Auth::user();
-			// $diary = $user->diary->entries->all();
-			// foreach ($entries as $entry){
-			// 	$entry->symptoms->all();
-			// }
-			// dd($diary);
-
 			// add the diary_id to the request array
 			$request->request->add(['diary_id' => $user->diary->id]);
 			// add the entry into the tabel entries
@@ -54,10 +49,10 @@ class EntryController extends Controller
 			//add diary entry as event to the database
 			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
 			Event::create([
-			'user_id' => $user->id,
-			'title' => $illness->illness,
-			'start_date' => $request['timespan_date'],
-			'end_date' => $request['timespan_date'],
+				'user_id' => $user->id,
+				'title' => $illness->illness,
+				'start_date' => $request['timespan_date'],
+				'end_date' => $request['timespan_date'],
 			]);
 
 			// add diary entry/event to the calendar
@@ -65,7 +60,7 @@ class EntryController extends Controller
 			$data = Event::all();
 			if($data->count())
 			{
-				foreach ($data as $key => $value) 
+				foreach ($data as $key => $value)
 				{
 					$events[] = Calendar::event(
 						$value->title,

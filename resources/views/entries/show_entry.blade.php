@@ -24,6 +24,16 @@
                                       </strong>
                               </div>
                       </div>
+
+                      @elseif (!(auth()->user()->diary()))
+                      <div class="card-body">
+                              <div class="alert alert-danger">
+                                <br /><strong>
+                                  U heeft geen dagboek. Registreer als Gebruiker om een dagboek aan te maken.
+                                      </strong>
+                              </div>
+                      </div>
+
                       @else
                       <div class="card-body">
                         <table class="table table-striped">
@@ -56,7 +66,7 @@
                               <!-- Show illness-->
                               <tr>
                                 <td><b>{{ __('Ziekte: ') }}</b></td>
-                                <td>{{ $entry->illness_id }}</td>
+                                <td>{{ $entry->illness }}</td>
                               </tr>
 
                               <!-- Show intensity -->
@@ -67,8 +77,8 @@
 
                               <!-- Show location -->
                               <tr>
-                                  <td><b>{{ __('Location: ') }}</b></td>
-                                  <td>{{ $entry-> location }}</td>
+                                  <td><b>{{ __('Locatie: ') }}</b></td>
+                                  <td>{{ $entry-> location}}</td>
                               </tr>
                         </table>
                 </div>
