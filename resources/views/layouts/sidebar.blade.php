@@ -50,6 +50,9 @@
        <li>
            <a href="/export">Exporteer</a>
        </li>
+       <li>
+          <a href="/permissions">Lezers</a>
+       </li>
         <li><!-- Link with dropdown items -->
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
               Middelen</a>
