@@ -69,6 +69,15 @@
                                 <td>{{ $entry->illness }}</td>
                               </tr>
 
+                              <!-- Show symptoms-->
+                              <tr>
+                                <td><b>{{ __('Symptoom: ') }}</b></td>
+                                <td>  @foreach($entry->symptomes as $symptom)
+                                    {{ $symptom->symptom }}
+                                    {{ __(', ')}}
+                                  @endforeach</td>
+                              </tr>
+
                               <!-- Show intensity -->
                               <tr>
                                 <td><b>{{ __('Intensiteit: ') }}</b></td>
@@ -80,6 +89,45 @@
                                   <td><b>{{ __('Locatie: ') }}</b></td>
                                   <td>{{ $entry-> location}}</td>
                               </tr>
+
+                              <!-- Show klachtsduur -->
+                              <tr>
+                                  <td><b>{{ __('Klachtsduur: ') }}</b></td>
+                                  <td>{{ $entry-> complaint_time}}</td>
+                              </tr>
+
+                              <!-- Show hersteltijd -->
+                              <tr>
+                                  <td><b>{{ __('Hersteltijd: ') }}</b></td>
+                                  <td>{{ $entry-> recoverytime_time}}</td>
+                              </tr>
+
+                              <!-- Show medicatie -->
+                              <tr>
+                                  <td><b>{{ __('Medicatie: ') }}</b></td>
+                                  <td></td>
+                              </tr>
+
+                              <!-- Show weer-->
+                              <tr>
+                                  <td><b>{{ __('Weer: ') }}</b></td>
+                                  <td>{{ $entry-> weather}}</td>
+                              </tr>
+
+                              <!-- Show getuigen verslagen-->
+                              <tr>
+                                  <td><b>{{ __('Getuigen verslagen: ') }}</b></td>
+                                  <td>{{ $entry-> witness_report}}</td>
+                              </tr>
+
+                              <!-- Show overig-->
+                              <tr>
+                                  <td><b>{{ __('Overig: ') }}</b></td>
+                                  <td>{{ $entry-> comments}}</td>
+                              </tr>
+
+
+
                         </table>
                 </div>
                 @endif
