@@ -72,6 +72,11 @@ Route::get('/medicine/create_medicine', 'MedicineController@create');
 Route::post('/medicine/create_medicine', 'MedicineController@store');
 Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
 
+// Routes for User-Reader communications
+Route::get('/permissions', 'PermissionsController@home');
+Route::get('/permissions/givepermission', 'PermissionsController@create');
+Route::post('/permissions/givepermission', 'PermissionsController@store');
+
 });
 
 // validated routers for readers middleware('can:read-diary')
