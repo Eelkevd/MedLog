@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 use Auth;
 use App\User;
 use App\Reader;
+use App\Role;
+use Illuminate\Support\Str;
+use App\Mail;
+use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Http\Request;
 
@@ -53,33 +57,43 @@ class PermissionsController extends Controller
       ]);
 
       // check if the reader already excists
-      $reader = User::where('email', $email)
-      ->firstOrFail();
-      $reader_id = $reader->id;
+      if($reader = User::where('email', $email)
+      ->first())
+      {
+        $reader_id = $reader->id;
+      }
       // handle the emails
       if(!empty($reader_id))
       {
         // check if reader is 'hulpverlener'
-        // if so : send email to invite to log in
-        // if not : give error , ask for different emailadres
+        $hulpverlener = $user->roles()->findOrFail($reader_id);
+        if(empty($hulpverlener))
+        {
+          // het emailadres is al in gebruik voor een normale gebruiker
+          return redirect ('permissions')
+          ->with('error', 'Dit email adres kan niet gebruikt worden. Geeft u a.u.b een ander emailadres op.');
+        }
+        else
+        {
+          // send email to invite to log in
+          // add the user to the readers table
+          $request->request->add([
+            'user_id' => $reader_id
+          ]);
+          // add the entry into the tabel READERS entries
+          $permission = Reader::create(request([
+            'user_id',
+            'timeframe',
+            'diary_id',
+            'email',
+            'password'
+          ]));
 
-        $request->request->add([
-          'user_id' => $reader_id,
-        ]);
-        // add the entry into the tabel READERS entries
-        $permission = Reader::create(request([
-          'user_id',
-          'timeframe',
-          'diary_id',
-          'email',
-          'password'
-        ]));
-
-        return redirect ('permissions')
-        ->with('succes', 'Nieuwe lezer toegevoegd');
-
+          return redirect ('permissions')
+          ->with('succes', 'Nieuwe lezer toegevoegd');
+        }
       }
-      else
+      elseif(empty($reader_id))
       {
         // reader is new, send invitation to register
 
@@ -87,25 +101,28 @@ class PermissionsController extends Controller
         // add him to to pivettable roles as hulpverlener
         $userName = Str::random(6);
         $wachtwoord = Str::random(8);
+        $data = "Gebruikersnaam Lezer= " . $userName . "<br />" . "Wachtwoord Lezer = " . $wachtwoord;
 
-        $user = User::create([
+        $reader = User::create([
               'username' => $userName,
               'email' => $email,
               'password' => Hash::make($wachtwoord),
               'verifyToken' => Str::random(40),
           ]);
-          // Attach th role of the user in the pivot table role_user
-          $user->roles()->attach($data['role']);
+
+        $reader_id = $reader->id;
+        // Attach th role of the user in the pivot table role_user
+        // Attach th role of the user in the pivot table role_user
+        $reader->roles()->attach($reader_id, '2');
           // Send an email with a verification link which redirects using the token
-          $user->sendVerificationMail();
-          return $user;
+        //  $reader->sendVerificationMail();
 
+          return redirect ('permissions')
+            ->with('succes', 'Inlog voor lezer aangemaakt en verzonden')
+            ->with('data', $data );
 
-        return redirect ('/')
-        ->with('succes', 'Inlog voor lezer aangemaakt en verzonden');
-
-      }
+        }
+    }
 
   }
-}
 }

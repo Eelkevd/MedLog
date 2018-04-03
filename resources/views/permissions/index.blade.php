@@ -47,6 +47,10 @@
                       <div class="alert alert-success">
                           {{ Session::get('succes') }}
                         </div>
+                      @elseif(Session::has('error'))
+                        <div class="alert alert-danger">
+                          {{ Session::get('error') }}
+                        </div>
                       @endif
                       <table class="table table-striped">
                           <thead>

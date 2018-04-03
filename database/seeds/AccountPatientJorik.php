@@ -17,7 +17,6 @@ class AccountPatientJorik extends Seeder
             'firstname' => encrypt('Jorik'),
             'middlename' => encrypt('de'),
             'lastname' => encrypt('Boer'),
-            'bsn' => '12345679',
             'street' => encrypt('Kerkstraat'),
             'housenumber' => encrypt('11'),
             'housenumbersuffix' => encrypt('a'),
