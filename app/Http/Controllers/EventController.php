@@ -23,7 +23,7 @@ class EventController extends Controller
         $user = Auth::user();
         $events = [];
         $data = $user->events;
-        
+
         if($data->count()){
 
           foreach ($data as $key => $value) {
@@ -31,7 +31,7 @@ class EventController extends Controller
                 $value->title,
                 true,
                 new \DateTime($value->start_date),
-                new \DateTime($value->end_date.' +1 day')
+                new \DateTime($value->start_date.' +1 day')
             );
           }
        }
@@ -67,7 +67,7 @@ class EventController extends Controller
                 $value->title,
                 $value->description,
                 new \DateTime($value->start_date),
-                new \DateTime($value->end_date)
+                new \DateTime($value->start_date)
             );
           }
         }
