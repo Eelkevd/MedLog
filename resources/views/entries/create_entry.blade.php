@@ -41,6 +41,8 @@
     <br>
     @include ('entries.create_symptom')
     <br>
+    @include ('entries.medicine_link')
+    <br>
 	<div class="card">
 		<div class="card-header">
 			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
