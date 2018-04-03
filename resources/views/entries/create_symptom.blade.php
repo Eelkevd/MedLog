@@ -17,7 +17,7 @@
 					<p>
 						Heeft u geen nieuwe symptomen? Ga dan verder naar het volgende onderwerp.
 					</p>
-					<input type="text" name="symptom" placeholder="naam symptom">
+					<input type="text" name="symptom" placeholder="naam symptoom">
 					<input type="submit" align="center" class="btnSub" value="ok">
 				</div>
 			</form>
