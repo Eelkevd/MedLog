@@ -71,37 +71,46 @@
                   </form>
                   <br>
 
-              <!-- result of searchfield -->
-              @if(!empty($keyword))
-
+                <!-- result of searchfield -->
                 @foreach($search as $entry)
-                <div class="card">
-                  <div class="card-header">
+                  <div class="card">
+                    <div class="card-header">
+                    Ziekte:
                     <b> {{ $entry -> illness }}</b>
                     @if(!empty($entry->timespan_date))
                       {{ __(', ')}}
-                      datum: {{ $entry -> timespan_date }}
+                      Datum: {{ $entry -> timespan_date }}
                     @endif
                   </div>
                   <div class="card-body">
+                    Symptoom:
+                    @foreach($entry->symptomes as $symptom)
+                      {{ $symptom->symptom }}
+                      {{ __(', ')}}
+                    @endforeach
                     <br>
-                    <a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a><br><br>
+                    Intensiteit:
+                    {{ $entry->intensity }}
+                    <br>
+                    <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a></em>
+                    </div>
                   </div>
-                </div>
+                  <br>
                 @endforeach
-              @endif
 
-              <!-- view if user has sort by illness -->
+                <!-- view if user has sort by illness -->
                 @foreach($sortillness as $entry)
                   <div class="card">
                     <div class="card-header">
+                    Ziekte:
                     <b> {{ $entry -> illness }}</b>
                     @if(!empty($entry->timespan_date))
                       {{ __(', ')}}
-                      datum: {{ $entry -> timespan_date }}
+                      Datum: {{ $entry -> timespan_date }}
                     @endif
                   </div>
                   <div class="card-body">
+                    Symptoom:
                     @foreach($entry->symptomes as $symptom)
                       {{ $symptom->symptom }}
                       {{ __(', ')}}
@@ -120,13 +129,15 @@
                 @foreach($sortintensity as $entry)
                   <div class="card">
                     <div class="card-header">
+                    Ziekte:
                     <b> {{ $entry -> illness }}</b>
                     @if(!empty($entry->timespan_date))
                       {{ __(', ')}}
-                      datum: {{ $entry -> timespan_date }}
+                      Datum: {{ $entry -> timespan_date }}
                     @endif
                   </div>
                   <div class="card-body">
+                    Symptoom:
                     @foreach($entry->symptomes as $symptom)
                       {{ $symptom->symptom }}
                       {{ __(', ')}}
@@ -143,7 +154,7 @@
 
                 <br /><br />
 
-                @if(empty($keyword))
+              
 
                   <h3><center>Uw gehele overzicht</center></h3>
                     @foreach($entries as $entry)
@@ -170,7 +181,7 @@
                   <br>
                     @endforeach
 
-                @endif
+                 
 
                 </div>
             </div>

@@ -30,7 +30,7 @@ class OverviewController extends Controller
         $sortword = "nope";
         $keyword = "";
         $currentdate = date("Y-m-d H:i:s");
-        $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')
+        $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')
                        ->where('timespan_date', '<=' ,$currentdate)->orderBy('timespan_date', 'DESC')->get();
         $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->get();
         $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->get();
