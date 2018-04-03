@@ -21,8 +21,8 @@ class MedicineController extends Controller
 	{
 		// $medicine = Medicine::find(2);
 		// dd($medicine->first()->get());
-
-		$medicines = Medicine::all();
+		$user = Auth::user();
+		$medicines = $user->diary->medicines;
 		return view('medicine/medicine', compact('medicines'));
 	}
 
