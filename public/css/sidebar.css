@@ -9,6 +9,11 @@ body {
     background: #fafafa;
 }
 
+#container{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .title{
   background-color: #7386D5;
   padding: 20px;
@@ -49,7 +54,7 @@ p {
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: black;
 }
 
 a, a:hover, a:focus {
@@ -58,14 +63,21 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+nav, nav ul{
+  max-width: 900px;
+  margin: 0 auto;
+}
+
 .navbar-dark a{
-  color: white !important
+  color: white !important;
+  width: 100px;
+  font-size: 1em;
 }
 
 .navbar-dark a:hover{
-  color: darkgrey !important
+  color: darkgrey !important;
 }
 
 .navbar-dark a:focus, .navbar-dark a.dropdown-item{
-  color: black !important
+  color: black !important;
 }
