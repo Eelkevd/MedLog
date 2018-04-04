@@ -12,6 +12,8 @@ class Entry extends Model
         'timespan_time',
         'location',
         'intensity',
+        'complaint_startdate',
+        'complaint_enddate',
         'complaint_time',
         'recoverytime_time',
         'weather',

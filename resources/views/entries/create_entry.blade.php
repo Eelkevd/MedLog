@@ -41,6 +41,8 @@
     <br>
     @include ('entries.create_symptom')
     <br>
+    @include ('entries.medicine_link')
+    <br>
 	<div class="card">
 		<div class="card-header">
 			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
@@ -88,7 +90,19 @@
 				<hr>
 				<div>
 					<p>Klachtsduur</p>
-					<input type="time" name="complaint_time"> (Tijd)
+					Startdatum klacht
+					<br>
+					<input type="date" id='complaint_startdate' name="complaint_startdate">
+					<br>
+					<br>
+					Einddatum klacht
+					<br>
+					<input type="date" id='complaint_enddate' name="complaint_enddate">
+					<br>
+					<br>
+					Tijd
+					<br>
+					<input type="time" name="complaint_time">
 				</div>
 				<hr>
 				<div>
