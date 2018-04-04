@@ -132,6 +132,11 @@
 
 
                         </table>
+
+                        <!-- Button to go to edit page of users account data-->
+                        <div class="form-group row mb-0">
+                            <em><a href="{{ route('entries.edit', $entry->id) }}">Pas pagina aan</a></em>
+                        </div>
                 </div>
                 @endif
                 @endauth
