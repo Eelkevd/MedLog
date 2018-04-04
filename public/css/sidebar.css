@@ -57,3 +57,15 @@ a, a:hover, a:focus {
     text-decoration: none;
     transition: all 0.3s;
 }
+
+.navbar-dark a{
+  color: white !important
+}
+
+.navbar-dark a:hover{
+  color: darkgrey !important
+}
+
+.navbar-dark a:focus, .navbar-dark a.dropdown-item{
+  color: black !important
+}

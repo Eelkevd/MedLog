@@ -33,9 +33,10 @@
                Dagboek</a>
                <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
                  <a class="dropdown-item" href="/overview">Overzicht</a>
-                 <a href="/entries" class="dropdown-item">Nieuwe gebeurtenis</a>
                  <a href="/export" class="dropdown-item">Exporteer</a>
                  <a href="/permissions" class="dropdown-item">Meelezers</a>
+                 <div class="dropdown-divider"></div>
+                 <a href="/entries" class="dropdown-item">Nieuwe gebeurtenis</a>
               </div>
           </li>
             <li class="nav-item">
