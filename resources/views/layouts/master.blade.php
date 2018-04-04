@@ -22,8 +22,7 @@
 
 <body>
 
-      <div class="wrapper">
-        <!-- Sidebar -->
+        <!-- Top Menu -->
         @include('layouts.sidebar')
 
         <div id="content">
@@ -32,7 +31,6 @@
           @yield('content')
         </div>
 
-      </div> <!-- end div wrapper -->
 
     <script type="text/javascript">
         $(document).ready(function () {

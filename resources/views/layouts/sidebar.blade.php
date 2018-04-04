@@ -1,76 +1,95 @@
 <!-- Sidebar -->
-<nav id="sidebar">
-   <!-- Sidebar Header -->
-  <div class="sidebar-header">
-      <h3>Menu</h3>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+   <!-- Header -->
+  <div class="title_app">
+    <a href="{{route('homepage')}}" class="navbar-brand">
+      <img src="{{asset('img/MedLogo.svg')}}" class="d-inline-block align-top" style="border-radius: 10%; height:80px; margin: 0 20px 0 20px;" alt="logo MedLog. Also return home button">
+
+    {{ config('app.subtitle') }}
+  </a>
   </div>
-  @if (auth()->user()->reader())
-    <!-- Sidebar Links for readers -->
-    <ul class="list-unstyled CTAs">
-        <!-- white button -->
-      <a href="/reader/index" class="download">
-        Uw clienten</a>
-    </ul>
 
-    <!-- only show the diary options when user has varified their email -->
-   @elseif ((auth()->user()->verified()))
+  <!-- responsive button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
 
-    <!-- buttons -->
-    <ul class="list-unstyled CTAs">
-        <!-- white button -->
-        <li>
-          <a href="/entries" class="download">
-          Nieuwe gebeurtenis
-         </a>
-       </li>
-    </ul>
 
-    <!-- Sidebar Links -->
-    <ul class="list-unstyled components">
-
-      <li><!-- Link with dropdown items -->
-          <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false" role="button">
-            Aankomende afspraken</a>
-          <ul class="collapse list-unstyled" id="kalenderSubmenu">
-            @foreach($events as $event)
-                <li>
-                {{ $event -> title }} <br>
-                {{ $event -> start_date }} <br><br>
-              </li>
-              @endforeach
-          </ul>
-       </li>
-
-       <li>
-          <a href="/home/mycalendar">Kalender</a>
-       </li>
-        <li>
-          <a href="/overview">Dagboek</a>
-       </li>
-       <li>
-           <a href="/export">Exporteer</a>
-       </li>
-       <li>
-          <a href="/permissions">Lezers</a>
-       </li>
-        <li><!-- Link with dropdown items -->
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-              Middelen</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li><a href="/medicine">Medicijnen</a></li>
-                <li><a href="/tool">Hulpmiddelen</a></li>
-            </ul>
+  <!-- menu items -->
+ <div class="collapse navbar-collapse" id="navbarSupportedContent">
+   <ul class="navbar-nav mr-auto" style="position: absolute; bottom:0; right:150px;">
+         <li class="nav-item active">
+           <a class="nav-link" href="/about">Over ons <span class="sr-only">(current)</span></a>
          </li>
-   </ul>
+         @if (auth()->user()->reader())
+           <!-- topmenu for readers -->
+           <li class="nav-item">
+             <a href="/reader/index" class="nav-link">Uw clienten</a>
+           </li>
+           <!-- top menu for varified users -->
+          @elseif ((auth()->user()->verified()))
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Dagboek</a>
+               <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
+                 <a class="dropdown-item" href="/overview">Overzicht</a>
+                 <a href="/entries" class="dropdown-item">Nieuwe gebeurtenis</a>
+                 <a href="/export" class="dropdown-item">Exporteer</a>
+                 <a href="/permissions" class="dropdown-item">Meelezers</a>
+              </div>
+          </li>
+            <li class="nav-item">
+               <a href="/home/mycalendar" class="nav-link">Kalender</a>
+            </li>
+
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Middelen
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <a class="dropdown-item" href="/medicine">Medicijnen</a>
+                 <a class="dropdown-item" href="/tool">Hulpmiddelen</a>
+                 <div class="dropdown-divider"></div>
+                 <a class="dropdown-item" href="#">Nieuw middel</a>
+               </div>
+            </li>
+
+
+         <li class="nav-item">
+           <a class="nav-link" href="/account">Account</a>
+         </li>
+       </ul>
  @endif
 
- <!-- buttons for all types of users -->
- <ul class="list-unstyled CTAs">
-     <!-- blue buttons -->
-     <li><a href="/account" class="article">Account</a></li>
-     <li><a href="/about" class="article">Over ons</a></li>
-     <li><a href="{{ URL::previous() }}" class="article">Terug</a></li>
-     <li><a href="/home" class="article">Home</a></li>
+ <!-- Right Side Of Navbar -->
+<div class="navbar-nav ml-auto navbar-right">
+ <ul class="navbar-nav">
+     <!-- Authentication Links -->
+     @guest
+         <!--<li><a class="nav-link" href="{{ route('login') }}">{{ __('Login or Register') }}</a></li>-->
+         <!--<li><a class="nav-link" href="{{ route('login') }}">{{ __('Register') }}</a></li>-->
+     @else
+         <li class="nav-item">
+             <a href="#">
+                 {{ Auth::user()->username }}
+             </a>
 
+             <div class="">
+                 <a href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                                  document.getElementById('logout-form').submit();">
+                     {{ __('Logout') }}
+                 </a>
+
+                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                     @csrf
+                 </form>
+             </div>
+         </li>
+     @endguest
  </ul>
+
+</div>
+
+
 </nav>
