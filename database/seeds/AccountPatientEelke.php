@@ -17,7 +17,6 @@ class AccountPatientEelke extends Seeder
             'firstname' => encrypt('Eelke'),
             'middlename' => encrypt('van'),
             'lastname' => encrypt('Dijk'),
-            'bsn' => '12345678',
             'street' => encrypt('Bedumerweg'),
             'housenumber' => encrypt('11'),
             'housenumbersuffix' => encrypt('a'),

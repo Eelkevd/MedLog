@@ -15,12 +15,11 @@ class CreateReadersTable extends Migration
     {
         Schema::create('readers', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')
-              ->nullable()
-              ->unsigned();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->integer('diary_id')->unsigned();
             $table->integer('timeframe');
             $table->string('password');
+            $table->text('email')->nullable();
             $table->text('token')->nullable();
             $table->timestamps();
 
