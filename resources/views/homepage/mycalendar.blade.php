@@ -36,36 +36,43 @@
 
         @else
 
-
-
-<hr>
-<!-- Buttons to go to homepage of create event page-->
-<div class="form-group row mb-0">
-    <div class="col-md-6 offset-md-4">
-        <form action="{{ action('HomeController@index') }}" >
-            <button type="submit" class="btn btn-primary">Welkomspagina</button>
-        </form><hr>
-        <form action="{{ action('EventController@create') }}" >
-            <button type="submit" class="btn btn-primary">Zet een afspraak in je kalender</button>
-        </form>
-    </div>
-</div>
-
-<hr>
-
-            <div class="container">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">
-                    Jouw kalender
-                    </div>
-
-                    <div class="panel-body" >
-                    {!! $calendar->calendar() !!}
-                    {!! $calendar->script() !!}
-                    </div>
-                </div>
+        <hr>
+        <!-- Buttons to go to homepage of create event page-->
+        <div class="form-group row mb-0">
+            <div class="col-md-6 offset-md-4">
+                <form action="{{ action('HomeController@index') }}" >
+                    <button type="submit" class="btn btn-primary">Welkomspagina</button>
+                </form><hr>
+                <form action="{{ action('EventController@create') }}" >
+                    <button type="submit" class="btn btn-primary">Zet een afspraak in je kalender</button>
+                </form>
             </div>
-@endif
+        </div>
+
+        <hr>
+
+                    <div class="container">
+                        <div class="panel panel-primary">
+                            <div class="panel-heading">
+                            Jouw kalender
+                            </div>
+
+                            <div class="panel-body" >
+                            {!! $calendar->calendar() !!}
+                            {!! $calendar->script() !!}
+                            </div>
+                        </div>
+                    </div>
+        @endif
+<script>
+
+  $('#calendar').fullCalendar({
+    defaultView: 'month',
+    defaultDate: '2018-03-12',
+    eventColor: 'green',
+    });
+  
+</script>
 @endauth
 
 @endsection

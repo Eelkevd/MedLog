@@ -13362,10 +13362,11 @@ a[data-goto]:hover {
 }
 
 .fc-event {
+  color: white;
   position: relative;
   display: block;
-  font-size: .85em;
-  line-height: 1.3;
+  font-size: .95em;
+  line-height: 1.6;
   border-radius: 3px;
   border: 1px solid #3a87ad;
 }
