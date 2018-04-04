@@ -19,7 +19,9 @@ class ExportController extends Controller
     // function to show export page
     public function index()
     {
-        return view('export.export');
+        $user = Auth::user();
+      	$illnesses = $user->diary->illnesses;
+        return view('export.export',  compact('illnesses'));
     }
 
     // function to export complete diary

@@ -46,7 +46,7 @@
 
                     Online
                     <ul>
-                    <li><a href="https://www.codegorilla.nl/2018/03/19/medisch-dagboek-eindproject/">Verslag van CodeGorilla site</a></li>
+                    <li><a href="https://www.codegorilla.nl/2018/03/19/medisch-dagboek-eindproject/">Verslag van de CodeGorilla site</a></li>
                     </ul>
                     <hr>
 

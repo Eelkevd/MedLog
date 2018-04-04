@@ -54,7 +54,13 @@
                 {{ csrf_field() }}
                 Exporteer je gegevens van de ziekte:
                 <br />
-                <input type="text" name="illness" required/>
+                <select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+      							<option selected></option>
+      						@foreach($illnesses as $illness)
+      							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+      						@endforeach()
+      					</select>
+                <!-- <input type="text" name="illness" required/> -->
                 <input type="submit" value="Download als pdf" /><br>
                 </form>
             </div>
@@ -80,13 +86,6 @@
                     });
                 </script>
               </div>
-          </div><br><br>
-
-          <div class="card">
-            <div class="card-header">Exporteer je medicijnen en hulpmiddelen</div>
-            <div class="card-body">
-
-            </div>
           </div><br><br>
 
           @endif
