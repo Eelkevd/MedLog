@@ -10,14 +10,15 @@ body {
 }
 
 #container{
-  max-width: 900px;
+  max-width: 810px;
   margin: 0 auto;
   background: linear-gradient(lightblue, darkgrey);
   border: 1px solid grey;
 }
 
 nav{
-  max-width: 900px;
+  max-width: 810px;
+  background-image: url("/img/background.jpg");
   margin: 0 auto;
   border-left: 1px solid grey;
   border-right: 1px solid grey;
@@ -35,19 +36,20 @@ nav img.logo{
 nav ul{
   max-width: 900px;
   margin: 0 auto;
+  background-color: rgba(121, 93, 143, 0.7);
 }
 
-.navbar-dark a{
-  color: white !important;
-  padding-right: 10px;
+nav ul li a{
+  padding: 10px 20px 10px 0;
   font-size: 1em;
+  color: white !important;
 }
 
-.navbar-dark a:hover{
-  color: darkgrey !important;
+nav ul li a:hover{
+  background-color: lightblue !important;
 }
 
-.navbar-dark a:focus, .navbar-dark a.dropdown-item{
+nav ul li a:focus, nav ul li a.dropdown-item{
   color: black !important;
 }
 
