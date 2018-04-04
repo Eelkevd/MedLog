@@ -58,7 +58,7 @@
               Middelen</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li><a href="/medicine">Medicijnen</a></li>
-                <li><a href="/hulpmiddelen">Hulpmiddelen</a></li>
+                <li><a href="/tool">Hulpmiddelen</a></li>
             </ul>
          </li>
    </ul>
