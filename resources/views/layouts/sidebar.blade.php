@@ -3,7 +3,7 @@
    <!-- Header -->
   <div class="title_app">
     <a href="{{route('homepage')}}" class="navbar-brand">
-      <img src="{{asset('img/MedLogo.svg')}}" class="d-inline-block align-top" style="border-radius: 10%; height:80px; margin: 0 20px 0 20px;" alt="logo MedLog. Also return home button">
+      <img src="{{asset('img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedLog. Also return home button">
       {{ config('app.subtitle') }}
     </a>
   </div>
