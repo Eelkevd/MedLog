@@ -34,7 +34,7 @@
           </li>
 
           <li class="nav-item dropdown">
-             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             <a class="nav-link dropdown-toggle" href="#" id="navbar2Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                Dagboek</a>
                <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
                  <a class="dropdown-item" href="/overview">Overzicht</a>
@@ -57,8 +57,15 @@
                  <a class="dropdown-item" href="/tool">Hulpmiddelen</a>
                </div>
             </li>
-            <li class="nav-item">
-               <a class="nav-link" href="/account">Account</a>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="AboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Account
+               </a>
+               <div class="dropdown-menu" aria-labelledby="AboutDropdown">
+                 <a class="dropdown-item" href="/account">Uw gegevens</a>
+                 <a class="dropdown-item" href="/thema">Uw thema</a>
+                 <a class="dropdown-item" href="/about">Over MedLog</a>
+              </div>
             </li>
 
         @endif

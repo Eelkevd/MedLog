@@ -1,16 +1,22 @@
 <!-- View for the calendar page -->
-@extends('layouts.htmlheader_index')
+@extends('layouts.master')
 
  <script src="{{asset('js/app.js')}}"></script>
 
 @section ('content')
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 <!-- check to see if user of page is guest, reader, user or validated user.
       Only let validated user throug -->
       @guest
       <!-- Show not logged in screen -->
-      <div class="col-md-6">
-          <label >{{ __('Please log in to see your account data.') }}</label>
+      <div class="card-body">
+              <div class="alert alert-danger">
+                <br /><strong>
+                  {{ __('Please log in to see your account data.') }}
+                </strong>
+              </div>
       </div>
       @endguest
 
@@ -36,15 +42,13 @@
 
         @else
 
-
+      </div>
+</div>
 
 <hr>
 <!-- Buttons to go to homepage of create event page-->
 <div class="form-group row mb-0">
     <div class="col-md-6 offset-md-4">
-        <form action="{{ action('HomeController@index') }}" >
-            <button type="submit" class="btn btn-primary">Welkomspagina</button>
-        </form><hr>
         <form action="{{ action('EventController@create') }}" >
             <button type="submit" class="btn btn-primary">Zet een afspraak in je kalender</button>
         </form>
@@ -52,12 +56,7 @@
 </div>
 
 <hr>
-
-            <div class="container">
                 <div class="panel panel-primary">
-                    <div class="panel-heading">
-                    Jouw kalender
-                    </div>
 
                     <div class="panel-body" >
                     {!! $calendar->calendar() !!}
