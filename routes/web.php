@@ -66,11 +66,17 @@ Route::middleware('auth')->group(function () {
   Route::post('/export/getdatePDF', 'ExportController@getperiodPDF');
   Route::post('/export/getPDF', 'ExportController@getPDF');
 
-// Route to medicine and aid pages
+// Route to medicine pages
 Route::get('/medicine', 'MedicineController@home');
 Route::get('/medicine/create_medicine', 'MedicineController@create');
 Route::post('/medicine/create_medicine', 'MedicineController@store');
 Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
+
+// Route to tool and pages
+Route::get('/tool', 'ToolController@home');
+Route::get('/tool/create_tool', 'ToolController@create');
+Route::post('/tool/create_tool', 'ToolController@store');
+Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
 
 });
 
