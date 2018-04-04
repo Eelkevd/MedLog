@@ -23,6 +23,7 @@ Route::get('/home/events', 'HomeController@events');
 // verification of the email upon registration
 // this also identifies the user as validated
 Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
+Route::get('/verify_invite', 'HomeController@index');
 
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
@@ -66,22 +67,23 @@ Route::middleware('auth')->group(function () {
   Route::post('/export/getdatePDF', 'ExportController@getperiodPDF');
   Route::post('/export/getPDF', 'ExportController@getPDF');
 
-// Route to medicine pages
-Route::get('/medicine', 'MedicineController@home');
-Route::get('/medicine/create_medicine', 'MedicineController@create');
-Route::post('/medicine/create_medicine', 'MedicineController@store');
-Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
+  // Route to medicine pages
+  Route::get('/medicine', 'MedicineController@home');
+  Route::get('/medicine/create_medicine', 'MedicineController@create');
+  Route::post('/medicine/create_medicine', 'MedicineController@store');
+  Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
 
-// Routes for User-Reader communications
-Route::get('/permissions', 'PermissionsController@index');
-Route::get('/permissions/givepermission', 'PermissionsController@create');
-Route::post('/permissions/givepermission', 'PermissionsController@store');
+  // Routes for User-Reader communications
+  Route::get('/permissions', 'PermissionsController@index');
+  Route::get('/permissions/givepermission', 'PermissionsController@create');
+  Route::post('/permissions/givepermission', 'PermissionsController@store');
 
-// Route to tool and pages
-Route::get('/tool', 'ToolController@home');
-Route::get('/tool/create_tool', 'ToolController@create');
-Route::post('/tool/create_tool', 'ToolController@store');
-Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
+  // Route to tool and pages
+  Route::get('/tool', 'ToolController@home');
+  Route::get('/tool/create_tool', 'ToolController@create');
+  Route::post('/tool/create_tool', 'ToolController@store');
+  Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
+});
 
 // validated routers for readers middleware('can:read-diary')
 Route::middleware('auth')->group(function () {
@@ -93,7 +95,6 @@ Route::middleware('auth')->group(function () {
   ->name('reader_index');
   Route::get('/reader/show{client}', 'ReaderController@show')
   ->name('reader_index');
-
 });
 
 Route::middleware('auth')->group(function () {
