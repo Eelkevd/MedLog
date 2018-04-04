@@ -39,18 +39,31 @@
                     @else
 
                     <div class="card-body">
+                      @if(!(Session::has('dataU')))
                       <div class="alert alert-primary">
                       U kunt iemand tijdelijk leesrechten geven over uw medisch dagboek. Zo kunt u uw dokter bijvoorbeeld
                         laten meekijken, of uw mantelzorger.<br />
                       </div>
+                      @endif
                       @if(Session::has('succes'))
                       <div class="alert alert-success">
                           {{ Session::get('succes') }}
                         </div>
-                      @elseif(Session::has('error'))
-                        <div class="alert alert-danger">
-                          {{ Session::get('error') }}
-                        </div>
+                      @endif
+                      @if(Session::has('dataU'))
+                          <div class="alert alert-danger">
+                            {{ __('Uw lezer kan inloggen op MedLog met onderstaande gegevens.')}}
+                            <br />
+                          {{ __('U kunt onderstaande gegevens naar uw lezer sturen:')}}
+                          <br /><br />
+                            {{ Session::get('dataU') }}
+                            <br />
+                            {{ __('Emailadres: ') }}
+                            {{ Session::get('dataM') }} 
+                            <br />
+                            {{ Session::get('dataW') }}
+                          </div>
+
                       @endif
                       <table class="table table-striped">
                           <thead>
@@ -96,6 +109,11 @@
                    <div class="card">
                      <!-- form for sadding readers -->
                      	<div class="card-header">
+                        @if(Session::has('error'))
+                          <div class="alert alert-danger">
+                            {{ Session::get('error') }}
+                          </div>
+                        @endif
                      		<strong>Voeg een nieuwe lezer toe</strong><br />
                         Geef het emailadres op van de persoon die u als lezer wilt toevoegen.
                      	</div>
