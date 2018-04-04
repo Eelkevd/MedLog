@@ -49,7 +49,11 @@ Route::middleware('auth')->group(function () {
   // Page to create and store symptom
   Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
   Route::get('/entries/{id}/show', 'Entry\EntryController@showentry')->name('entries.show');
-  // Route::get('/entries/edit/{id}', 'Entry\EntryController@editentry');
+  // Redirects to the edit diary entry page
+  Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
+  // Page to edit diary entries
+  Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
+
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');
@@ -83,7 +87,7 @@ Route::middleware('auth')->group(function () {
   Route::post('/tool/create_tool', 'ToolController@store');
   Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
 
-});  
+});
 
 // validated routers for readers middleware('can:read-diary')
 Route::middleware('auth')->group(function () {
