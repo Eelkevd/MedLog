@@ -41,11 +41,14 @@ class EditEntryController extends Controller
 			// add the diary_id to the request array
 			// $request->request->add(['diary_id' => $user->diary->id]);
 			// add the entry into the tabel entries
-			$entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
-      // $symptoms = $request->symptom;
-      // foreach($symptoms as $symptom){
-      //     $entry->symptomes()->updateExistingPivot($id, $symptoms);
-      //   }
+      // $user = Auth::user();
+      // $symptomes = $user->diary->symptomes;
+      // $medicines = $user->diary->medicines;
+			// $entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
+      // $entry->symptomes()->detach($entry->symptom);
+			// $entry->medicines()->detach($entry->medicine);
+      // $entry->symptomes()->attach($request->symptom);
+      // $entry->medicines()->attach($request->medicine);
 
       // Entry::where('id', $id)->symptomes()->update(request(['symptom']));
 			// $entry->medicines()->attach($request->medicine);
@@ -76,7 +79,7 @@ class EditEntryController extends Controller
 			// }
       //
 			// $calendar = Calendar::addEvents($events);
-			return redirect ('entries');
+			return redirect ('overview');
 		}
 	}
 }

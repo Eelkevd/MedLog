@@ -115,14 +115,14 @@
                             <hr>
 
                             <!-- Edit medicines -->
-                            <div>
+                            <!-- <div>
                               <p>Medicatie</p>
                               @foreach($medicines as $medicine)
-                                <input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" checked enctype="multipart/form-data">
+                                <input type="checkbox" name="medicine[]" value="{{ $medicine->id }}"  enctype="multipart/form-data">
                                 <label for="subscribeNews">{{ $medicine->medicine }}</label>
                               @endforeach()
                             </div>
-                            <hr>
+                            <hr> -->
 
                             <!-- Edit weather -->
                             <div>

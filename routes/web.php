@@ -45,7 +45,7 @@ Route::middleware('auth')->group(function () {
   // Page to store diary entries
   Route::post('/entries/create_entry', 'Entry\EntryController@store');
   // Page to create and store user made illness
-  Route::post('/entries/create_illness', 'Entry\IllnessController@store');z
+  Route::post('/entries/create_illness', 'Entry\IllnessController@store');
   // Page to create and store symptom
   Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
   Route::get('/entries/{id}/show', 'Entry\EntryController@showentry')->name('entries.show');
