@@ -33,84 +33,85 @@
 
     </div>
 
-<!-- implement the default theme -->
-@if (Auth::user()->theme === 'default')
+@if (Auth::check())
+  <!-- implement the default theme -->
+  @if (Auth::user()->theme === 'default')
 
-     <script>
-     src="jquery-3.3.1.min.js"
-     $().ready(function() {
-
-         $('body').css({
-           'font-color': 'black',
-        })
-          $('#sidebar, .sidebar-header').css({
-             'background-color': '#7386D5',
-         })
-           $('p').css({
-               'color': 'black',
-           })
-           $('.btn').css({
-               'background-color': '7386D5',
-           })
-           $('.download').css({
-               'color': 'black',
-           })
-           $('.article').css({
-               'background-color': 'white',
-               'color': '7386D5',
-           })
-           ;
-       });
-
-@elseif (Auth::user()->theme === 'contrast')
-     <script>
+       <script>
        src="jquery-3.3.1.min.js"
        $().ready(function() {
-         $('body').css({
-            'font-size': '1.5em',
-        })
-        $('nav').css({
-           'max-width': '1000px',
-           'background-image': 'none',
-       })
-       $('nav ul').css({
-          'background-color': 'black',
-          'max-width':'1000px',
-          'margin': '0',
-       })
-       $('#container').css({
-          'max-width': '1000px',
-        })
-        $('p').css({
-           'color': 'black',
-         })
-       ;
-   });
-     </script>
 
-@elseif (Auth::user()->theme === 'vrolijk')
-
-     <script>
-       src="jquery-3.3.1.min.js"
-       $().ready(function() {
-         $('body').css({
-           'background-color': 'rgba(121, 93, 143, 0.6)',
-            'font-color': 'black',
-        })
-        $('.container').css({
-           'background-color': 'pink',
-         })
-           $('p').css({
-               'color': 'black',
+           $('body').css({
+             'font-color': 'black',
+          })
+            $('#sidebar, .sidebar-header').css({
+               'background-color': '#7386D5',
            })
-           $('.btn').css({
-               'background-color': 'purple',
-           })
-           ;
-       });
-     </script>
+             $('p').css({
+                 'color': 'black',
+             })
+             $('.btn').css({
+                 'background-color': '7386D5',
+             })
+             $('.download').css({
+                 'color': 'black',
+             })
+             $('.article').css({
+                 'background-color': 'white',
+                 'color': '7386D5',
+             })
+             ;
+         });
 
+  @elseif (Auth::user()->theme === 'contrast')
+       <script>
+         src="jquery-3.3.1.min.js"
+         $().ready(function() {
+           $('body').css({
+              'font-size': '1.5em',
+          })
+          $('nav').css({
+             'max-width': '1000px',
+             'background-image': 'none',
+         })
+         $('nav ul').css({
+            'background-color': 'black',
+            'max-width':'1000px',
+            'margin': '0',
+         })
+         $('#container').css({
+            'max-width': '1000px',
+          })
+          $('p').css({
+             'color': 'black',
+           })
+         ;
+     });
+       </script>
+
+  @elseif (Auth::user()->theme === 'vrolijk')
+
+       <script>
+         src="jquery-3.3.1.min.js"
+         $().ready(function() {
+           $('body').css({
+             'background-color': 'rgba(121, 93, 143, 0.6)',
+              'font-color': 'black',
+          })
+          $('.container').css({
+             'background-color': 'pink',
+           })
+             $('p').css({
+                 'color': 'black',
+             })
+             $('.btn').css({
+                 'background-color': 'purple',
+             })
+             ;
+         });
+       </script>
+
+  @endif
 @endif
-
   </body>
 </html>

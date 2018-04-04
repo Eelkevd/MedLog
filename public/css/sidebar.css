@@ -82,7 +82,9 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
-
+ul.index{
+  list-style-type: circle;
+}
 /* Little larger screen */
 @media only screen and (min-width: 480px) {
 

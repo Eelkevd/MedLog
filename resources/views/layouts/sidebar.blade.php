@@ -12,16 +12,16 @@
       <span class="navbar-toggler-icon"></span>
   </button>
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav" style="position: absolute; bottom:0; right:0px;">
   @guest
-    <ul class="navbar-nav mr-auto" style="position: absolute; bottom:0; right:150px;">
       <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login or Register') }}</a></li>
+      <li class="nav-item"><a class="nav-link" href="/about">Over MedLog</a></li>
     </ul>
   @endguest
 
   @auth
   <!-- menu items -->
- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-   <ul class="navbar-nav" style="position: absolute; bottom:0; right:0px;">
          @if (auth()->user()->reader())
            <!-- topmenu for readers -->
            <li class="nav-item">

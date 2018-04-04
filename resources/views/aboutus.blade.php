@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 @section('content')
-<hr>
+
 <!-- Button to go to about us page-->
 <div class="container">
     <div class="row justify-content-center">
