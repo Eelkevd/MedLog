@@ -9,6 +9,7 @@ body {
     background: #fafafa;
 }
 
+/* contains nav and conainer content */
 #container{
   max-width: 810px;
   margin: 0 auto;
@@ -60,6 +61,12 @@ nav ul li a:focus, nav ul li a.dropdown-item{
   display: inline-block;
   text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
+
+.container{
+  position: relative;
+  margin-top: 130px;
+}
+
 
 p {
     font-family: 'Poppins', sans-serif;

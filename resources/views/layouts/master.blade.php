@@ -27,7 +27,6 @@
         @include('layouts.sidebar')
 
         <div id="content">
-          @include('layouts.nav')
 
           @yield('content')
         </div>
@@ -68,27 +67,25 @@
        src="jquery-3.3.1.min.js"
        $().ready(function() {
          $('body').css({
-            'font-size': '2em',
+            'font-size': '1.5em',
         })
-          $('#sidebar, .sidebar-header').css({
-             'background-color': 'black',
+        $('nav').css({
+           'max-width': '1000px',
+           'background-image': 'none',
+       })
+       $('nav ul').css({
+          'background-color': 'black',
+          'max-width':'1000px',
+          'margin': '0',
+       })
+       $('#container').css({
+          'max-width': '1000px',
+        })
+        $('p').css({
+           'color': 'black',
          })
-           $('p').css({
-               'color': 'black',
-           })
-           $('.btn').css({
-               'background-color': 'black',
-               'font-size': '1em',
-           })
-           $('.download').css({
-               'color': 'black',
-           })
-           $('.article').css({
-               'background-color': 'white',
-               'color': 'black',
-           })
-           ;
-       });
+       ;
+   });
      </script>
 
 @elseif (Auth::user()->theme === 'vrolijk')
@@ -97,24 +94,17 @@
        src="jquery-3.3.1.min.js"
        $().ready(function() {
          $('body').css({
-           'background-color': 'pink',
+           'background-color': 'rgba(121, 93, 143, 0.6)',
             'font-color': 'black',
         })
-          $('#sidebar, .sidebar-header').css({
-             'background-color': 'purple',
+        $('.container').css({
+           'background-color': 'pink',
          })
            $('p').css({
                'color': 'black',
            })
            $('.btn').css({
                'background-color': 'purple',
-           })
-           $('.download').css({
-               'color': 'black',
-           })
-           $('.article').css({
-               'background-color': 'white',
-               'color': 'black',
            })
            ;
        });

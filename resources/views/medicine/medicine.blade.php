@@ -1,11 +1,12 @@
 @extends ('layouts.master')
 
 @section('content')
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
 	<!-- form for submitting medical entry page -->
-
-	<div class="card">
-		<div class="card-header">
 			<!-- check to see if user of page is guest, reader, user or validated user.
 			      Only let validated user throug -->
 						@guest
@@ -66,6 +67,10 @@
 			@endforeach()
 		</div>
 	</div>
+	<br />
 	@endif
 	@endauth
+</div>
+</div>
+</div>
 @endsection

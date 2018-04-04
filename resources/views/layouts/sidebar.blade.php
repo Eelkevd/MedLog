@@ -1,4 +1,3 @@
-<!-- Sidebar -->
 <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
    <!-- Header -->
   <div class="title_app">
