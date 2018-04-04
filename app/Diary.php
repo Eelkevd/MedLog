@@ -42,7 +42,7 @@ class Diary extends Model
     	return $this->belongsToMany('App\Medicine');
     }
 
-    public function tool()
+    public function tools()
     {
     	return $this->belongsToMany('App\Tool');
     }

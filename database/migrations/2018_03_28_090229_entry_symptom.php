@@ -1,10 +1,9 @@
 <?php
-
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEntrySymptomPivTable extends Migration
+class EntrySymptom extends Migration
 {
     /**
      * Run the migrations.
@@ -22,7 +21,6 @@ class CreateEntrySymptomPivTable extends Migration
           $table->foreign('symptom_id')->references('id')->on('symptoms');
         });
     }
-
     /**
      * Reverse the migrations.
      *
@@ -30,6 +28,6 @@ class CreateEntrySymptomPivTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('entry_symptom_piv');
+        Schema::dropIfExists('entry_symptom');
     }
 }

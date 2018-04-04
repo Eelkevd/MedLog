@@ -17,7 +17,6 @@ class AccountPatientEsmo extends Seeder
             'firstname' => encrypt('Esmeralda'),
             'middlename' => encrypt(''),
             'lastname' => encrypt('Tijhof'),
-            'bsn' => '12345671',
             'street' => encrypt('Bedumerweg'),
             'housenumber' => encrypt('11'),
             'housenumbersuffix' => encrypt('a'),

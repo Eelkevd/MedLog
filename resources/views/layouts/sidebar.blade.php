@@ -50,12 +50,15 @@
        <li>
            <a href="/export">Exporteer</a>
        </li>
+       <li>
+          <a href="/permissions">Lezers</a>
+       </li>
         <li><!-- Link with dropdown items -->
             <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
               Middelen</a>
             <ul class="collapse list-unstyled" id="homeSubmenu">
                 <li><a href="/medicine">Medicijnen</a></li>
-                <li><a href="/hulpmiddelen">Hulpmiddelen</a></li>
+                <li><a href="/tool">Hulpmiddelen</a></li>
             </ul>
          </li>
    </ul>

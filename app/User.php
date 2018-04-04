@@ -88,11 +88,13 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
    /**
   * Returns true if the user is a reader
   *
-  * @return bool
+  * @return string
   */
   public function role()
   {
-    $role = Role::where('user_id', Auth::id());
+    $role = Role::findOrFail()
+    ->where('user_id', Auth::id())
+    ;
 
   }
 
