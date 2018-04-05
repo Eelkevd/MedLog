@@ -1,23 +1,22 @@
 <!-- View for the about us page -->
-@extends('layouts.htmlheader_index')
+@extends('layouts.master')
 
 @section('content')
-<hr>
+
 <!-- Button to go to about us page-->
-<div class="form-group row mb-0">
-    <div class="col-md-6 offset-md-4">
-        <form action="/" >
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    </div>
-</div>
-
-<hr>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <div class="card-header">
+                  <form action="/" >
+                      <button type="submit" class="btn btn-primary">Registreer</button>
+                  </form>
+              </div>
+          </div>
+
+<hr>
+          <div class="card">
                 <div class="card-header">Over ons</div>
                     <div class="card-body">
 

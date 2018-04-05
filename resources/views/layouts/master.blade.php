@@ -22,126 +22,96 @@
 
 <body>
 
-      <div class="wrapper">
-        <!-- Sidebar -->
+    <div id="container">
+        <!-- Top Menu -->
         @include('layouts.sidebar')
 
         <div id="content">
-          @include('layouts.nav')
 
           @yield('content')
         </div>
 
-      </div> <!-- end div wrapper -->
+    </div>
 
-    <script type="text/javascript">
-        $(document).ready(function () {
-            $("#sidebar").mCustomScrollbar({
-                 theme: "minimal"
-            });
+@if (Auth::check())
+  <!-- implement the default theme -->
+  @if (Auth::user()->theme === 'default')
 
-            $('#sidebarCollapse').on('click', function () {
-                // open or close navbar
-                $('#sidebar').toggleClass('active');
-                // close dropdowns
-                $('.collapse.in').toggleClass('in');
-                // and also adjust aria-expanded attributes we use for the open/closed arrows
-                // in our CSS
-                $('a[aria-expanded=true]').attr('aria-expanded', 'false');
-            });
-
-        });
-     </script>
-
-
-
-<!-- implement the default theme -->
-@if (Auth::user()->theme === 'default')
-
-     <script>
-     src="jquery-3.3.1.min.js"
-     $().ready(function() {
-
-         $('body').css({
-           'font-color': 'black',
-        })
-          $('#sidebar, .sidebar-header').css({
-             'background-color': '#7386D5',
-         })
-           $('p').css({
-               'color': 'black',
-           })
-           $('.btn').css({
-               'background-color': '7386D5',
-           })
-           $('.download').css({
-               'color': 'black',
-           })
-           $('.article').css({
-               'background-color': 'white',
-               'color': '7386D5',
-           })
-           ;
-       });
-
-@elseif (Auth::user()->theme === 'contrast')
-     <script>
+       <script>
        src="jquery-3.3.1.min.js"
        $().ready(function() {
-         $('body').css({
-            'font-size': '2em',
-        })
-          $('#sidebar, .sidebar-header').css({
-             'background-color': 'black',
+
+           $('body').css({
+             'font-color': 'black',
+          })
+            $('#sidebar, .sidebar-header').css({
+               'background-color': '#7386D5',
+           })
+             $('p').css({
+                 'color': 'black',
+             })
+             $('.btn').css({
+                 'background-color': '7386D5',
+             })
+             $('.download').css({
+                 'color': 'black',
+             })
+             $('.article').css({
+                 'background-color': 'white',
+                 'color': '7386D5',
+             })
+             ;
+         });
+
+  @elseif (Auth::user()->theme === 'contrast')
+       <script>
+         src="jquery-3.3.1.min.js"
+         $().ready(function() {
+           $('body').css({
+              'font-size': '1.5em',
+          })
+          $('nav').css({
+             'max-width': '1000px',
+             'background-image': 'none',
          })
-           $('p').css({
-               'color': 'black',
-           })
-           $('.btn').css({
-               'background-color': 'black',
-               'font-size': '1em',
-           })
-           $('.download').css({
-               'color': 'black',
-           })
-           $('.article').css({
-               'background-color': 'white',
-               'color': 'black',
-           })
-           ;
-       });
-     </script>
-
-@elseif (Auth::user()->theme === 'vrolijk')
-
-     <script>
-       src="jquery-3.3.1.min.js"
-       $().ready(function() {
-         $('body').css({
-           'background-color': 'pink',
-            'font-color': 'black',
-        })
-          $('#sidebar, .sidebar-header').css({
-             'background-color': 'purple',
+         $('nav ul').css({
+            'background-color': 'black',
+            'max-width':'1000px',
+            'margin': '0',
          })
-           $('p').css({
-               'color': 'black',
+         $('#container').css({
+            'max-width': '1000px',
+          })
+          $('p').css({
+             'color': 'black',
            })
-           $('.btn').css({
-               'background-color': 'purple',
-           })
-           $('.download').css({
-               'color': 'black',
-           })
-           $('.article').css({
-               'background-color': 'white',
-               'color': 'black',
-           })
-           ;
-       });
-     </script>
+         ;
+     });
+       </script>
 
+  @elseif (Auth::user()->theme === 'vrolijk')
+
+       <script>
+         src="jquery-3.3.1.min.js"
+         $().ready(function() {
+           $('body').css({
+             'background-color': 'rgba(121, 93, 143, 0.6)',
+              'font-color': 'black',
+          })
+          $('.container').css({
+             'background-color': 'pink',
+           })
+             $('p').css({
+                 'color': 'black',
+             })
+             $('.btn').css({
+                 'background-color': 'purple',
+             })
+             ;
+         });
+       </script>
+
+  @endif
 @endif
-
   </body>
 </html>

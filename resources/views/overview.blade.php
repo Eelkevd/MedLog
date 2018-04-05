@@ -8,6 +8,7 @@
             <div class="card">
                 <div class="card-header">
 
+
                   <!-- check to see if user of page is guest, reader, user or validated user.
                         Only let validated user throug -->
                         @guest

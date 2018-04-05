@@ -2,41 +2,37 @@
 @extends('layouts.htmlheader_index')
 
 @section('content')
-      <hr>
-    <!-- Button to go to about us page-->
-      <div class="form-group row mb-0">
-          <div class="col-md-6 offset-md-4">
-              <form action="about" >
-                  <button type="submit" class="btn btn-info btn-md" style="width: 200px;">Over ons</button>
-              </form>
-          </div>
-      </div>
 
-      <hr>
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-md">
+    <!-- Button to go to about us page-->
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
                   <div class="card">
                     <div class="card-body">
-                      <p class="lead text-center" style="color:black;">
-                      {{ __('Begin vandaag nog met het bouwen van uw eigen medisch dosier.')}}
-                      <br />
-                      {{ __('Registreer als gebruiker om een eigen dagboek aan te maken.')}}
-                      <br />
-                      {{ __('Heeft u een uitnodiging gekregen om een dosier in te zien?') }}
-                      <br />
-                      {{ __('Registreer dan als lezer.')}}
-                    </p>
+                      <strong>
+                      Een medisch dosier in eigen hand begint met MedLog.
+                    </strong><br />
+                    <br />
+
+                      <ul class="index">
+                        <li>Organiseer uw dagboek zoals u dat zelf wilt met gepersonaliseerde ziektebeelden en symptomen
+                        </li>
+                        <li>Houdt uw afspraken overzichtelijk bij in de kalender</li>
+                        <li>
+                          Voeg uw behandelaars en naasten toe als meelezers.
+                        </li>
+                        <li>
+                          Sorteer en exporteer uw dagboek als pdf.
+                        </li>
+                        <li>
+                          Kies uw eigen thema, bijvoorbeeld "Hoog Contrast" voor als u visueel beperkt bent.
+                        </li>
+                      </ul>
+
                     </div>
                   </div>
-              </div>
-          </div>
-      </div>
       <br />
       <!-- Login form -->
-      <div class="container">
-          <div class="row justify-content-center">
-              <div class="col-md-8">
                   <div class="card">
                       <div class="card-header">{{ __('Login') }}</div>
 
@@ -100,22 +96,24 @@
                   </div>
               </div>
           </div>
-      </div>
 
-      <hr><hr>
 
+<br />
       <!-- Registration form -->
-      <div class="container">
           <div class="row justify-content-center">
               <div class="col-md-8">
                   <div class="card">
                       <div class="card-header">
-                        {{ __('Registreer als gebruiker of als lezer.') }}
-                        <br />
-                        <em>{{ __('velden met een * zijn verplicht') }}</em>
+                        Registreer
                       </div>
-
                       <div class="card-body">
+                        Kies 'gebruiker' om een eigen dagboek aan te maken.
+                          <br />
+                          Kies 'hulpverlener' om een dagboek in te zien.
+                          <br />
+                          <em>{{ __('Velden met een * zijn verplicht') }}</em>
+                        </div>
+                        <div class="card-body">
                           <form method="POST" action="{{ route('register') }}">
                               @csrf
 

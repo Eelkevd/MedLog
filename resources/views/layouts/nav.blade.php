@@ -2,22 +2,8 @@
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
           <div class="container-fluid">
 
-              <div class="navbar-header">
-                  <button type="button" id="sidebarCollapse" class="btn btn-info navbar-btn hidemenu">
-                      <i class="glyphicon glyphicon-chevron-left"></i>
-                      <span>Verberg Menu</span>
-                  </button>
-              </div>
 
               <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <div class="title_app">
-                  <h1><a href="{{route('homepage')}}"><img src="{{asset('img/MedLogo.svg')}}" height="120" width="240"></a></h1>
-                  <h2> {{ config('app.subtitle') }}</h2>
-                </div>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
@@ -50,6 +36,5 @@
                             </li>
                         @endguest
                     </ul>
-                </div>
-            </div>
+              </div>
         </nav>
