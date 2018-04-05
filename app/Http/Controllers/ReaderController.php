@@ -1,4 +1,6 @@
 <?php
+
+// Controller of the Reader section
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Traits\Encryptable;
@@ -7,7 +9,6 @@ use Auth;
 use App\Reader;
 use App\Diary;
 use App\User;
-
 
 class ReaderController extends Controller
 {
@@ -64,6 +65,5 @@ class ReaderController extends Controller
 
       //$user->userDiaries->user->firstname
       return view('readers/show', compact('diary'));
-
     }
 }

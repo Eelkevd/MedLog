@@ -1,5 +1,6 @@
 <?php
 
+// Controller of the permission section
 namespace App\Http\Controllers;
 use Auth;
 use App\User;
@@ -8,12 +9,10 @@ use App\Role;
 use Illuminate\Support\Str;
 use App\Mail;
 use Illuminate\Support\Facades\Hash;
-
 use Illuminate\Http\Request;
 
 class PermissionsController extends Controller
 {
-
   // Authentication requirement
   public function __construct()
   {
@@ -31,7 +30,7 @@ class PermissionsController extends Controller
     return view('permissions/index', compact('permissions'));
   }
 
-    // Function to go to the create new medicine page
+  // Function to go to the create new medicine page
   public function create()
   {
   	return view('permissions/givepermission');
@@ -153,5 +152,4 @@ class PermissionsController extends Controller
         }
     }
   }
-
 }

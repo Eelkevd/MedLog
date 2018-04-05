@@ -14,7 +14,6 @@
                     @endguest
 
                     @auth
-
                       @if (!(auth()->user()->verified()))
                       <div class="card-body">
                               <div class="alert alert-danger">
@@ -34,7 +33,6 @@
                       </div>
 
                       @else
-
                       <div class="card">
                         <div class="card-header">
                           <h4>Aanpassen van Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
@@ -155,44 +153,19 @@
                         </div>
                       </div>
 
-                    <script>
-
-                      // Function to determine current date
-                      // Date.prototype.toDateInputValue = (function() {
-                      //     var local = new Date(this);
-                      //     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-                      //     return local.toJSON().slice(0,10);
-                      // })
-
-                      // Places current date into input 'date' fields
-                      // document.getElementById('timespan_date').value = new Date().toDateInputValue();
-
+                      <script>
                       // Function to keep pagescroll unchanged on buttonclick
                         $('a.btnSub').click(function(e)
                             {
                                 e.preventDefault();
                             });
 
-                        // Function to determine current time
-                      //   $(function(){
-                      //   $('input[type="time"][value="now"]').each(function(){
-                      //       var d = new Date(),
-                      //           h = d.getHours(),
-                      //           m = d.getMinutes();
-                      //       if(h < 10) h = '0' + h;
-                      //       if(m < 10) m = '0' + m;
-                      //       $(this).attr({
-                      //         'value': h + ':' + m
-                      //       });
-                      //     });
-                      // });
-
                       var sliderBar = document.getElementById('intensityRange');
                       var sliderVal = document.getElementById('intensityValue');
                       sliderVal.innerHTML = sliderBar.value;
 
                       sliderBar.oninput = function() {
-                        sliderVal.innerHTML = this.value;
+                      sliderVal.innerHTML = this.value;
                           if (this.value == 1)
                           {
                             sliderVal.innerHTML = '<img src="{{asset('/img/emo1.c.svg') }}" height="80" width="80">';
@@ -221,12 +194,11 @@
                           {
                             sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
                           }
-                      }
-
-                    </script>
-                  @endif
-                  @endauth
-          </div>
-      </div>
-  </div>
+                        }
+                        </script>
+                    @endif
+                @endauth
+            </div>
+        </div>
+    </div>
   @endsection
