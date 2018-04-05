@@ -90,6 +90,12 @@ a, a:hover, a:focus {
 ul.index{
   list-style-type: circle;
 }
+
+.nopadding {
+   padding: 0 !important;
+   margin: 0 !important;
+}
+
 /* Little larger screen */
 @media only screen and (min-width: 480px) {
 

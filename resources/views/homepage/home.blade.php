@@ -39,38 +39,59 @@
 
       </div>
 
-      <div class="card">
-          <div class="card-header">Welcome bij MedLog, jouw persoonlijk medisch dagboek!
+      <p><center>Welcome bij MedLog, jouw persoonlijk medisch dagboek!</center></p>
+
+      <div class="card-deck mb-3 text-center">
+
+
+
+        <div class="card mb-4 box-shadow">
+          <div class="card-header">
+            <h4 class="my-0 font-weight-normal">Komende afspraken</h4>
           </div>
-          <div class="col-md-2">
-            <div class="card-body">
-              <!-- Aankomende afspraken -->
-                <ul class="collapse list-unstyled">
-                  @foreach($events as $event)
-                    @if($events == null)
-                        <li>
-                        {{ $event -> title }} <br>
-                        {{ $event -> start_date }} <br><br>
-                      </li>
-                    @else
-                        <li>Hier komen uw vijf meest recente aankomende afspraken te staan</li>
-                    @endif
-                  @endforeach
-                </ul>
-              </div>
+          @if(!empty($events))
+          @foreach($events as $event)
+          <div class="my-0 card-body nopadding">
+            <h4><small class="text-muted">{{ $event -> title }}</small></h4>
+            <ul class="list-unstyled">
+              <li>{{ $event -> start_date }}</li>
+              <li>{{ $event -> start_date }}</li>
+            </ul>
+            <hr>
+          </div>
+        @endforeach
+        @else
+          <div class="my-0 card-body">
+            <h5 class="card-title"><small class="text-muted">Hier komen uw vijf meest recente aankomende afspraken te staan</small>
+            </h5>
+          </div>
+        @endif
+      </div>
+
+      <!-- vijf meest recente entries in het dagboek -->
+      <div class="card mb-4 box-shadow">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Laatste gebeurtenissen</h4>
         </div>
-        <div class="col-md-2">
+        @if(!empty($entries))
+          @foreach($entriess as $entry)
           <div class="card-body">
-            <!-- vijf meest recente entries in het dagboek -->
-            <ul>
-              <li>dagboek 1</li>
+            <h5 class="card-title"><small class="text-muted">{{ $entry -> illness }}</small></h5>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>{{ $entry -> timespan_date }}</li>
             </ul>
           </div>
-        </div>
+        @endforeach
+        @else
+          <div class="card-body">
+            <h5 class="card-title"><small class="text-muted">Hier komen uw vijf laatste gebeurtenissen te staan</small></h5>
+          </div>
+        @endif
+    </div>
 
 
 
-
+</div>
               <div class="card">
                   <div class="card-header">Home
                   </div>
@@ -78,12 +99,10 @@
                     <form action="{{ action('EventController@index') }}" >
                         <button type="submit">Bekijk je kalender</button>
                     </form><br>
-                    <form action="{{ action('EventController@create') }}" >
-                        <button type="submit">Zet een afspraak in je kalender</button>
-                    </form><br>
+
                     <form method="GET" action="{{ action('EventController@search') }}" >
                         <input type="text" name="search" placeholder="Zoekopdracht">
-                        <button type="submit">zoek in je kalender</button>
+                        <button type="submit">zoek op afspraak of ziektebeeld</button>
                     </form><br>
 
                   <b>Resultaten:</b><br><br>
