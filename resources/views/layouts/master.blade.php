@@ -27,10 +27,10 @@
         @include('layouts.sidebar')
 
         <div id="content">
-
           @yield('content')
         </div>
-
+        <br />
+        <br />
     </div>
 
 @if (Auth::check())
@@ -62,6 +62,7 @@
              })
              ;
          });
+       </script>
 
   @elseif (Auth::user()->theme === 'contrast')
        <script>
@@ -90,7 +91,6 @@
        </script>
 
   @elseif (Auth::user()->theme === 'vrolijk')
-
        <script>
          src="jquery-3.3.1.min.js"
          $().ready(function() {

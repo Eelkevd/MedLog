@@ -18,7 +18,7 @@ body {
   margin: 0 auto;
   background: linear-gradient(lightblue, darkgrey);
   border: 1px solid grey;
-  height:100%;
+  min-height:100%;
 }
 
 nav{
