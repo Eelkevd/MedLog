@@ -19,9 +19,9 @@ Password: @Insert12
 ### Description
 
 ### Workflow Week 14 
-- tuesday: Reader functionality work in progress, updated sprintlog/trello, fixed bugs, user able to create and add medicines to diary entry
-- wednesday:
-- thursday: 
+- tuesday: Reader functionality work in progress, updated sprintlog/trello, fixed bugs, user able to create and add medicines to diary entry;
+- wednesday: userstory 11b work in progress, reader functionality updated, meeting with coaches, new frontend format, user able to create   tool list;
+- thursday: finished userstory 11b, Patient-26, new frontend format improved with feedback, reader functionality updated: password included in mail; 
 - friday: 
 
 ## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
@@ -34,7 +34,9 @@ Password: @Insert12
 - https://medapp.nu/
 
 # Screenshots
-![Alt text](https://github.com/Eelkevd/MedLog/blob/master/homepage.png?raw=true "Homepage")
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/overzichtspaginaMedLog.png?raw=true "Overzichtspagina")
+
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/KalenderMedLog.png?raw=true "Kalender pagina")
 
 # Sketches
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchhomepage.png?raw=true "Homepage sketch")
