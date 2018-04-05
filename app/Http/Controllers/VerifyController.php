@@ -31,4 +31,10 @@ class VerifyController extends Controller
         return redirect('/home')
         ->with('succes', 'Dagboek geactiveerd');
     }
+
+    public function invite()
+    {
+        return redirect('/')
+        ->with('succes', 'log in om de met u gedeelde gegevens te bekijken');
+    }
 }

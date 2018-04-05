@@ -1,16 +1,22 @@
 <!-- View for the calendar page -->
-@extends('layouts.htmlheader_index')
+@extends('layouts.master')
 
  <script src="{{asset('js/app.js')}}"></script>
 
 @section ('content')
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
 <!-- check to see if user of page is guest, reader, user or validated user.
       Only let validated user throug -->
       @guest
       <!-- Show not logged in screen -->
-      <div class="col-md-6">
-          <label >{{ __('Please log in to see your account data.') }}</label>
+      <div class="card-body">
+              <div class="alert alert-danger">
+                <br /><strong>
+                  {{ __('Please log in to see your account data.') }}
+                </strong>
+              </div>
       </div>
       @endguest
 
@@ -35,7 +41,6 @@
         </div>
 
         @else
-
         <hr>
         <!-- Buttons to go to homepage of create event page-->
         <div class="form-group row mb-0">
@@ -64,8 +69,12 @@
                         </div>
                     </div>
         @endif
-<script>
+      </div>
+</div>
+</div>
 
+
+<script>
   $('#calendar').fullCalendar({
     defaultView: 'month',
     defaultDate: '2018-03-12',

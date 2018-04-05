@@ -67,8 +67,9 @@ class PermissionsController extends Controller
       if(!empty($reader_id))
       {
         // check if reader is 'hulpverlener'
+        $role = $user->roles()->find($reader_id);
 
-        if(empty($user->roles()->find($reader_id)))
+        if($role->slug == 'gebruiker')
         {
           // het emailadres is al in gebruik voor een normale gebruiker
           return redirect ('permissions')
@@ -102,6 +103,8 @@ class PermissionsController extends Controller
         $dataUsername = "Gebruikersnaam = " . $userName;
         $dataPassword = "Wachtwoord = " . $wachtwoord;
 
+        $newAccount = $dataUsername . $dataPassword;
+
         $reader = User::create([
               'username' => $userName,
               'firstname' => '..',
@@ -127,7 +130,7 @@ class PermissionsController extends Controller
           'password'
         ]));
           // Send an email with a verification link which redirects using the token
-        //  $reader->sendVerificationMail();
+        $reader->sendInviteMailNewUser();
 
           return redirect ('permissions')
             ->with('succes', 'Inlog voor lezer aangemaakt en verzonden')

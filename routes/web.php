@@ -23,6 +23,7 @@ Route::get('/home/events', 'HomeController@events');
 // verification of the email upon registration
 // this also identifies the user as validated
 Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
+Route::get('/verify_invite', 'VerifyController@invite');
 
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
@@ -49,7 +50,11 @@ Route::middleware('auth')->group(function () {
   // Page to create and store symptom
   Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
   Route::get('/entries/{id}/show', 'Entry\EntryController@showentry')->name('entries.show');
-  // Route::get('/entries/edit/{id}', 'Entry\EntryController@editentry');
+  // Redirects to the edit diary entry page
+  Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
+  // Page to edit diary entries
+  Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
+
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');
@@ -95,7 +100,6 @@ Route::middleware('auth')->group(function () {
   ->name('reader_index');
   Route::get('/reader/show{client}', 'ReaderController@show')
   ->name('reader_index');
-
 });
 
 Route::middleware('auth')->group(function () {

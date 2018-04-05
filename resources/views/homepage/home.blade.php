@@ -42,7 +42,8 @@
 
       </div>
               <div class="card">
-                  <div class="card-header">Home</div>
+                  <div class="card-header">Home
+                  </div>
                   <div class="card-body">
                     <form action="{{ action('EventController@index') }}" >
                         <button type="submit">Bekijk je kalender</button>
@@ -62,7 +63,11 @@
                   @endforeach
 
                   </div>
-              </div><br><br>
+              </div><br>
+
+  
+
+              <br>
               @endif
           </div>
         </div>

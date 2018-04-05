@@ -16,18 +16,14 @@
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 
     <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
-</head>
-<body>
-  <!-- View for the login page (landing page) -->
-
-      <div class="content">
-          <div class="title m-b-md">
-            <h1><a href="{{route('homepage')}}"><img src="{{asset('img/MedLogo.svg')}}" height="150" width="220"></a></h1>
-            <h2>jouw medisch dagboek</h2>
-          </div>
-      </div>
-
-      @yield('content')
-    </div>
-    </body>
-  </html>
+  </head>
+  <body>
+        <div id="container">
+            <!-- Top Menu -->
+            @include('layouts.sidebar')
+            <div id="content">
+              @yield('content')
+            </div>
+        </div>
+  </body>
+</html>
