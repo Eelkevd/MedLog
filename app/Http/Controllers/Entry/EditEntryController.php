@@ -1,15 +1,18 @@
 <?php
+
+// Controller of edit entry section
 namespace App\Http\Controllers\Entry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
+use Calendar;
 use App\Symptom;
 use App\Illness;
 use App\Entry;
-use Illuminate\Support\Facades\Auth;
-use Calendar;
 use App\Event;
 use App\Diary;
+
 class EditEntryController extends Controller
 {
 	//authentication requirement

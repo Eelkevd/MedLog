@@ -1,4 +1,5 @@
 <?php
+
 // Controller of the overview section
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
