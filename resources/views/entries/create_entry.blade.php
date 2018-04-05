@@ -45,7 +45,7 @@
 
 	         <div class="card">
         		<div class="card-header">
-        			<h5><center>Medisch Dagboek</center></h5>
+        			<h5><center>Nieuwe gebeurtenis voor in uw <br />medisch dagboek</center></h5>
               <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
         		</div>
 
