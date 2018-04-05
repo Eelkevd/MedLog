@@ -102,6 +102,8 @@ class PermissionsController extends Controller
         $dataUsername = "Gebruikersnaam = " . $userName;
         $dataPassword = "Wachtwoord = " . $wachtwoord;
 
+        $newAccount = $dataUsername . $dataPassword;
+
         $reader = User::create([
               'username' => $userName,
               'firstname' => '..',

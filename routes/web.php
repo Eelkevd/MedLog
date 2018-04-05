@@ -23,7 +23,7 @@ Route::get('/home/events', 'HomeController@events');
 // verification of the email upon registration
 // this also identifies the user as validated
 Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
-Route::get('/verify_invite', 'HomeController@index');
+Route::get('/verify_invite', 'VerifyController@invite');
 
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');

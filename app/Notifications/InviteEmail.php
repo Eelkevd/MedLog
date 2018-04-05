@@ -43,9 +43,15 @@ class InviteEmail extends Notification
      */
     public function toMail($notifiable)
     {
+        // sends an email invite
         return (new MailMessage)
-                    ->line('Iemand heeft u uitgenodigd om zijn medisch dagboek te bekijken op Medlog! In deze email vindt u uw accountgegevens.')
-                    ->action('Bestig mijn account', route('verify_invite'))
+                    ->line('Iemand heeft u uitgenodigd om zijn medisch dagboek te bekijken op Medlog!')
+                    ->line('In deze email vindt u uw accountgegevens. Je logged in met jouw e-mail en het onderstaande wachtwoord.')
+                    // ->line('Gebruikersnaam: ')
+                    // ->line($this->user->username)
+                    ->line('Wachtwoord: ')
+                    ->line($this->user->password)
+                    ->action('Bestig mijn account', url('verify_invite'))
                     ->line('Thank you for using our application!');
     }
 
