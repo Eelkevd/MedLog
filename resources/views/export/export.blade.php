@@ -54,7 +54,7 @@
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
-                <input type="submit" value="Download" /><br>
+                <input type="submit" class="btn btn-sub" value="Download" /><br>
                 </form>
             </div>
           </div><br>
@@ -66,7 +66,7 @@
                 {{ csrf_field() }}
                 <label>Van: </label><input type="text" name="start_date" class="date" required/><br>
               </label>Tot: </label><input type="text" name="end_date" class="date" required/>
-                <input type="submit" value="Download" /><br>
+                <input type="submit" class="btn btn-sub" value="Download" /><br>
                 </form>
 
                 <script>
