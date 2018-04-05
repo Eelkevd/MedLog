@@ -3,53 +3,82 @@
 */
 @import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
 
+html, body {
+    height:100%;
+}
 
 body {
     font-family: 'Poppins', sans-serif;
     background: #fafafa;
 }
 
-.title{
-  background-color: #7386D5;
-  padding: 20px;
+/* contains nav and conainer content */
+#container{
+  max-width: 810px;
+  margin: 0 auto;
+  background: linear-gradient(lightblue, darkgrey);
+  border: 1px solid grey;
+  min-height:100%;
+}
+
+nav{
+  max-width: 810px;
+  background-image: url("/img/background.jpg");
+  margin: 0 auto;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+  border-bottom: 1px solid grey;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+}
+
+nav img.logo{
+  border-radius: 10%;
+  height:90px;
+  margin: 0 20px 0 20px;
+  padding:0;
+  box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
+}
+
+nav ul{
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: rgba(121, 93, 143, 0.7);
+}
+
+nav ul li a{
+  padding: 10px 20px 10px 0;
+  font-size: 1em;
+  color: white !important;
+}
+
+nav ul li a:hover{
+  background-color: lightblue !important;
+}
+
+nav ul li a:focus, nav ul li a.dropdown-item{
+  color: black !important;
 }
 
 .title_app{
-  float: left;
-}
-
-.title h1, .title_app h1{
-  text-align: center;
-  font-size: 3em;
-  font-family: 'Poppins', sans-serif;
-  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
-}
-
-.title h2, .title_app h2{
-  text-align: center;
   font-size: 1.5em;
   font-family: 'Poppins', sans-serif;
   font-style: italic;
+  display: inline-block;
+  text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 }
 
-.title_app h1{
-  font-size: 3em;
-  padding-left: 50px;
-  display: inline-block;
+.container{
+  position: relative;
+  margin-top: 130px;
 }
 
-.title_app h2{
-  font-size: 1.5em;
-  padding-left: 20px;
-  display: inline-block;
-}
 
 p {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     font-weight: 300;
     line-height: 1.7em;
-    color: #999;
+    color: black;
 }
 
 a, a:hover, a:focus {
@@ -58,172 +87,38 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
-.navbar {
-    padding: 15px 10px;
-    background: #fff;
-    border: none;
-    border-radius: 0;
-    margin-bottom: 40px;
-    margin-left: -30px;
-    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+ul.index{
+  list-style-type: circle;
+}
+/* Little larger screen */
+@media only screen and (min-width: 480px) {
+
 }
 
-.navbar-btn {
-    box-shadow: none;
-    outline: none !important;
-    border: none;
+/* Pads and larger phones */
+@media only screen and (min-width: 600px) {
+
 }
 
-.hidemenu{
-  margin-left: -40px;
-  padding: 20px;
+/* Larger pads */
+@media only screen and (min-width: 768px) {
+
 }
 
-.appname{
-  padding-left: 40px;
+/* Horizontal pads and laptops */
+@media only screen and (min-width: 992px) {
+
 }
 
-.btn-info{
-  background-color: #7386D5;
-}
-/* ---------------------------------------------------
-    SIDEBAR STYLE
------------------------------------------------------ */
-#sidebar {
-    width: 250px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    z-index: 999;
-    background: #7386D5;
-    color: #fff;
-    transition: all 0.3s;
+/* Really large screens */
+@media only screen and (min-width: 1382px) {
+
 }
 
-#sidebar.active {
-    margin-left: -250px;
-}
+/* 2X size (iPhone 4 etc)*/
+@media only screen and
+        (-webkit-min-device-pixel-ratio: 1.5), only screen and
+        (-o-min-device-pixel-ratio: 3/2), only screen and
+        (min-device-pixel-ratio: 1.5) {
 
-#sidebar .sidebar-header {
-    padding: 20px;
-    background: #6d7fcc;
-}
-
-#sidebar ul.components {
-    padding-left: 10px;
-    border-bottom: 1px solid #47748b;
-}
-
-#sidebar ul p {
-    color: #fff;
-    padding: 10px;
-}
-
-#sidebar ul li a {
-    padding: 10px;
-    font-size: 1.1em;
-    display: block;
-}
-#sidebar ul li a:hover {
-    color: #7386D5;
-    background: #fff;
-}
-
-#sidebar ul li.active > a, a[aria-expanded="true"] {
-    color: #fff;
-    background: #6d7fcc;
-}
-
-
-a[data-toggle="collapse"] {
-    position: relative;
-}
-
-a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
-    content: '\e259';
-    display: block;
-    position: absolute;
-    right: 20px;
-    font-family: 'Glyphicons Halflings';
-    font-size: 0.6em;
-}
-a[aria-expanded="true"]::before {
-    content: '\e260';
-}
-
-ul ul a {
-    font-size: 0.9em !important;
-    padding-left: 30px !important;
-    background: #6d7fcc;
-}
-
-ul.CTAs {
-    padding: 20px ;
-}
-
-ul.CTAs a {
-    text-align: center;
-    font-size: 0.9em !important;
-    display: block;
-    border-radius: 5px;
-    margin-bottom: 5px;
-}
-ul.CTAs a.download{
-    background: #fff;
-    color: #7386D5;
-    font-size: 1.2em !important;
-    margin-bottom: 0px;
-}
-a.article, a.download:hover{
-    background: #6d7fcc !important;
-    color: #fff !important;
-}
-
- a.article:hover{
-    font-size: 0.9em !important;
-    background: #fff !important;
-    color: #7386D5 !important;
- }
-
-
-/* ---------------------------------------------------
-    CONTENT STYLE
------------------------------------------------------ */
-#content {
-    width: calc(100% - 250px);
-    padding: 40px;
-    min-height: 100vh;
-    transition: all 0.3s;
-    position: absolute;
-    top: 0;
-    right: 0;
-}
-#content.active {
-    width: 100%;
-}
-
-
-/* ---------------------------------------------------
-    MEDIAQUERIES
------------------------------------------------------ */
-@media (max-width: 768px) {
-    #sidebar {
-        margin-left: -250px;
-    }
-    #sidebar.active {
-        margin-left: 0;
-    }
-    #content {
-        width: 100%;
-    }
-    #content.active {
-        width: calc(100% - 250px);
-    }
-    #sidebarCollapse span {
-        display: none;
-    }
-    .title_app{
-      font-size: 1.5em;
-    }
 }

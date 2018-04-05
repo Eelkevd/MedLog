@@ -19,11 +19,10 @@ class EventController extends Controller
     // Requires data from database to fill in and show calendar
     public function index()
     {
-
         $user = Auth::user();
         $events = [];
         $data = $user->events;
-        
+
         if($data->count()){
 
           foreach ($data as $key => $value) {
@@ -31,7 +30,7 @@ class EventController extends Controller
                 $value->title,
                 true,
                 new \DateTime($value->start_date),
-                new \DateTime($value->end_date.' +1 day')
+                new \DateTime($value->start_date.' +1 day')
             );
           }
        }
@@ -67,7 +66,7 @@ class EventController extends Controller
                 $value->title,
                 $value->description,
                 new \DateTime($value->start_date),
-                new \DateTime($value->end_date)
+                new \DateTime($value->start_date)
             );
           }
         }
@@ -83,24 +82,4 @@ class EventController extends Controller
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
         return view('homepage.home', compact('search'));
    }
-
-    public function show($id)
-    {
-        //
-    }
-
-    public function edit($id)
-    {
-
-    }
-
-    public function update(Request $request, $id)
-    {
-
-    }
-
-    public function destroy($id)
-    {
-        //
-    }
 }

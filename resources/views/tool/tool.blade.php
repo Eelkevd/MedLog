@@ -1,12 +1,13 @@
 @extends ('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+
 	<!-- form for submitting medical entry page -->
+	<div class="container">
+	    <div class="row justify-content-center">
+	        <div class="col-md-8">
+	            <div class="card">
+	                <div class="card-header">
 			<!-- check to see if user of page is guest, reader, user or validated user.
 			      Only let validated user throug -->
 						@guest
@@ -38,31 +39,31 @@
 
 						  @else
 
-			<h4>Medicijnen</h4>
+			<h4>Hulpmiddelen</h4>
 		</div>
 	</div>
 	<br>
 	<div class="card">
 		<div class="card-header">
-			<h5>Nieuwe medicatie toevoegen</h5>
+			<h5>Nieuwe hulpmiddelen toevoegen</h5>
 		</div>
 
 		<div class="card-body">
-			<p>Voeg nieuwe medicatie toe</p>
-			<a href="/medicine/create_medicine">Nieuw</a>
+			<p>Voeg nieuwe hulpmiddelen toe</p>
+			<a href="/tool/create_tool">Nieuw</a>
 		</div>
 	</div>
     <br>
 	<div class="card">
 		<div class="card-header">
-			<h5>Medicatie</h5>
+			<h5>Hulpmiddel</h5>
 		</div>
 
 		<div class="card-body">
-			<!-- places all medicines from db -->
-			<p>Klik op een medicijn om de gegevens te bekijken</p>
-			@foreach($medicines as $medicine)
-				<a href="{{ route('medicine.show', $medicine->id) }}">{{ $medicine -> medicine }}</a>
+			<!-- places all tools from db -->
+			<p>Klik op een hulpmiddel om de gegevens te bekijken</p>
+			@foreach($tools as $tool)
+				<a href="{{ route('tool.show', $tool->id) }}">{{ $tool -> tool }}</a>
 				<hr>
 			@endforeach()
 		</div>
@@ -70,7 +71,6 @@
 	<br />
 	@endif
 	@endauth
-</div>
 </div>
 </div>
 @endsection

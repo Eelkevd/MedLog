@@ -5,7 +5,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-          <div class="card">
+
 
             <!-- check to see if user of page is guest, reader, user or validated user.
                   Only let validated user throug -->
@@ -37,7 +37,7 @@
                     </div>
 
                     @else
-
+            <div class="card">        
             <div class="card-header">Exporteer al je gegevens</div>
             <div class="card-body">
                 <form method="POST" action="/export/getPDF">
@@ -54,7 +54,13 @@
                 {{ csrf_field() }}
                 Exporteer je gegevens van de ziekte:
                 <br />
-                <input type="text" name="illness" required/>
+                <select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+      							<option selected></option>
+      						@foreach($illnesses as $illness)
+      							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+      						@endforeach()
+      					</select>
+                <!-- <input type="text" name="illness" required/> -->
                 <input type="submit" value="Download als pdf" /><br>
                 </form>
             </div>
@@ -80,13 +86,6 @@
                     });
                 </script>
               </div>
-          </div><br><br>
-
-          <div class="card">
-            <div class="card-header">Exporteer je medicijnen en hulpmiddelen</div>
-            <div class="card-body">
-
-            </div>
           </div><br><br>
 
           @endif

@@ -1,73 +1,93 @@
-<!-- Sidebar -->
-<nav id="sidebar">
-   <!-- Sidebar Header -->
-  <div class="sidebar-header">
-      <h3>Menu</h3>
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+   <!-- Header -->
+  <div class="title_app">
+    <a href="{{route('homepage')}}" class="navbar-brand">
+      <img src="{{asset('img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedLog. Also return home button">
+      {{ config('app.subtitle') }}
+    </a>
   </div>
-  @if (auth()->user()->reader())
-    <!-- Sidebar Links for readers -->
-    <ul class="list-unstyled CTAs">
-        <!-- white button -->
-      <a href="/reader/index" class="download">
-        Uw clienten</a>
+
+  <!-- responsive button -->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav" style="position: absolute; bottom:0; right:0px;">
+  @guest
+      <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login or Register') }}</a></li>
+      <li class="nav-item"><a class="nav-link" href="/about">Over MedLog</a></li>
     </ul>
+  @endguest
 
-    <!-- only show the diary options when user has varified their email -->
-   @elseif ((auth()->user()->verified()))
+  @auth
+  <!-- menu items -->
+         @if (auth()->user()->reader())
+           <!-- topmenu for readers -->
+           <li class="nav-item">
+             <a href="/reader/index" class="nav-link">Uw clienten</a>
+           </li>
+           <!-- top menu for varified users -->
+          @elseif ((auth()->user()->verified()))
+          <li class="nav-item active">
+            <a class="nav-link" href="/entries">Nieuwe gebeurtenis <span class="sr-only">(current)</span></a>
+          </li>
 
-    <!-- buttons -->
-    <ul class="list-unstyled CTAs">
-        <!-- white button -->
-        <li>
-          <a href="/entries" class="download">
-          Nieuwe gebeurtenis
-         </a>
-       </li>
-    </ul>
+          <li class="nav-item dropdown">
+             <a class="nav-link dropdown-toggle" href="#" id="navbar2Dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+               Dagboek</a>
+               <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
+                 <a class="dropdown-item" href="/overview">Overzicht</a>
+                 <a href="/export" class="dropdown-item">Exporteer</a>
+                 <a href="/permissions" class="dropdown-item">Meelezers</a>
+                 <div class="dropdown-divider"></div>
+                 <a href="/entries" class="dropdown-item">Nieuw</a>
+              </div>
+          </li>
+            <li class="nav-item">
+               <a href="/home/mycalendar" class="nav-link">Kalender</a>
+            </li>
 
-    <!-- Sidebar Links -->
-    <ul class="list-unstyled components">
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Middelen
+               </a>
+               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                 <a class="dropdown-item" href="/medicine">Medicijnen</a>
+                 <a class="dropdown-item" href="/tool">Hulpmiddelen</a>
+               </div>
+            </li>
+            <li class="nav-item dropdown">
+               <a class="nav-link dropdown-toggle" href="#" id="AboutDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Account
+               </a>
+               <div class="dropdown-menu" aria-labelledby="AboutDropdown">
+                 <a class="dropdown-item" href="/account">Uw gegevens</a>
+                 <a class="dropdown-item" href="/thema">Uw thema</a>
+                 <a class="dropdown-item" href="/about">Over MedLog</a>
+              </div>
+            </li>
 
-      <li><!-- Link with dropdown items -->
-          <a href="#kalenderSubmenu" data-toggle="collapse" aria-expanded="false" role="button">
-            Aankomende afspraken</a>
-          <ul class="collapse list-unstyled" id="kalenderSubmenu">
-            @foreach($events as $event)
-                <li>
-                {{ $event -> title }} <br>
-                {{ $event -> start_date }} <br><br>
-              </li>
-              @endforeach
-          </ul>
-       </li>
+        @endif
 
-       <li>
-          <a href="/home/mycalendar">Kalender</a>
-       </li>
-        <li>
-          <a href="/overview">Dagboek</a>
-       </li>
-       <li>
-           <a href="/export">Exporteer</a>
-       </li>
-        <li><!-- Link with dropdown items -->
-            <a href="#homeSubmenu" data-toggle="collapse" aria-expanded="false">
-              Middelen</a>
-            <ul class="collapse list-unstyled" id="homeSubmenu">
-                <li><a href="/medicine">Medicijnen</a></li>
-                <li><a href="/hulpmiddelen">Hulpmiddelen</a></li>
-            </ul>
-         </li>
-   </ul>
- @endif
+        <!-- Authentication Links -->
+          <li class="nav-item">
+          <div class="">
+              <a class="nav-link" href="{{ route('logout') }}"
+                 onclick="event.preventDefault();
+                               document.getElementById('logout-form').submit();">
+                  {{ __('Logout') }}
+              </a>
 
- <!-- buttons for all types of users -->
- <ul class="list-unstyled CTAs">
-     <!-- blue buttons -->
-     <li><a href="/account" class="article">Account</a></li>
-     <li><a href="/about" class="article">Over ons</a></li>
-     <li><a href="{{ URL::previous() }}" class="article">Terug</a></li>
-     <li><a href="/home" class="article">Home</a></li>
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                  @csrf
+              </form>
+          </div>
+      </li>
 
- </ul>
+      </ul>
+    </div>
+
+
+@endauth
 </nav>

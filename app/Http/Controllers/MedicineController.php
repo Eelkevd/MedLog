@@ -1,7 +1,7 @@
 <?php
 
+// Controller of the medicine section
 namespace App\Http\Controllers;
-
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -16,13 +16,11 @@ class MedicineController extends Controller
       $this->middleware('auth');
   	}
 
-  	// Function to go to te medicine page on nav btn click
+  // Function to go to te medicine page on nav btn click
 	public function home()
 	{
-		// $medicine = Medicine::find(2);
-		// dd($medicine->first()->get());
-
-		$medicines = Medicine::all();
+		$user = Auth::user();
+		$medicines = $user->diary->medicines;
 		return view('medicine/medicine', compact('medicines'));
 	}
 
@@ -41,23 +39,21 @@ class MedicineController extends Controller
 
 			// find the corresponding diary
 			$user = Auth::user();
-			// $diary = Diary::where('user_id', $id)->first();
 
 			// add the diary_id to the request array
 			$request->request->add(['diary_id' => $user->diary->id]);
 
 			// add the entry into the tabel entries
 			$medicine = Medicine::create(request([
-				'medicine', 
-				'dose', 
-				'purpose', 
-				'side_effect', 
+				'medicine',
+				'dose',
+				'purpose',
+				'side_effect',
 				'expire_date',
-				'price', 
+				'price',
 				'comment'
 			]));
 			$medicine->diaries()->attach($request->diary_id);
-
 			return redirect ('medicine');
 		}
 	}
@@ -66,6 +62,6 @@ class MedicineController extends Controller
 	public function show($id)
 	{
 		$medicine= Medicine::findOrFail($id);
-    	return view('medicine.show_medicine', compact('medicine'));
+    return view('medicine.show_medicine', compact('medicine'));
 	}
 }

@@ -1,23 +1,22 @@
 <!-- View for the about us page -->
-@extends('layouts.htmlheader_index')
+@extends('layouts.master')
 
 @section('content')
-<hr>
+
 <!-- Button to go to about us page-->
-<div class="form-group row mb-0">
-    <div class="col-md-6 offset-md-4">
-        <form action="/" >
-            <button type="submit" class="btn btn-primary">Register</button>
-        </form>
-    </div>
-</div>
-
-<hr>
-
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <div class="card-header">
+                  <form action="/" >
+                      <button type="submit" class="btn btn-primary">Registreer</button>
+                  </form>
+              </div>
+          </div>
+
+<hr>
+          <div class="card">
                 <div class="card-header">Over ons</div>
                     <div class="card-body">
 
@@ -46,8 +45,7 @@
 
                     Online
                     <ul>
-                    <li><a href="https://github.com/Eelkevd/MedLog">Github pagina</a></li>
-                    <li><a href="https://trello.com/b/0KKvNyAv/medlog">Trello pagina</a></li>
+                    <li><a href="https://www.codegorilla.nl/2018/03/19/medisch-dagboek-eindproject/">Verslag van de CodeGorilla site</a></li>
                     </ul>
                     <hr>
 
@@ -56,7 +54,7 @@
 
                     <hr>
                     <b>Privacy-statement</b><br>
-                    Persoonlijke gegevens die je via de site hebt ingevoerd, worden opgenomen in een gegevensbestand. Wij proberen de persoonlijke gegevens optimaal te beschermen bij het opslaan van de gegevens in onze database, al is 100 procent veilige opslag van de persoonlijke gegevens helaas onhaalbaar. De persoonlijke gegevens worden voor geen andere doeleinden gebruikt dan de gebruiker een overzicht te geven van zijn of haar eigen ingevoerde informatie. Naast door jou verstrekte gegevens worden ook gegevens verzameld met betrekking tot het bezoek van onze websites. Deze gegevens worden enerzijds gebruikt voor anoniem, statistisch onderzoek en anderzijds om de websites zoveel mogelijk op de voorkeuren van onze bezoeker af te stemmen. Dit laatste gebeurt onder meer door het gebruik van cookies. Je kunt je browser zo instellen dat het gebruik van cookies niet mogelijk is. Voor analyse-doeleinden maken we gebruik van Google Analytics-cookies.
+                    Persoonlijke gegevens die je via de site hebt ingevoerd, worden opgenomen in een gegevensbestand. Wij proberen de persoonlijke gegevens optimaal te beschermen bij het opslaan van de gegevens in onze database, al is 100 procent veilige opslag van de persoonlijke gegevens helaas onhaalbaar. De persoonlijke gegevens worden voor geen andere doeleinden gebruikt dan de gebruiker een overzicht te geven van zijn of haar eigen ingevoerde informatie.
                     </div>
             </div>
         </div>

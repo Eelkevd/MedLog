@@ -1,138 +1,142 @@
-<!-- View for the create_entry page -->
 @extends ('layouts.master')
-
+<!-- View for the create_entry page -->
 @section('content')
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
 
-<!-- check to see if user of page is guest, reader, user or validated user.
-      Only let validated user throug -->
-      @guest
-      <!-- Show not logged in screen -->
-      <div class="col-md-6">
-          <label >{{ __('Please log in to see your account data.') }}</label>
-      </div>
-      @endguest
-
-      @auth
-
-        @if (!(auth()->user()->verified()))
+        <!-- check to see if user of page is guest, reader, user or validated user.
+        Only let validated user throug -->
+        @guest
+        <!-- Show not logged in screen -->
         <div class="card-body">
-                <div class="alert alert-danger">
-                  <br /><strong>
-                    Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
-                        </strong>
-                </div>
+          <div class="alert alert-danger">
+            <br /><strong>{{ __('Please log in to see your account data.') }}
+          </div>
         </div>
+        @endguest
 
-        @elseif (!(auth()->user()->diary()))
-        <div class="card-body">
-                <div class="alert alert-danger">
-                  <br /><strong>
-                    U heeft geen dagboek. Registreer als Gebruiker om een dagboek aan te maken.
-                        </strong>
-                </div>
-        </div>
+        @auth
+          @if (!(auth()->user()->verified()))
+          <div class="card-body">
+              <div class="alert alert-danger">
+                <br /><strong>
+                  Je dagboek is nog niet geactiveerd. Bekijk je email om je dagboek te activeren.
+                      </strong>
+              </div>
+          </div>
 
-        @else
+          @elseif (!(auth()->user()->diary()))
+          <div class="card-body">
+            <div class="alert alert-danger">
+              <br /><strong>
+                U heeft geen dagboek. Registreer als Gebruiker om een dagboek aan te maken.
+              </strong>
+            </div>
+          </div>
+          @else
+	         <!-- form for submitting medical entry page -->
+            @include ('entries.create_illness')
+              <br />
+            @include ('entries.create_symptom')
+                <br />
 
+	         <div class="card">
+        		<div class="card-header">
+        			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
+        		</div>
 
-	<!-- form for submitting medical entry page -->
-
-    @include ('entries.create_illness')
-    <br>
-    @include ('entries.create_symptom')
-    <br>
-	<div class="card">
-		<div class="card-header">
-			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
-		</div>
-
-		<div class="card-body">
-			<form method="POST" action="/entries/create_entry">
-				{{ csrf_field() }}
-				<!-- places all illnesses from db -->
-				<div>
-					<h5>Aandoening: *</h5>
-					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
-							<option selected></option>
-						@foreach($illnesses as $illness)
-							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
-						@endforeach()
-					</select>
-<!-- 					@if ($errors->has('illness_id'))
-                        <span class="invalid-feedback">
-                            <strong>{{ $errors->first('illness_id') }}</strong>
-                        </span>
-                 	@endif -->
-<!-- 					@include('layouts.error')	 -->
-				</div>
-				<hr>
-				<div>
-					<p>Symptomen:</p>
-					<!-- places all symptomes from db -->
-					@foreach($symptomes as $symptom)
-						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
-						<label for="subscribeNews">{{ $symptom->symptom }}</label>
-					@endforeach()
-				</div>
-				<hr>
-				<div>
-					<p>Wanneer gebeurde het:</p>
-					<input type="date" id='timespan_date' name="timespan_date">
-					<input type="time" name="timespan_time" value="now">
-				</div>
-				<hr>
-				<div>
-					<p>Waar gebeurde het:</p>
-					<input type="text" name="location" placeholder="locatie">
-				</div>
-				<hr>
-				<div>
-					<p>Intensiteit</p>
-					<input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
-					<span id="intensityValue"></span>
-				</div>
-				<hr>
-				<div>
-					<p>Klachtsduur</p>
-					<input type="time" name="complaint_time"> (Tijd)
-				</div>
-				<hr>
-				<div>
-					<p>Hersteltijd</p>
-					<input type="time" name="recoverytime_time"> (Tijd)
-				</div>
-				<hr>
-				<div>
-					<p>Medicatie</p>
-					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
-					<label for="subscribeNews">MEDICATIE A</label>
-					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
-					<label for="subscribeNews">MEDICATIE B</label>
-					<input type="checkbox" name="medA" value="medA" enctype="multipart/form-data">
-					<label for="subscribeNews">MEDICATIE C</label>
-				</div>
-				<hr>
-				<div>
-					<p>Weer</p>
-					<textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden"></textarea>
-				</div>
-				<hr>
-				<div>
-					<p>Getuigen verslagen</p>
-					<textarea name="witness_report" placeholder="Getuigenverklaringen"></textarea>
-				</div>
-				<hr>
-				<div>
-					<p>Overig</p>
-					<textarea name="comments" placeholder="Overige aantekeningen"></textarea>
-				</div>
-				<div>
-					<p>Sla mijn dagboek op</p>
-					<input type="submit" value="Opslaan">
-				</div>
-			</form>
-		</div>
-	</div>
+      		  <div class="card-body">
+      			<form method="POST" action="/entries/create_entry">
+      				{{ csrf_field() }}
+      				<!-- places all illnesses from db -->
+      				<div>
+      					<h5>Aandoening: *</h5>
+      					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+      							<option selected></option>
+      						@foreach($illnesses as $illness)
+      							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+      						@endforeach()
+      					</select>
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Symptomen:</p>
+      					<!-- places all symptomes from db -->
+      					@foreach($symptomes as $symptom)
+      						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+      						<label for="subscribeNews">{{ $symptom->symptom }}</label>
+      					@endforeach()
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Wanneer gebeurde het:</p>
+      					<input type="date" id='timespan_date' name="timespan_date">
+      					<input type="time" name="timespan_time" value="now">
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Waar gebeurde het:</p>
+      					<input type="text" name="location" placeholder="locatie">
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Intensiteit</p>
+      					<input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
+      					<span id="intensityValue"></span>
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Klachtsduur</p>
+      					Startdatum klacht
+      					<br>
+      					<input type="date" id='complaint_startdate' name="complaint_startdate">
+      					<br>
+      					<br>
+      					Einddatum klacht
+      					<br>
+      					<input type="date" id='complaint_enddate' name="complaint_enddate">
+      					<br>
+      					<br>
+      					Tijd
+      					<br>
+      					<input type="time" name="complaint_time">
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Hersteltijd</p>
+      					<input type="time" name="recoverytime_time"> (Tijd)
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Medicatie</p>
+      					@foreach($medicines as $medicine)
+      						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
+      						<label for="subscribeNews">{{ $medicine->medicine }}</label>
+      					@endforeach()
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Weer</p>
+      					<textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden"></textarea>
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Wat zagen anderen?</p>
+      					<textarea name="witness_report" placeholder="Getuigenverklaringen"></textarea>
+      				</div>
+      				<hr>
+      				<div>
+      					<p>Overig</p>
+      					<textarea name="comments" placeholder="Overige aantekeningen"></textarea>
+      				</div>
+      				<div>
+      					<p>Sla mijn dagboek op</p>
+      					<input type="submit" value="Opslaan">
+      				</div>
+      			</form>
+      		</div>
+      	   </div>
 
 <script>
 
@@ -205,4 +209,7 @@
 </script>
 @endif
 @endauth
+</div>
+</div>
+</div>
 @endsection

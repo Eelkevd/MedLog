@@ -8,6 +8,7 @@
             <div class="card">
                 <div class="card-header">
 
+
                   <!-- check to see if user of page is guest, reader, user or validated user.
                         Only let validated user throug -->
                         @guest
@@ -41,6 +42,7 @@
 
                   Dagboek overzicht</div>
                 <div class="card-body">
+                  <h3><center>Zoekfuncties</center></h3><br>
                   <!-- Search function to search in events -->
                   <form method="GET" action="{{ action('OverviewController@search') }}" >
                       <input type="text" name="search" placeholder="Zoekopdracht">
@@ -153,20 +155,19 @@
                 @endforeach
 
                 <br /><br />
-
-              
-
                   <h3><center>Uw gehele overzicht</center></h3>
                     @foreach($entries as $entry)
                     <div class="card">
                       <div class="card-header">
+                      Ziekte:
                       <b> {{ $entry->illness }}</b>
                       @if(!empty($entry->timespan_date))
                         {{ __(', ')}}
-                        datum: {{ $entry -> timespan_date }}
+                        Datum: {{ $entry -> timespan_date }}
                       @endif
                     </div>
                     <div class="card-body">
+                      Symptoom:
                       @foreach($entry->symptomes as $symptom)
                         {{ $symptom->symptom }}
                         {{ __(', ')}}
@@ -180,9 +181,6 @@
                   </div>
                   <br>
                     @endforeach
-
-                 
-
                 </div>
             </div>
         </div>

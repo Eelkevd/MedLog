@@ -1,14 +1,9 @@
-<!-- Page for creating new medicines -->
-
 @extends ('layouts.master')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
 
+<div class="card">
+	<div class="card-header">
 		<!-- check to see if user of page is guest, reader, user or validated user.
 		      Only let validated user throug -->
 					@guest
@@ -40,22 +35,17 @@
 
 					  @else
 
-		<h4>Nieuwe Medicatie</h4>
+		<h4>Nieuwe hulpmiddelen</h4>
 	</div>
 
 	<div class="card-body">
-		<form method="POST" action="/medicine/create_medicine">
+		<form method="POST" action="/tool/create_tool">
 			{{ csrf_field() }}
 		    <div>
 				<p>
-				Voeg hier uw nieuwe medicatie toe.
+				Voeg hier uw nieuwe hulpmiddel toe.
 				</p>
-				<input type="text" name="medicine" placeholder="naam medicijn" required>
-			</div>
-			<hr>
-			<div>
-				<p>Dosering:</p>
-				<textarea name="dose" placeholder="Dosering"></textarea>
+				<input type="text" name="tool" placeholder="naam hulpmiddel" required>
 			</div>
 			<hr>
 			<div>
@@ -64,14 +54,14 @@
 			</div>
 			<hr>
 			<div>
-				<p>Mogelijke bijwerkingen:</p>
-				<textarea name="side_effects" placeholder="Vul hier de mogelijke bijwerkingen in"></textarea>
+				<p>Herkomst:</p>
+				<textarea name="origin" placeholder="Waar komt het vandaan"></textarea>
 			</div>
 			<hr>
 			<div>
-				<p>Houdbaarheidsdatum:</p>
-				<p>Tot wanneer is het medicijn houdbaar?</p>
-				<input type="date" name="expire_date">
+				<p>Inleverdatum:</p>
+				<p>Wanneer moet het ingeleverd worden?</p>
+				<input type="date" name="return_date">
 			</div>
 			<hr>
 			<div>

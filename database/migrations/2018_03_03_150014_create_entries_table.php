@@ -21,6 +21,8 @@ class CreateEntriesTable extends Migration
             $table->time('timespan_time')->nullable();
             $table->string('location')->nullable();
             $table->integer('intensity')->nullable();
+            $table->date('complaint_startdate')->nullable();
+            $table->date('complaint_enddate')->nullable();
             $table->time('complaint_time')->nullable();
             $table->time('recoverytime_time')->nullable();
             $table->string('weather')->nullable();

@@ -51,8 +51,6 @@
                         Wanneer:   *
                         <br />
                         <input type="text" name="start_date" class="date" required/>
-                        Tot:
-                        <input type="text" name="end_date" class="date" />
                         <input type="submit" value="Opslaan" /><br>
                         </form>
 

@@ -23,6 +23,7 @@ Route::get('/home/events', 'HomeController@events');
 // verification of the email upon registration
 // this also identifies the user as validated
 Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
+Route::get('/verify_invite', 'VerifyController@invite');
 
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
@@ -31,7 +32,6 @@ Route::get('/about', 'AboutusController@aboutus');
 
 // validated routers for users with a diary
 Route::middleware('auth')->group(function () {
-
   // Routes to do show, search in or create event in calendar
   Route::get('/home/create_event', 'EventController@create');
   Route::post('/home/store_event', 'EventController@store');
@@ -49,7 +49,10 @@ Route::middleware('auth')->group(function () {
   // Page to create and store symptom
   Route::post('/entries/create_symptom', 'Entry\SymptomController@store');
   Route::get('/entries/{id}/show', 'Entry\EntryController@showentry')->name('entries.show');
-  // Route::get('/entries/edit/{id}', 'Entry\EntryController@editentry');
+  // Redirects to the edit diary entry page
+  Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
+  // Page to edit diary entries
+  Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');
@@ -66,11 +69,23 @@ Route::middleware('auth')->group(function () {
   Route::post('/export/getdatePDF', 'ExportController@getperiodPDF');
   Route::post('/export/getPDF', 'ExportController@getPDF');
 
-// Route to medicine and aid pages
-Route::get('/medicine', 'MedicineController@home');
-Route::get('/medicine/create_medicine', 'MedicineController@create');
-Route::post('/medicine/create_medicine', 'MedicineController@store');
-Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
+  // Route to medicine pages
+  Route::get('/medicine', 'MedicineController@home');
+  Route::get('/medicine/create_medicine', 'MedicineController@create');
+  Route::post('/medicine/create_medicine', 'MedicineController@store');
+  Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
+
+  // Routes for User-Reader communications
+  Route::get('/permissions', 'PermissionsController@index');
+  Route::get('/permissions/givepermission', 'PermissionsController@create');
+  Route::post('/permissions/givepermission', 'PermissionsController@store');
+  Route::delete('/permissions/delete/{id}', 'PermissionsController@delete');
+
+  // Route to tool and pages
+  Route::get('/tool', 'ToolController@home');
+  Route::get('/tool/create_tool', 'ToolController@create');
+  Route::post('/tool/create_tool', 'ToolController@store');
+  Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
 
 });
 
@@ -84,9 +99,9 @@ Route::middleware('auth')->group(function () {
   ->name('reader_index');
   Route::get('/reader/show{client}', 'ReaderController@show')
   ->name('reader_index');
-
 });
 
+// routes voor all auth users
 Route::middleware('auth')->group(function () {
   // Route to account page
   Route::get('/account', 'AccountController@index');

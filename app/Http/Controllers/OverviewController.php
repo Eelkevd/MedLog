@@ -1,4 +1,5 @@
 <?php
+
 // Controller of the overview section
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -28,15 +29,13 @@ class OverviewController extends Controller
       if($user->diary)
       {
         $sortword = "nope";
-        $keyword = "";
         $currentdate = date("Y-m-d H:i:s");
         $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')
                        ->where('timespan_date', '<=' ,$currentdate)->orderBy('timespan_date', 'DESC')->get();
-        $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->get();
-        $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->get();
-        $illnesses = $user->diary->illnesses;
-        $entries = $user->diary->entries;
-
+        $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
+        $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
+        $illnesses = $user->diary->illnesses->sortByDesc('timespan_date');
+        $entries = $user->diary->entries->sortByDesc('timespan_date');
         return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
       }
       else
@@ -51,11 +50,11 @@ class OverviewController extends Controller
       $user = Auth::user();
       $sortword = "nope";
       $keyword = $request->input('search');
-      $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->get();
-      $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->get();
-      $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->get();
-      $illnesses = $user->diary->illnesses;
-      $entries = $user->diary->entries;
+      $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->orderBy('timespan_date', 'DESC')->get();
+      $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
+      $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
+      $illnesses = $user->diary->illnesses->sortByDesc('timespan_date');
+      $entries = $user->diary->entries->sortByDesc('timespan_date');
       return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
     }
 
@@ -65,11 +64,11 @@ class OverviewController extends Controller
       $user = Auth::user();
       $sortword = $request->input('illness');
       $keyword = "nope";
-      $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->get();
-      $sortillness = $user->diary->entries()->where('illness', $sortword)->get();;
-      $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->get();
-      $illnesses = $user->diary->illnesses;
-      $entries = $user->diary->entries;
+      $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->orderBy('timespan_date', 'DESC')->get();
+      $sortillness = $user->diary->entries()->where('illness', $sortword)->orderBy('timespan_date', 'DESC')->get();;
+      $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
+      $illnesses = $user->diary->illnesses->sortByDesc('timespan_date');
+      $entries = $user->diary->entries->sortByDesc('timespan_date');
       return view('overview', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
    }
 
@@ -79,13 +78,11 @@ class OverviewController extends Controller
       $user = Auth::user();
       $sortword = $request->input('intensity');
       $keyword = "nope";
-      $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->get();
-      $sortillness = $user->diary->entries()->where('illness', $keyword)->get();
-      $sortintensity = $user->diary->entries()->where('intensity', $sortword)->get();
-
-      //
-      $illnesses = $user->diary->illnesses;
-      $entries = $user->diary->entries;
+      $search = $user->diary->entries()->where('illness', 'LIKE', '%' . $keyword . '%')->orderBy('timespan_date', 'DESC')->get();
+      $sortillness = $user->diary->entries()->where('illness', $keyword)->orderBy('timespan_date', 'DESC')->get();
+      $sortintensity = $user->diary->entries()->where('intensity', $sortword)->orderBy('timespan_date', 'DESC')->get();
+      $illnesses = $user->diary->illnesses->sortByDesc('timespan_date');
+      $entries = $user->diary->entries->sortByDesc('timespan_date');
       return view('overview', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
   }
 }

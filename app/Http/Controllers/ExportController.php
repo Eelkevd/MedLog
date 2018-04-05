@@ -1,4 +1,5 @@
 <?php
+
 // Controller of the Export section
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
@@ -8,6 +9,7 @@ use App\Entry;
 use App\Illness;
 use Calendar;
 use PDF;
+
 class ExportController extends Controller
 {
     // authentication requirement
@@ -19,7 +21,9 @@ class ExportController extends Controller
     // function to show export page
     public function index()
     {
-        return view('export.export');
+        $user = Auth::user();
+      	$illnesses = $user->diary->illnesses;
+        return view('export.export',  compact('illnesses'));
     }
 
     // function to export complete diary
@@ -29,8 +33,8 @@ class ExportController extends Controller
         $entries = $user->diary->entries()
           ->orderBy('timespan_date', 'DESC')
           ->with('symptomes')
+          ->with('medicines')
           ->get();
-
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries ]);
         return $pdf->download('dagboek.pdf');
     }
@@ -41,11 +45,11 @@ class ExportController extends Controller
         $user = Auth::user();
         $illnesses = $user->diary->illnesses;
         $illness_name = $request->input('illness');
-        // $illness = Illness::where('illness', $illness_name)->value('id');
         $entries = $user->diary->entries()
           ->where('illness', $illness_name)
           ->orderBy('timespan_date', 'DESC')
           ->with('symptomes')
+          ->with('medicines')
           ->get();
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries]);
         return $pdf->download('dagboek.pdf');
@@ -60,9 +64,8 @@ class ExportController extends Controller
         $entries = $user->diary->entries()
           ->where('timespan_date', '>=' ,$from_date)
           ->with('symptomes')
+          ->with('medicines')
           ->get();
-
-        // ->and('timespan_date', '<=' ,$end_date)->sortByDesc('timespan_date')->get();
         $pdf=PDF::loadView('export.dagboek', ['entries'=>$entries ]);
         return $pdf->download('dagboek.pdf');
     }

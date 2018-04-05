@@ -32,10 +32,10 @@
     <caption><h1> Medlog dagboek pagina's</h1></caption>
      <thead>
      <tr>
-       <th>Datum</th>
-       <th>Tijd</th>
+       <th>Datum & Tijd</th>
        <th>Ziekte</th>
        <th>Symptomen</th>
+       <th>Medicijnen</th>
        <th class="int">Intensiteit</th>
        <th>Opmerkingen</th>
      </tr>
@@ -43,14 +43,18 @@
      <tbody>
        @foreach ($entries as $key => $entry)
        <tr>
-         <td> {{$entry->timespan_date}} </td>
-         <td> {{$entry->timespan_time}} </td>
+         <td> {{$entry->timespan_date}} {{$entry->timespan_time}}</td>
          <td> {{$entry->illness}} </td>
          <td>
            @foreach($entry->symptomes as $symptom)
               {{ $symptom->symptom }}<br />
             @endforeach
           </td>
+          <td>
+            @foreach($entry->medicines as $medicine)
+               {{ $medicine->medicine }}<br/>
+            @endforeach
+           </td>
          <td class="int"> {{$entry->intensity}} </td>
          <td> {{ $entry->comments}}</td>
        </tr>
