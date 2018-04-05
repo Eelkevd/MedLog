@@ -63,19 +63,46 @@
                             <br />
                             {{ Session::get('dataW') }}
                           </div>
-                        @endif  
+                        @endif
                         @if(Session::has('danger'))
                               <div class="alert alert-danger">
                                 {{ Session::get('danger') }}
                               </div>
                       @endif
-                      <table class="table table-striped">
-                          <thead>
-                            <tr>
-                              <th colspan="3">{{ __('Uw heeft de volgende mensen toestemming gegeven uw dagboek in te zien: ') }}</th>
 
-                            </tr>
-                          </thead>
+                      <div class="card">
+                        <!-- form for sadding readers -->
+                         <div class="card-header">
+                           @if(Session::has('error'))
+                             <div class="alert alert-danger">
+                               {{ Session::get('error') }}
+                             </div>
+                           @endif
+                           <h5><center>Voeg een nieuwe lezer toe</center></h5>
+                          <em><center>Geef het emailadres op van de persoon die u <br />
+                            als lezer wilt toevoegen.</em</center>
+                         </div>
+
+                         <div class="card-body">
+                           <form method="POST" action="/permissions/givepermission">
+                             {{ csrf_field() }}
+                               <div>
+                               <input type="text" name="email_reader" placeholder="emailadres van uw lezer" style="width:400px; margin-bottom:5px;" />
+                               <br />
+                               <input type="submit" align="center" class="btn btn-primary" value="voeg lezer toe">
+                             </div>
+                           </form>
+                         </div>
+                        </div>
+                        <br />
+                      <div class="card">
+        								<div class="card-header">
+                          <h5><center>
+                          Uw meelezers
+                        </center></h5>
+                        </div></div>
+
+                          <table class="table table-striped">
                           <tbody>
 
                             @if (!empty($permissions))
@@ -107,32 +134,7 @@
                             @endif
                             </tbody>
                          </table>
-                     </div>
-                   </div>
-
-                   <br />
-                   <div class="card">
-                     <!-- form for sadding readers -->
-                     	<div class="card-header">
-                        @if(Session::has('error'))
-                          <div class="alert alert-danger">
-                            {{ Session::get('error') }}
-                          </div>
-                        @endif
-                     		<strong>Voeg een nieuwe lezer toe</strong><br />
-                        Geef het emailadres op van de persoon die u als lezer wilt toevoegen.
-                     	</div>
-
-                     	<div class="card-body">
-                     		<form method="POST" action="/permissions/givepermission">
-                     			{{ csrf_field() }}
-                     		    <div>
-                     				<input type="text" name="email_reader" placeholder="emailadres van uw lezer" style="width:400px;">
-                     				<input type="submit" align="center" class="btn btn-primary" value="voeg lezer toe">
-                     			</div>
-                     		</form>
-                     	</div>
-                     </div>
+                       </div>
 
                  @endif
                  @endauth
@@ -140,4 +142,6 @@
          </div>
      </div>
  </div>
+
+
 @endsection
