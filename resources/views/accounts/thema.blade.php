@@ -14,7 +14,9 @@
                     @endguest
 
                   <div class="card">
-                    <div class="card-header">Kies hier het thema van uw layout.</div>
+                    <div class="card-header">
+                      <h5><center>Kies hier het thema van uw layout</center></h5>
+                    </div>
                         <!-- layouts buttons to choose a theme -->
                         <table class="table table-striped">
                             <thead>
