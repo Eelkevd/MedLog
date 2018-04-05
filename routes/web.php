@@ -23,6 +23,7 @@ Route::get('/home/events', 'HomeController@events');
 // verification of the email upon registration
 // this also identifies the user as validated
 Route::get('/verify/{verifyToken}', 'VerifyController@verify')->name('verify');
+Route::get('/verify_invite', 'VerifyController@invite');
 
 // Route to about us page
 Route::get('/aboutus', 'AboutusController@aboutus');
@@ -99,7 +100,6 @@ Route::middleware('auth')->group(function () {
   ->name('reader_index');
   Route::get('/reader/show{client}', 'ReaderController@show')
   ->name('reader_index');
-
 });
 
 Route::middleware('auth')->group(function () {
