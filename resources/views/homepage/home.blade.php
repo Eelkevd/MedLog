@@ -111,10 +111,8 @@
                     @endforeach
 
                   </div>
-              </div><br>
-
-
-
+              </div>
+              <br>
               <br>
               @endif
           </div>

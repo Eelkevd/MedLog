@@ -38,39 +38,37 @@
 						  </div>
 
 						  @else
+							<div class="card">
+								<div class="card-header">
+									<h5><center>Hulpmiddelen</center></h5>
+								</div>
+							</div>
 
-			<h4>Hulpmiddelen</h4>
-		</div>
-	</div>
-	<br>
-	<div class="card">
-		<div class="card-header">
-			<h5>Nieuwe hulpmiddelen toevoegen</h5>
-		</div>
+							<div class="card">
+								<div class="card-body">
+									<a href="/tool/create_tool" class="btn btn-info btn-md" style="width:200px;">Nieuw hulpmiddel</a>
+								</div>
+							</div>
+						    <br>
+							<div class="card">
+								<div class="card-header">
+									<h5>Uw hulpmiddellen</h5>
+								</div>
+								<div class="card-body">
+									<!-- places all tools from db -->
+									@foreach($tools as $tool)
+										<a href="{{ route('tool.show', $tool->id) }}">{{ $tool -> tool }}</a>
+										<hr>
+									@endforeach()
+								</div>
+							</div>
+							<br />
+							@endif
+							@endauth
+						</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
-		<div class="card-body">
-			<p>Voeg nieuwe hulpmiddelen toe</p>
-			<a href="/tool/create_tool">Nieuw</a>
-		</div>
-	</div>
-    <br>
-	<div class="card">
-		<div class="card-header">
-			<h5>Hulpmiddel</h5>
-		</div>
-
-		<div class="card-body">
-			<!-- places all tools from db -->
-			<p>Klik op een hulpmiddel om de gegevens te bekijken</p>
-			@foreach($tools as $tool)
-				<a href="{{ route('tool.show', $tool->id) }}">{{ $tool -> tool }}</a>
-				<hr>
-			@endforeach()
-		</div>
-	</div>
-	<br />
-	@endif
-	@endauth
-</div>
-</div>
 @endsection

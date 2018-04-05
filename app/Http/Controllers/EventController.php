@@ -80,6 +80,6 @@ class EventController extends Controller
     {
         $keyword = $request->input('search');
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
-        return view('homepage.home', compact('search'));
+        return view('homepage.search', compact('search'));
    }
 }

@@ -38,16 +38,22 @@
                Dagboek</a>
                <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
                  <a class="dropdown-item" href="/overview">Overzicht</a>
-                 <a href="/export" class="dropdown-item">Exporteer</a>
+                 <a href="/export" class="dropdown-item">Download</a>
                  <a href="/permissions" class="dropdown-item">Meelezers</a>
                  <div class="dropdown-divider"></div>
-                 <a href="/entries" class="dropdown-item">Nieuw</a>
+                 <a href="/overview/search" class="dropdown-item">Zoek in uw dagboek</a>
+                 <a href="/entries" class="dropdown-item">Nieuwe gebeurtenis</a>
               </div>
-          </li>
-            <li class="nav-item">
-               <a href="/home/mycalendar" class="nav-link">Kalender</a>
             </li>
-
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Kalender
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a href="/home/mycalendar" class="dropdown-item">Kalender</a>
+                  <a href="/home/mycalendar/search" class="dropdown-item">Zoek in Kalender</a>
+                </div>
+            </li>
             <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                  Middelen
@@ -63,7 +69,7 @@
                </a>
                <div class="dropdown-menu" aria-labelledby="AboutDropdown">
                  <a class="dropdown-item" href="/account">Uw gegevens</a>
-                 <a class="dropdown-item" href="/thema">Uw thema</a>
+                 <a class="dropdown-item" href="/account/thema">Uw thema</a>
                  <a class="dropdown-item" href="/about">Over MedLog</a>
               </div>
             </li>

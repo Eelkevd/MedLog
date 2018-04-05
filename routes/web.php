@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/home/search', 'EventController@search');
   Route::get('/home/edit_event', 'EventController@edit');
   Route::get('/home/mycalendar', 'EventController@index');
+  Route::get('/home/mycalendar/search', 'EventController@search');
 
   ////// DIARY ENTRY PAGE DIRECTION //////
   // Redirects to the create diary entry page

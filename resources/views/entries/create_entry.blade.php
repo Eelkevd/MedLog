@@ -4,6 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
 
         <!-- check to see if user of page is guest, reader, user or validated user.
         Only let validated user throug -->
@@ -43,7 +45,8 @@
 
 	         <div class="card">
         		<div class="card-header">
-        			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
+        			<h5><center>Nieuwe gebeurtenis voor in uw <br />medisch dagboek</center></h5>
+              <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
         		</div>
 
       		  <div class="card-body">
@@ -51,7 +54,7 @@
       				{{ csrf_field() }}
       				<!-- places all illnesses from db -->
       				<div>
-      					<h5>Aandoening: *</h5>
+      					<h5>Ziektebeeld: *</h5>
       					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
@@ -61,7 +64,7 @@
       				</div>
       				<hr>
       				<div>
-      					<p>Symptomen:</p>
+      					Wat waren de symptomen?<br />
       					<!-- places all symptomes from db -->
       					@foreach($symptomes as $symptom)
       						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
@@ -70,24 +73,23 @@
       				</div>
       				<hr>
       				<div>
-      					<p>Wanneer gebeurde het:</p>
+      					Wanneer gebeurde het?<br />
       					<input type="date" id='timespan_date' name="timespan_date">
       					<input type="time" name="timespan_time" value="now">
       				</div>
       				<hr>
       				<div>
-      					<p>Waar gebeurde het:</p>
+      					Waar gebeurde het?<br />
       					<input type="text" name="location" placeholder="locatie">
       				</div>
       				<hr>
       				<div>
-      					<p>Intensiteit</p>
+      					<br />Intensiteit<br />
       					<input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
       					<span id="intensityValue"></span>
       				</div>
       				<hr>
       				<div>
-      					<p>Klachtsduur</p>
       					Startdatum klacht
       					<br>
       					<input type="date" id='complaint_startdate' name="complaint_startdate">
@@ -98,18 +100,18 @@
       					<input type="date" id='complaint_enddate' name="complaint_enddate">
       					<br>
       					<br>
-      					Tijd
+      					Indien u een aanval had, hoe lang duurde deze?
       					<br>
       					<input type="time" name="complaint_time">
       				</div>
       				<hr>
       				<div>
-      					<p>Hersteltijd</p>
+      					Hoe lang duurde het voor u herstelt was?<br />
       					<input type="time" name="recoverytime_time"> (Tijd)
       				</div>
       				<hr>
       				<div>
-      					<p>Medicatie</p>
+      					Nam u medicijnen in vanwege de gebeurtenis?<br />
       					@foreach($medicines as $medicine)
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
       						<label for="subscribeNews">{{ $medicine->medicine }}</label>
@@ -117,26 +119,26 @@
       				</div>
       				<hr>
       				<div>
-      					<p>Weer</p>
+      					Wat waren de weersomstandigheden?<br />
       					<textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden"></textarea>
       				</div>
       				<hr>
       				<div>
-      					<p>Wat zagen anderen?</p>
+      					Wat zagen anderen?<br />
       					<textarea name="witness_report" placeholder="Getuigenverklaringen"></textarea>
       				</div>
       				<hr>
       				<div>
-      					<p>Overig</p>
+      					Vrije ruimte<br />
       					<textarea name="comments" placeholder="Overige aantekeningen"></textarea>
       				</div>
       				<div>
-      					<p>Sla mijn dagboek op</p>
-      					<input type="submit" value="Opslaan">
+                <br />
+      					<input type="submit"  class="btn btn-info btn-md" style="width:200px;" value="Opslaan">
       				</div>
       			</form>
       		</div>
-      	   </div>
+      	 </div>
 
 <script>
 
@@ -209,6 +211,8 @@
 </script>
 @endif
 @endauth
+</div>
+</div>
 </div>
 </div>
 </div>
