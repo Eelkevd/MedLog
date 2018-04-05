@@ -15,7 +15,7 @@ class Event extends Model
       return static::whereBetween('start_date', array(
         $start,
         $end
-      ))->take(5)->orderBy('start_date')->get();
+      ))->whereNull('entry_id')->take(5)->orderBy('start_date')->get();
     }
 
     public function user()

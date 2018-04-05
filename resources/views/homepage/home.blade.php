@@ -55,7 +55,6 @@
             <h4><small class="text-muted">{{ $event -> title }}</small></h4>
             <ul class="list-unstyled">
               <li>{{ $event -> start_date }}</li>
-              <li>{{ $event -> start_date }}</li>
             </ul>
             <hr>
           </div>
@@ -74,7 +73,7 @@
           <h4 class="my-0 font-weight-normal">Laatste gebeurtenissen</h4>
         </div>
         @if(!empty($entries))
-          @foreach($entriess as $entry)
+          @foreach($entries as $entry)
           <div class="card-body">
             <h5 class="card-title"><small class="text-muted">{{ $entry -> illness }}</small></h5>
             <ul class="list-unstyled mt-3 mb-4">
