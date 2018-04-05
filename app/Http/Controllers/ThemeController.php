@@ -9,6 +9,18 @@ use Illuminate\Http\Request;
 class ThemeController extends Controller
 {
 
+  //authentication requirement
+  public function __construct()
+  {
+      $this->middleware('auth');
+  }
+
+  public function index()
+  {
+    $user = Auth::user();
+    return view('accounts/thema', compact('user'));
+  }
+
   public function update(Request $request)
   {
     //Auth::user()->update(['theme' => 'default' ]);

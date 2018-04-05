@@ -176,7 +176,7 @@
                       Intensiteit:
                       {{ $entry->intensity }}
                     <br>
-                    <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk pagina</a></em>
+                    <em><a href="{{ route('entries.show', $entry->id) }}">Bekijk deze pagina</a></em>
                     </div>
                   </div>
                   <br>

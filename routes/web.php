@@ -109,6 +109,7 @@ Route::middleware('auth')->group(function () {
   Route::post('/account/edit', 'AccountController@update');
 
   // Route to new themes
+  Route::get('/account/thema', 'ThemeController@index');
   Route::get('account/theme_contrast', 'ThemeController@update_contrast');
   Route::get('account/theme_vrolijk', 'ThemeController@update_vrolijk');
   Route::get('account/theme_default', 'ThemeController@update');
