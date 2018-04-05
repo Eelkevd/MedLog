@@ -1,4 +1,5 @@
 	<!-- Toggles the illness form -->
+	<div class="card">
 	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_illness">Nieuw ziektebeeld</button>
 	<div class="collapse" class="card-body"  id="form_illness">
 		<div class="card-header">
@@ -20,3 +21,4 @@
 			</form>
 		</div>
 	</div>
+</div>
