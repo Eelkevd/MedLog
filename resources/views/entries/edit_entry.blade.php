@@ -1,4 +1,4 @@
-!-- View for the edit entries page -->
+<!-- View for the edit entries page -->
 @extends ('layouts.master')
 
 @section('content')
@@ -56,19 +56,19 @@
                             <hr>
 
                             <!-- Edit symptoms-->
-                            <!-- <div>
+                            <div>
                               <p>Symptomen:</p>
                     					@foreach($symptomes as $symptom)
-                    						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+                    						<input type="checkbox" name="symptom" value="{{ $symptom->id }}" enctype="multipart/form-data"
                     						<label for="subscribeNews">{{ $symptom->symptom }}</label>
                     					@endforeach()
                             </div>
-                            <hr> -->
+                            <hr>
 
                             <!-- Edit date and time -->
                             <div>
                               <p>Wanneer gebeurde het:</p>
-                              <input type="date" id='timespan_date' name="timespan_date" value="{{ $entry->timespan_date }}">
+                              <input type="date" name="timespan_date" value="{{ $entry->timespan_date }}">
                               <input type="time" name="timespan_time" value="{{ $entry->timespan_time }}">
                             </div>
                             <hr>
@@ -115,14 +115,14 @@
                             <hr>
 
                             <!-- Edit medicines -->
-                            <!-- <div>
+                            <div>
                               <p>Medicatie</p>
                               @foreach($medicines as $medicine)
                                 <input type="checkbox" name="medicine[]" value="{{ $medicine->id }}"  enctype="multipart/form-data">
                                 <label for="subscribeNews">{{ $medicine->medicine }}</label>
                               @endforeach()
                             </div>
-                            <hr> -->
+                            <hr>
 
                             <!-- Edit weather -->
                             <div>
