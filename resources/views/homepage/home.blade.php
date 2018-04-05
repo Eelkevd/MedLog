@@ -13,10 +13,7 @@
               <strong>
                 Welkom lezer!<br/>
                 Heeft u een uitnodiging ontvangen om een dagboek te lezen?<br />
-                Gebruik dan het wachtwoord dat u heeft ontvangen om het dagboek te openen.
-                <br /><br />
-                <p>
-                Let op! Elk dagboek is slechts voor een bepaalde tijd in te zien.
+                Dan kunt u dit dagboek lezen via de knop 'Clienten'.
               </strong></p>
             </div>
 
@@ -65,7 +62,7 @@
                   </div>
               </div><br>
 
-  
+
 
               <br>
               @endif
