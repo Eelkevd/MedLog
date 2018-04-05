@@ -44,7 +44,7 @@ class EditEntryController extends Controller
 			// $timelabel= $createdAt->toDateTimeString();
 
 			//delete old diary entry as event to the database
-		
+
 
 			$entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 

@@ -155,9 +155,6 @@
                 @endforeach
 
                 <br /><br />
-
-
-
                   <h3><center>Uw gehele overzicht</center></h3>
                     @foreach($entries as $entry)
                     <div class="card">
@@ -184,9 +181,6 @@
                   </div>
                   <br>
                     @endforeach
-
-
-
                 </div>
             </div>
         </div>
