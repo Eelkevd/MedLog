@@ -38,6 +38,39 @@
               @endif
 
       </div>
+
+      <div class="card">
+          <div class="card-header">Welcome bij MedLog, jouw persoonlijk medisch dagboek!
+          </div>
+          <div class="col-md-2">
+            <div class="card-body">
+              <!-- Aankomende afspraken -->
+                <ul class="collapse list-unstyled">
+                  @foreach($events as $event)
+                    @if($events == null)
+                        <li>
+                        {{ $event -> title }} <br>
+                        {{ $event -> start_date }} <br><br>
+                      </li>
+                    @else
+                        <li>Hier komen uw vijf meest recente aankomende afspraken te staan</li>
+                    @endif
+                  @endforeach
+                </ul>
+              </div>
+        </div>
+        <div class="col-md-2">
+          <div class="card-body">
+            <!-- vijf meest recente entries in het dagboek -->
+            <ul>
+              <li>dagboek 1</li>
+            </ul>
+          </div>
+        </div>
+
+
+
+
               <div class="card">
                   <div class="card-header">Home
                   </div>

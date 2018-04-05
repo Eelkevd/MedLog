@@ -23,6 +23,8 @@ class HomeController extends Controller
     {
         $keyword = "nope";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
-        return view('homepage.home', compact('search'));
+
+        $events = Event::appointments();
+        return view('homepage.home', compact('search', 'events'));
     }
 }
