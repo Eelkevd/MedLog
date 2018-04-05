@@ -229,14 +229,14 @@
 	}
 
 
-	$('#illness_search').autocomplete({
-      source : '{!!URL::route('autocomplete')!!}',
-      minlenght:1,
-      autoFocus:true,
-      select:function(e,ui){
-        alert(ui);
-      }
-    });
+	// $('#illness_search').autocomplete({
+ //      source : '{!!URL::route('autocomplete')!!}',
+ //      minlenght:1,
+ //      autoFocus:true,
+ //      select:function(e,ui){
+ //        alert(ui);
+ //      }
+ //    });
 
 </script>
 @endif
