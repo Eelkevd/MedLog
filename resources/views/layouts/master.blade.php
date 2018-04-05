@@ -30,7 +30,8 @@
 
           @yield('content')
         </div>
-
+<br />
+<br />
     </div>
 
 @if (Auth::check())
