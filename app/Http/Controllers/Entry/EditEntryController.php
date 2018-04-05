@@ -2,6 +2,7 @@
 namespace App\Http\Controllers\Entry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Symptom;
 use App\Illness;
 use App\Entry;
@@ -25,8 +26,7 @@ class EditEntryController extends Controller
     	$symptomes = $user->diary->symptomes;
     	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
-
-    	return view('entries/edit_entry', compact('symptomes', 'illnesses', 'medicines', 'entry', 'id'));
+    	return view('entries/edit_entry', compact('symptomes', 'illnesses', 'medicines', 'entry', 'id', 'checkedsymptomes'));
 	}
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store_update (Request $request)
@@ -36,49 +36,49 @@ class EditEntryController extends Controller
 		{
 			// find the corresponding diary
       $id = $request->id;
-      // $entry = Entry::findOrFail($id);
+      $user = Auth::user();
+      $symptomes = $user->diary->symptomes;
+      $medicines = $user->diary->medicines;
+			$entry= Entry::findOrFail($id);
+			$createdAt = $entry->created_at;
+			// $timelabel= $createdAt->toDateTimeString();
 
-			// add the diary_id to the request array
-			// $request->request->add(['diary_id' => $user->diary->id]);
-			// add the entry into the tabel entries
-      // $user = Auth::user();
-      // $symptomes = $user->diary->symptomes;
-      // $medicines = $user->diary->medicines;
-			// $entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
-      // $entry->symptomes()->detach($entry->symptom);
-			// $entry->medicines()->detach($entry->medicine);
-      // $entry->symptomes()->attach($request->symptom);
-      // $entry->medicines()->attach($request->medicine);
+			//delete old diary entry as event to the database
+		
 
-      // Entry::where('id', $id)->symptomes()->update(request(['symptom']));
-			// $entry->medicines()->attach($request->medicine);
+			$entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 
-			// //add diary entry as event to the database
-			// $illness = Illness::where('illness', $request->illness)->select('illness')->first();
-			// Event::update([
-			// 	'user_id' => $user->id,
-			// 	'title' => $illness->illness,
-			// 	'start_date' => $request['timespan_date'],
-			// 	'end_date' => $request['timespan_date'],
-			// ]);
-      //
-			// // add diary entry/event to the calendar
-			// $events = [];
-			// $data = Event::all();
-			// if($data->count())
-			// {
-			// 	foreach ($data as $key => $value)
-			// 	{
-			// 		$events[] = Calendar::event(
-			// 			$value->title,
-			// 			$value->description,
-			// 			new \DateTime($value->start_date),
-			// 			new \DateTime($value->end_date)
-			// 		);
-			// 	}
-			// }
-      //
-			// $calendar = Calendar::addEvents($events);
+			Entry::find($id)->symptomes()->detach();
+			Entry::find($id)->medicines()->detach();
+			Entry::find($id)->symptomes()->attach($request->symptom);
+			Entry::find($id)->medicines()->attach($request->medicine);
+
+			//add diary entry as event to the database
+			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
+			Event::create([
+				'user_id' => $user->id,
+				'title' => $illness->illness,
+				'start_date' => $request['timespan_date'],
+				'end_date' => $request['timespan_date'],
+			]);
+
+			// add diary entry/event to the calendar
+			$events = [];
+			$data = Event::all();
+			if($data->count())
+			{
+				foreach ($data as $key => $value)
+				{
+					$events[] = Calendar::event(
+						$value->title,
+						$value->description,
+						new \DateTime($value->start_date),
+						new \DateTime($value->end_date)
+					);
+				}
+			}
+
+			$calendar = Calendar::addEvents($events);
 			return redirect ('overview');
 		}
 	}

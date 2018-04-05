@@ -4,7 +4,7 @@
         <meta charset="utf-8">
     </head>
     <body>
-        <h2>Activeer jouw uitnodiging</h2>
+        <h2>Activeer je dagboek</h2>
 
         <div>
             Je hebt je geregistreerd op MedLog, de webapplicatie waarmee je jouw medisch dagboek kunt bijhouden.

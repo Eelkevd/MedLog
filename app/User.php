@@ -8,6 +8,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use App\Traits\Encryptable;
 use App\Notifications\VerifyEmail;
+use App\Notifications\InviteEmail;
 use App\Notifications\MailResetPasswordToken;
 use Auth;
 
@@ -65,6 +66,13 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
     {
 
       $this->notify(new VerifyEmail($this));
+
+    }
+
+    public function sendInviteMailNewUser()
+    {
+
+      $this->notify(new InviteEmail($this));
 
     }
 

@@ -116,6 +116,8 @@ class PermissionsController extends Controller
         $dataUsername = "Gebruikersnaam = " . $userName;
         $dataPassword = "Wachtwoord = " . $wachtwoord;
 
+        $newAccount = $dataUsername . $dataPassword;
+
         $reader = User::create([
               'username' => $userName,
               'firstname' => '..',
@@ -141,7 +143,8 @@ class PermissionsController extends Controller
           'password'
         ]));
           // Send an email with a verification link which redirects using the token
-        //  $reader->sendVerificationMail();
+        $reader->sendInviteMailNewUser();
+
           return redirect ('permissions')
             ->with('succes', 'Inlog voor lezer aangemaakt en verzonden')
             ->with('dataM', $email)
