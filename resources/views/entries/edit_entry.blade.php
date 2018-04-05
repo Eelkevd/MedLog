@@ -2,7 +2,10 @@
 @extends ('layouts.master')
 
 @section('content')
-
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
                     @guest
                     <!-- Show not logged in screen -->
                     <div class="col-md-6">
@@ -155,14 +158,14 @@
                     <script>
 
                       // Function to determine current date
-                      Date.prototype.toDateInputValue = (function() {
-                          var local = new Date(this);
-                          local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-                          return local.toJSON().slice(0,10);
-                      })
+                      // Date.prototype.toDateInputValue = (function() {
+                      //     var local = new Date(this);
+                      //     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
+                      //     return local.toJSON().slice(0,10);
+                      // })
 
                       // Places current date into input 'date' fields
-                      document.getElementById('timespan_date').value = new Date().toDateInputValue();
+                      // document.getElementById('timespan_date').value = new Date().toDateInputValue();
 
                       // Function to keep pagescroll unchanged on buttonclick
                         $('a.btnSub').click(function(e)
@@ -171,18 +174,18 @@
                             });
 
                         // Function to determine current time
-                        $(function(){
-                        $('input[type="time"][value="now"]').each(function(){
-                            var d = new Date(),
-                                h = d.getHours(),
-                                m = d.getMinutes();
-                            if(h < 10) h = '0' + h;
-                            if(m < 10) m = '0' + m;
-                            $(this).attr({
-                              'value': h + ':' + m
-                            });
-                          });
-                      });
+                      //   $(function(){
+                      //   $('input[type="time"][value="now"]').each(function(){
+                      //       var d = new Date(),
+                      //           h = d.getHours(),
+                      //           m = d.getMinutes();
+                      //       if(h < 10) h = '0' + h;
+                      //       if(m < 10) m = '0' + m;
+                      //       $(this).attr({
+                      //         'value': h + ':' + m
+                      //       });
+                      //     });
+                      // });
 
                       var sliderBar = document.getElementById('intensityRange');
                       var sliderVal = document.getElementById('intensityValue');
@@ -221,6 +224,9 @@
                       }
 
                     </script>
-                    @endif
-                    @endauth
-                    @endsection
+                  @endif
+                  @endauth
+          </div>
+      </div>
+  </div>
+  @endsection
