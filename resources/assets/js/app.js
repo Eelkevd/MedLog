@@ -21,4 +21,7 @@ window.moment = require('moment');
 
 window.axios = require('axios');
 
+require('typeahead/typeahead.js');
+
+require('typeahead/node_modules/xtend/index.js');
 

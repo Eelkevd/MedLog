@@ -40,7 +40,6 @@ Route::middleware('auth')->group(function () {
   Route::get('/home/edit_event', 'EventController@edit');
   Route::get('/home/mycalendar', 'EventController@index');
 
-  ////// DIARY ENTRY PAGE DIRECTION //////
   // Redirects to the create diary entry page
   Route::get('/entries', 'Entry\EntryController@create')->name('home');
   // Page to store diary entries
@@ -54,6 +53,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
   // Page to edit diary entries
   Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
+
+  Route::get("autocomplete",array('as'=>'autocomplete','uses'=> 'StationaryController@autocomplete'));
 
 
   // Route to diary overview page

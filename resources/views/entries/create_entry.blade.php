@@ -2,6 +2,9 @@
 @extends ('layouts.master')
 
 @section('content')
+
+<script src="{{ asset('js/app.js') }}"></script>
+
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
@@ -49,7 +52,7 @@
                 <br />
 	<div class="card">
 		<div class="card-header">
-			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
+			<h4 align="center">Nieuwe gebeurtenis</h4> <p align="center">Alleen velden met een sterretje (*) zijn verplicht</p>
 		</div>
 
 		<div class="card-body">
@@ -57,7 +60,9 @@
 				{{ csrf_field() }}
 				<!-- places all illnesses from db -->
 				<div>
-					<h5>Aandoening: *</h5>
+					<!-- <input type="search" name="q" class="form-control" placeholder="Search" autocomplete="off"> -->
+					<h5>Ziektebeeld *</h5>
+					<p>Kies hier het onderwerp van uw gebeurtenis:</p>
 					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
 							<option selected></option>
 						@foreach($illnesses as $illness)
@@ -67,7 +72,8 @@
 				</div>
 				<hr>
 				<div>
-					<p>Symptomen:</p>
+					<h5>Symptomen</h5>
+					<p>Selecteer hier de betreffende symptomen:</p>
 					<!-- places all symptomes from db -->
 					@foreach($symptomes as $symptom)
 						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
@@ -76,46 +82,53 @@
 				</div>
 				<hr>
 				<div>
-					<p>Wanneer gebeurde het:</p>
+					<h5>Wanneer gebeurde het</h5>
+					<p>Kies hier de datum en/of tijd wanneer het gebeurde:</p>
 					<input type="date" id='timespan_date' name="timespan_date">
 					<input type="time" name="timespan_time" value="now">
 				</div>
 				<hr>
 				<div>
-					<p>Waar gebeurde het:</p>
-					<input type="text" name="location" placeholder="locatie">
+					<h5>Waar gebeurde het</h5>
+					<p>Waar bevond u zich toen het gebeurde?</p>
+					<input type="text" name="location">
 				</div>
 				<hr>
 				<div>
-					<p>Intensiteit</p>
+					<h5>Intensiteit</h5>
+					<p>Hoe ervaarde u de gebeurtenis?</p>
 					<input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
 					<span id="intensityValue"></span>
 				</div>
 				<hr>
 				<div>
-					<p>Klachtsduur</p>
-					Startdatum klacht
+					<h5>Klachtsduur</h5>
+					<p>Hoelang heeft de gebeurtenis geduurd?</p>
+					<p> Heeft het maar een paar minuten geduurd? OF een paar uur? Of gingen er verschillende dagen overheen?</p>
+					Van:
 					<br>
 					<input type="date" id='complaint_startdate' name="complaint_startdate">
 					<br>
 					<br>
-					Einddatum klacht
+					Tot: 
 					<br>
 					<input type="date" id='complaint_enddate' name="complaint_enddate">
 					<br>
 					<br>
-					Tijd
+					In uren en minuten:
 					<br>
 					<input type="time" name="complaint_time">
 				</div>
 				<hr>
 				<div>
-					<p>Hersteltijd</p>
+					<h5>Hersteltijd</h5>
+					<p>Hoelang duurde het om te herstellen?</p>
 					<input type="time" name="recoverytime_time"> (Tijd)
 				</div>
 				<hr>
 				<div>
-					<p>Medicatie</p>
+					<h5>Medicatie</h5>
+					<p>Hier kunt u eventueel uw medicatie selecteren die bij deze gebeurtenis hoort</p>
 					@foreach($medicines as $medicine)
 						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
 						<label for="subscribeNews">{{ $medicine->medicine }}</label>
@@ -123,21 +136,24 @@
 				</div>
 				<hr>
 				<div>
-					<p>Weer</p>
-					<textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden"></textarea>
+					<h5>Weersomstandigheden</h5>
+					<p>Wat waren de weersomstandigheden toen het gebeurde?</p>
+					<textarea name="weather"></textarea>
 				</div>
 				<hr>
 				<div>
-					<p>Wat zagen anderen?</p>
-					<textarea name="witness_report" placeholder="Getuigenverklaringen"></textarea>
+					<h5>Wat zagen anderen?</h5>
+					<p>Hier kunt u beschrijven wat anderen mensen zagen toen het gebeurde</p>
+					<textarea name="witness_report"></textarea>
 				</div>
 				<hr>
 				<div>
-					<p>Overig</p>
-					<textarea name="comments" placeholder="Overige aantekeningen"></textarea>
+					<h5>Opmerkingen</h5>
+					<p>Overige opmerkingen die u over deze gebeurtenis kwijt wilt</p>
+					<textarea name="comments"></textarea>
 				</div>
+				<hr>
 				<div>
-					<p>Sla mijn dagboek op</p>
 					<input type="submit" value="Opslaan">
 				</div>
 			</form>
@@ -211,6 +227,16 @@
   			sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
   		}
 	}
+
+
+	$('#illness_search').autocomplete({
+      source : '{!!URL::route('autocomplete')!!}',
+      minlenght:1,
+      autoFocus:true,
+      select:function(e,ui){
+        alert(ui);
+      }
+    });
 
 </script>
 @endif

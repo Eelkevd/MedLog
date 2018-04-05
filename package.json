@@ -21,6 +21,8 @@
         "font-awesome": "^4.7.0",
         "fullcalendar": "^3.9.0",
         "jquery-ui": "^1.12.1",
-        "malihu-custom-scrollbar-plugin": "^3.1.5"
+        "malihu-custom-scrollbar-plugin": "^3.1.5",
+        "typeahead": "^0.2.2",
+        "xtend": "^4.0.1"
     }
 }
