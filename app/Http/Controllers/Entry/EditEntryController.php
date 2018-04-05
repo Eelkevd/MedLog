@@ -40,11 +40,9 @@ class EditEntryController extends Controller
       $symptomes = $user->diary->symptomes;
       $medicines = $user->diary->medicines;
 			$entry= Entry::findOrFail($id);
-			$createdAt = $entry->created_at;
-			// $timelabel= $createdAt->toDateTimeString();
-
+			$entrynumber = $entry->id;
 			//delete old diary entry as event to the database
-
+			$test = DB::table('events')->where('entry_id', $entrynumber)->delete();
 
 			$entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 
@@ -55,8 +53,10 @@ class EditEntryController extends Controller
 
 			//add diary entry as event to the database
 			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
+			$entry= Entry::findOrFail($id);
 			Event::create([
 				'user_id' => $user->id,
+				'entry_id' => $entry->id,
 				'title' => $illness->illness,
 				'start_date' => $request['timespan_date'],
 				'end_date' => $request['timespan_date'],
