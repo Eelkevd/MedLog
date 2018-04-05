@@ -52,6 +52,7 @@ class EntryController extends Controller
 			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
 			Event::create([
 				'user_id' => $user->id,
+				'entry_id' => $entry->id,
 				'title' => $illness->illness,
 				'start_date' => $request['timespan_date'],
 				'end_date' => $request['timespan_date'],

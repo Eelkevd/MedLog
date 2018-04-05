@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Event extends Model
 {
-    protected $fillable = ['user_id', 'title', 'description', 'start_date', 'end_date'];
+    protected $fillable = ['user_id', 'entry_id', 'title', 'description', 'start_date', 'end_date'];
 
     public static function appointments()
     {
