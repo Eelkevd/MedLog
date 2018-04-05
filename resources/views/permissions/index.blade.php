@@ -46,7 +46,7 @@
                       </div>
                       @endif
                       @if(Session::has('succes'))
-                      <div class="alert alert-success">
+                        <div class="alert alert-success">
                           {{ Session::get('succes') }}
                         </div>
                       @endif
@@ -59,11 +59,15 @@
                             {{ Session::get('dataU') }}
                             <br />
                             {{ __('Emailadres: ') }}
-                            {{ Session::get('dataM') }} 
+                            {{ Session::get('dataM') }}
                             <br />
                             {{ Session::get('dataW') }}
                           </div>
-
+                        @endif  
+                        @if(Session::has('danger'))
+                              <div class="alert alert-danger">
+                                {{ Session::get('danger') }}
+                              </div>
                       @endif
                       <table class="table table-striped">
                           <thead>
@@ -87,11 +91,12 @@
                                        {{ $permission -> user -> lastname }}</td>
                                   <td>{{ $permission -> user -> email }}</td>
                                   <td>
-                                    <a href="permissions/remove">
-                                      <span class="glyphicon glyphicon-trash">
-                                        <u>verwijder</ul>
+                                    <form method="POST" action="/permissions/delete/{{ $permission->user->id }}">                                      {{ csrf_field() }}
+                                        <span class="glyphicon glyphicon-trash">
+                                        @method('DELETE')
+                                        <input type="submit" align="center" class="btnSub" value="Verwijder">
                                       </span>
-                                    </a>
+                                    </form>
                                   </td>
                               </tr>
                               @endforeach

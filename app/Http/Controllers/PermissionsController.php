@@ -32,9 +32,22 @@ class PermissionsController extends Controller
   }
 
     // Function to go to the create new medicine page
-  	public function create()
+  public function create()
   {
   	return view('permissions/givepermission');
+  }
+
+  // Function to go to the create new medicine page
+  public function delete($id)
+  {
+    $diary = Auth::user()->diary()->first();
+    $reader = Reader::where('user_id', $id)->get();
+    $selectedReader = $reader->where('diary_id', $diary->id)->first();
+    // delete from Readers tabble but not from the User tabel
+    $selectedReader->delete();
+
+    return redirect('permissions/')
+      ->with('danger', 'Lezer verwijderd');
   }
 
   // Function to store the reader persmission into the db
@@ -129,15 +142,13 @@ class PermissionsController extends Controller
         ]));
           // Send an email with a verification link which redirects using the token
         //  $reader->sendVerificationMail();
-
           return redirect ('permissions')
             ->with('succes', 'Inlog voor lezer aangemaakt en verzonden')
             ->with('dataM', $email)
             ->with('dataU', $dataUsername )
             ->with('dataW', $dataPassword);
-
         }
     }
-
   }
+
 }
