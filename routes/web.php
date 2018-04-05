@@ -32,7 +32,6 @@ Route::get('/about', 'AboutusController@aboutus');
 
 // validated routers for users with a diary
 Route::middleware('auth')->group(function () {
-
   // Routes to do show, search in or create event in calendar
   Route::get('/home/create_event', 'EventController@create');
   Route::post('/home/store_event', 'EventController@store');
@@ -54,7 +53,6 @@ Route::middleware('auth')->group(function () {
   Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
   // Page to edit diary entries
   Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
-
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');
@@ -81,6 +79,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/permissions', 'PermissionsController@index');
   Route::get('/permissions/givepermission', 'PermissionsController@create');
   Route::post('/permissions/givepermission', 'PermissionsController@store');
+  Route::delete('/permissions/delete/{id}', 'PermissionsController@delete');
 
   // Route to tool and pages
   Route::get('/tool', 'ToolController@home');
@@ -102,6 +101,7 @@ Route::middleware('auth')->group(function () {
   ->name('reader_index');
 });
 
+// routes voor all auth users
 Route::middleware('auth')->group(function () {
   // Route to account page
   Route::get('/account', 'AccountController@index');
