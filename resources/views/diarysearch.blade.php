@@ -25,7 +25,8 @@
                           {{ session('succes') }}
                       </div>
               @endif
-
+        <div class="card">
+          <div class="card-header">
             <h5><center>Zoekfuncties</center></h5>
           </div>
           <div class="card-body">
@@ -144,5 +145,6 @@
         </div>
       </div>
     </div>
+</div>
 </div>
 @endsection
