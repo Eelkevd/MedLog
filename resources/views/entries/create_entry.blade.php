@@ -141,7 +141,7 @@
 <script>
 
   function() {
-    if document.getElementById('')
+    if document.getElementById('illnessOld') =  
   }
 
 	// Function to determine current date
