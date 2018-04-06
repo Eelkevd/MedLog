@@ -48,7 +48,7 @@ class Entry extends Model
       return static::whereBetween('timespan_date', array(
         $start,
         $end
-      ))->take(3)->orderBy('timespan_date')->get();
+      ))->orderBy('timespan_date')->take(3)->get();
     }
 
 }

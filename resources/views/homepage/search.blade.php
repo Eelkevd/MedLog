@@ -50,7 +50,7 @@
                     <tr>
                       <td>
                         {{ $event -> title }} <br>
-                        {{ $event -> start_date }}
+                        {{ date('d-m-Y', strtotime($event ->start_date ))}}
                       </td>
                     </tr>
                     @endforeach
