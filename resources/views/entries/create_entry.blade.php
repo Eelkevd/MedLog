@@ -106,11 +106,6 @@
       				</div>
       				<hr>
       				<div>
-      					Hoe lang duurde het voor u herstelt was?<br />
-      					<input type="time" name="recoverytime_time"> (Tijd)
-      				</div>
-      				<hr>
-      				<div>
       					Nam u medicijnen in vanwege de gebeurtenis?<br />
       					@foreach($medicines as $medicine)
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">

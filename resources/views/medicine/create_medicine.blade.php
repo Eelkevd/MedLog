@@ -69,12 +69,6 @@
 			</div>
 			<hr>
 			<div>
-				<p>Houdbaarheidsdatum:</p>
-				<p>Tot wanneer is het medicijn houdbaar?</p>
-				<input type="date" name="expire_date">
-			</div>
-			<hr>
-			<div>
 				<p>Prijs:</p>
 				€<input type="number" name="price" step=".01">
 			</div>

@@ -79,12 +79,6 @@
                                 <td>{{ $medicine-> side_effect}}</td>
                               </tr>
 
-                              <!-- Show expire date -->
-                              <tr>
-                                  <td><b>{{ __('Houdbaarheidsdatum: ') }}</b></td>
-                                  <td>{{ $medicine-> expire_date }}</td>
-                              </tr>
-
                               <!-- Show price -->
                               <tr>
                                   <td><b>{{ __('Prijs: ') }}</b></td>

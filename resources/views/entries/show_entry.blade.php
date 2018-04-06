@@ -92,14 +92,8 @@
 
                               <!-- Show klachtsduur -->
                               <tr>
-                                  <td><b>{{ __('Klachtsduur: ') }}</b></td>
+                                  <td><b>{{ __('Duur van de aanval: ') }}</b></td>
                                   <td>{{ $entry-> complaint_time}}</td>
-                              </tr>
-
-                              <!-- Show hersteltijd -->
-                              <tr>
-                                  <td><b>{{ __('Hersteltijd: ') }}</b></td>
-                                  <td>{{ $entry-> recoverytime_time}}</td>
                               </tr>
 
                               <!-- Show medicatie -->

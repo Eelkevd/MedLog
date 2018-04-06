@@ -108,13 +108,6 @@
                             </div>
                             <hr>
 
-                            <!-- Edit recovery time -->
-                            <div>
-                              <p>Hersteltijd</p>
-                              <input type="time" name="recoverytime_time" value="{{ $entry->recovery_time }}"> (Tijd)
-                            </div>
-                            <hr>
-
                             <!-- Edit medicines -->
                             <div>
                               <p>Medicatie</p>
