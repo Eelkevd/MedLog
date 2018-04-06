@@ -1,4 +1,4 @@
-<!-- Page for creating new medicines -->
+<!-- Page for creating new tools -->
 
 @extends ('layouts.master')
 
@@ -6,9 +6,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
-
+					<div class="card">
+						<div class="card-header">
 		<!-- check to see if user of page is guest, reader, user or validated user.
 		      Only let validated user throug -->
 					@guest
@@ -40,42 +39,46 @@
 
 					  @else
 
-		<h4>Nieuwe Medicatie</h4>
+		<h4>Aanpassen hulpmiddelen</h4>
 	</div>
 
 	<div class="card-body">
-		<form method="POST" action="/medicine/create_medicine">
+		<form method="POST" action="/tool/{id}/edit_tool">
 			{{ csrf_field() }}
+
+        <input type="hidden" name="id" value="{{ $tool->id }}">
+
 		    <div>
 				<p>
-				Voeg hier uw nieuwe medicatie toe.
+				Pas hier uw hulpmiddel aan.
 				</p>
-				<input type="text" name="medicine" placeholder="naam medicijn" required>
-			</div>
-			<hr>
-			<div>
-				<p>Dosering:</p>
-				<textarea name="dose" placeholder="Dosering"></textarea>
+				<input type="text" name="tool" value="{{ $tool->tool }}" required>
 			</div>
 			<hr>
 			<div>
 				<p>Doel:</p>
-				<textarea name="purpose" placeholder="Doel"></textarea>
+				<textarea name="purpose" >{{ $tool->purpose }}</textarea>
 			</div>
 			<hr>
 			<div>
-				<p>Mogelijke bijwerkingen:</p>
-				<textarea name="side_effect" placeholder="Vul hier de mogelijke bijwerkingen in"></textarea>
+				<p>Leverancier:</p>
+				<textarea name="origin" >{{ $tool->origin }}</textarea>
+			</div>
+			<hr>
+			<div>
+				<p>Inleverdatum:</p>
+				<p>Wanneer moet het ingeleverd worden?</p>
+				<input type="date" value="{{ $tool->return_date }}" name="return_date">
 			</div>
 			<hr>
 			<div>
 				<p>Prijs:</p>
-				€<input type="number" name="price" step=".01">
+				€<input type="number" value="{{ $tool->price }}" name="price" step=".01">
 			</div>
 			<hr>
 			<div>
 				<p>Overige opmerkingen:</p>
-				<textarea name="comment"></textarea>
+				<textarea name="comment">{{ $tool->comment }}</textarea>
 			</div>
 			<hr>
 			<div>

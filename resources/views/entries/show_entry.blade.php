@@ -54,7 +54,7 @@
                               <!-- Show date -->
                               <tr>
                                 <td><b>{{ __('Datum: ') }}</b></td>
-                                <td>{{ $entry->timespan_date }}</td>
+                                <td>{{ date('d-m-Y', strtotime($entry-> timespan_date ))}}</td>
                               </tr>
 
                               <!-- Show time  -->
@@ -93,13 +93,13 @@
                               <!-- Show klachtsduur -->
                               <tr>
                                   <td><b>{{ __('Klachtsduur: ') }}</b></td>
-                                  <td>{{ $entry-> complaint_time}}</td>
+                                  <td>{{ $days}} dagen</td>
                               </tr>
 
-                              <!-- Show hersteltijd -->
+                              <!-- Show length attack -->
                               <tr>
-                                  <td><b>{{ __('Hersteltijd: ') }}</b></td>
-                                  <td>{{ $entry-> recoverytime_time}}</td>
+                                  <td><b>{{ __('Duur van de aanval: ') }}</b></td>
+                                  <td>{{ $entry-> complaint_time}}</td>
                               </tr>
 
                               <!-- Show medicatie -->
@@ -129,13 +129,16 @@
                                   <td>{{ $entry-> comments}}</td>
                               </tr>
 
-
-
                         </table>
 
-                        <!-- Button to go to edit page of users account data-->
+                        <!-- Button to edit page of entry-->
                         <div class="form-group row mb-0">
-                            <em><a href="{{ route('entries.edit', $entry->id) }}">Pas pagina aan</a></em>
+                            <em><a href="{{ route('entries.edit', $entry->id) }}" >Pas pagina aan</a></em>
+                        </div><br>
+
+                        <!-- Button to delete page of entry -->
+                        <div class="form-group row mb-0">
+                            <em><a href="{{ route('entries.delete', $entry->id) }}" onclick="return confirm('Weet je zeker dat je de dagboekpagina wil verwijderen?')" >Verwijder pagina</a></em>
                         </div>
                 </div>
                 @endif

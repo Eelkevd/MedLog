@@ -7,15 +7,17 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">
+          @guest
+          <div class="card">
+              <div class="card-header">
                   <form action="/" >
                       <button type="submit" class="btn btn-primary">Registreer</button>
                   </form>
               </div>
           </div>
+          <hr>
+          @endguest
 
-<hr>
           <div class="card">
                 <div class="card-header">Over ons</div>
                     <div class="card-body">

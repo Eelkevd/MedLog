@@ -5,12 +5,14 @@ namespace App\Http\Controllers\Entry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Calendar;
 use App\Event;
 use App\Diary;
 use App\Symptom;
 use App\Illness;
 use App\Entry;
+use DateTime;
 
 class EntryController extends Controller
 {
@@ -22,8 +24,12 @@ class EntryController extends Controller
 
 		public function showentry($id)
 	{
-		$entry= Entry::findOrFail($id);
-    	return view('entries.show_entry', compact('entry'));
+			$entry= Entry::findOrFail($id);
+			$datetime1 = new DateTime($entry->complaint_startdate);
+			$datetime2 = new DateTime($entry->complaint_enddate);
+			$interval = $datetime1->diff($datetime2);
+			$days = $interval->format('%a');
+	    return view('entries.show_entry', compact('entry', 'days'));
 	}
 
   // Gives data on symptomes and illnesses when user goes to the medform page
@@ -36,6 +42,22 @@ class EntryController extends Controller
 
     	return view('entries/create_entry', compact('symptomes', 'illnesses', 'medicines'));
 	}
+
+	// Delete entry
+	public function delete($id)
+	{
+		if (Auth::check())
+		{
+		  $entry= Entry::findOrFail($id);
+			$entrynumber = $entry->id;
+			DB::table('events')->where('entry_id', $entrynumber)->delete();
+			Entry::find($id)->symptomes()->detach();
+			Entry::find($id)->medicines()->detach();
+			$entry = Entry::where('id', $id)->delete();
+		}
+		return redirect()->action('OverviewController@index');
+	}
+
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
 	{
@@ -53,13 +75,26 @@ class EntryController extends Controller
 
 			//add diary entry as event to the database
 			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
-			Event::create([
-				'user_id' => $user->id,
-				'entry_id' => $entry->id,
-				'title' => $illness->illness,
-				'start_date' => $request['timespan_date'],
-				'end_date' => $request['timespan_date'],
-			]);
+			if(!empty($entry->complaint_enddate))
+			{
+				Event::create([
+					'user_id' => $user->id,
+					'entry_id' => $entry->id,
+					'title' => $illness->illness,
+					'start_date' => $request['complaint_startdate'],
+					'end_date' => $request['complaint_enddate'],
+				]);
+			}
+			else
+			{
+				Event::create([
+					'user_id' => $user->id,
+					'entry_id' => $entry->id,
+					'title' => $illness->illness,
+					'start_date' => $request['timespan_date'],
+					'end_date' => $request['timespan_date'],
+				]);
+			}
 
 			// add diary entry/event to the calendar
 			$events = [];
@@ -78,7 +113,7 @@ class EntryController extends Controller
 			}
 
 			$calendar = Calendar::addEvents($events);
-			return redirect ('entries');
+			return redirect()->action('OverviewController@index');
 		}
 	}
 }

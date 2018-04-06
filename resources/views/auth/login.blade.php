@@ -13,22 +13,13 @@
                       Een medisch dosier in eigen hand begint met MedLog.
                     </strong><br />
                     <br />
-
                       <ul class="index">
-                        <li>Organiseer uw dagboek zoals u dat zelf wilt met gepersonaliseerde ziektebeelden en symptomen
-                        </li>
+                        <li>Organiseer uw dagboek zoals u dat zelf wilt met je eigen ziektebeelden en symptomen</li>
                         <li>Houdt uw afspraken overzichtelijk bij in de kalender</li>
-                        <li>
-                          Voeg uw behandelaars en naasten toe als meelezers.
-                        </li>
-                        <li>
-                          Sorteer en exporteer uw dagboek als pdf.
-                        </li>
-                        <li>
-                          Kies uw eigen thema, bijvoorbeeld "Hoog Contrast" voor als u visueel beperkt bent.
-                        </li>
+                        <li>Voeg uw behandelaars en naasten toe als meelezers</li>
+                        <li>Sorteer en exporteer uw dagboek als pdf</li>
+                        <li>Kies uw eigen thema, bijvoorbeeld "Hoog Contrast" voor als moeite de pagina te lezen</li>
                       </ul>
-
                     </div>
                   </div>
       <br />

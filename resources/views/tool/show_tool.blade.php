@@ -67,22 +67,22 @@
                                 <td>{{ $tool->purpose }}</td>
                               </tr>
 
-                              <!-- Show side effects -->
+                              <!-- Show origin -->
                               <tr>
-                                <td><b>{{ __('Bijwerkingen: ') }}</b></td>
+                                <td><b>{{ __('Leverancier: ') }}</b></td>
                                 <td>{{ $tool-> origin}}</td>
                               </tr>
 
                               <!-- Show expire date -->
                               <tr>
-                                  <td><b>{{ __('Houdbaarheidsdatum: ') }}</b></td>
-                                  <td>{{ $tool-> return_date }}</td>
+                                  <td><b>{{ __('Inleverdatum: ') }}</b></td>
+                                  <td> {{ date('d-m-Y', strtotime($tool-> return_date ))}}</td>
                               </tr>
 
                               <!-- Show price -->
                               <tr>
                                   <td><b>{{ __('Prijs: ') }}</b></td>
-                                  <td>{{ $tool-> price }}</td>
+                                  <td>€{{ $tool-> price }}</td>
                               </tr>
 
                               <!-- Show comment -->
@@ -91,7 +91,18 @@
                                   <td>{{ $tool-> comment }}</td>
                               </tr>
                         </table>
+
+                        <!-- Button to edit page of tool-->
+                        <div class="form-group row mb-0">
+                            <em><a href="{{ route('tool.edit', $tool->id) }}" >Pas pagina aan</a></em>
+                        </div><br>
+
+                        <!-- Button to delete page of tool -->
+                        <div class="form-group row mb-0">
+                            <em><a href="{{ route('tool.delete', $tool->id) }}" onclick="return confirm('Weet je zeker dat je de hulpmiddelpagina wil verwijderen?')" >Verwijder pagina</a></em>
+                        </div>
                 </div>
+
                 @endif
                 @endauth
             </div>

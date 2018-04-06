@@ -54,6 +54,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
   // Page to edit diary entries
   Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
+  // Page to delete diary entry page
+  Route::get('/entries/{id}/delete', 'Entry\EntryController@delete')->name('entries.delete');
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');
@@ -75,6 +77,9 @@ Route::middleware('auth')->group(function () {
   Route::get('/medicine/create_medicine', 'MedicineController@create');
   Route::post('/medicine/create_medicine', 'MedicineController@store');
   Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
+  Route::get('/medicine/{id}/delete', 'MedicineController@delete')->name('medicine.delete');
+  Route::get('/medicine/{id}/edit', 'MedicineController@editmedicine')->name('medicine.edit');
+  Route::post('/medicine/{id}/edit_medicine', 'MedicineController@store_update');
 
   // Routes for User-Reader communications
   Route::get('/permissions', 'PermissionsController@index');
@@ -87,6 +92,9 @@ Route::middleware('auth')->group(function () {
   Route::get('/tool/create_tool', 'ToolController@create');
   Route::post('/tool/create_tool', 'ToolController@store');
   Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
+  Route::get('/tool{id}/delete', 'ToolController@delete')->name('tool.delete');
+  Route::get('/tool/{id}/edit', 'ToolController@edittool')->name('tool.edit');
+  Route::post('/tool/{id}/edit_tool', 'ToolController@store_update');
 
 });
 

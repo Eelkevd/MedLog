@@ -57,8 +57,10 @@
             		<div class="card-body">
             			<!-- places all medicines from db -->
             			@foreach($medicines as $medicine)
+                    @if($medicine->deleted != 'removed')
             				<a href="{{ route('medicine.show', $medicine->id) }}">{{ $medicine -> medicine }}</a>
             				<hr>
+                    @endif
             			@endforeach()
             		</div>
             	</div>
