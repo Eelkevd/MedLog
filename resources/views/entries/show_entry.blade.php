@@ -54,7 +54,7 @@
                               <!-- Show date -->
                               <tr>
                                 <td><b>{{ __('Datum: ') }}</b></td>
-                                <td>{{ $entry->timespan_date }}</td>
+                                <td>{{ date('d-m-Y', strtotime($entry-> timespan_date ))}}</td>
                               </tr>
 
                               <!-- Show time  -->

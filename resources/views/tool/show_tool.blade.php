@@ -76,7 +76,7 @@
                               <!-- Show expire date -->
                               <tr>
                                   <td><b>{{ __('Inleverdatum: ') }}</b></td>
-                                  <td>{{ $tool-> return_date }}</td>
+                                  <td> {{ date('d-m-Y', strtotime($tool-> return_date ))}}</td>
                               </tr>
 
                               <!-- Show price -->

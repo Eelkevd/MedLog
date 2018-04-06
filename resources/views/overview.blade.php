@@ -51,7 +51,7 @@
                                 <b> {{ $entry->illness }}</b>
                                 <br />
                                 @if(!empty($entry->timespan_date))
-                                  Datum: {{ $entry -> timespan_date }}
+                                  Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
                                 @endif
                                 <br />
                               Symptoom:
