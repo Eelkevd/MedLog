@@ -57,12 +57,12 @@
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
                       <label>Naam nieuw medicijn</label>
-                      <input type="text" class="form-control" name="medicine" placeholder="naam medicijn" aria-label="naam medicijn" aria-describedby="basic-addon2" required>
+                      <input type="text" class="form-control" name="medicine" placeholder="Hoe heet het medicijn?" aria-label="naam medicijn" aria-describedby="basic-addon2" required>
                     </div>
                     <hr>
                   <div>
                     <label>Dosering <em><small>(optioneel)</small></em></label>
-                    <textarea name="dose" placeholder="Hoe heet het medicijn?"></textarea>
+                    <textarea name="dose" placeholder="Hoe vaak moet u het medijn innemen?"></textarea>
                   </div>
                   <hr>
                   <div>

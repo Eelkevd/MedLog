@@ -46,10 +46,9 @@
                         <table class="table table-striped">
                             <thead>
                               <tr>
-
                                 <th colspan="2">
                                 <!-- Button to delete page of medicine -->
-                                <a href="{{ route('medicine.delete', $medicine->id) }}" onclick="return confirm('Weet je zeker dat je de medicijnpagina wil verwijderen?')" ><span class="oi oi-trash icon"></span></a>
+                                <a href="{{ route('medicine.delete', $medicine->id) }}" onclick="return confirm('Weet je zeker dat je dit medicijn wilt verwijderen?')" ><span class="oi oi-trash icon"></span></a>
                                 <a href="{{ route('medicine.edit', $medicine->id) }}" ><span class="oi oi-pencil icon"></span></a>
                               </th>
                               </tr>

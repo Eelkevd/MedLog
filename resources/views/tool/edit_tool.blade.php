@@ -39,7 +39,7 @@
 
 					  @else
 
-		<h4>Aanpassen hulpmiddelen</h4>
+		<h4>Wijzig uw hulpmiddel</h4>
 	</div>
 
 	<div class="card-body">
@@ -49,35 +49,32 @@
         <input type="hidden" name="id" value="{{ $tool->id }}">
 
 		    <div>
-				<p>
-				Pas hier uw hulpmiddel aan.
-				</p>
-				<input type="text" name="tool" value="{{ $tool->tool }}" required>
+				<label>Naam van uw hulpmiddel</label>
+				<input type="text" class="form-control" name="tool" value="{{ $tool->tool }}" required>
 			</div>
 			<hr>
 			<div>
-				<p>Doel:</p>
+				<label>Doel <em><small>(optioneel)</small></em></label>
 				<textarea name="purpose" >{{ $tool->purpose }}</textarea>
 			</div>
 			<hr>
 			<div>
-				<p>Leverancier:</p>
+				<label>Leverancier <em><small>(optioneel)</small></em></label>
 				<textarea name="origin" >{{ $tool->origin }}</textarea>
 			</div>
 			<hr>
 			<div>
-				<p>Inleverdatum:</p>
-				<p>Wanneer moet het ingeleverd worden?</p>
+				<label>Lever- of vervangingsdatum <em><small>(optioneel)</small></em></label>
 				<input type="date" value="{{ $tool->return_date }}" name="return_date">
 			</div>
 			<hr>
 			<div>
-				<p>Prijs:</p>
-				€<input type="number" value="{{ $tool->price }}" name="price" step=".01">
+				<label>Prijs <em><small>(optioneel)</small></em></label>
+				€  <input type="number" value="{{ $tool->price }}" name="price" step=".01">
 			</div>
 			<hr>
 			<div>
-				<p>Overige opmerkingen:</p>
+				<label>Vrije ruimte <em><small>(optioneel)</small></em></label>
 				<textarea name="comment">{{ $tool->comment }}</textarea>
 			</div>
 			<hr>
