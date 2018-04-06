@@ -56,31 +56,32 @@
                   <form method="POST" action="/medicine/create_medicine">
                     {{ csrf_field() }}
                     <div class="input-group mb-3">
+                      <label>Naam nieuw medicijn</label>
                       <input type="text" class="form-control" name="medicine" placeholder="naam medicijn" aria-label="naam medicijn" aria-describedby="basic-addon2" required>
                     </div>
                     <hr>
                   <div>
-                    Dosering <em><small>(optioneel)</small></em>
-                    <textarea name="dose" placeholder=""></textarea>
+                    <label>Dosering <em><small>(optioneel)</small></em></label>
+                    <textarea name="dose" placeholder="Hoe heet het medicijn?"></textarea>
                   </div>
                   <hr>
                   <div>
-                    Doel <em><small>(optioneel)</small></em>
-                    <textarea name="purpose" placeholder=""></textarea>
+                    <label>Doel <em><small>(optioneel)</small></em></label>
+                    <textarea name="purpose" placeholder="Waar gebruikt u het medicijn voor?"></textarea>
                   </div>
                   <hr>
                   <div>
-                    Bijwerkingen <em><small>(optioneel)</small></em>
-                    <textarea name="side_effect" placeholder=""></textarea>
+                    <label>Bijwerkingen <em><small>(optioneel)</small></em></label>
+                    <textarea name="side_effect" placeholder="Heeft u last van bijwerkingen?"></textarea>
                   </div>
                   <hr>
                   <div>
-                    Prijs <em><small>(optioneel)</small></em><br />
+                    <label>Prijs <em><small>(optioneel)</small></em><br /></label>
                     €  <input type="number" name="price" step=".01">
                   </div>
                   <hr>
                   <div>
-                    Vrije ruimte <em><small>(optioneel)</small></em>
+                    <label>Vrije ruimte <em><small>(optioneel)</small></em></label>
                     <textarea name="comment"></textarea>
                   </div>
                   <hr>
