@@ -40,42 +40,45 @@
 
 					  @else
 
-		<h4>Nieuwe Medicatie</h4>
+		<h4>Aanpassen Medicatie</h4>
 	</div>
 
 	<div class="card-body">
-		<form method="POST" action="/medicine/create_medicine">
+		<form method="POST" action="/medicine/{id}/edit_medicine">
 			{{ csrf_field() }}
+
+        <input type="hidden" name="id" value="{{ $medicine->id }}">
+
 		    <div>
 				<p>
 				Voeg hier uw nieuwe medicatie toe.
 				</p>
-				<input type="text" name="medicine" placeholder="naam medicijn" required>
+				<input type="text" name="medicine" placeholder="naam medicijn" value="{{ $medicine->medicine }}" required>
 			</div>
 			<hr>
 			<div>
 				<p>Dosering:</p>
-				<textarea name="dose" placeholder="Dosering"></textarea>
+				<textarea name="dose" placeholder="Dosering" value="{{ $medicine->dose }}">{{ $medicine->dose }}</textarea>
 			</div>
 			<hr>
 			<div>
 				<p>Doel:</p>
-				<textarea name="purpose" placeholder="Doel"></textarea>
+				<textarea name="purpose" placeholder="Doel">{{ $medicine->purpose }}</textarea>
 			</div>
 			<hr>
 			<div>
 				<p>Mogelijke bijwerkingen:</p>
-				<textarea name="side_effect" placeholder="Vul hier de mogelijke bijwerkingen in"></textarea>
+				<textarea name="side_effects" placeholder="Vul hier de mogelijke bijwerkingen in">{{ $medicine->side_effect }}</textarea>
 			</div>
 			<hr>
 			<div>
 				<p>Prijs:</p>
-				€<input type="number" name="price" step=".01">
+				€<input type="number" name="price" value="{{ $medicine->price }}" step=".01">
 			</div>
 			<hr>
 			<div>
 				<p>Overige opmerkingen:</p>
-				<textarea name="comment"></textarea>
+				<textarea name="comment">{{ $medicine->comment }}</textarea>
 			</div>
 			<hr>
 			<div>

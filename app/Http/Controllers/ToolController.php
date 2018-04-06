@@ -75,4 +75,24 @@ class ToolController extends Controller
 		$tool= Tool::findOrFail($id);
     	return view('tool.show_tool', compact('tool'));
 	}
+
+	public function edittool($id)
+	{
+		$tool= Tool::findOrFail($id);
+		return view('tool/edit_tool', compact( 'tool', 'id'));
+	}
+
+	public function store_update (Request $request)
+	{
+		// Check if the user is logged in
+		if (Auth::check())
+		{
+			// find the corresponding diary
+			$id = $request->id;
+			$tool = Tool::findOrFail($id);
+			$toolnumber = $tool->id;
+			$updated_tool = Tool::where('id', $id)->update(request(['tool', 'purpose', 'origin', 'return_date', 'price', 'comment']));
+		}
+			return redirect()->action('ToolController@home');
+	}
 }

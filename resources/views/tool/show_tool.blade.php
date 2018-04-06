@@ -92,6 +92,11 @@
                               </tr>
                         </table>
 
+                        <!-- Button to edit page of tool-->
+                        <div class="form-group row mb-0">
+                            <em><a href="{{ route('tool.edit', $tool->id) }}" >Pas pagina aan</a></em>
+                        </div><br>
+
                         <!-- Button to delete page of tool -->
                         <div class="form-group row mb-0">
                             <em><a href="{{ route('tool.delete', $tool->id) }}" onclick="return confirm('Weet je zeker dat je de hulpmiddelpagina wil verwijderen?')" >Verwijder pagina</a></em>

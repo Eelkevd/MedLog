@@ -74,4 +74,25 @@ class MedicineController extends Controller
 		$medicine= Medicine::findOrFail($id);
     return view('medicine.show_medicine', compact('medicine'));
 	}
+
+	public function editmedicine($id)
+	{
+		$medicine= Medicine::findOrFail($id);
+		return view('medicine.edit_medicine', compact( 'medicine', 'id'));
+	}
+
+	public function store_update (Request $request)
+	{
+		// Check if the user is logged in
+
+		if (Auth::check())
+		{
+			// find the corresponding diary
+			$id = $request->id;
+			$medicine = Medicine::findOrFail($id);
+			$medicinenumber = $medicine->id;
+			$updated_medicine = Medicine::where('id', $id)->update(request(['medicine', 'dose', 'purpose', 'side_effect', 'price', 'comment']));
+		}
+	return redirect()->action('MedicineController@home');
+	}
 }

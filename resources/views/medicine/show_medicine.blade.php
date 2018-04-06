@@ -76,21 +76,26 @@
                               <!-- Show side effects -->
                               <tr>
                                 <td><b>{{ __('Bijwerkingen: ') }}</b></td>
-                                <td>{{ $medicine-> side_effect}}</td>
+                                <td>{{ $medicine->side_effect}}</td>
                               </tr>
 
                               <!-- Show price -->
                               <tr>
                                   <td><b>{{ __('Prijs: ') }}</b></td>
-                                  <td>{{ $medicine-> price }}</td>
+                                  <td>{{ $medicine->price }}</td>
                               </tr>
 
                               <!-- Show comment -->
                               <tr>
                                   <td><b>{{ __('Overig: ') }}</b></td>
-                                  <td>{{ $medicine-> comment }}</td>
+                                  <td>{{ $medicine->comment }}</td>
                               </tr>
                         </table>
+
+                        <!-- Button to edit page of medicine-->
+                        <div class="form-group row mb-0">
+                            <em><a href="{{ route('medicine.edit', $medicine->id) }}" >Pas pagina aan</a></em>
+                        </div><br>
 
                         <!-- Button to delete page of medicine -->
                         <div class="form-group row mb-0">

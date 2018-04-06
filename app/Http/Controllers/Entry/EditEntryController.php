@@ -29,7 +29,7 @@ class EditEntryController extends Controller
     	$symptomes = $user->diary->symptomes;
     	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
-    	return view('entries/edit_entry', compact('symptomes', 'illnesses', 'medicines', 'entry', 'id', 'checkedsymptomes'));
+    	return view('entries/edit_entry', compact('symptomes', 'illnesses', 'medicines', 'entry', 'id'));
 	}
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store_update (Request $request)
@@ -48,7 +48,9 @@ class EditEntryController extends Controller
 			//delete old diary entry as event to the database
 			$test = DB::table('events')->where('entry_id', $entrynumber)->delete();
 
-			$entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
+			$entry = Entry::where('id', $id)->update(request(['illness', 'timespan_date', 'timespan_time', 'location', 'intensity',
+																												'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time',
+																												'weather', 'witness_report', 'comments']));
 
 			Entry::find($id)->symptomes()->detach();
 			Entry::find($id)->medicines()->detach();

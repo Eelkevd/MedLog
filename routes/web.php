@@ -78,6 +78,8 @@ Route::middleware('auth')->group(function () {
   Route::post('/medicine/create_medicine', 'MedicineController@store');
   Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
   Route::get('/medicine/{id}/delete', 'MedicineController@delete')->name('medicine.delete');
+  Route::get('/medicine/{id}/edit', 'MedicineController@editmedicine')->name('medicine.edit');
+  Route::post('/medicine/{id}/edit_medicine', 'MedicineController@store_update');
 
   // Routes for User-Reader communications
   Route::get('/permissions', 'PermissionsController@index');
@@ -91,6 +93,8 @@ Route::middleware('auth')->group(function () {
   Route::post('/tool/create_tool', 'ToolController@store');
   Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
   Route::get('/tool{id}/delete', 'ToolController@delete')->name('tool.delete');
+  Route::get('/tool/{id}/edit', 'ToolController@edittool')->name('tool.edit');
+  Route::post('/tool/{id}/edit_tool', 'ToolController@store_update');
 
 });
 
