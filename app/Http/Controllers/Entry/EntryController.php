@@ -75,13 +75,26 @@ class EntryController extends Controller
 
 			//add diary entry as event to the database
 			$illness = Illness::where('illness', $request->illness)->select('illness')->first();
-			Event::create([
-				'user_id' => $user->id,
-				'entry_id' => $entry->id,
-				'title' => $illness->illness,
-				'start_date' => $request['timespan_date'],
-				'end_date' => $request['timespan_date'],
-			]);
+			if(!empty($entry->complaint_enddate))
+			{
+				Event::create([
+					'user_id' => $user->id,
+					'entry_id' => $entry->id,
+					'title' => $illness->illness,
+					'start_date' => $request['complaint_startdate'],
+					'end_date' => $request['complaint_enddate'],
+				]);
+			}
+			else
+			{
+				Event::create([
+					'user_id' => $user->id,
+					'entry_id' => $entry->id,
+					'title' => $illness->illness,
+					'start_date' => $request['timespan_date'],
+					'end_date' => $request['timespan_date'],
+				]);
+			}
 
 			// add diary entry/event to the calendar
 			$events = [];
