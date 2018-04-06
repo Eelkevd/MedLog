@@ -9,12 +9,13 @@ html, body {
 
 body {
     font-family: 'Poppins', sans-serif;
+    font-size: 1.0em;
     background: #fafafa;
 }
 
 /* contains nav and conainer content */
 #container{
-  max-width: 810px;
+  max-width: 1000px;
   margin: 0 auto;
   background: linear-gradient(lightblue, darkgrey);
   border: 1px solid grey;
@@ -22,8 +23,9 @@ body {
 }
 
 nav{
-  max-width: 810px;
-  background-image: url("/img/background.jpg");
+  max-width: 1000px;
+  height: 150px;
+  background-image: url("/img/header_finger.jpg");
   margin: 0 auto;
   border-left: 1px solid grey;
   border-right: 1px solid grey;
@@ -33,21 +35,21 @@ nav{
 
 nav img.logo{
   border-radius: 10%;
-  height:90px;
+  height:100px;
   margin: 0 20px 0 20px;
   padding:0;
   box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
 
 nav ul{
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   background-color: rgba(121, 93, 143, 0.7);
 }
 
 nav ul li a{
   padding: 10px 20px 10px 0;
-  font-size: 1em;
+  font-size: 1.1em;
   color: white !important;
 }
 
@@ -59,8 +61,8 @@ nav ul li a:focus, nav ul li a.dropdown-item{
   color: black !important;
 }
 
-.title_app{
-  font-size: 1.5em;
+.title_app, .title_app a{
+  font-size: 1.2em;
   font-family: 'Poppins', sans-serif;
   font-style: italic;
   display: inline-block;
@@ -69,9 +71,17 @@ nav ul li a:focus, nav ul li a.dropdown-item{
 
 .container{
   position: relative;
-  margin-top: 130px;
+  margin-top: 160px;
 }
 
+/* icons */
+.oi {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 1em;
+  top: 0.6em;
+}
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -87,6 +97,10 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+.btn{
+  font-size: 1.1em;
+}
+
 ul.index{
   list-style-type: circle;
 }
@@ -94,6 +108,74 @@ ul.index{
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+textarea{
+  width: 100%;
+}
+
+input, textarea, .form-control {
+  background-color: #d3d3d3;
+  outline: grey;
+}
+
+.wide{
+  width: 400px !important;
+}
+
+input:focus, textarea:focus, .form-control:focus {
+  background-color: white;
+  border-color: #purple;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 255, 0.3);
+}
+
+div.symptoms{
+  -webkit-column-count: 2; /* Chrome, Safari, Opera */
+  -moz-column-count: 2; /* Firefox */
+  column-count: 2;
+  margin-top: 5px;
+}
+
+label{
+	position: relative;
+	cursor: pointer;
+	color: #666;
+}
+
+input[type="checkbox"], input[type="radio"]{
+	position: absolute;
+	right: 9000px;
+}
+
+/*Check box*/
+input[type="checkbox"] + .label-text:before{
+	content: "\f096";
+	font-family: "FontAwesome";
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing:antialiased;
+	width: 1em;
+	display: inline-block;
+	margin-right: 5px;
+}
+
+input[type="checkbox"]:checked + .label-text:before{
+	content: "\f14a";
+	color: #2980b9;
+	animation: effect 250ms ease-in;
+}
+
+input[type="checkbox"]:disabled + .label-text{
+	color: #aaa;
+}
+
+input[type="checkbox"]:disabled + .label-text:before{
+	content: "\f0c8";
+	color: #ccc;
 }
 
 /* Little larger screen */
