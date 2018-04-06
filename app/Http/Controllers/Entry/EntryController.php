@@ -30,7 +30,7 @@ class EntryController extends Controller
 	public function create()
 	{
 		$user = Auth::user();
-    	$symptomes = $user->diary->symptomes;
+    	$symptomes = $user->diary->symptomes->sortBy('symptom');
     	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
 

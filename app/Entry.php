@@ -31,6 +31,11 @@ class Entry extends Model
     	return $this->belongsToMany('App\Symptom');
     }
 
+    public function symptoms()
+    {
+    	return $this->belongsToMany('App\Symptom');
+    }
+
     public function illness()
     {
       return $this->belongsTo('App\Illness');
