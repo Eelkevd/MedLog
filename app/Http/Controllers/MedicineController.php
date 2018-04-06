@@ -24,6 +24,16 @@ class MedicineController extends Controller
 		return view('medicine/medicine', compact('medicines'));
 	}
 
+	// Function to delete a medicine
+	public function delete($id)
+	{
+		if (Auth::check())
+		{
+			Medicine::where('id', $id)->update(['deleted' => 'removed']);
+		}
+		return redirect()->action('MedicineController@home');
+	}
+
 	// Function to go to the create new medicine page
 	public function create()
 	{

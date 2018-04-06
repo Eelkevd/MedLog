@@ -91,7 +91,13 @@
                                   <td>{{ $medicine-> comment }}</td>
                               </tr>
                         </table>
+
+                        <!-- Button to delete page of medicine -->
+                        <div class="form-group row mb-0">
+                            <em><a href="{{ route('medicine.delete', $medicine->id) }}" onclick="return confirm('Weet je zeker dat je de medicijnpagina wil verwijderen?')" >Verwijder pagina</a></em>
+                        </div>
                 </div>
+
                 @endif
                 @endauth
             </div>

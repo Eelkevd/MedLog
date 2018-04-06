@@ -24,6 +24,17 @@ class ToolController extends Controller
 		return view('tool/tool', compact('tools'));
 	}
 
+	// Function to delete a medicine
+	public function delete($id)
+	{
+		if (Auth::check())
+		{
+			Tool::find($id)->diaries()->detach();
+			Tool::where('id', $id)->delete();
+		}
+		return redirect()->action('ToolController@home');
+	}
+
 	// Function to go to the create new tool page
 	public function create()
 	{
@@ -45,11 +56,11 @@ class ToolController extends Controller
 
 			// add the tool into the tools entries
 			$tool = Tool::create(request([
-				'tool', 
-				'purpose', 
-				'origin', 
+				'tool',
+				'purpose',
+				'origin',
 				'return_date',
-				'price', 
+				'price',
 				'comment'
 			]));
 			$tool->diaries()->attach($request->diary_id);

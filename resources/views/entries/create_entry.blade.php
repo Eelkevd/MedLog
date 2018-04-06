@@ -108,8 +108,10 @@
       				<div>
       					Nam u medicijnen in vanwege de gebeurtenis?<br />
       					@foreach($medicines as $medicine)
+                  @if($medicine->deleted != 'removed')
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
       						<label for="subscribeNews">{{ $medicine->medicine }}</label>
+                  @endif
       					@endforeach()
       				</div>
       				<hr>
