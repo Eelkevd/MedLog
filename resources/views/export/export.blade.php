@@ -5,7 +5,8 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-
+          <div class="card">
+            <div class="card-header">
 
             <!-- check to see if user of page is guest, reader, user or validated user.
                   Only let validated user throug -->
@@ -37,46 +38,35 @@
                     </div>
 
                     @else
-            <div class="card">        
-            <div class="card-header">Exporteer al je gegevens</div>
-            <div class="card-body">
-                <form method="POST" action="/export/getPDF">
-                {{ csrf_field() }}
-                <input type="submit" value="Download al je gegevens als pdf" /><br>
-                </form>
-            </div>
-          </div><br><br>
-
+        <div class="card">
+          <div class="card-header"><h5><center>Zoek in uw dagboek</center></h5>
+          </div>
+          <br />
+        </div>
           <div class="card">
-            <div class="card-header">Exporteer je gegevens van ziekte</div>
+            <div class="card-header">Selecteer een ziektebeeld om te downloaden</div>
             <div class="card-body">
                 <form method="POST" action="/export/getillnessPDF">
                 {{ csrf_field() }}
-                Exporteer je gegevens van de ziekte:
-                <br />
                 <select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
-                <!-- <input type="text" name="illness" required/> -->
-                <input type="submit" value="Download als pdf" /><br>
+                <input type="submit" class="btn btn-sub" value="Download" /><br>
                 </form>
             </div>
-          </div><br><br>
+          </div><br>
 
           <div class="card">
-            <div class="card-header">Exporteer je gegevens in tijdsperiode</div>
+            <div class="card-header">Download je gebeurtenissen in de periode:</div>
               <div class="card-body">
                 <form method="POST" action="/export/getdatePDF">
                 {{ csrf_field() }}
-                Exporteer je gegevens in de periode van:
-                <br/>
-                <input type="text" name="start_date" class="date" required/><br>
-                Exporteer je gegevens in de periode tot en met:<br>
-                <input type="text" name="end_date" class="date" required/>
-                <input type="submit" value="Download als pdf" /><br>
+                <label>Van: </label><input type="text" name="start_date" class="date" required/><br>
+              </label>Tot: </label><input type="text" name="end_date" class="date" required/>
+                <input type="submit" class="btn btn-sub" value="Download" /><br>
                 </form>
 
                 <script>
@@ -86,11 +76,23 @@
                     });
                 </script>
               </div>
-          </div><br><br>
+          </div><br>
+
+          <div class="card">
+          <div class="card-body">
+              <form method="POST" action="/export/getPDF">
+              {{ csrf_field() }}
+              <input type="submit" class="btn btn-info btn-md" style="width:300px;" value="Download al je gegevens" /><br>
+              </form>
+          </div>
+        </div>
 
           @endif
           @endauth
         </div>
     </div>
 </div>
+</div>
+</div>
+
 @endsection

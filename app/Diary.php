@@ -46,4 +46,5 @@ class Diary extends Model
     {
     	return $this->belongsToMany('App\Tool');
     }
+
 }

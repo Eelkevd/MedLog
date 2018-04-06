@@ -40,4 +40,15 @@ class Entry extends Model
     {
         return $this->belongsToMany('App\Medicine');
     }
+
+    public static function recentEntries()
+    {
+      $start = date('Y-m-d');
+      $end ="5999-12-31";
+      return static::whereBetween('timespan_date', array(
+        $start,
+        $end
+      ))->take(3)->orderBy('timespan_date')->get();
+    }
+
 }

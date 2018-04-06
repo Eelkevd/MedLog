@@ -85,7 +85,7 @@
 			</div>
 			<hr>
 			<div>
-				<input type="submit" align="center" class="btnSub" value="save">
+				<input type="submit" align="center"  class="btn btn-info btn-md" style="width:200px;" value="Opslaan">
 			</div>
 		</form>
 	</div>

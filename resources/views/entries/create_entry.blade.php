@@ -4,6 +4,8 @@
 <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
+        <div class="card">
+          <div class="card-header">
 
         <!-- check to see if user of page is guest, reader, user or validated user.
         Only let validated user throug -->
@@ -43,7 +45,8 @@
 
 	         <div class="card">
         		<div class="card-header">
-        			<h4>Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
+        			<h5><center>Nieuwe gebeurtenis voor in uw <br />medisch dagboek</center></h5>
+              <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
         		</div>
 
       		  <div class="card-body">
@@ -51,8 +54,9 @@
       				{{ csrf_field() }}
       				<!-- places all illnesses from db -->
       				<div>
-      					<h5>Aandoening: *</h5>
-      					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+      					<h5>Ziektebeeld: *</h5>
+
+      					 <select class="custom-select custom-select-lg mb-3 medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
@@ -61,55 +65,64 @@
       				</div>
       				<hr>
       				<div>
-      					<p>Symptomen:</p>
+      					Wat waren de symptomen?<br />
       					<!-- places all symptomes from db -->
-      					@foreach($symptomes as $symptom)
-      						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
-      						<label for="subscribeNews">{{ $symptom->symptom }}</label>
+                <div class="symptoms form-check">
+                  <ul class="list-unstyled">
+                @foreach($symptomes as $symptom)
+
+      						<li><label>
+                    <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+      						<span class="label-text">{{ $symptom->symptom }}</span>
+                </label></li>
       					@endforeach()
+              </ul>
+              </div>
       				</div>
       				<hr>
+
+              <div>
+                Hoe erg was het?<br /><br />
+                <input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
+                <span id="intensityValue"></span>
+              </div>
+              <hr>
+
       				<div>
-      					<p>Wanneer gebeurde het:</p>
+      					Wanneer gebeurde het?<br />
       					<input type="date" id='timespan_date' name="timespan_date">
       					<input type="time" name="timespan_time" value="now">
       				</div>
       				<hr>
-      				<div>
-      					<p>Waar gebeurde het:</p>
-      					<input type="text" name="location" placeholder="locatie">
-      				</div>
-      				<hr>
-      				<div>
-      					<p>Intensiteit</p>
-      					<input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
-      					<span id="intensityValue"></span>
-      				</div>
-      				<hr>
-      				<div>
-      					<p>Klachtsduur</p>
-      					Startdatum klacht
+
+
+
+              <!--- toggle vanaf hier -->
+      					<div>
+      					Startdatum klacht <em><small>(optioneel)</small></em>
       					<br>
       					<input type="date" id='complaint_startdate' name="complaint_startdate">
       					<br>
       					<br>
-      					Einddatum klacht
+      					Einddatum klacht <em><small>(optioneel)</small></em>
       					<br>
       					<input type="date" id='complaint_enddate' name="complaint_enddate">
       					<br>
       					<br>
-      					Tijd
+      					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
       					<br>
       					<input type="time" name="complaint_time">
       				</div>
       				<hr>
+
+              <div>
+                Waar gebeurde het? <em><small>(optioneel)</small></em><br />
+                <input type="text" name="location" placeholder="locatie">
+              </div>
+              <hr>
+
       				<div>
-      					<p>Hersteltijd</p>
-      					<input type="time" name="recoverytime_time"> (Tijd)
-      				</div>
-      				<hr>
-      				<div>
-      					<p>Medicatie</p>
+      					Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
       					@foreach($medicines as $medicine)
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
       						<label for="subscribeNews">{{ $medicine->medicine }}</label>
@@ -117,26 +130,26 @@
       				</div>
       				<hr>
       				<div>
-      					<p>Weer</p>
-      					<textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden"></textarea>
+      					Wat waren de weersomstandigheden? <em><small>(optioneel)</small></em>
+      					<textarea name="weather" placeholder="warm / koud"></textarea>
       				</div>
       				<hr>
       				<div>
-      					<p>Wat zagen anderen?</p>
-      					<textarea name="witness_report" placeholder="Getuigenverklaringen"></textarea>
+      					Wat zagen anderen? <em><small>(optioneel)</small></em>
+      					<textarea name="witness_report" placeholder="..."></textarea>
       				</div>
       				<hr>
       				<div>
-      					<p>Overig</p>
-      					<textarea name="comments" placeholder="Overige aantekeningen"></textarea>
+      					Vrije ruimte <em><small>(optioneel)</small></em><br />
+      					<textarea name="comments" placeholder=""></textarea>
       				</div>
       				<div>
-      					<p>Sla mijn dagboek op</p>
-      					<input type="submit" value="Opslaan">
+                <br />
+      					<input type="submit"  class="btn btn-info btn-md" style="width:200px;" value="Opslaan">
       				</div>
       			</form>
       		</div>
-      	   </div>
+      	 </div>
 
 <script>
 
@@ -178,37 +191,39 @@
   	sliderVal.innerHTML = this.value;
   		if (this.value == 1)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo1.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 2)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo2.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo8.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 3)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo3.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo7.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 4)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo4.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo6.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 5)
   		{
   			sliderVal.innerHTML = '<img src="{{asset('/img/emo5.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 6)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo6.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo4.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 7)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo7.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo3.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 8)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo8.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo2.c.svg') }}" height="80" width="80">';
   		}  		if (this.value == 9)
   		{
-  			sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
+  			sliderVal.innerHTML = '<img src="{{asset('/img/emo1.c.svg') }}" height="80" width="80">';
   		}
 	}
 
 </script>
 @endif
 @endauth
+</div>
+</div>
 </div>
 </div>
 </div>

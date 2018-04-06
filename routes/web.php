@@ -38,6 +38,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/home/search', 'EventController@search');
   Route::get('/home/edit_event', 'EventController@edit');
   Route::get('/home/mycalendar', 'EventController@index');
+  Route::get('/home/mycalendar/search', 'EventController@search');
 
   ////// DIARY ENTRY PAGE DIRECTION //////
   // Redirects to the create diary entry page
@@ -109,6 +110,7 @@ Route::middleware('auth')->group(function () {
   Route::post('/account/edit', 'AccountController@update');
 
   // Route to new themes
+  Route::get('/account/thema', 'ThemeController@index');
   Route::get('account/theme_contrast', 'ThemeController@update_contrast');
   Route::get('account/theme_vrolijk', 'ThemeController@update_vrolijk');
   Route::get('account/theme_default', 'ThemeController@update');
