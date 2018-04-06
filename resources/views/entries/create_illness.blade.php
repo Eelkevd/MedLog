@@ -1,16 +1,18 @@
 	<!-- Toggles the illness form -->
-<div class="panel-body">
+
+	<!-- Pop-up variant -->
+<!-- <div class="panel-body">
 	<a  data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</a>
 <div class="modal fade" id="illness_pop" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header">
+			<div class="modal-header"> -->
 				<!-- <button type="button" class="close" data-dismiss="modal">&times</button> -->
-				<h4 class="modal-title">Nieuw ziektebeeld</h4>
+<!-- 				<h4 class="modal-title">Nieuw ziektebeeld</h4>
 			</div>
 			<div class="modal-body">
 
-				<form method="POST" action="/entries/create_illness">
+			<form method="POST" action="/entries/create_illness" id="form_illness">
 				{{ csrf_field() }}
 			    <div>
 					<p>
@@ -19,11 +21,11 @@
 					<p>
 					Heeft u al een onderwerp in gedachten? Ga dan verder naar het volgende onderwerp.
 					</p>
-					<input type="text" name="illness" placeholder="naam aandoening">
-					<input type="submit" align="center" class="btnSub" value="ok">
+					<input type="text" name="illness" placeholder="naam aandoening" form="form_illness">
+					
 				</div>
 			</form>
-
+			<input type="submit" align="center" class="btnSub" value="ok" form="form_illness">
 			</div>
 			<div class="modal-footer">
 				<button type="button"  data-dismiss="modal">Close</button>
@@ -31,9 +33,9 @@
 		</div>
 	</div>
 </div>
-</div>
+</div> -->
 
-<!-- 
+
 
 	<div class="card">
 	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_illness">Nieuw ziektebeeld</button>
@@ -57,4 +59,4 @@
 			</form>
 		</div>
 	</div>
-</div> -->
+</div>

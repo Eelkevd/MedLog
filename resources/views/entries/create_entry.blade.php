@@ -55,14 +55,13 @@
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
-      					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}">
+      					<select id="illnessOld" name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}">
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
-                <br>
-                @include ('entries.create_illness')
+                <input type="text" name="illnessNew"> 
       				</div>
       				<hr>
       				<div>
@@ -140,6 +139,10 @@
       	 </div>
 
 <script>
+
+  function() {
+    if document.getElementById('')
+  }
 
 	// Function to determine current date
 	Date.prototype.toDateInputValue = (function() {

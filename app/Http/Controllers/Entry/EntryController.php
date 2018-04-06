@@ -63,7 +63,12 @@ class EntryController extends Controller
 			$user = Auth::user();
 			// add the diary_id to the request array
 			$request->request->add(['diary_id' => $user->diary->id]);
+			//
+			// $request['illnessNew'];
+			// dd($request);
 			// add the entry into the tabel entries
+			$entry = Illness::firstOrCreate(['illness' => $request['illnessNew']]);
+
 			$entry = Entry::create(request(['diary_id', 'illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 			$entry->symptomes()->attach($request->symptom);
 			$entry->medicines()->attach($request->medicine);
