@@ -14,7 +14,7 @@ body {
 
 /* contains nav and conainer content */
 #container{
-  max-width: 810px;
+  max-width: 1000px;
   margin: 0 auto;
   background: linear-gradient(lightblue, darkgrey);
   border: 1px solid grey;
@@ -22,8 +22,9 @@ body {
 }
 
 nav{
-  max-width: 810px;
-  background-image: url("/img/background.jpg");
+  max-width: 1000px;
+  height: 150px;
+  background-image: url("/img/header.jpg");
   margin: 0 auto;
   border-left: 1px solid grey;
   border-right: 1px solid grey;
@@ -33,7 +34,7 @@ nav{
 
 nav img.logo{
   border-radius: 10%;
-  height:90px;
+  height:100px;
   margin: 0 20px 0 20px;
   padding:0;
   box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
@@ -47,7 +48,7 @@ nav ul{
 
 nav ul li a{
   padding: 10px 20px 10px 0;
-  font-size: 1em;
+  font-size: 1.2em;
   color: white !important;
 }
 
@@ -59,8 +60,8 @@ nav ul li a:focus, nav ul li a.dropdown-item{
   color: black !important;
 }
 
-.title_app{
-  font-size: 1.5em;
+.title_app, .title_app a{
+  font-size: 1.3em;
   font-family: 'Poppins', sans-serif;
   font-style: italic;
   display: inline-block;
@@ -69,7 +70,7 @@ nav ul li a:focus, nav ul li a.dropdown-item{
 
 .container{
   position: relative;
-  margin-top: 130px;
+  margin-top: 160px;
 }
 
 
@@ -94,6 +95,11 @@ ul.index{
 .nopadding {
    padding: 0 !important;
    margin: 0 !important;
+}
+
+#scrollable-dropdown-menu .tt-dropdown-menu {
+  max-height: 150px;
+  overflow-y: auto;
 }
 
 /* Little larger screen */

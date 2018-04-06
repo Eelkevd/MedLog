@@ -54,6 +54,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
   // Page to edit diary entries
   Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
+  Route::get('autocomplete-search',array('as'=>'autocomplete.search','uses'=>'AutoCompleteController@index'));
+  Route::get('autocomplete-ajax',array('as'=>'autocomplete.ajax','uses'=>'AutoCompleteController@ajaxData'));
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');

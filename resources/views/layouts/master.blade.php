@@ -11,6 +11,9 @@
     <!-- Link to npm css and js -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/search.js') }}"></script>
+    <script type="text/javascript" src="{{ asset('js/typeahead.bundle.js') }}"></script>
+
 
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">

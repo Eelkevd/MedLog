@@ -22,3 +22,29 @@
 		</div>
 	</div>
 </div>
+
+<div id="scrollable-dropdown-menu">
+  <input class="typeahead" type="text" placeholder="ziektebeeld">
+</div>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+    // Constructs the suggestion engine
+    var countries = new Bloodhound({
+        datumTokenizer: Bloodhound.tokenizers.whitespace,
+        queryTokenizer: Bloodhound.tokenizers.whitespace,
+        // The url points to a json file that contains an array of country names
+        prefetch: 'data/ziektebeelden.json'
+    });
+
+    // Initializing the typeahead with remote dataset without highlighting
+    $('#scrollable-dropdown-menu .typeahead').typeahead(null, {
+        name: 'countries',
+        source: countries,
+        limit: 10 /* Specify max number of suggestions to be displayed */
+    });
+});
+
+</script>
