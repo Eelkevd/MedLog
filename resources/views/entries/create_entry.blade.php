@@ -65,7 +65,7 @@
       				</div>
       				<hr>
       				<div>
-      					Wat waren de symptomen?<br />
+      					Selecteer de symptomen die u had:<br />
       					<!-- places all symptomes from db -->
                 <div class="symptoms form-check">
                   <ul class="list-unstyled">
@@ -97,29 +97,45 @@
 
 
 
-              <!--- toggle vanaf hier -->
-      					<div>
-      					Startdatum klacht <em><small>(optioneel)</small></em>
-      					<br>
-      					<input type="date" id='complaint_startdate' name="complaint_startdate">
-      					<br>
-      					<br>
-      					Einddatum klacht <em><small>(optioneel)</small></em>
-      					<br>
-      					<input type="date" id='complaint_enddate' name="complaint_enddate">
-      					<br>
-      					<br>
-      					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
-      					<br>
-      					<input type="time" name="complaint_time">
-      				</div>
-      				<hr>
 
-              <div>
-                Waar gebeurde het? <em><small>(optioneel)</small></em><br />
-                <input type="text" name="location" placeholder="locatie">
+              <!-- Toggles the rest of the  form -->
+              <div class="card">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_optional_times">
+                  Klik hier om tijden toe te voegen
+                  <span class="oi oi-chevron-bottom"></span>
+                </button>
+                <div class="collapse" class="card-body"  id="form_optional_times">
+        					<div>
+        					Startdatum klacht <em><small>(optioneel)</small></em>
+        					<br>
+        					<input type="date" id='complaint_startdate' name="complaint_startdate">
+        					<br>
+        					<br>
+        					Einddatum klacht <em><small>(optioneel)</small></em>
+        					<br>
+        					<input type="date" id='complaint_enddate' name="complaint_enddate">
+        					<br>
+        					<br>
+        					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
+        					<br>
+        					<input type="time" name="complaint_time">
+        				</div>
+      				  <hr>
               </div>
-              <hr>
+            </div> <!-- end first toggle> -->
+<br />
+
+            <div class="card">
+              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_optional">
+                Klik hier om meer details toe te voegen
+                <span class="oi oi-chevron-bottom"></span>
+              </button>
+              <div class="collapse" class="card-body"  id="form_optional">
+                <div>
+                  Waar gebeurde het? <em><small>(optioneel)</small></em><br />
+                  <input type="text" name="location" placeholder="locatie">
+                </div>
+                <hr>
 
       				<div>
       					Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
@@ -141,7 +157,10 @@
       					<textarea name="witness_report" placeholder="..."></textarea>
       				</div>
       				<hr>
-      				<div>
+            </div>
+          </div> <!-- end second toggle -->
+<br />
+              <div>
       					Vrije ruimte <em><small>(optioneel)</small></em><br />
       					<textarea name="comments" placeholder=""></textarea>
       				</div>
