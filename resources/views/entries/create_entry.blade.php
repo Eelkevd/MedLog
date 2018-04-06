@@ -55,7 +55,8 @@
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
-      					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+
+      					 <select class="custom-select custom-select-lg mb-3 medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
@@ -66,52 +67,62 @@
       				<div>
       					Wat waren de symptomen?<br />
       					<!-- places all symptomes from db -->
-      					@foreach($symptomes as $symptom)
-      						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
-      						<label for="subscribeNews">{{ $symptom->symptom }}</label>
+                <div class="symptoms form-check">
+                  <ul class="list-unstyled">
+                @foreach($symptomes as $symptom)
+
+      						<li><label>
+                    <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+      						<span class="label-text">{{ $symptom->symptom }}</span>
+                </label></li>
       					@endforeach()
+              </ul>
+              </div>
       				</div>
       				<hr>
+
+              <div>
+                Hoe erg was het?<br /><br />
+                <input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
+                <span id="intensityValue"></span>
+              </div>
+              <hr>
+
       				<div>
       					Wanneer gebeurde het?<br />
       					<input type="date" id='timespan_date' name="timespan_date">
       					<input type="time" name="timespan_time" value="now">
       				</div>
       				<hr>
-      				<div>
-      					Waar gebeurde het?<br />
-      					<input type="text" name="location" placeholder="locatie">
-      				</div>
-      				<hr>
-      				<div>
-      					<br />Intensiteit<br />
-      					<input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
-      					<span id="intensityValue"></span>
-      				</div>
-      				<hr>
-      				<div>
-      					Startdatum klacht
+
+
+
+              <!--- toggle vanaf hier -->
+      					<div>
+      					Startdatum klacht <em><small>(optioneel)</small></em>
       					<br>
       					<input type="date" id='complaint_startdate' name="complaint_startdate">
       					<br>
       					<br>
-      					Einddatum klacht
+      					Einddatum klacht <em><small>(optioneel)</small></em>
       					<br>
       					<input type="date" id='complaint_enddate' name="complaint_enddate">
       					<br>
       					<br>
-      					Indien u een aanval had, hoe lang duurde deze?
+      					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
       					<br>
       					<input type="time" name="complaint_time">
       				</div>
       				<hr>
+
+              <div>
+                Waar gebeurde het? <em><small>(optioneel)</small></em><br />
+                <input type="text" name="location" placeholder="locatie">
+              </div>
+              <hr>
+
       				<div>
-      					Hoe lang duurde het voor u herstelt was?<br />
-      					<input type="time" name="recoverytime_time"> (Tijd)
-      				</div>
-      				<hr>
-      				<div>
-      					Nam u medicijnen in vanwege de gebeurtenis?<br />
+      					Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
       					@foreach($medicines as $medicine)
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
       						<label for="subscribeNews">{{ $medicine->medicine }}</label>
@@ -119,18 +130,18 @@
       				</div>
       				<hr>
       				<div>
-      					Wat waren de weersomstandigheden?<br />
-      					<textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden"></textarea>
+      					Wat waren de weersomstandigheden? <em><small>(optioneel)</small></em>
+      					<textarea name="weather" placeholder="warm / koud"></textarea>
       				</div>
       				<hr>
       				<div>
-      					Wat zagen anderen?<br />
-      					<textarea name="witness_report" placeholder="Getuigenverklaringen"></textarea>
+      					Wat zagen anderen? <em><small>(optioneel)</small></em>
+      					<textarea name="witness_report" placeholder="..."></textarea>
       				</div>
       				<hr>
       				<div>
-      					Vrije ruimte<br />
-      					<textarea name="comments" placeholder="Overige aantekeningen"></textarea>
+      					Vrije ruimte <em><small>(optioneel)</small></em><br />
+      					<textarea name="comments" placeholder=""></textarea>
       				</div>
       				<div>
                 <br />
