@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Entry;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 use Calendar;
 use App\Event;
 use App\Diary;
@@ -36,6 +37,22 @@ class EntryController extends Controller
 
     	return view('entries/create_entry', compact('symptomes', 'illnesses', 'medicines'));
 	}
+
+	// Delete entry
+	public function delete($id)
+	{
+		if (Auth::check())
+		{
+		  $entry= Entry::findOrFail($id);
+			$entrynumber = $entry->id;
+			DB::table('events')->where('entry_id', $entrynumber)->delete();
+			Entry::find($id)->symptomes()->detach();
+			Entry::find($id)->medicines()->detach();
+			$entry = Entry::where('id', $id)->delete();
+		}
+		return redirect()->action('OverviewController@index');
+	}
+
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
 	{
@@ -78,7 +95,7 @@ class EntryController extends Controller
 			}
 
 			$calendar = Calendar::addEvents($events);
-			return redirect ('entries');
+			return redirect()->action('OverviewController@index');
 		}
 	}
 }

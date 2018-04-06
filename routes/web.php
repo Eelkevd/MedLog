@@ -54,6 +54,9 @@ Route::middleware('auth')->group(function () {
   Route::get('/entries/{id}/edit', 'Entry\EditEntryController@editentry')->name('entries.edit');
   // Page to edit diary entries
   Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
+  // Page to delete diary entry page
+  Route::get('/entries/{id}/delete', 'Entry\EntryController@delete')->name('entries.delete');
+
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');

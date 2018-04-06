@@ -44,6 +44,7 @@ class EditEntryController extends Controller
       $medicines = $user->diary->medicines;
 			$entry= Entry::findOrFail($id);
 			$entrynumber = $entry->id;
+
 			//delete old diary entry as event to the database
 			$test = DB::table('events')->where('entry_id', $entrynumber)->delete();
 
@@ -82,7 +83,7 @@ class EditEntryController extends Controller
 			}
 
 			$calendar = Calendar::addEvents($events);
-			return redirect ('overview');
+			return redirect()->action('OverviewController@index');
 		}
 	}
 }
