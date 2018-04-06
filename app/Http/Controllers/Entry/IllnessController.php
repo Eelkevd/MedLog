@@ -31,4 +31,18 @@ class IllnessController extends Controller
 		$illness->diary()->attach($request->diary_id);
     return redirect ('entries');
 	}
+
+	use SearchableTrait;
+
+  protected $searchable = [
+        'columns' => [
+            'illnesses.illness' => 10,
+        ],
+    ];
+
+	public function search($request)
+	{
+			$allIllnesses = Illness::search($query)->get();
+	}
+
 }

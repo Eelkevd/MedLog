@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Post;
+use App\Illness;
 
 class AutoCompleteController extends Controller
 
@@ -13,16 +13,16 @@ class AutoCompleteController extends Controller
     public function index()
 
     {
-    	return view('entries');
+    	return view('zoek');
     }
 
     public function ajaxData(Request $request){
 
         $query = $request->get('query','');
 
-        $posts = Post::where('name','LIKE','%'.$query.'%')->get();
+        $illnesses = Illness::where('illness','LIKE','%'.$query.'%')->get();
 
-        return response()->json($posts);
+        return response()->json($illnesses);
 
 	}
 

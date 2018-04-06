@@ -33,9 +33,11 @@ class EntryController extends Controller
     	$symptomes = $user->diary->symptomes;
     	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
-
+		
     	return view('entries/create_entry', compact('symptomes', 'illnesses', 'medicines'));
 	}
+
+
 	// Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
 	public function store (Request $request)
 	{
@@ -81,4 +83,5 @@ class EntryController extends Controller
 			return redirect ('entries');
 		}
 	}
+
 }
