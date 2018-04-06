@@ -92,6 +92,12 @@
 
                               <!-- Show klachtsduur -->
                               <tr>
+                                  <td><b>{{ __('Klachtsduur: ') }}</b></td>
+                                  <td>{{ $days}} dagen</td>
+                              </tr>
+
+                              <!-- Show length attack -->
+                              <tr>
                                   <td><b>{{ __('Duur van de aanval: ') }}</b></td>
                                   <td>{{ $entry-> complaint_time}}</td>
                               </tr>

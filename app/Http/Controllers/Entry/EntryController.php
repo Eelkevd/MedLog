@@ -12,6 +12,7 @@ use App\Diary;
 use App\Symptom;
 use App\Illness;
 use App\Entry;
+use DateTime;
 
 class EntryController extends Controller
 {
@@ -23,8 +24,12 @@ class EntryController extends Controller
 
 		public function showentry($id)
 	{
-		$entry= Entry::findOrFail($id);
-    	return view('entries.show_entry', compact('entry'));
+			$entry= Entry::findOrFail($id);
+			$datetime1 = new DateTime($entry->complaint_startdate);
+			$datetime2 = new DateTime($entry->complaint_enddate);
+			$interval = $datetime1->diff($datetime2);
+			$days = $interval->format('%a');
+	    return view('entries.show_entry', compact('entry', 'days'));
 	}
 
   // Gives data on symptomes and illnesses when user goes to the medform page
