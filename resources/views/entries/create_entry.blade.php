@@ -38,7 +38,7 @@
           </div>
           @else
 	         <!-- form for submitting medical entry page -->
-            @include ('entries.create_illness')
+            
               <br />
             @include ('entries.create_symptom')
                 <br />
@@ -55,12 +55,14 @@
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
-      					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+      					<select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}">
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
+                <br>
+                @include ('entries.create_illness')
       				</div>
       				<hr>
       				<div>
