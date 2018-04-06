@@ -44,33 +44,77 @@
             	</div>
 
             	<div class="card">
-            		<div class="card-body">
-            			<a href="/medicine/create_medicine" class="btn btn-info btn-md" style="width:200px;">Nieuw medicijn</a>
-            		</div>
-            	</div>
-                <br>
-            	<div class="card">
-            		<div class="card-header">
-            			<h5>Uw medicatie</h5>
-            		</div>
-
-            		<div class="card-body">
-            			<!-- places all medicines from db -->
-            			@foreach($medicines as $medicine)
-                    @if($medicine->deleted != 'removed')
-            				<a href="{{ route('medicine.show', $medicine->id) }}">{{ $medicine -> medicine }}</a>
-            				<hr>
-                    @endif
-            			@endforeach()
-            		</div>
-            	</div>
-            	<br />
-            	@endif
-            	@endauth
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_medicine">
+                  Voeg een nieuw medicijn toe
+                  <span class="oi oi-chevron-bottom"></span>
+                </button>
+                <div class="collapse" class="card-body"  id="form_medicine">
+              		<div class="card-header">
+              		<h4>Nieuw medicijn</h4>
+              		</div>
+                  <div class="card-body">
+                  <form method="POST" action="/medicine/create_medicine">
+                    {{ csrf_field() }}
+                    <div class="input-group mb-3">
+                      <input type="text" class="form-control" name="medicine" placeholder="naam medicijn" aria-label="naam medicijn" aria-describedby="basic-addon2" required>
+                    </div>
+                    <hr>
+                  <div>
+                    Dosering <em><small>(optioneel)</small></em>
+                    <textarea name="dose" placeholder=""></textarea>
+                  </div>
+                  <hr>
+                  <div>
+                    Doel <em><small>(optioneel)</small></em>
+                    <textarea name="purpose" placeholder=""></textarea>
+                  </div>
+                  <hr>
+                  <div>
+                    Bijwerkingen <em><small>(optioneel)</small></em>
+                    <textarea name="side_effect" placeholder=""></textarea>
+                  </div>
+                  <hr>
+                  <div>
+                    Prijs <em><small>(optioneel)</small></em><br />
+                    €  <input type="number" name="price" step=".01">
+                  </div>
+                  <hr>
+                  <div>
+                    Vrije ruimte <em><small>(optioneel)</small></em>
+                    <textarea name="comment"></textarea>
+                  </div>
+                  <hr>
+                  <div>
+                    <input type="submit" align="center"  class="btn btn-info btn-md" style="width:200px;" value="Opslaan">
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
+
+<br />
+          <div class="card">
+        		<div class="card-header">
+        			<h5>Uw huidige medicatie</h5>
+        		</div>
+
+        		<div class="card-body">
+        			<!-- places all medicines from db -->
+        			@foreach($medicines as $medicine)
+                @if($medicine->deleted != 'removed')
+        				<a href="{{ route('medicine.show', $medicine->id) }}">{{ $medicine -> medicine }}</a>
+        				<hr>
+                @endif
+        			@endforeach()
+        		</div>
+        	</div>
+
+          @endif
+          @endauth
         </div>
       </div>
+    </div>
   </div>
+</div>
 
 @endsection

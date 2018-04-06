@@ -74,13 +74,20 @@ nav ul li a:focus, nav ul li a.dropdown-item{
   margin-top: 160px;
 }
 
-/* icons */
+/* icons in buttons */
 .oi {
   width: 20px;
   height: 20px;
   position: absolute;
   right: 1em;
   top: 0.6em;
+}
+/* icons in forms (edit and delete) */
+.icon{
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  margin-left: 5px;
 }
 
 p {
