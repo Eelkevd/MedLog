@@ -75,7 +75,7 @@
                     <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
       						<span class="label-text">{{ $symptom->symptom }}</span>
                 </label></li>
-      					@endforeach()
+      					@endforeach
               </ul>
               </div>
       				</div>
@@ -131,20 +131,25 @@
                 <span class="oi oi-chevron-bottom"></span>
               </button>
               <div class="collapse" class="card-body"  id="form_optional">
-                <div>
+                <div><br />
                   Waar gebeurde het? <em><small>(optioneel)</small></em><br />
-                  <input type="text" name="location" placeholder="locatie" value="{{ old('location') }}">
+                  <input type="text" class="form-control" name="location" placeholder="locatie" value="{{ old('location') }}">
                 </div>
                 <hr>
 
       				<div>
       					Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
+                <div class="symptoms form-check">
+                  <ul class="list-unstyled">
       					@foreach($medicines as $medicine)
                   @if($medicine->deleted != 'removed')
+                  <li><label>
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
-      						<label for="subscribeNews">{{ $medicine->medicine }}</label>
+                  <span class="label-text">{{ $medicine->medicine }}</span></label></li>
                   @endif
       					@endforeach()
+              </ul>
+            </div>
       				</div>
       				<hr>
       				<div>

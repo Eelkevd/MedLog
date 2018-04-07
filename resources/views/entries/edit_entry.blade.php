@@ -36,8 +36,8 @@
                       @else
                       <div class="card">
                         <div class="card-header">
-                          <h5><center>Aanpassen van Medisch Dagboek</center></h5>
-                          <em>Velden met een sterretje (*) zijn verplicht</em>
+                          <h5><center>Wijzig uw gebeurtenis</center></h5>
+                          <center><em>Velden met een sterretje (*) zijn verplicht</em></center>
                         </div>
 
                         <div class="card-body">
@@ -61,16 +61,22 @@
                             <!-- Edit symptoms-->
                             <div>
                               <label>Symptomen</label>
+                              <div class="symptoms form-check">
+                                <ul class="list-unstyled">
                               @foreach($symptomes as $symptom)
-                                <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data"  class="form-control">
-                                <label for="subscribeNews">{{ $symptom->symptom }}</label>
+                              <li><label>
+                                <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+                                <span class="label-text">{{ $symptom->symptom }}</span>
+                              </label></li>
                               @endforeach()
+                            </ul>
                             </div>
+                          </div>
                             <hr>
 
                             <!-- Edit date and time -->
                             <div>
-                            <label>Wanneer gebeurde het:
+                            <label>Wanneer gebeurde het? <em><small>(optioneel)</small></em></label>
                           </label>
                               <input type="date" name="timespan_date" value="{{ $entry->timespan_date }}"  class="form-control">
                               <input type="time" name="timespan_time" value="{{ $entry->timespan_time }}"  class="form-control">
@@ -79,14 +85,14 @@
 
                             <!-- Edit location -->
                             <div>
-                              <label>Waar gebeurde het</label>
+                              <label>Waar gebeurde het? <em><small>(optioneel)</small></em></label></label>
                               <input type="text" name="location" placeholder="locatie" value="{{ $entry->location }}"  class="form-control">
                             </div>
                             <hr>
 
                             <!-- Edit intensity -->
                             <div>
-                              <label>Hoe erg was het?</labe>
+                              <label>Hoe erg was het? <em><small>(optioneel)</small></em></label></label>
                               <input type="range" name="intensity" min="1" value="{{ old('comments', $entry->intensity) }}" max="9" class="slider" id="intensityRange">
                               <span id="intensityValue"></span>
                             </div>
@@ -94,7 +100,7 @@
 
                             <!-- Edit complaint_time & dates -->
                             <div>
-                              <p>Klachtsduur</p>
+                              <label>Klachtsduur <em><small>(optioneel)</small></em></label></label>
                               Startdatum klacht
                               <br>
                               <input type="date" id='complaint_startdate' name="complaint_startdate" value="{{ $entry->complaint_startdate }}">
@@ -113,11 +119,15 @@
 
                             <!-- Edit medicines -->
                             <div>
-                              <label>Medicatie<label>
+                              <label>Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em></label>
+                              <div class="symptoms form-check">
+                                <ul class="list-unstyled">
                               @foreach($medicines as $medicine)
                                 @if($medicine->deleted != 'removed')
-                                <input type="checkbox" name="medicine[]" value="{{ $medicine->id }}"  enctype="multipart/form-data"  class="form-control">
-                                <label for="subscribeNews">{{ $medicine->medicine }}</label>
+                                <li><label>
+                                  <input type="checkbox" name="medicine[]" value="{{ $medicine->id }}"  enctype="multipart/form-data"  class="form-control">
+                                  <span class="label-text">{{ $medicine->medicine }}</span>
+                                </label></li>
                                 @endif
                               @endforeach()
                             </div>
@@ -125,21 +135,21 @@
 
                             <!-- Edit weather -->
                             <div>
-                              <label>Weersomstandigheden</label>
+                              <label>Weersomstandigheden <em><small>(optioneel)</small></em></label>
                               <textarea name="weather"  class="form-control" placeholder="Omschrijving eventuele weersomstandigheden" >{{ $entry->weather }}</textarea>
                             </div>
                             <hr>
 
                             <!-- Edit witness report -->
                             <div>
-                              <label>Getuigen verslagen</label>
+                              <label>Wat zagen anderen? <em><small>(optioneel)</small></em></label>
                               <textarea name="witness_report" class="form-control" placeholder="Getuigenverklaringen" >{{ $entry->witness_report }}</textarea>
                             </div>
                             <hr>
 
                             <!-- Edit comments -->
                             <div>
-                              <label>Vrije ruimte</label>
+                              <label>Vrije ruimte <em><small>(optioneel)</small></em></label>
                               <textarea name="comments" class="form-control" placeholder="Overige aantekeningen" >{{ $entry->comments }}</textarea>
                             </div>
                             <hr>
