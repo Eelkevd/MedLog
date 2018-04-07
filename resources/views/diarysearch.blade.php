@@ -25,41 +25,45 @@
                           {{ session('succes') }}
                       </div>
               @endif
-        <div class="card">
+
           <div class="card-header">
             <h5><center>Zoekfuncties</center></h5>
           </div>
           <div class="card-body">
             <!-- Search function to search in events -->
             <form method="GET" action="{{ action('OverviewController@search') }}" >
-                <input type="text" name="search" placeholder="Zoekopdracht">
-                <button type="submit">Zoek in je dagboek</button>
+                <input type="text" name="search" placeholder="Zoekopdracht" class="form-control">
+                <button type="submit" class="btn btn-primary">Zoek in je dagboek</button>
             </form><br>
 
             <!-- sort function to sort by illness-->
             <form method="GET" id="illnessform" action="{{ action('OverviewController@sortillness') }}" >
-            <select form= 'illnessform' name="illness" class="sort_illness">
+            <select form= 'illnessform' name="illness" class="sort_illness form-control">
                 <option value="" selected disabled hidden>Kies ziekte</option>
               @foreach($illnesses as $illness)
                 <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
               @endforeach()
             </select>
-            <button type="submit">Sorteer je dagboek op ziekte</button>
+            <button type="submit" class="btn btn-primary">Sorteer je dagboek op ziekte</button>
             </form>
             <br>
 
             <!-- sort function to sort by intensity-->
             <form method="GET" id="intensityform" action="{{ action('OverviewController@sortintensity') }}" >
-            <select form= 'intensityform' name="intensity" class="sort_intensity">
+            <select form= 'intensityform' name="intensity" class="sort_intensity form-control">
                 <option value="" selected disabled hidden>Kies intensiteit</option>
               @foreach($entries as $entry)
                 <option value="{{ $entry->intensity }}">{{ $entry->intensity }}</option>
               @endforeach()
             </select>
-            <button type="submit">Sorteer je dagboek op intensiteit</button>
+            <button type="submit" class="btn btn-primary">Sorteer je dagboek op intensiteit</button>
             </form>
             <br>
+        </div>
 
+        <div class="card-header">
+          <h5>Uw overzicht</h5>
+          <div class="card-body">
           <!-- result of searchfield -->
           @foreach($search as $entry)
             <div class="card">
@@ -147,4 +151,6 @@
     </div>
 </div>
 </div>
+</div>
+
 @endsection

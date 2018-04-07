@@ -40,7 +40,7 @@
                     @else
 
         <div class="card">
-          <div class="card-header"><h5><center>Zoek in uw dagboek</center></h5>
+          <div class="card-header"><h5><center>Download uw dagboek</center></h5>
           </div>
           <br />
         </div>
@@ -71,7 +71,7 @@
                    <input type="text" name="start_date" class="date form-control" placeholder="vanaf" required/>
                     </div>
                     <div class="col">
-                  <input type="text" name="end_date" class="date form-control" placeholder="tot"required/>
+                  <input type="text" name="end_date" class="date form-control" placeholder="totermet"required/>
                     </div>
                   </div>
                     <input type="submit" class="btn btn-primary" value="Download" /><br>
