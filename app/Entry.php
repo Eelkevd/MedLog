@@ -49,6 +49,7 @@ class Entry extends Model
         $start,
         $end
       ))->take(3)->orderBy('timespan_date', 'DESC')->get();
+
     }
 
 }

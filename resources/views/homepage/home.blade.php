@@ -55,13 +55,13 @@
           </div>
 
           @foreach($events as $event)
-            <div class="card-body nopadding">
-              <h4><small class="text-muted">{{ $event -> title }}</small></h4>
-              <ul class="list-unstyled">
-                <li>{{ $event -> start_date }}</li>
-              </ul>
-              <hr>
-            </div>
+          <div class="card-body nopadding">
+            <h4><small class="text-muted">{{ $event -> title }}</small></h4>
+            <ul class="list-unstyled">
+              <li>{{ date('d-m-Y', strtotime($event ->start_date ))}}</li>
+            </ul>
+            <hr>
+          </div>
         @endforeach
 
 
@@ -80,7 +80,7 @@
 
               </small></h4>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>{{ $entry -> timespan_date }}</li>
+              <li>{{ date('d-m-Y', strtotime($entry-> timespan_date ))}}</li>
             </ul>
             </a>
             <hr>
@@ -97,15 +97,9 @@
                   </div>
                   <div class="card-body">
                     <form method="GET" action="{{ action('EventController@search') }}" >
-                        <input type="text" name="search" placeholder="Zoekopdracht">
+                        <input type="text" name="search" placeholder="Zoekopdracht"><br>
                         <button type="submit">zoek op afspraak of ziektebeeld</button>
                     </form><br>
-
-                    <b>Resultaten:</b><br><br>
-                    @foreach($search as $event)
-                      {{ $event -> title }} <br>
-                      {{ $event -> start_date }} <br><br>
-                    @endforeach
 
                   </div>
               </div>
