@@ -76,14 +76,16 @@ nav ul li a:focus, nav ul li a.dropdown-item{
 
 /* icons in buttons */
 .oi {
-  width: 20px;
-  height: 20px;
+  width: 1.5em;
+  height: 1.5em;
   position: absolute;
   right: 1em;
   top: 0.6em;
 }
 /* icons in forms (edit and delete) */
 .icon{
+  width: 2em;
+  height: 2em;
   position: relative;
   float: right;
   margin-right: 15px;
