@@ -29,40 +29,42 @@
             </div>
 
 
-
             @elseif (auth()->user()->verified())
               @if (session('succes'))
                       <div class="alert alert-success">
                           {{ session('succes') }}
                       </div>
+                    </div>
+
               @endif
 
       </div>
 
       <h5><center>Welcome bij MedLog, uw persoonlijk medisch dagboek!</center></h5>
-      <br />
-
+      Crieeër uw eigen medisch dosier. Begin door een nieuwe gebeurtenis aan te maken.
+      Voeg onder andere een ziektebeeld en symptomen toe.
+      U kunt vervolgens meelezers aanmaken en u kunt uw gebeurtenissen downloaden als pdf.
+      Zo heeft u uw medische geschiedenis altijd bij de hand!
+      <br /><br />
       <div class="card-deck mb-3 text-center">
         <div class="card mb-4 box-shadow">
           <div class="card-header">
+
+
             <h4 class="my-0 font-weight-normal">Komende afspraken</h4>
           </div>
-          @if(!empty($events))
+
           @foreach($events as $event)
-          <div class="card-body nopadding">
-            <h4><small class="text-muted">{{ $event -> title }}</small></h4>
-            <ul class="list-unstyled">
-              <li>{{ $event -> start_date }}</li>
-            </ul>
-            <hr>
-          </div>
+            <div class="card-body nopadding">
+              <h4><small class="text-muted">{{ $event -> title }}</small></h4>
+              <ul class="list-unstyled">
+                <li>{{ $event -> start_date }}</li>
+              </ul>
+              <hr>
+            </div>
         @endforeach
-        @else
-          <div class="my-0 card-body">
-            <h5 class="card-title"><small class="text-muted">Hier komen uw drie meest recente aankomende afspraken te staan</small>
-            </h5>
-          </div>
-        @endif
+
+
       </div>
 
       <!-- vijf meest recente entries in het dagboek -->
@@ -70,7 +72,6 @@
         <div class="card-header">
           <h4 class="my-0 font-weight-normal">Laatste gebeurtenissen</h4>
         </div>
-        @if(!empty($entries))
           @foreach($entries as $entry)
           <div class="card-body nopadding">
             <h4 class="card-title"><small class="text-muted">
@@ -85,11 +86,7 @@
             <hr>
           </div>
         @endforeach
-        @else
-          <div class="card-body">
-            <h5 class="card-title"><small class="text-muted">Hier komen uw drie laatste gebeurtenissen te staan</small></h5>
-          </div>
-        @endif
+
     </div>
 
 

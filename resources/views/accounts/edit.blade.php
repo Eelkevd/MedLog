@@ -8,26 +8,14 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Wijzig accountsgegens (velden met een * zijn verplicht)') }}</div>
+                <div class="card-header">
+                  <h5><center>
+                    {{ __('Wijzig accountsgegens (velden met een * zijn verplicht)') }}</div>
+                  </h5></center>
 
                 <div class="card-body">
                     <form method="POST" action="/account/edit">
                         @csrf
-
-                        <!-- Edit username-->
-                        <div class="form-group row">
-                            <label for="username" class="col-md-4 col-form-label text-md-right">{{ __('Gebruikersnaam *') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="username" type="text" value="{{ $user->username }}" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" required autofocus>
-
-                                @if ($errors->has('username'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('username') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
 
                         <!-- Edit firstname-->
                         <div class="form-group row">
@@ -69,81 +57,6 @@
                                 @if ($errors->has('lastname'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('lastname') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Edit street-->
-                        <div class="form-group row">
-                            <label for="street" class="col-md-4 col-form-label text-md-right">{{ __('Straatnaam *') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="street" type="text" value="{{ $user->street }}" class="form-control{{ $errors->has('street') ? ' is-invalid' : '' }}" name="street" required autofocus>
-
-                                @if ($errors->has('street'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('street') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Edit house number-->
-                        <div class="form-group row">
-                            <label for="housenumber" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer *') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="housenumber" type="number" value="{{ $user->housenumber }}" class="form-control{{ $errors->has('housenumber') ? ' is-invalid' : '' }}" name="housenumber" required>
-
-                                @if ($errors->has('housenumber'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('housenumber') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Edit house number suffix-->
-                        <div class="form-group row">
-                            <label for="housenumbersuffix" class="col-md-4 col-form-label text-md-right">{{ __('Huisnummer Toevoeging') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="housenumbersuffix" type="text" value="{{ $user->housenumbersuffix }}" class="form-control{{ $errors->has('housenumbersuffix') ? ' is-invalid' : '' }}" name="housenumbersuffix">
-
-                                @if ($errors->has('housenumbersuffix'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('housenumbersuffix') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Edit town-->
-                        <div class="form-group row">
-                            <label for="town" class="col-md-4 col-form-label text-md-right">{{ __('Woonplaats *') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="town" type="text" value="{{ $user->town }}" class="form-control{{ $errors->has('town') ? ' is-invalid' : '' }}" name="town" required autofocus>
-
-                                @if ($errors->has('town'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('town') }}</strong>
-                                    </span>
-                                @endif
-                            </div>
-                        </div>
-
-                        <!-- Edit postal code-->
-                        <div class="form-group row">
-                            <label for="postalcode" class="col-md-4 col-form-label text-md-right">{{ __('Postcode *') }}</label>
-
-                            <div class="col-md-6">
-                                <input id="postalcode" type="text" value="{{ $user->postalcode }}" class="form-control{{ $errors->has('postalcode') ? ' is-invalid' : '' }}" name="postalcode" required>
-
-                                @if ($errors->has('postalcode'))
-                                    <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('postalcode') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -203,5 +116,4 @@
         </div>
     </div>
 </div>
-
 @endsection
