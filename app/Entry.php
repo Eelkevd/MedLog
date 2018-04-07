@@ -43,12 +43,12 @@ class Entry extends Model
 
     public static function recentEntries()
     {
-      $start = date('Y-m-d');
-      $end ="5999-12-31";
+      $start ="2000-12-31";
+      $end = date('Y-m-d');
       return static::whereBetween('timespan_date', array(
         $start,
         $end
-      ))->take(3)->orderBy('timespan_date')->get();
+      ))->take(3)->orderBy('timespan_date', 'DESC')->get();
     }
 
 }

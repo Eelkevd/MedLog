@@ -56,7 +56,7 @@
       				<div>
       					<h5>Ziektebeeld: *</h5>
 
-      					 <select class="custom-select custom-select-lg mb-3 medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+      					 <select class="custom-select custom-select-lg mb-3 medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>

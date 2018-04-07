@@ -13,7 +13,6 @@
 				<div class="input-group mb-3">
 					Uw medisch dagboek wordt geordend per ziektebeeld.
 					Zo kunt u snel sorteren welke dagboekpagina's u wilt zien, bijvoorbeeld per ziektebeeld 'griep', 'ADHD', of 'hoge bloeddruk'.
-					U kunt hier zelf uw ziektebeelden aanmaken.
 					<br /><br />
 					<input type="text" class="form-control" name="illness" placeholder="naam ziektebeeld" aria-label="naam ziektebeeld" aria-describedby="basic-addon2">
 					<div class="input-group-append">
