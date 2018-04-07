@@ -56,7 +56,7 @@
       				<div>
       					<h5>Ziektebeeld: *</h5>
 
-      					 <select class="custom-select custom-select-lg mb-3 medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
+      					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
@@ -83,15 +83,15 @@
 
               <div>
                 Hoe erg was het?<br /><br />
-                <input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
+                <input type="range" name="intensity" min="1" value="{{ old('intensity', '5')}};"  max="9" class="slider" id="intensityRange">
                 <span id="intensityValue"></span>
               </div>
               <hr>
 
       				<div>
       					Wanneer gebeurde het?<br />
-      					<input type="date" id='timespan_date' name="timespan_date">
-      					<input type="time" name="timespan_time" value="now">
+      					<input type="date" id='timespan_date' name="timespan_date" value="{{ old('timespan_date') }}" >
+      					<input type="time" name="timespan_time" value="{{ old('timespan_time', 'now') }}">
       				</div>
       				<hr>
 
@@ -108,17 +108,17 @@
         					<div>
         					Startdatum klacht <em><small>(optioneel)</small></em>
         					<br>
-        					<input type="date" id='complaint_startdate' name="complaint_startdate">
+        					<input type="date" id='complaint_startdate' name="complaint_startdate" value="{{ old('complaint-startdate') }}">
         					<br>
         					<br>
         					Einddatum klacht <em><small>(optioneel)</small></em>
         					<br>
-        					<input type="date" id='complaint_enddate' name="complaint_enddate">
+        					<input type="date" id='complaint_enddate' name="complaint_enddate" value="{{ old('complaint-enddate') }}">
         					<br>
         					<br>
         					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
         					<br>
-        					<input type="time" name="complaint_time">
+        					<input type="time" name="complaint_time" value="{{ old('complaint-time') }}">
         				</div>
       				  <hr>
               </div>
@@ -133,7 +133,7 @@
               <div class="collapse" class="card-body"  id="form_optional">
                 <div>
                   Waar gebeurde het? <em><small>(optioneel)</small></em><br />
-                  <input type="text" name="location" placeholder="locatie">
+                  <input type="text" name="location" placeholder="locatie" value="{{ old('location') }}">
                 </div>
                 <hr>
 
@@ -149,12 +149,12 @@
       				<hr>
       				<div>
       					Wat waren de weersomstandigheden? <em><small>(optioneel)</small></em>
-      					<textarea name="weather" placeholder="warm / koud"></textarea>
+      					<textarea name="weather" placeholder="warm / koud" value="{{ old('weather') }}"></textarea>
       				</div>
       				<hr>
       				<div>
       					Wat zagen anderen? <em><small>(optioneel)</small></em>
-      					<textarea name="witness_report" placeholder="..."></textarea>
+      					<textarea name="witness_report" placeholder="..." value="{{ old('witness_report') }}"></textarea>
       				</div>
       				<hr>
             </div>
@@ -162,7 +162,7 @@
 <br />
               <div>
       					Vrije ruimte <em><small>(optioneel)</small></em><br />
-      					<textarea name="comments" placeholder=""></textarea>
+      					<textarea name="comments" placeholder="" value="{{ old('comments') }}"></textarea>
       				</div>
       				<div>
                 <br />
