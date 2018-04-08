@@ -46,12 +46,12 @@
                         {{ csrf_field() }}
                         Afspraak:  *
                         <br />
-                        <input type="text" name="title" required/>
-                        <br /><br />
-                        Wanneer:   *
+                        <textarea class="form-control" name="title" required/></textarea>
+                        <br />
+                        Datum:   *
                         <br />
                         <input type="text" name="start_date" class="date" required/>
-                        <input type="submit" value="Opslaan" /><br>
+                        <input type="submit" class="btn btn-primary" value="Opslaan" /><br>
                         </form>
 
                         <script>

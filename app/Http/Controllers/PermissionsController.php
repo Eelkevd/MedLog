@@ -79,7 +79,8 @@ class PermissionsController extends Controller
       if(!empty($reader_id))
       {
         // check if reader is 'hulpverlener'
-        $role = $user->roles()->get();
+        $role = User::roles()
+        ->roles()->get();
         dd($role);
         if($role->slug == 'gebruiker')
         {
