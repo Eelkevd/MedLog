@@ -13,15 +13,10 @@ class AccountPatientEelke extends Seeder
     {
         DB::table('users')->insert([
             'id' => '1',
-            'username' => 'eelke',
+            'username' => 'user_eelke',
             'firstname' => encrypt('Eelke'),
             'middlename' => encrypt('van'),
             'lastname' => encrypt('Dijk'),
-            'street' => encrypt('Bedumerweg'),
-            'housenumber' => encrypt('11'),
-            'housenumbersuffix' => encrypt('a'),
-            'town' => encrypt('Groningen'),
-            'postalcode' => encrypt('9788 BB'),
             'email' => 'evandijk89@gmail.com',
             'password' => Hash::make('@Insert12'),
             'created_at' => '2018-03-31 20:57:55',

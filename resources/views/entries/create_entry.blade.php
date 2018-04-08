@@ -50,19 +50,26 @@
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
-      					 <select class="custom-select custom-select-lg mb-3 medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+
+                @if (!$ilnessess->isEmpty())
+      					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
+              @else
+              <label>U heeft nog geen ziektebeeld aangemaakt.</label>
+      				</div>
+              @endif
+      				<hr>
                 <br>
                 <br>
                 voeg een nieuw ziektebeeld toe<br><br>
                 <button type="button" data-toggle="modal" data-target="#illness_pop">Ziektebeeld</button>
       				</div>
               <hr>
-              <hr>
+              
       				<div>
       					Selecteer de symptomen die u had:<br />
       					<!-- places all symptomes from db -->
@@ -74,7 +81,7 @@
                     <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
       						<span class="label-text">{{ $symptom->symptom }}</span>
                 </label></li>
-      					@endforeach()
+      					@endforeach
               </ul>
               </div>
                 <br />
@@ -84,15 +91,15 @@
 
               <div>
                 Hoe erg was het?<br /><br />
-                <input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
+                <input type="range" name="intensity" min="1" value="{{ old('intensity', '5')}};"  max="9" class="slider" id="intensityRange">
                 <span id="intensityValue"></span>
               </div>
               <hr>
 
       				<div>
       					Wanneer gebeurde het?<br />
-      					<input type="date" id='timespan_date' name="timespan_date">
-      					<input type="time" name="timespan_time" value="now">
+      					<input type="date" id='timespan_date' name="timespan_date" value="{{ old('timespan_date') }}" >
+      					<input type="time" name="timespan_time" value="{{ old('timespan_time', 'now') }}">
       				</div>
       				<hr>
 
@@ -109,22 +116,22 @@
         					<div>
         					Startdatum klacht <em><small>(optioneel)</small></em>
         					<br>
-        					<input type="date" id='complaint_startdate' name="complaint_startdate">
+        					<input type="date" id='complaint_startdate' name="complaint_startdate" value="{{ old('complaint-startdate') }}">
         					<br>
         					<br>
         					Einddatum klacht <em><small>(optioneel)</small></em>
         					<br>
-        					<input type="date" id='complaint_enddate' name="complaint_enddate">
+        					<input type="date" id='complaint_enddate' name="complaint_enddate" value="{{ old('complaint-enddate') }}">
         					<br>
         					<br>
         					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
         					<br>
-        					<input type="time" name="complaint_time">
+        					<input type="time" name="complaint_time" value="{{ old('complaint-time') }}">
         				</div>
       				  <hr>
               </div>
             </div> <!-- end first toggle> -->
-<br />
+            <br />
 
             <div class="card">
               <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_optional">
@@ -132,38 +139,53 @@
                 <span class="oi oi-chevron-bottom"></span>
               </button>
               <div class="collapse" class="card-body"  id="form_optional">
-                <div>
+                <div><br />
                   Waar gebeurde het? <em><small>(optioneel)</small></em><br />
-                  <input type="text" name="location" placeholder="locatie">
+                  <input type="text" class="form-control" name="location" placeholder="locatie" value="{{ old('location') }}">
                 </div>
                 <hr>
 
       				<div>
       					Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
+
+              @if (!$medicines->isEmpty())
+              <div class="symptoms form-check">
+                  <ul class="list-unstyled">
       					@foreach($medicines as $medicine)
                   @if($medicine->deleted != 'removed')
+                  <li><label>
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
-      						<label for="subscribeNews">{{ $medicine->medicine }}</label>
+                  <span class="label-text">{{ $medicine->medicine }}</span></label></li>
                   @endif
       					@endforeach()
+            @else
+                  <label><br/><em>
+                    <a href="/medicine" alt="maak een medicijn aan">
+                    U heeft nog geen medicijnen aangemaakt<br />
+                    Voeg later alsnog een medicijn toe </a>.
+                  </em>
+                  </label>
+            @endif
+              </ul>
+            </div>
       				</div>
       				<hr>
       				<div>
       					Wat waren de weersomstandigheden? <em><small>(optioneel)</small></em>
-      					<textarea name="weather" placeholder="warm / koud"></textarea>
+      					<textarea name="weather" placeholder="warm / koud" value="{{ old('weather') }}"></textarea>
       				</div>
       				<hr>
       				<div>
       					Wat zagen anderen? <em><small>(optioneel)</small></em>
-      					<textarea name="witness_report" placeholder="..."></textarea>
+      					<textarea name="witness_report" placeholder="..." value="{{ old('witness_report') }}"></textarea>
       				</div>
       				<hr>
             </div>
           </div> <!-- end second toggle -->
-<br />
+          <br />
               <div>
       					Vrije ruimte <em><small>(optioneel)</small></em><br />
-      					<textarea name="comments" placeholder=""></textarea>
+      					<textarea name="comments" placeholder="" value="{{ old('comments') }}"></textarea>
       				</div>
       				<div>
                 <br />

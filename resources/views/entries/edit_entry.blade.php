@@ -6,6 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+              <div class="card-header">
                     @guest
                     <!-- Show not logged in screen -->
                     <div class="col-md-6">
@@ -35,7 +36,8 @@
                       @else
                       <div class="card">
                         <div class="card-header">
-                          <h4>Aanpassen van Medisch Dagboek</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
+                          <h5><center>Wijzig uw gebeurtenis</center></h5>
+                          <center><em>Velden met een sterretje (*) zijn verplicht</em></center>
                         </div>
 
                         <div class="card-body">
@@ -46,8 +48,8 @@
 
                             <!-- Edit illness-->
                             <div>
-                              <h5>Aandoening: *</h5>
-                              <select name="illness" value="{{ $entry->illness }}" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+                              <h5>Ziektebeeld *</h5>
+                              <select name="illness" value="{{ $entry->illness }}" class="form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
                                   <option value="{{ $entry->illness }}"selected>{{ $entry->illness }}</option>
                                 @foreach($illnesses as $illness)
                                   <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
@@ -58,40 +60,47 @@
 
                             <!-- Edit symptoms-->
                             <div>
-                              <p>Symptomen:</p>
+                              <label>Symptomen</label>
+                              <div class="symptoms form-check">
+                                <ul class="list-unstyled">
                               @foreach($symptomes as $symptom)
+                              <li><label>
                                 <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
-                                <label for="subscribeNews">{{ $symptom->symptom }}</label>
+                                <span class="label-text">{{ $symptom->symptom }}</span>
+                              </label></li>
                               @endforeach()
+                            </ul>
                             </div>
+                          </div>
                             <hr>
 
                             <!-- Edit date and time -->
                             <div>
-                              <p>Wanneer gebeurde het:</p>
-                              <input type="date" name="timespan_date" value="{{ $entry->timespan_date }}">
-                              <input type="time" name="timespan_time" value="{{ $entry->timespan_time }}">
+                            <label>Wanneer gebeurde het? <em><small>(optioneel)</small></em></label>
+                          </label>
+                              <input type="date" name="timespan_date" value="{{ $entry->timespan_date }}"  class="form-control">
+                              <input type="time" name="timespan_time" value="{{ $entry->timespan_time }}"  class="form-control">
                             </div>
                             <hr>
 
                             <!-- Edit location -->
                             <div>
-                              <p>Waar gebeurde het:</p>
-                              <input type="text" name="location" placeholder="locatie" value="{{ $entry->location }}">
+                              <label>Waar gebeurde het? <em><small>(optioneel)</small></em></label></label>
+                              <input type="text" name="location" placeholder="locatie" value="{{ $entry->location }}"  class="form-control">
                             </div>
                             <hr>
 
                             <!-- Edit intensity -->
                             <div>
-                              <p>Intensiteit</p>
-                              <input type="range" name="intensity" min="1" value="{{ $entry->intensity }}" max="9" class="slider" id="intensityRange">
+                              <label>Hoe erg was het? <em><small>(optioneel)</small></em></label></label>
+                              <input type="range" name="intensity" min="1" value="{{ old('comments', $entry->intensity) }}" max="9" class="slider" id="intensityRange">
                               <span id="intensityValue"></span>
                             </div>
                             <hr>
 
                             <!-- Edit complaint_time & dates -->
                             <div>
-                              <p>Klachtsduur</p>
+                              <label>Klachtsduur <em><small>(optioneel)</small></em></label></label>
                               Startdatum klacht
                               <br>
                               <input type="date" id='complaint_startdate' name="complaint_startdate" value="{{ $entry->complaint_startdate }}">
@@ -110,11 +119,15 @@
 
                             <!-- Edit medicines -->
                             <div>
-                              <p>Medicatie</p>
+                              <label>Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em></label>
+                              <div class="symptoms form-check">
+                                <ul class="list-unstyled">
                               @foreach($medicines as $medicine)
                                 @if($medicine->deleted != 'removed')
-                                <input type="checkbox" name="medicine[]" value="{{ $medicine->id }}"  enctype="multipart/form-data">
-                                <label for="subscribeNews">{{ $medicine->medicine }}</label>
+                                <li><label>
+                                  <input type="checkbox" name="medicine[]" value="{{ $medicine->id }}"  enctype="multipart/form-data"  class="form-control">
+                                  <span class="label-text">{{ $medicine->medicine }}</span>
+                                </label></li>
                                 @endif
                               @endforeach()
                             </div>
@@ -122,27 +135,26 @@
 
                             <!-- Edit weather -->
                             <div>
-                              <p>Weer</p>
-                              <textarea name="weather" placeholder="Omschrijving eventuele weersomstandigheden" >{{ $entry->weather }}</textarea>
+                              <label>Weersomstandigheden <em><small>(optioneel)</small></em></label>
+                              <textarea name="weather"  class="form-control" placeholder="Omschrijving eventuele weersomstandigheden" >{{ $entry->weather }}</textarea>
                             </div>
                             <hr>
 
                             <!-- Edit witness report -->
                             <div>
-                              <p>Getuigen verslagen</p>
-                              <textarea name="witness_report" placeholder="Getuigenverklaringen" >{{ $entry->witness_report }}</textarea>
+                              <label>Wat zagen anderen? <em><small>(optioneel)</small></em></label>
+                              <textarea name="witness_report" class="form-control" placeholder="Getuigenverklaringen" >{{ $entry->witness_report }}</textarea>
                             </div>
                             <hr>
 
                             <!-- Edit comments -->
                             <div>
-                              <p>Overig</p>
-                              <textarea name="comments" placeholder="Overige aantekeningen" >{{ $entry->comments }}</textarea>
+                              <label>Vrije ruimte <em><small>(optioneel)</small></em></label>
+                              <textarea name="comments" class="form-control" placeholder="Overige aantekeningen" >{{ $entry->comments }}</textarea>
                             </div>
                             <hr>
                             <div>
-                              <p>Sla mijn dagboek op</p>
-                              <input type="submit" value="Opslaan">
+                              <input type="submit" class="btn btn-primary" value="Wijzigingen opslaan">
                             </div>
                           </form>
                         </div>
@@ -155,42 +167,43 @@
                                 e.preventDefault();
                             });
 
-                      var sliderBar = document.getElementById('intensityRange');
-                      var sliderVal = document.getElementById('intensityValue');
-                      sliderVal.innerHTML = sliderBar.value;
+                            var sliderBar = document.getElementById('intensityRange');
+                          	var sliderVal = document.getElementById('intensityValue');
+                          	sliderVal.innerHTML = sliderBar.value;
 
-                      sliderBar.oninput = function() {
-                      sliderVal.innerHTML = this.value;
-                          if (this.value == 1)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo1.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 2)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo2.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 3)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo3.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 4)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo4.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 5)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo5.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 6)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo6.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 7)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo7.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 8)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo8.c.svg') }}" height="80" width="80">';
-                          }  		if (this.value == 9)
-                          {
-                            sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
-                          }
-                        }
-                        </script>
+                          	sliderBar.oninput = function() {
+                            	sliderVal.innerHTML = this.value;
+                            		if (this.value == 1)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo9.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 2)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo8.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 3)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo7.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 4)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo6.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 5)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo5.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 6)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo4.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 7)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo3.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 8)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo2.c.svg') }}" height="80" width="80">';
+                            		}  		if (this.value == 9)
+                            		{
+                            			sliderVal.innerHTML = '<img src="{{asset('/img/emo1.c.svg') }}" height="80" width="80">';
+                            		}
+                          	}
+
+                          </script>
                     @endif
                 @endauth
             </div>

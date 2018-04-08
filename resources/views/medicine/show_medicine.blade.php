@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Medicijn pagina</div>
+                <div class="card-header">
 
                 <!-- check to see if user of page is guest, reader, user or validated user.
                       Only let validated user throug -->
@@ -40,11 +40,17 @@
                         @else
 
                       <div class="card-body">
+                        <div class="card-header">
+                        <h5><center>Medicijn pagina</center></h5>
+                        </div>
                         <table class="table table-striped">
                             <thead>
                               <tr>
-                                <th></th>
-                                <th></th>
+                                <th colspan="2">
+                                <!-- Button to delete page of medicine -->
+                                <a href="{{ route('medicine.delete', $medicine->id) }}" onclick="return confirm('Weet je zeker dat je dit medicijn wilt verwijderen?')" ><span class="oi oi-trash icon"></span></a>
+                                <a href="{{ route('medicine.edit', $medicine->id) }}" ><span class="oi oi-pencil icon"></span></a>
+                              </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -91,16 +97,6 @@
                                   <td>{{ $medicine->comment }}</td>
                               </tr>
                         </table>
-
-                        <!-- Button to edit page of medicine-->
-                        <div class="form-group row mb-0">
-                            <em><a href="{{ route('medicine.edit', $medicine->id) }}" >Pas pagina aan</a></em>
-                        </div><br>
-
-                        <!-- Button to delete page of medicine -->
-                        <div class="form-group row mb-0">
-                            <em><a href="{{ route('medicine.delete', $medicine->id) }}" onclick="return confirm('Weet je zeker dat je de medicijnpagina wil verwijderen?')" >Verwijder pagina</a></em>
-                        </div>
                 </div>
 
                 @endif
@@ -108,5 +104,6 @@
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

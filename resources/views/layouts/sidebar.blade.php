@@ -15,7 +15,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav" style="position: absolute; bottom:0; right:0px;">
   @guest
-      <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login or Register') }}</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login of registreer') }}</a></li>
       <li class="nav-item"><a class="nav-link" href="/about">Over MedLog</a></li>
     </ul>
   @endguest
@@ -42,7 +42,10 @@
                  <a href="/permissions" class="dropdown-item">Meelezers</a>
                  <div class="dropdown-divider"></div>
                  <a href="/overview/search" class="dropdown-item">Zoek in uw dagboek</a>
+                 <div class="dropdown-divider"></div>
                  <a href="/entries" class="dropdown-item">Nieuwe gebeurtenis</a>
+
+
               </div>
             </li>
             <li class="nav-item dropdown">

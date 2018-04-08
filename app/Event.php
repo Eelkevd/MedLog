@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use App\User;
 
 class Event extends Model
 {
@@ -10,12 +12,13 @@ class Event extends Model
 
     public static function appointments()
     {
+      $user = Auth::id();
       $start = date('Y-m-d');
       $end ="5999-12-31";
       return static::whereBetween('start_date', array(
         $start,
         $end
-      ))->whereNull('entry_id')->take(3)->orderBy('start_date')->get();
+      ))->where('user_id', $user)->whereNull('entry_id')->take(3)->orderBy('start_date')->get();
     }
 
     public function user()

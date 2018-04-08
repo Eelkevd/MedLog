@@ -17,13 +17,19 @@
                     @if (auth()->user()->reader())
 
                       {{ __('Account van betrokkene: ') }}
-                      {{ $user -> username }}
+                      {{ $user -> firstname }}
+                      {{ __(' ') }}
+                      {{ $user -> middlename }}
+                      {{ __(' ') }}
+                      {{ $user -> lastname }}
                       </div>
 
                       @elseif (!(auth()->user()->reader()))
 
                         {{ __('Medisch dagboek van :  ') }}
-                        {{ $user -> username }}
+                        {{ $user -> middlename }}
+                        {{ __(' ')}}
+                        {{ $user -> lastname }}
                         </div>
 
 
@@ -53,5 +59,5 @@
                           </div>
                       </div>
 
-              
+
 @endsection

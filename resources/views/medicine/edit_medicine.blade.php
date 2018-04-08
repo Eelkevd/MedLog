@@ -40,7 +40,7 @@
 
 					  @else
 
-		<h4>Aanpassen Medicatie</h4>
+		<h4>Wijzig uw medicijn</h4>
 	</div>
 
 	<div class="card-body">
@@ -50,34 +50,32 @@
         <input type="hidden" name="id" value="{{ $medicine->id }}">
 
 		    <div>
-				<p>
-				Voeg hier uw nieuwe medicatie toe.
-				</p>
-				<input type="text" name="medicine" placeholder="naam medicijn" value="{{ $medicine->medicine }}" required>
+			<label>Naam van uw medicijn</label>
+				<input type="text" class="form-control" name="medicine" placeholder="naam medicijn" value="{{ $medicine->medicine }}" required>
 			</div>
 			<hr>
 			<div>
-				<p>Dosering:</p>
+				<label>Dosering <em><small>(optioneel)</small></em></label>
 				<textarea name="dose" placeholder="Dosering" value="{{ $medicine->dose }}">{{ $medicine->dose }}</textarea>
 			</div>
 			<hr>
 			<div>
-				<p>Doel:</p>
+				<label>Doel <em><small>(optioneel)</small></em></label>
 				<textarea name="purpose" placeholder="Doel">{{ $medicine->purpose }}</textarea>
 			</div>
 			<hr>
 			<div>
-				<p>Mogelijke bijwerkingen:</p>
+				<label>Eventuele bijwerkingen <em><small>(optioneel)</small></em></label>
 				<textarea name="side_effects" placeholder="Vul hier de mogelijke bijwerkingen in">{{ $medicine->side_effect }}</textarea>
 			</div>
 			<hr>
 			<div>
-				<p>Prijs:</p>
-				€<input type="number" name="price" value="{{ $medicine->price }}" step=".01">
+				<label>Prijs <em><small>(optioneel)</small></em></label>
+				€  <input type="number" name="price" value="{{ $medicine->price }}" step=".01">
 			</div>
 			<hr>
 			<div>
-				<p>Overige opmerkingen:</p>
+				<label>Vrije ruimte <em><small>(optioneel)</small></em></label>
 				<textarea name="comment">{{ $medicine->comment }}</textarea>
 			</div>
 			<hr>
