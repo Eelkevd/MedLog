@@ -51,7 +51,7 @@
       				<div>
       					<h5>Ziektebeeld: *</h5>
 
-                @if (!$ilnessess->isEmpty())
+                @if (!$illnesses->isEmpty())
       					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
