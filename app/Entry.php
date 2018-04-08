@@ -51,9 +51,14 @@ class Entry extends Model
       $user = Auth::user();
       $start ="2000-12-31";
       $end = date('Y-m-d');
-      $entries = $user->diary->entries()->get();
-      //dd($entries);
-
+      $entries = $user->diary->entries()->whereBetween('timespan_date', array(
+          $start,
+          $end
+        ))
+        ->take(3)
+        ->orderBy('timespan_date', 'DESC')
+        ->get();
+        
       return $entries;
     }
 
