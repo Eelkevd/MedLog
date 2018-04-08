@@ -51,7 +51,7 @@
       				<div>
       					<h5>Ziektebeeld: *</h5>
 
-                @if (!$ilnessess->isEmpty())
+                @if (!$illnesses->isEmpty())
       					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
@@ -69,7 +69,7 @@
                 <button type="button" data-toggle="modal" data-target="#illness_pop">Ziektebeeld</button>
       				</div>
               <hr>
-              
+
       				<div>
       					Selecteer de symptomen die u had:<br />
       					<!-- places all symptomes from db -->
@@ -195,7 +195,7 @@
       		</div>
           @include ('entries.create_symptom')
           @include ('entries.create_illness')
-          
+
       	 </div>
 
 <script>
