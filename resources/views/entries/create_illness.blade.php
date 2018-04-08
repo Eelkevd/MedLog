@@ -1,14 +1,14 @@
 	<!-- Toggles the illness form -->
 
 	<!-- Pop-up variant -->
-<!-- <div class="panel-body">
-	<a  data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</a>
+<div class="panel-body">
+	<!-- <a  data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</a> -->
 <div class="modal fade" id="illness_pop" role="dialog">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<div class="modal-header"> -->
+			<div class="modal-header">
 				<!-- <button type="button" class="close" data-dismiss="modal">&times</button> -->
-<!-- 				<h4 class="modal-title">Nieuw ziektebeeld</h4>
+				<h4 class="modal-title">Nieuw ziektebeeld</h4>
 			</div>
 			<div class="modal-body">
 
@@ -16,16 +16,16 @@
 				{{ csrf_field() }}
 			    <div>
 					<p>
-					Maak hier een nieuw (aandoening) onderwerp aan voor uw medisch dagboek. Bijvoorbeeld: gebroken been, migraine, malaria.
+					Maak hier een nieuw nieuwziektebeeld aan voor uw medisch dagboek. Bijvoorbeeld: gebroken been, migraine, malaria.
 					</p>
 					<p>
 					Heeft u al een onderwerp in gedachten? Ga dan verder naar het volgende onderwerp.
 					</p>
-					<input type="text" name="illness" placeholder="naam aandoening" form="form_illness">
-					
+					<input type="text" name="illness" placeholder="naam aandoening">
+					<input type="submit" align="center" class="btnSub" value="ok">
 				</div>
 			</form>
-			<input type="submit" align="center" class="btnSub" value="ok" form="form_illness">
+			
 			</div>
 			<div class="modal-footer">
 				<button type="button"  data-dismiss="modal">Close</button>
@@ -33,8 +33,8 @@
 		</div>
 	</div>
 </div>
-</div> -->
-
+</div>
+<!-- 
 
 
 	<div class="card">
@@ -59,4 +59,4 @@
 			</form>
 		</div>
 	</div>
-</div>
+</div> -->

@@ -37,18 +37,13 @@
             </div>
           </div>
           @else
-	         <!-- form for submitting medical entry page -->
-            
-              <br />
-            @include ('entries.create_symptom')
-                <br />
 
+	         <!-- form for submitting medical entry page -->
 	         <div class="card">
         		<div class="card-header">
         			<h5><center>Nieuwe gebeurtenis voor in uw <br />medisch dagboek</center></h5>
               <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
         		</div>
-
       		  <div class="card-body">
       			<form method="POST" action="/entries/create_entry">
       				{{ csrf_field() }}
@@ -61,9 +56,13 @@
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
-                <input type="text" name="illnessNew"> 
+                <br>
+                <br>
+                <p>of</p>
+                <b> <button type="button" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button> </b>
       				</div>
       				<hr>
+              <hr>
       				<div>
       					Wat waren de symptomen?<br />
       					<!-- places all symptomes from db -->
@@ -136,6 +135,8 @@
       				</div>
       			</form>
       		</div>
+          @include ('entries.create_illness')
+          @include ('entries.create_symptom')
       	 </div>
 
 <script>
