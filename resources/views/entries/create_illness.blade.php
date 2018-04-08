@@ -16,14 +16,11 @@
 			<form method="POST" action="/entries/create_illness" id="form_illness">
 				{{ csrf_field() }}
 			    <div>
-					<p>
-					Maak hier een nieuw nieuwziektebeeld aan voor uw medisch dagboek. Bijvoorbeeld: gebroken been, migraine, malaria.
+						<p>Uw medisch dagboek wordt geordend per ziektebeeld, bijvoorbeeld 'griep', 'ADHD', of 'hoge bloeddruk'.
+						Voeg uw eigen ziektebeelden toe.
 					</p>
-					<p>
-					Heeft u al een onderwerp in gedachten? Ga dan verder naar het volgende onderwerp.
-					</p>
-					<input type="text" name="illness" placeholder="naam aandoening">
-					<input type="submit" align="center" class="btnSub" value="ok">
+					<input type="text" class="form-control" name="illness" placeholder="naam ziektebeeld">
+					<input type="submit" align="center" class="btn btn-primary" value="Voeg toe">
 				</div>
 			</form>
 

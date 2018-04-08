@@ -15,13 +15,12 @@
 				{{ csrf_field() }}
 				<div>
 					<p>
-						Maak hier symptomen aan voor uw medisch dagboek. Bijvoorbeeld: koorts, uitslag, hoofdpijn.
+						Maak hier symptomen aan voor uw medisch dagboek.
+						Als u als ziektebeeld cholesterol heeft, zult u bijvoorbeeld de symptomen
+'hoge bloeddruk', 'ademhalingsproblemen', en 'darmkklachten' willen aanmaken.
 					</p>
-					<p>
-						Heeft u geen nieuwe symptomen? Ga dan verder naar het volgende onderwerp.
-					</p>
-					<input type="text" name="symptom" placeholder="naam symptoom">
-					<input type="submit" align="center" class="btnSub" value="ok">
+					<input type="text" class="form-control" name="symptom" placeholder="naam symptoom">
+					<input type="submit" align="center" class="btn btn-primary" value="Voeg toe">
 				</div>
 			</form>
 
