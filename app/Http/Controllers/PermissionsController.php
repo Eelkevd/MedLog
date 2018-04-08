@@ -79,8 +79,8 @@ class PermissionsController extends Controller
       if(!empty($reader_id))
       {
         // check if reader is 'hulpverlener'
-        $role = $user->roles()->find($reader_id);
-
+        $role = $user->roles()->get();
+        dd($role);
         if($role->slug == 'gebruiker')
         {
           // het emailadres is al in gebruik voor een normale gebruiker

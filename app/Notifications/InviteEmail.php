@@ -7,6 +7,7 @@ use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Support\Facades\Crypt;
 
 class InviteEmail extends Notification
 {
@@ -43,6 +44,7 @@ class InviteEmail extends Notification
      */
     public function toMail($notifiable)
     {
+      $password = Crypt::decrypt($this->user->password)
         // sends an email invite
         return (new MailMessage)
                     ->line('Iemand heeft u uitgenodigd om zijn medisch dagboek te bekijken op Medlog!')
@@ -50,7 +52,7 @@ class InviteEmail extends Notification
                     // ->line('Gebruikersnaam: ')
                     // ->line($this->user->username)
                     ->line('Wachtwoord: ')
-                    ->line($this->user->password)
+                    ->line($password)
                     ->action('Bestig mijn account', url('verify_invite'))
                     ->line('Thank you for using our application!');
     }
