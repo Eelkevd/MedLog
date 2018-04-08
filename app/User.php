@@ -23,8 +23,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      * @var array
      */
     protected $fillable = [
-        'username', 'firstname', 'middlename', 'lastname', 'bsn', 'street',
-        'housenumber', 'housenumbersuffix', 'town', 'postalcode', 'email', 'password', 'verifyToken',
+        'username', 'firstname', 'middlename', 'lastname', 'email', 'password', 'verifyToken',
     ];
 
     /**
@@ -40,11 +39,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
         'firstname',
         'middlename',
         'lastname',
-        'street',
-        'housenumber',
-        'housenumbersuffix',
-        'town',
-        'postalcode',
     ];
 
     /**

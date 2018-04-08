@@ -2,6 +2,7 @@
 
 // Controller of the permission section
 namespace App\Http\Controllers;
+
 use Auth;
 use App\User;
 use App\Reader;
@@ -10,6 +11,7 @@ use Illuminate\Support\Str;
 use App\Mail;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class PermissionsController extends Controller
 {
@@ -78,10 +80,16 @@ class PermissionsController extends Controller
       // handle the emails
       if(!empty($reader_id))
       {
+        // the reader is already a user
         // check if reader is 'hulpverlener'
-        $role = User::roles()
-        ->roles()->get();
-        dd($role);
+        $reader = User::where('email', $email)->first();
+        $reader_id = $reader->id;
+        $role = DB::table('roles')
+            ->select('roles.*')
+            ->join('role_user', 'roles.id', '=', 'role_user.role_id')
+            ->where('role_user.user_id', $reader_id)
+            ->first();
+
         if($role->slug == 'gebruiker')
         {
           // het emailadres is al in gebruik voor een normale gebruiker

@@ -44,16 +44,15 @@ class InviteEmail extends Notification
      */
     public function toMail($notifiable)
     {
-      $password = Crypt::decrypt($this->user->password)
         // sends an email invite
         return (new MailMessage)
                     ->line('Iemand heeft u uitgenodigd om zijn medisch dagboek te bekijken op Medlog!')
-                    ->line('In deze email vindt u uw accountgegevens. Je logged in met jouw e-mail en het onderstaande wachtwoord.')
+                    ->line('In deze email vindt u uw accountgegevens. U kunt inloggen met uw e-mail en het onderstaande wachtwoord.')
                     // ->line('Gebruikersnaam: ')
                     // ->line($this->user->username)
                     ->line('Wachtwoord: ')
-                    ->line($password)
-                    ->action('Bestig mijn account', url('verify_invite'))
+                    ->line($this->user->password)
+                    ->action('Ga naar de website', url('home'))
                     ->line('Thank you for using our application!');
     }
 
