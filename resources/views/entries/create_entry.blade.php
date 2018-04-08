@@ -50,16 +50,17 @@
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
+                <p>Ziektebeelden</p>
       					<select id="illnessOld" name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
-      							<option selected></option>
+      							<option  selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
                 <br>
                 <br>
-                <p>of</p>
-                <button type="button" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
+                <p>voeg een ziektebeeld toe</p>
+                <button type="button" data-toggle="modal" data-target="#illness_pop">Ziektebeeld</button>
       				</div>
               <hr>
       				<div>
@@ -69,7 +70,7 @@
       						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
       						<label for="subscribeNews">{{ $symptom->symptom }}</label>
       					@endforeach()
-                <p>of</p>
+                <p>voeg een symptoom toe</p>
                 <button type="button" data-toggle="modal" data-target="#symptom_pop">Nieuw symptoom</button>
       				</div>
       				<hr>

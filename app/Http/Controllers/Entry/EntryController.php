@@ -34,8 +34,9 @@ class EntryController extends Controller
     	$symptomes = $user->diary->symptomes;
     	$medicines = $user->diary->medicines;
     	$illnesses = $user->diary->illnesses;
+    	// $illnessNew = $user->diary->illnesses->latest()->first();
 
-    	return view('entries/create_entry', compact('symptomes', 'illnesses', 'medicines'));
+    	return view('entries/create_entry', compact('symptomes', 'illnesses', 'medicines', 'illnessNew'));
 	}
 
 	// Delete entry
@@ -67,7 +68,6 @@ class EntryController extends Controller
 			// $request['illnessNew'];
 			// dd($request);
 			// add the entry into the tabel entries
-			$entry = Illness::firstOrCreate(['illness' => $request['illnessNew']]);
 
 			$entry = Entry::create(request(['diary_id', 'illness', 'timespan_date', 'timespan_time', 'location', 'intensity', 'complaint_startdate', 'complaint_enddate', 'complaint_time', 'recoverytime_time', 'weather', 'witness_report', 'comments']));
 			$entry->symptomes()->attach($request->symptom);

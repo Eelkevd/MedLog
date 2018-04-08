@@ -1,4 +1,5 @@
 <!-- form for submitting new symptom -->
+
 	<!-- Pop-up version -->
 <div class="panel-body">
 	<!-- <a  data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</a> -->
