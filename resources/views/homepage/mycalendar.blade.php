@@ -1,12 +1,12 @@
 <!-- View for the calendar page -->
 @extends('layouts.master')
 
-
-
 @section ('content')
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
+          <div class="card">
+            <div class="card-header">
 <!-- check to see if user of page is guest, reader, user or validated user.
       Only let validated user throug -->
       @guest
@@ -42,20 +42,48 @@
 
         @else
 
+        <h5><center>Uw kalender</center></h5>
       </div>
-</div>
+
 
 <hr>
-<!-- Buttons to go to homepage of create event page-->
-<div class="form-group row mb-0">
-    <div class="col-md-6 offset-md-4">
-        <form action="{{ action('EventController@create') }}" >
-            <button type="submit" class="btn btn-primary">Zet een afspraak in je kalender</button>
-        </form>
+<!-- Toggles form to insert new appointment---->
+<div class="card">
+  <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_event">
+    Klik hier om een afspraak toe te voegen
+    <span class="oi oi-chevron-bottom"></span>
+  </button>
+  <div class="collapse" class="card-body"  id="form_event">
+
+    <div class="card-header">
+      <h4>Maak afspraak</h4> <p>Velden met een sterretje (*) zijn verplicht</p></div>
+        <div class="card-body">
+            <form action= "/home/store_event" method="post">
+            {{ csrf_field() }}
+            Afspraak:  *
+            <br />
+            <textarea class="form-control" name="title" required/></textarea>
+            <br />
+            Datum:   *
+            <br />
+            <input type="text" name="start_date" class="date" required/>
+            <input type="submit" class="btn btn-primary" value="Opslaan" /><br>
+            </form>
+
+            <script>
+                $('.date').datepicker({
+                    autoclose: true,
+                    dateFormat: "yy-mm-dd"
+                });
+            </script>
+        </div>
     </div>
-</div>
+  </div>
 
-<hr>
+<!-- end toggle -->
+<br />
+<div class="card">
+
                 <div class="panel panel-primary">
 
                     <div class="panel-body" >
@@ -64,6 +92,13 @@
                     </div>
                 </div>
             </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
 @endif
 @endauth
 

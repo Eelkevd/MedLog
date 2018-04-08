@@ -49,30 +49,45 @@
       				{{ csrf_field() }}
       				<!-- places all illnesses from db -->
       				<div>
-      					<h5>Ziektebeeld: *</h5>
+      					<h5>Onder welk ziektebeeld valt de gebeurtenis? *</h5>
 
-                @if (!$illnesses->isEmpty())
-      					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
-      							<option selected></option>
-      						@foreach($illnesses as $illness)
-      							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
-      						@endforeach()
-      					</select>
-              @else
-              <label>U heeft nog geen ziektebeeld aangemaakt.</label>
-      				</div>
-              @endif
-      				<hr>
-                <br>
-                <br>
-                voeg een nieuw ziektebeeld toe<br><br>
-                <button type="button" data-toggle="modal" data-target="#illness_pop">Ziektebeeld</button>
-      				</div>
+                <div class="card-deck mb-4 text-center">
+                  <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        Selecteer uw ziektebeeld
+                        <div class="card-body nopadding">
+                          @if (!$illnesses->isEmpty())
+                					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
+                							<option selected></option>
+                						@foreach($illnesses as $illness)
+                							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                						@endforeach()
+                					</select>
+                        @else
+                        <hr>
+                        <small><em>U heeft nog geen ziektebeeld aangemaakt.</em></small>
+                        @endif
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                      Of voeg eerst een nieuw ziektebeeld toe
+                    </div>
+                    <div class="card-body nopadding">
+                      <button type="button" class="btn" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
+            				</div>
+                  </div>
+                </div>
+              </div>
+
               <hr>
-              
-      				<div>
-      					Selecteer de symptomen die u had:<br />
-      					<!-- places all symptomes from db -->
+
+      				<div class="card-header">
+      					<h5>Welke symptomen had u?</h5>
+              </div>
+      					<!-- places all symptomes from db of that user -->
                 <div class="symptoms form-check">
                   <ul class="list-unstyled">
                 @foreach($symptomes as $symptom)
@@ -84,8 +99,10 @@
       					@endforeach
               </ul>
               </div>
-                <br />
-                <button type="button" data-toggle="modal" data-target="#symptom_pop">Nieuw symptoom</button>
+              <br /><small><em>Staat uw symptoom er niet bij? Voeg deze dan toe met onderstaande knop.</em></small>
+                <button type="button" class="btn" data-toggle="modal" data-target="#symptom_pop">
+                Nieuw symptoom
+                <span class="oi oi-chevron-bottom"></span></button>
       				</div>
       				<hr>
 
@@ -195,7 +212,7 @@
       		</div>
           @include ('entries.create_symptom')
           @include ('entries.create_illness')
-          
+
       	 </div>
 
 <script>

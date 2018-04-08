@@ -12,13 +12,26 @@ class Event extends Model
 
     public static function appointments()
     {
-      $user = Auth::id();
-      $start = date('Y-m-d');
-      $end ="5999-12-31";
-      return static::whereBetween('start_date', array(
-        $start,
-        $end
-      ))->where('user_id', $user)->whereNull('entry_id')->take(3)->orderBy('start_date')->get();
+      $user = Auth::user();
+      if(!empty($user->events))
+      {
+        $start = date('Y-m-d');
+        $end = "5999-12-31";
+        $events = $user->events()->whereBetween('start_date', array(
+            $start,
+            $end
+          ))
+          ->whereNull('entry_id')
+          ->take(3)
+          ->orderBy('start_date', 'DESC')
+          ->get();
+        }
+        else
+        {
+            $events=null;
+        }
+
+        return $events;
     }
 
     public function user()
