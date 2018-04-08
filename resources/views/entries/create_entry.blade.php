@@ -37,25 +37,21 @@
             </div>
           </div>
           @else
-	         <!-- form for submitting medical entry page -->
-            @include ('entries.create_illness')
-              <br />
-            @include ('entries.create_symptom')
-                <br />
 
+	         <!-- form for submitting medical entry page -->
 	         <div class="card">
         		<div class="card-header">
         			<h5><center>Nieuwe gebeurtenis voor in uw <br />medisch dagboek</center></h5>
               <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
         		</div>
-
       		  <div class="card-body">
       			<form method="POST" action="/entries/create_entry">
       				{{ csrf_field() }}
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
-                @if (!$medicines->isEmpty())
+
+                @if (!$ilnessess->isEmpty())
       					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
@@ -67,6 +63,13 @@
       				</div>
               @endif
       				<hr>
+                <br>
+                <br>
+                voeg een nieuw ziektebeeld toe<br><br>
+                <button type="button" data-toggle="modal" data-target="#illness_pop">Ziektebeeld</button>
+      				</div>
+              <hr>
+              
       				<div>
       					Selecteer de symptomen die u had:<br />
       					<!-- places all symptomes from db -->
@@ -81,6 +84,8 @@
       					@endforeach
               </ul>
               </div>
+                <br />
+                <button type="button" data-toggle="modal" data-target="#symptom_pop">Nieuw symptoom</button>
       				</div>
       				<hr>
 
@@ -188,6 +193,9 @@
       				</div>
       			</form>
       		</div>
+          @include ('entries.create_symptom')
+          @include ('entries.create_illness')
+          
       	 </div>
 
 <script>
