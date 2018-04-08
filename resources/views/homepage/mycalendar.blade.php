@@ -1,7 +1,7 @@
 <!-- View for the calendar page -->
 @extends('layouts.master')
 
- <script src="{{asset('js/app.js')}}"></script>
+
 
 @section ('content')
 <div class="container">
