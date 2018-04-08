@@ -34,8 +34,6 @@
                       <div class="alert alert-success">
                           {{ session('succes') }}
                       </div>
-                    </div>
-
               @endif
 
       </div>

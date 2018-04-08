@@ -55,14 +55,17 @@
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
-
+                @if (!$medicines->isEmpty())
       					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
+              @else
+              <label>U heeft nog geen ziektebeeld aangemaakt.</label>
       				</div>
+              @endif
       				<hr>
       				<div>
       					Selecteer de symptomen die u had:<br />
@@ -123,7 +126,7 @@
       				  <hr>
               </div>
             </div> <!-- end first toggle> -->
-<br />
+            <br />
 
             <div class="card">
               <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_optional">
@@ -139,7 +142,9 @@
 
       				<div>
       					Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
-                <div class="symptoms form-check">
+
+              @if (!$medicines->isEmpty())
+              <div class="symptoms form-check">
                   <ul class="list-unstyled">
       					@foreach($medicines as $medicine)
                   @if($medicine->deleted != 'removed')
@@ -148,6 +153,14 @@
                   <span class="label-text">{{ $medicine->medicine }}</span></label></li>
                   @endif
       					@endforeach()
+            @else
+                  <label><br/><em>
+                    <a href="/medicine" alt="maak een medicijn aan">
+                    U heeft nog geen medicijnen aangemaakt<br />
+                    Voeg later alsnog een medicijn toe </a>.
+                  </em>
+                  </label>
+            @endif
               </ul>
             </div>
       				</div>
@@ -164,7 +177,7 @@
       				<hr>
             </div>
           </div> <!-- end second toggle -->
-<br />
+          <br />
               <div>
       					Vrije ruimte <em><small>(optioneel)</small></em><br />
       					<textarea name="comments" placeholder="" value="{{ old('comments') }}"></textarea>
