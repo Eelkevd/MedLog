@@ -50,7 +50,7 @@
       				<!-- places all illnesses from db -->
       				<div>
       					<h5>Ziektebeeld: *</h5>
-      					<select id="illnessOld" name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}">
+      					<select id="illnessOld" name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
@@ -59,9 +59,8 @@
                 <br>
                 <br>
                 <p>of</p>
-                <b> <button type="button" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button> </b>
+                <button type="button" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
       				</div>
-      				<hr>
               <hr>
       				<div>
       					Wat waren de symptomen?<br />
@@ -70,6 +69,8 @@
       						<input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
       						<label for="subscribeNews">{{ $symptom->symptom }}</label>
       					@endforeach()
+                <p>of</p>
+                <button type="button" data-toggle="modal" data-target="#symptom_pop">Nieuw symptoom</button>
       				</div>
       				<hr>
       				<div>
@@ -80,7 +81,7 @@
       				<hr>
       				<div>
       					Waar gebeurde het?<br />
-      					<input type="text" name="location" placeholder="locatie">
+      					<input type="text" name="location" placeholder="locatie" value="{{ old('location') }}">
       				</div>
       				<hr>
       				<div>
@@ -92,7 +93,7 @@
       				<div>
       					Startdatum klacht
       					<br>
-      					<input type="date" id='complaint_startdate' name="complaint_startdate">
+      					<input type="date" id='complaint_startdate' name="complaint_startdate" value="{{ old('complaint_startdate') }}">
       					<br>
       					<br>
       					Einddatum klacht
@@ -135,15 +136,12 @@
       				</div>
       			</form>
       		</div>
-          @include ('entries.create_illness')
           @include ('entries.create_symptom')
+          @include ('entries.create_illness')
+          
       	 </div>
 
 <script>
-
-  function() {
-    if document.getElementById('illnessOld') =  
-  }
 
 	// Function to determine current date
 	Date.prototype.toDateInputValue = (function() {

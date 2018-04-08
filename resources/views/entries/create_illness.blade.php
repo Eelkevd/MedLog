@@ -1,6 +1,6 @@
-	<!-- Toggles the illness form -->
+	<!-- illness form -->
 
-	<!-- Pop-up variant -->
+	<!-- Pop-up version -->
 <div class="panel-body">
 	<!-- <a  data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</a> -->
 <div class="modal fade" id="illness_pop" role="dialog">
@@ -25,7 +25,7 @@
 					<input type="submit" align="center" class="btnSub" value="ok">
 				</div>
 			</form>
-			
+
 			</div>
 			<div class="modal-footer">
 				<button type="button"  data-dismiss="modal">Close</button>
@@ -34,10 +34,9 @@
 	</div>
 </div>
 </div>
-<!-- 
 
-
-	<div class="card">
+<!-- Toggle version -->
+<!-- 	<div class="card">
 	<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_illness">Nieuw ziektebeeld</button>
 	<div class="collapse" class="card-body"  id="form_illness">
 		<div class="card-header">
