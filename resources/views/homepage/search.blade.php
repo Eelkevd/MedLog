@@ -50,10 +50,16 @@
                     <tr>
                       <td>
                         {{ $event -> title }} <br>
+                        @if ($event->event_time)
+                        {{ date('g:i', strtotime($event ->event_time))}} <br>
+                        @else
+                        Geen tijd geselecteerd <br>
+                        @endif
                         {{ date('d-m-Y', strtotime($event ->start_date ))}}
                       </td>
                     </tr>
                     @endforeach
+                    {{ $search->links() }}
                   </tbody>
                 </table>
                   </div>

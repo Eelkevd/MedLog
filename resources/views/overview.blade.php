@@ -70,6 +70,7 @@
                           </td>
                         </tr>
                         @endforeach
+                        {{ $entries->links() }}
                     </tbody>
                   </table>
                 </div>
