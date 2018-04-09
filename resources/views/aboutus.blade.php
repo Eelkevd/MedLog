@@ -23,8 +23,8 @@
                     <div class="card-body">
 
                     <b>Over MedLog</b><br>
-                    MedLog is jouw online medisch dagboek dat jou een overzicht geeft van jouw ziektes en bijbehorende symptomen, je een kalender geeft met jouw afspraken en medische geschiedenis en je een schema geeft van je medicijnen en hulpmiddelen. Geef je arts snel en gemakkelijk een uittreksel van je medische veranderingen en vergeet nooit meer cruciale medische informatie.<br><br>
-                    Het idee voor MedLog is ontstaan en ontwikkeld gedurende de eerste <a href="https://www.codegorilla.nl/">CodeGorilla</a> bootcamp in de gemeente Groningen. De MedLog website is geïnspireerd op de website en applicatie <a href="https://medapp.nu/">Medapp</a> en geeft gehoor aan de vraag van patiënten naar een toegankelijke website voor een zo breed mogelijke groep gebruikers met uiteenlopende ziektebeelden. Gedurende vier weken van de bootcamp in maart 2018 hebben we in een team van drie deelnemers een eerste werkende versie van de website gemaakt om wellicht later te perfectioneren en aan te bieden aan zorgorganisaties en patientenorganisaties in heel Nederland.
+                    MedLog is jouw online medisch dagboek dat jou een overzicht geeft van jouw ziektes en bijbehorende symptomen. In de kalender vind je jouw afspraken en medische geschiedenis. Geef je arts snel en gemakkelijk een uittreksel van je medische veranderingen en vergeet nooit meer belangrijke medische informatie.<br><br>
+                    Het idee voor MedLog is ontstaan en ontwikkeld gedurende de eerste <a href="https://www.codegorilla.nl/">CodeGorilla</a> bootcamp in de gemeente Groningen. De MedLog website is geïnspireerd op de website en applicatie <a href="https://medapp.nu/">Medapp</a> en geeft gehoor aan de vraag van patiënten naar een toegankelijke website voor een zo breed mogelijke groep gebruikers met uiteenlopende ziektebeelden.
                     <hr>
 
                     <b>Ons team</b>
@@ -36,7 +36,7 @@
                     <hr>
 
                     <b>Contact</b><br>
-                    Heb je een tip, verbetering of aanvulling voor onze website? Mail dan naar tip@medlog.nl met jouw persoonlijke gegevens en voorstellen en wellicht passen we je voorstel toe of nemen we contact met je op voor meer informatie. Heb je vragen over de website of wil je meer informatie over ons project, mail dan naar info@medlog.nl. Vermeld altijd het telefoonnummer waar je op te bereiken bent.<br><br>
+                    Heb je een tip, verbetering of aanvulling voor onze website? Mail dan jouw voorstel naar tip@medlog.nl met jouw persoonlijke gegevens en wellicht passen we je voorstel toe of nemen we contact met je op voor meer informatie. Heb je vragen over de website of wil je meer informatie over ons project, mail dan naar info@medlog.nl. <br><br>
 
                     Adres
                     <ul>
@@ -57,6 +57,10 @@
                     <hr>
                     <b>Privacy-statement</b><br>
                     Persoonlijke gegevens die je via de site hebt ingevoerd, worden opgenomen in een gegevensbestand. Wij proberen de persoonlijke gegevens optimaal te beschermen bij het opslaan van de gegevens in onze database, al is 100 procent veilige opslag van de persoonlijke gegevens helaas onhaalbaar. De persoonlijke gegevens worden voor geen andere doeleinden gebruikt dan de gebruiker een overzicht te geven van zijn of haar eigen ingevoerde informatie.
+
+                    <hr>
+                    <b>Met dank aan</b><br>
+                    We bedanken onze testgroep voor het uitvoerig testen van de website en het geven van feedback. We bedanken ook alle CodeGorilla coaches en in het bijzonder CodeGorilla coach Wouter voor het begeleiden van het project en voor zijn advies over de database structuur. Tenslotte bedanken we het handmodel op de foto boven de navigatiebalk voor zijn medewerking.
                     </div>
             </div>
         </div>

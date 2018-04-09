@@ -16,8 +16,8 @@
 			<form method="POST" action="/entries/create_illness" id="form_illness">
 				{{ csrf_field() }}
 			    <div>
-						<p>Uw medisch dagboek wordt geordend per ziektebeeld, bijvoorbeeld 'griep', 'ADHD', of 'hoge bloeddruk'.
-						Voeg uw eigen ziektebeelden toe.
+						<p>Uw medisch dagboek wordt geordend per ziektebeeld, bijvoorbeeld 'griep', 'ADHD' of 'epilepsie'.
+						Voeg uw eigen ziektebeeld toe.
 					</p>
 					<input type="text" class="form-control" name="illness" placeholder="naam ziektebeeld">
 					<input type="submit" align="center" class="btn btn-primary" value="Voeg toe">

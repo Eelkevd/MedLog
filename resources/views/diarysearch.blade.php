@@ -27,7 +27,7 @@
               @endif
 
           <div class="card-header">
-            <h5><center>Zoekfuncties</center></h5>
+            <h5><center>Zoek of sorteer uw dagboek</center></h5>
           </div>
           <div class="card-body">
             <!-- Search function to search in events -->
@@ -72,7 +72,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">
@@ -99,7 +99,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">
@@ -126,7 +126,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">

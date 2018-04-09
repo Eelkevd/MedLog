@@ -71,7 +71,7 @@
                    <input type="text" name="start_date" class="date form-control" placeholder="vanaf" required/>
                     </div>
                     <div class="col">
-                  <input type="text" name="end_date" class="date form-control" placeholder="totermet"required/>
+                  <input type="text" name="end_date" class="date form-control" placeholder="tot en met"required/>
                     </div>
                   </div>
                     <input type="submit" class="btn btn-primary" value="Download" /><br>

@@ -10,15 +10,15 @@
                   <div class="card">
                     <div class="card-body">
                       <strong>
-                      Een medisch dosier in eigen hand begint met MedLog.
+                      Een medisch dossier in eigen hand begint bij MedLog.
                     </strong><br />
                     <br />
                       <ul class="index">
-                        <li>Organiseer uw dagboek zoals u dat zelf wilt met je eigen ziektebeelden en symptomen.</li>
-                        <li>Houdt uw afspraken overzichtelijk bij in de kalender.</li>
+                        <li>Organiseer uw dagboek zoals u dat zelf wilt met uw eigen ziektebeelden en symptomen.</li>
+                        <li>Houd uw afspraken overzichtelijk bij in de kalender.</li>
                         <li>Voeg uw behandelaars en mantelzorgers toe als meelezers.</li>
                         <li>Sorteer en download uw dagboek als pdf.</li>
-                        <li>Kies uw eigen layoutsthema, bijvoorbeeld "Hoog Contrast".</li>
+                        <li>Kies uw eigen layout, bijvoorbeeld "Hoog Contrast".</li>
                       </ul>
                     </div>
                   </div>
@@ -217,7 +217,7 @@
 
                               <!-- Register form confirm password-->
                               <div class="form-group row">
-                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal Wachtwoord *') }}</label>
+                                  <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal wachtwoord *') }}</label>
 
                                   <div class="col-md-6">
                                       <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
