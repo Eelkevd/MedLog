@@ -46,7 +46,7 @@
 
                     <h2 class="about">Contact</h2>
                     <p>Heb je een tip, verbetering of aanvulling voor onze website?
-                      Mail dan jouw voorstel naar tip@medlog.nl met jouw persoonlijke gegevens
+                      Mail dan jouw voorstel naar <a href="mailto:tip@medlog.nl">tip@medlog.nl</a> met jouw persoonlijke gegevens
                       en wellicht passen we je voorstel toe of nemen we contact met je op voor meer
                       informatie. Heb je vragen over de website of wil je meer informatie over ons project,
                       mail dan naar <a href="mailto:info@medlog.nl">info@medlog.nl</a>.</p>

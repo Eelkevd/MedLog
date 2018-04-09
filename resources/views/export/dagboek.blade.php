@@ -47,12 +47,13 @@
          <td> {{$entry->illness}} </td>
          <td>
            @foreach($entry->symptomes as $symptom)
-              {{ $symptom->symptom }}<br />
+              {{ $symptom->symptom }},<br />
+
             @endforeach
           </td>
           <td>
             @foreach($entry->medicines as $medicine)
-               {{ $medicine->medicine }}<br/>
+               {{ $medicine->medicine }},<br/>
             @endforeach
            </td>
          <td class="int"> {{$entry->intensity}} </td>

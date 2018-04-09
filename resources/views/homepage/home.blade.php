@@ -67,10 +67,11 @@
             @endforeach
           @else
           <div class="card-body nopadding">
+            <a href="/home/create_event" alt="zet een nieuwe afspraak in de kalender">
             <h4><small class="text-muted">U heeft nog geen afspraken in uw kalender gezet.</small></h4>
-
           <ul class="list-unstyled mt-3 mb-4">
-            <li>Maak uw eerste afspraak aan</li>
+            <li>
+              Maak uw eerste afspraak aan</li></a>
           </ul>
           <hr>
         </div>
@@ -93,7 +94,7 @@
                 </small></h4>
               <ul class="list-unstyled mt-3 mb-4">
                 <li>{{ date('F d, Y', strtotime($entry-> timespan_date ))}}</li>
-                <br>  
+                <br>
               </ul>
               </a>
               <hr>
@@ -102,10 +103,10 @@
         @else
         <div class="card-body nopadding">
           <h4 class="card-title"><small class="text-muted">
-            U heeft nog geen gebeurtenissen in uw dagboek gezet.
+          <a href="/entries" alt="maak een nieuwe gebeurtenis">U heeft nog geen gebeurtenissen in uw dagboek gezet.
             </small></h4>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>Maak uw eerste gebeurtenis aan</li>
+              <li>Maak uw eerste gebeurtenis aan</li></a>
             </ul>
             <hr>
           </div>
