@@ -22,7 +22,7 @@ class ExportController extends Controller
     public function index()
     {
         $user = Auth::user();
-      	$illnesses = $user->diary->illnesses;
+      	$illnesses = $user->diary->illnesses->sortBy('illness', SORT_REGULAR, false);
         return view('export.export',  compact('illnesses'));
     }
 
