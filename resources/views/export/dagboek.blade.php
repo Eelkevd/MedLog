@@ -43,7 +43,7 @@
      <tbody>
        @foreach ($entries as $key => $entry)
        <tr>
-         <td> {{$entry->timespan_date}} {{$entry->timespan_time}}</td>
+         <td> {{ date('d-m-Y', strtotime($entry-> timespan_date ))}} {{$entry->timespan_time}}</td>
          <td> {{$entry->illness}} </td>
          <td>
            @foreach($entry->symptomes as $symptom)
