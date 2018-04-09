@@ -225,3 +225,7 @@ input[type="checkbox"]:disabled + .label-text:before{
         (min-device-pixel-ratio: 1.5) {
 
 }
+
+.fc-title {
+  color: white !important;
+}
