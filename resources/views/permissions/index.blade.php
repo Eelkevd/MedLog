@@ -52,16 +52,14 @@
                       @endif
                       @if(Session::has('dataU'))
                           <div class="alert alert-danger">
-                            {{ __('Uw lezer kan inloggen op MedLog met onderstaande gegevens.')}}
+                            {{ __('Uw meelezer is succesvol toegevoegd.') }}
                             <br />
-                          {{ __('U kunt onderstaande gegevens naar uw lezer sturen:')}}
-                          <br /><br />
-                            {{ Session::get('dataU') }}
+                            {{ __('De meelezer heeft van ons een email ontvangen om een wachtwoord aan te maken') }}
                             <br />
-                            {{ __('Emailadres: ') }}
+                            {{ __('Met het emailadres dat u heeft opgegeven kan hij/zij vervolgnes inloggen om uw medisch dagboek te zien.')}}
+                            <br /><br />
+                            {{ __('Emailadres meelezer: ') }}
                             {{ Session::get('dataM') }}
-                            <br />
-                            {{ Session::get('dataW') }}
                           </div>
                         @endif
                         @if(Session::has('danger'))
