@@ -63,6 +63,7 @@ class ExportController extends Controller
         $end_date = $request->input('end_date');
         $entries = $user->diary->entries()
           ->where('timespan_date', '>=' ,$from_date)
+          ->orderBy('timespan_date', 'ASC')
           ->with('symptomes')
           ->with('medicines')
           ->get();
