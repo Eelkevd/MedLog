@@ -73,7 +73,7 @@ class OverviewController extends Controller
       return view('diarysearch', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
    }
 
-   // function to make sort function for illnesses work
+   // function to make sort intensity function for illnesses work
    public function sortintensity(Request $request)
    {
       $user = Auth::user();
