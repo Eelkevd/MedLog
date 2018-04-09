@@ -48,7 +48,8 @@
                             <tbody>
 
                               <!-- Show entries -->
-                              @foreach($diary->entries as $entry)
+                              @foreach($diary2 as $entry)
+
                               <tr>
                                 <td width="110px"><b>{{ $entry->created_at }}</b></td>
                                 <td>{{ $entry->illness }}</td>
@@ -63,6 +64,7 @@
                                 <td>{{ $entry->comments }}</td>
                               </tr>
                               @endforeach
+                              {{ $diary2->links() }}
 
 
                         </table>
