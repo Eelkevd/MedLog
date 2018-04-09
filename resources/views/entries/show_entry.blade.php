@@ -44,7 +44,7 @@
                               <tr>
                                 <th colspan="2">
                                 <!-- Button to delete page of medicine -->
-                                <a href="{{ route('entries.delete', $entry->id) }}" onclick="return confirm('Weet je zeker dat je dit medicijn wilt verwijderen?')"><span class="oi oi-trash icon"></span></a>
+                                <a href="{{ route('entries.delete', $entry->id) }}" onclick="return confirm('Weet je zeker dat je deze dagboekpagina wilt verwijderen?')"><span class="oi oi-trash icon"></span></a>
                                 <a href="{{ route('entries.edit', $entry->id) }}" ><span class="oi oi-pencil icon"></span></a>
                               </th>
                               </tr>

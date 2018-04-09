@@ -69,7 +69,7 @@ class OverviewController extends Controller
       $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
       $illnesses = $user->diary->illnesses->sortByDesc('timespan_date');
       $entries = $user->diary->entries->sortByDesc('timespan_date');
-      return view('overview', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
+      return view('diarysearch', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
    }
 
    // function to make sort function for illnesses work
@@ -83,6 +83,6 @@ class OverviewController extends Controller
       $sortintensity = $user->diary->entries()->where('intensity', $sortword)->orderBy('timespan_date', 'DESC')->get();
       $illnesses = $user->diary->illnesses->sortByDesc('timespan_date');
       $entries = $user->diary->entries->sortByDesc('timespan_date');
-      return view('overview', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
+      return view('diarysearch', compact('sortillness', 'search', 'illnesses', 'sortintensity', 'entries'));
   }
 }

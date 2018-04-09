@@ -88,7 +88,7 @@
                               <!-- Show price -->
                               <tr>
                                   <td><b>{{ __('Prijs: ') }}</b></td>
-                                  <td>{{ $medicine->price }}</td>
+                                  <td>€{{ $medicine->price }}</td>
                               </tr>
 
                               <!-- Show comment -->

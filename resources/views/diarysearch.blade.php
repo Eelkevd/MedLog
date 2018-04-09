@@ -27,7 +27,7 @@
               @endif
 
           <div class="card-header">
-            <h5><center>Zoekfuncties</center></h5>
+            <h5><center>Zoek of sorteer uw dagboek</center></h5>
           </div>
           <div class="card-body">
             <!-- Search function to search in events -->

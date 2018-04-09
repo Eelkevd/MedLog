@@ -99,7 +99,7 @@
       					@endforeach
               </ul>
               </div>
-              <br /><small><em>Staat uw symptoom er niet bij? Voeg deze dan toe met onderstaande knop.</em></small>
+              <br /><small><em>Staat uw symptoom er niet bij? Voeg deze dan toe met de onderstaande knop.</em></small>
                 <button type="button" class="btn" data-toggle="modal" data-target="#symptom_pop">
                 Nieuw symptoom
                 <span class="oi oi-chevron-bottom"></span></button>
@@ -178,8 +178,8 @@
             @else
                   <label><br/><em>
                     <a href="/medicine" alt="maak een medicijn aan">
-                    U heeft nog geen medicijnen aangemaakt<br />
-                    Voeg later alsnog een medicijn toe </a>.
+                    U heeft nog geen medicijnen aangemaakt.<br />
+                    Voeg later alsnog een medicijn toe. </a>
                   </em>
                   </label>
             @endif
