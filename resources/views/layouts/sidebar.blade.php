@@ -39,7 +39,6 @@
                <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
                  <a class="dropdown-item" href="/overview">Overzicht</a>
                  <a href="/export" class="dropdown-item">Download</a>
-                 <a href="/permissions" class="dropdown-item">Meelezers</a>
                  <div class="dropdown-divider"></div>
                  <a href="/overview/search" class="dropdown-item">Zoek in uw dagboek</a>
                  <div class="dropdown-divider"></div>
@@ -54,6 +53,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a href="/home/mycalendar" class="dropdown-item">Kalender</a>
+                  <a href="/home/create_event" class="dropdown-item">Nieuwe Afspraak</a>
+                  <div class="dropdown-divider"></div>
                   <a href="/home/mycalendar/search" class="dropdown-item">Zoek in Kalender</a>
                 </div>
             </li>
@@ -73,6 +74,9 @@
                <div class="dropdown-menu" aria-labelledby="AboutDropdown">
                  <a class="dropdown-item" href="/account">Uw gegevens</a>
                  <a class="dropdown-item" href="/account/thema">Uw thema</a>
+                 <div class="dropdown-divider"></div>
+                 <a href="/permissions" class="dropdown-item">Meelezers</a>
+                 <div class="dropdown-divider"></div>
                  <a class="dropdown-item" href="/about">Over MedLog</a>
               </div>
             </li>
