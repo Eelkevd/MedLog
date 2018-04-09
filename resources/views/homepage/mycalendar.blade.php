@@ -102,31 +102,6 @@
         </div>
       </div>
     </div>
-<script>
-  function setTimeValues(x)
-{
-    var startHour = parseInt( $('#event_time').val());
-
-    //x = moment(x)
-    //            .set({ hour: parseInt(_startHour), minute: parseInt(_startMinutes), date: parseInt(_day), month: parseInt(_month), year: parseInt(_year) }) 
-    //            .toDate();
-
-    // y = moment(y)
-    //           .set({ hour: parseInt(_endHour), minute: parseInt(_endMinute), date: parseInt(_day), month: parseInt(_month), year: parseInt(_year) })
-    //           .toDate();
-
-
-
-    $("#calendar").fullCalendar('renderEvent',
-    {
-        title: $('#CustomerFullName :selected').text(),
-        description: $('#description').val(),
-        start: x,
-        allDay: false,  
-    },
-
-        true)
-</script>
 @endif
 @endauth
 
