@@ -59,6 +59,7 @@
                       </td>
                     </tr>
                     @endforeach
+                    {{ $search->links() }}
                   </tbody>
                 </table>
                   </div>

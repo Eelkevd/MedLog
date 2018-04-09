@@ -20,7 +20,7 @@ class MedicineController extends Controller
 	public function home()
 	{
 		$user = Auth::user();
-		$medicines = $user->diary->medicines;
+		$medicines = $user->diary->medicines()->paginate(5);
 		return view('medicine/medicine', compact('medicines'));
 	}
 
