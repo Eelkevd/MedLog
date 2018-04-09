@@ -48,8 +48,6 @@ class InviteEmail extends Notification
         return (new MailMessage)
                     ->line('Iemand heeft u uitgenodigd om zijn medisch dagboek te bekijken op Medlog!')
                     ->line('In deze email vindt u uw accountgegevens. U kunt inloggen met uw e-mail en het onderstaande wachtwoord.')
-                    // ->line('Gebruikersnaam: ')
-                    // ->line($this->user->username)
                     ->line('Wachtwoord: ')
                     ->line($this->user->password)
                     ->action('Ga naar de website', url('home'))
