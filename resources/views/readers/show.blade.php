@@ -4,7 +4,7 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
 
                     @guest
@@ -48,7 +48,8 @@
                             <tbody>
 
                               <!-- Show entries -->
-                              @foreach($diary->entries as $entry)
+                              @foreach($diary2 as $entry)
+
                               <tr>
                                 <td width="110px"><b>{{ $entry->created_at }}</b></td>
                                 <td>{{ $entry->illness }}</td>
@@ -63,6 +64,7 @@
                                 <td>{{ $entry->comments }}</td>
                               </tr>
                               @endforeach
+                              {{ $diary2->links() }}
 
 
                         </table>

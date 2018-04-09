@@ -49,7 +49,7 @@ nav ul{
 
 nav ul li a{
   padding: 10px 20px 10px 0;
-  font-size: 1em;
+  font-size: 1.0em;
   color: white !important;
 }
 
@@ -74,6 +74,23 @@ nav ul li a:focus, nav ul li a.dropdown-item{
   margin-top: 160px;
 }
 
+/* icons in buttons */
+.oi {
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  right: 1em;
+  top: 0.6em;
+}
+/* icons in forms (edit and delete) */
+.icon{
+  width: 2em;
+  height: 2em;
+  position: relative;
+  float: right;
+  margin-right: 15px;
+  margin-left: 5px;
+}
 
 p {
     font-family: 'Poppins', sans-serif;
@@ -89,6 +106,20 @@ a, a:hover, a:focus {
     transition: all 0.3s;
 }
 
+h2.about{
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-top: 2em;
+}
+
+h5{
+  font-size: 1.2em;
+}
+
+ul {
+  font-size: 1.1em;
+}
+
 ul.index{
   list-style-type: circle;
 }
@@ -99,7 +130,32 @@ ul.index{
 }
 
 textarea{
-  width: 80%;
+  width: 100%;
+}
+
+input, textarea, .form-control {
+  background-color: #d3d3d3;
+  outline: grey;
+  padding: 5px;
+}
+
+.wide{
+  width: 400px !important;
+}
+
+input:focus, textarea:focus, .form-control:focus {
+  background-color: white;
+  border-color: #purple;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 0, 255, 0.3);
+}
+
+.btn{
+  font-size: 1.1em;
+}
+
+label{
+  color: black !important;
+  width: 100%;
 }
 
 div.symptoms{
@@ -113,7 +169,6 @@ label{
 	position: relative;
 	cursor: pointer;
 	color: #666;
-
 }
 
 input[type="checkbox"], input[type="radio"]{
@@ -183,4 +238,8 @@ input[type="checkbox"]:disabled + .label-text:before{
         (-o-min-device-pixel-ratio: 3/2), only screen and
         (min-device-pixel-ratio: 1.5) {
 
+}
+
+.fc-title {
+  color: white !important;
 }

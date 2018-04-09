@@ -38,23 +38,25 @@
                     </div>
 
                     @else
+
         <div class="card">
-          <div class="card-header"><h5><center>Zoek in uw dagboek</center></h5>
+          <div class="card-header"><h5><center>Download uw dagboek</center></h5>
           </div>
           <br />
         </div>
+        <div class="card-body">
           <div class="card">
             <div class="card-header">Selecteer een ziektebeeld om te downloaden</div>
             <div class="card-body">
                 <form method="POST" action="/export/getillnessPDF">
                 {{ csrf_field() }}
-                <select name="illness" class="medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+                <select name="illness" class="form-control medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
       							<option selected></option>
       						@foreach($illnesses as $illness)
       							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
       						@endforeach()
       					</select>
-                <input type="submit" class="btn btn-sub" value="Download" /><br>
+                <input type="submit" class="btn btn-primary" value="Download" /><br>
                 </form>
             </div>
           </div><br>
@@ -64,9 +66,15 @@
               <div class="card-body">
                 <form method="POST" action="/export/getdatePDF">
                 {{ csrf_field() }}
-                <label>Van: </label><input type="text" name="start_date" class="date" required/><br>
-              </label>Tot: </label><input type="text" name="end_date" class="date" required/>
-                <input type="submit" class="btn btn-sub" value="Download" /><br>
+                  <div class="row">
+                    <div class="col">
+                   <input type="text" name="start_date" class="date form-control" placeholder="vanaf" required/>
+                    </div>
+                    <div class="col">
+                  <input type="text" name="end_date" class="date form-control" placeholder="tot en met"required/>
+                    </div>
+                  </div>
+                    <input type="submit" class="btn btn-primary" value="Download" /><br>
                 </form>
 
                 <script>
@@ -82,7 +90,7 @@
           <div class="card-body">
               <form method="POST" action="/export/getPDF">
               {{ csrf_field() }}
-              <input type="submit" class="btn btn-info btn-md" style="width:300px;" value="Download al je gegevens" /><br>
+              <input type="submit" class="btn btn-primary btn-md" style="width:300px;" value="Download al je gebeurtenissen" /><br>
               </form>
           </div>
         </div>

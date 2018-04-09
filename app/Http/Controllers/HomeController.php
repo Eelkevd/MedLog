@@ -22,6 +22,7 @@ class HomeController extends Controller
 
     public function index()
     {
+        $user = Auth::user();
         $keyword = "nope";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
 

@@ -42,7 +42,7 @@
                           <div class="card">
                             <div class="card-header">
                         <h5><center>Uw dagboek overzicht</center></h5></div>
-                        <!-- layouts buttons to choose a theme -->
+
                         <table class="table table-striped">
                             <tbody>
                             @foreach($entries as $entry)
@@ -51,7 +51,7 @@
                                 <b> {{ $entry->illness }}</b>
                                 <br />
                                 @if(!empty($entry->timespan_date))
-                                  Datum: {{ $entry -> timespan_date }}
+                                  Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
                                 @endif
                                 <br />
                               Symptoom:
@@ -70,6 +70,7 @@
                           </td>
                         </tr>
                         @endforeach
+                        {{ $entries->links() }}
                     </tbody>
                   </table>
                 </div>

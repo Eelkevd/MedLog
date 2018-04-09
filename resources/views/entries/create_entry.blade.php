@@ -37,36 +37,57 @@
             </div>
           </div>
           @else
-	         <!-- form for submitting medical entry page -->
-            @include ('entries.create_illness')
-              <br />
-            @include ('entries.create_symptom')
-                <br />
 
+	         <!-- form for submitting medical entry page -->
 	         <div class="card">
         		<div class="card-header">
         			<h5><center>Nieuwe gebeurtenis voor in uw <br />medisch dagboek</center></h5>
               <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
         		</div>
-
       		  <div class="card-body">
       			<form method="POST" action="/entries/create_entry">
       				{{ csrf_field() }}
       				<!-- places all illnesses from db -->
       				<div>
-      					<h5>Ziektebeeld: *</h5>
+      					<h5>Onder welk ziektebeeld valt de gebeurtenis? *</h5>
 
-      					 <select class="custom-select custom-select-lg mb-3 medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
-      							<option selected></option>
-      						@foreach($illnesses as $illness)
-      							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
-      						@endforeach()
-      					</select>
-      				</div>
-      				<hr>
-      				<div>
-      					Wat waren de symptomen?<br />
-      					<!-- places all symptomes from db -->
+                <div class="card-deck mb-4 text-center">
+                  <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                        Selecteer uw ziektebeeld
+                        <div class="card-body nopadding">
+                          @if (!$illnesses->isEmpty())
+                					 <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
+                							<option selected></option>
+                						@foreach($illnesses as $illness)
+                							<option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                						@endforeach()
+                					</select>
+                        @else
+                        <hr>
+                        <small><em>U heeft nog geen ziektebeeld aangemaakt.</em></small>
+                        @endif
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card mb-4 box-shadow">
+                    <div class="card-header">
+                      Of voeg eerst een nieuw ziektebeeld toe
+                    </div>
+                    <div class="card-body nopadding">
+                      <button type="button" class="btn" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
+            				</div>
+                  </div>
+                </div>
+              </div>
+
+              <hr>
+
+      				<div class="card-header">
+      					<h5>Welke symptomen had u?</h5>
+              </div>
+      					<!-- places all symptomes from db of that user -->
                 <div class="symptoms form-check">
                   <ul class="list-unstyled">
                 @foreach($symptomes as $symptom)
@@ -75,73 +96,115 @@
                     <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
       						<span class="label-text">{{ $symptom->symptom }}</span>
                 </label></li>
-      					@endforeach()
+      					@endforeach
               </ul>
               </div>
-      				</div>
+              <br /><small><em>Staat uw symptoom er niet bij? Voeg deze dan toe met de onderstaande knop.</em></small>
+                <button type="button" class="btn" data-toggle="modal" data-target="#symptom_pop">
+                Nieuw symptoom
+                </button>
+
       				<hr>
 
               <div>
                 Hoe erg was het?<br /><br />
-                <input type="range" name="intensity" min="1" value="5" max="9" class="slider" id="intensityRange">
+                <input type="range" name="intensity" min="1" value="{{ old('intensity', '5')}};"  max="9" class="slider" id="intensityRange">
                 <span id="intensityValue"></span>
               </div>
               <hr>
 
       				<div>
       					Wanneer gebeurde het?<br />
-      					<input type="date" id='timespan_date' name="timespan_date">
-      					<input type="time" name="timespan_time" value="now">
+      					<input type="date" id='timespan_date' name="timespan_date" value="{{ old('timespan_date') }}" >
+      					<input type="time" name="timespan_time" value="{{ old('timespan_time', 'now') }}">
       				</div>
       				<hr>
 
 
 
-              <!--- toggle vanaf hier -->
-      					<div>
-      					Startdatum klacht <em><small>(optioneel)</small></em>
-      					<br>
-      					<input type="date" id='complaint_startdate' name="complaint_startdate">
-      					<br>
-      					<br>
-      					Einddatum klacht <em><small>(optioneel)</small></em>
-      					<br>
-      					<input type="date" id='complaint_enddate' name="complaint_enddate">
-      					<br>
-      					<br>
-      					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
-      					<br>
-      					<input type="time" name="complaint_time">
-      				</div>
-      				<hr>
 
-              <div>
-                Waar gebeurde het? <em><small>(optioneel)</small></em><br />
-                <input type="text" name="location" placeholder="locatie">
+              <!-- Toggles the rest of the  form -->
+              <div class="card">
+                <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_optional_times">
+                  Klik hier om tijden toe te voegen
+                  <span class="oi oi-chevron-bottom"></span>
+                </button>
+                <div class="collapse" class="card-body"  id="form_optional_times">
+        					<div>
+        					Startdatum klacht <em><small>(optioneel)</small></em>
+        					<br>
+        					<input type="date" id='complaint_startdate' name="complaint_startdate" value="{{ old('complaint-startdate') }}">
+        					<br>
+        					<br>
+        					Einddatum klacht <em><small>(optioneel)</small></em>
+        					<br>
+        					<input type="date" id='complaint_enddate' name="complaint_enddate" value="{{ old('complaint-enddate') }}">
+        					<br>
+        					<br>
+        					Indien u een aanval had, hoe lang duurde deze? <em><small>(optioneel)</small></em>
+        					<br>
+        					<input type="time" name="complaint_time" value="{{ old('complaint-time') }}">
+        				</div>
+      				  <hr>
               </div>
-              <hr>
+            </div> <!-- end first toggle> -->
+            <br />
+
+            <div class="card">
+              <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_optional">
+                Klik hier om meer details toe te voegen
+                <span class="oi oi-chevron-bottom"></span>
+              </button>
+              <div class="collapse" class="card-body"  id="form_optional">
+                <div><br />
+                  Waar gebeurde het? <em><small>(optioneel)</small></em><br />
+                  <input type="text" class="form-control" name="location" placeholder="locatie" value="{{ old('location') }}">
+                </div>
+                <hr>
 
       				<div>
       					Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
+
+              @if (!$medicines->isEmpty())
+              <div class="symptoms form-check">
+                  <ul class="list-unstyled">
       					@foreach($medicines as $medicine)
+                  @if($medicine->deleted != 'removed')
+                  <li><label>
       						<input type="checkbox" name="medicine[]" value="{{ $medicine->id }}" enctype="multipart/form-data">
-      						<label for="subscribeNews">{{ $medicine->medicine }}</label>
+                  <span class="label-text">{{ $medicine->medicine }}</span></label></li>
+                  @endif
       					@endforeach()
-      				</div>
+            @else
+                  <label><br/><em>
+                    <a href="/medicine" alt="maak een medicijn aan">
+                    U heeft nog geen medicijnen aangemaakt.<br />
+                    Voeg later alsnog een medicijn toe. </a>
+                  </em>
+                  </label>
+            @endif
+              </ul>
+            </div>
+      		
       				<hr>
       				<div>
       					Wat waren de weersomstandigheden? <em><small>(optioneel)</small></em>
-      					<textarea name="weather" placeholder="warm / koud"></textarea>
+      					<textarea name="weather" placeholder="warm / koud" value="{{ old('weather') }}"></textarea>
       				</div>
       				<hr>
       				<div>
       					Wat zagen anderen? <em><small>(optioneel)</small></em>
-      					<textarea name="witness_report" placeholder="..."></textarea>
+      					<textarea name="witness_report" placeholder="..." value="{{ old('witness_report') }}"></textarea>
       				</div>
       				<hr>
-      				<div>
+            </div>
+          </div> <!-- end second toggle -->
+
+
+          <br />
+              <div>
       					Vrije ruimte <em><small>(optioneel)</small></em><br />
-      					<textarea name="comments" placeholder=""></textarea>
+      					<textarea name="comments" placeholder="" value="{{ old('comments') }}"></textarea>
       				</div>
       				<div>
                 <br />
@@ -149,6 +212,9 @@
       				</div>
       			</form>
       		</div>
+          @include ('entries.create_symptom')
+          @include ('entries.create_illness')
+
       	 </div>
 
 <script>
@@ -226,5 +292,5 @@
 </div>
 </div>
 </div>
-</div>
+
 @endsection

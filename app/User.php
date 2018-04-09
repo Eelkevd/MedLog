@@ -11,6 +11,7 @@ use App\Notifications\VerifyEmail;
 use App\Notifications\InviteEmail;
 use App\Notifications\MailResetPasswordToken;
 use Auth;
+use Mail;
 
 class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authenticatable
 {
@@ -23,8 +24,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      * @var array
      */
     protected $fillable = [
-        'username', 'firstname', 'middlename', 'lastname', 'bsn', 'street',
-        'housenumber', 'housenumbersuffix', 'town', 'postalcode', 'email', 'password', 'verifyToken',
+        'username', 'firstname', 'middlename', 'lastname', 'email', 'password', 'verifyToken',
     ];
 
     /**
@@ -40,11 +40,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
         'firstname',
         'middlename',
         'lastname',
-        'street',
-        'housenumber',
-        'housenumbersuffix',
-        'town',
-        'postalcode',
     ];
 
     /**
@@ -74,6 +69,25 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
 
       $this->notify(new InviteEmail($this));
 
+    }
+
+    // Make a reset password token and a password for a new user = reader
+    // send new user = reader a welcome email with
+    public static function generatePassword()
+    {
+      // Generate random string and encrypt it.
+      return bcrypt(str_random(35));
+    }
+    public static function sendWelcomeEmail($user)
+    {
+      // Generate a new reset password token
+      $token = app('auth.password.broker')->createToken($user);
+
+      // Send email
+      Mail::send('mails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
+        $m->from('info@medlog.com', 'MedLog');
+        $m->to($user->email)->subject('Welcome to MedLog');
+      });
     }
 
     /**

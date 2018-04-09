@@ -30,7 +30,7 @@ class EventController extends Controller
                 $value->title,
                 true,
                 new \DateTime($value->start_date),
-                new \DateTime($value->start_date.' +1 day')
+                new \DateTime($value->end_date.' +1 day')
             );
           }
        }
@@ -62,7 +62,7 @@ class EventController extends Controller
         $data = Event::all();
         if($data->count()){
           foreach ($data as $key => $value) {
-            $events[] = Calendar::event(
+            $events[] = Calendar::event(    
                 $value->title,
                 $value->description,
                 new \DateTime($value->start_date),
@@ -79,7 +79,7 @@ class EventController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('search');
-        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
+        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->paginate(5);;
         return view('homepage.search', compact('search'));
    }
 }

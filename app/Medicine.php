@@ -9,12 +9,12 @@ class Medicine extends Model
 	protected $fillable = [
 		'entry_id',
 		'medicine_id',
-		'diary_id', 
-		'medicine', 
-		'dose', 
-		'purpose', 
-		'side_effect', 
-		'expire_date', 
+		'diary_id',
+		'medicine',
+		'dose',
+		'purpose',
+		'side_effect',
+		'deleted', 
 		'price',
 		'comment'
 	];

@@ -48,8 +48,8 @@
                     			{{ csrf_field() }}
                     		    <div>
                     				<p>
-                    				U kunt iemand tijdelijk leesrechten geven over uw medisch dagboek. Zo kunt u uw dokter bijvoorbeeld
-                             laten meekijken, of uw mantelzorger.<br />
+                    				U kunt iemand tijdelijk leesrechten geven over uw medisch dagboek. Zo kunt u uw dokter of uw mantelzorger bijvoorbeeld
+                             laten meekijken.<br />
                              Geef het emailadres op van de persoon die u als lezer wilt toevoegen.
                     				</p>
                     				<input type="text" name="email_reader" placeholder="emailadres van uw lezer" style="width:400px;">

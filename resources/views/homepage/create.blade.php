@@ -42,17 +42,21 @@
                 <div class="card-header">
                   <h4>Maak afspraak</h4> <p>Velden met een sterretje (*) zijn verplicht</p></div>
                     <div class="card-body">
-                        <form action= "/home/store_event" method="post">
-                        {{ csrf_field() }}
-                        Afspraak:  *
-                        <br />
-                        <input type="text" name="title" required/>
-                        <br /><br />
-                        Wanneer:   *
-                        <br />
-                        <input type="text" name="start_date" class="date" required/>
-                        <input type="submit" value="Opslaan" /><br>
-                        </form>
+                      <form action= "/home/store_event" method="post">
+          {{ csrf_field() }}
+          Afspraak:  *
+          <br />
+          <textarea class="form-control" name="title" required/></textarea>
+          <br />
+          Datum:   *
+          <br />
+          <input type="text" name="start_date" class="date" required/>
+          <br />
+          Tijd:
+          <br />
+          <input type="time" name="event_time" id="event_time" class="time"><br><br>
+          <input type="submit" class="btn btn-primary" value="Opslaan" /><br>
+          </form>
 
                         <script>
                             $('.date').datepicker({

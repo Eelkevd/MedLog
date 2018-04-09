@@ -2,7 +2,7 @@
    <!-- Header -->
   <div class="title_app">
     <a href="{{route('homepage')}}" class="navbar-brand">
-      <img src="{{asset('img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedLog. Also return home button">
+      <img src="{{asset('/img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedLog. Also return home button">
       {{ config('app.subtitle') }}
     </a>
   </div>
@@ -15,7 +15,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav" style="position: absolute; bottom:0; right:0px;">
   @guest
-      <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login or Register') }}</a></li>
+      <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login of registreer') }}</a></li>
       <li class="nav-item"><a class="nav-link" href="/about">Over MedLog</a></li>
     </ul>
   @endguest
@@ -39,10 +39,12 @@
                <div class="dropdown-menu" aria-labelledby="navbar2Dropdown">
                  <a class="dropdown-item" href="/overview">Overzicht</a>
                  <a href="/export" class="dropdown-item">Download</a>
-                 <a href="/permissions" class="dropdown-item">Meelezers</a>
                  <div class="dropdown-divider"></div>
                  <a href="/overview/search" class="dropdown-item">Zoek in uw dagboek</a>
+                 <div class="dropdown-divider"></div>
                  <a href="/entries" class="dropdown-item">Nieuwe gebeurtenis</a>
+
+
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -51,6 +53,8 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                   <a href="/home/mycalendar" class="dropdown-item">Kalender</a>
+                  <a href="/home/create_event" class="dropdown-item">Nieuwe Afspraak</a>
+                  <div class="dropdown-divider"></div>
                   <a href="/home/mycalendar/search" class="dropdown-item">Zoek in Kalender</a>
                 </div>
             </li>
@@ -70,6 +74,9 @@
                <div class="dropdown-menu" aria-labelledby="AboutDropdown">
                  <a class="dropdown-item" href="/account">Uw gegevens</a>
                  <a class="dropdown-item" href="/account/thema">Uw thema</a>
+                 <div class="dropdown-divider"></div>
+                 <a href="/permissions" class="dropdown-item">Meelezers</a>
+                 <div class="dropdown-divider"></div>
                  <a class="dropdown-item" href="/about">Over MedLog</a>
               </div>
             </li>

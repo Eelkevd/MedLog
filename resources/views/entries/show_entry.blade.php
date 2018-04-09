@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dagboek pagina</div>
+                <div class="card-header">
                     @guest
                     <!-- Show not logged in screen -->
                     <div class="col-md-6">
@@ -35,12 +35,18 @@
                       </div>
 
                       @else
-                      <div class="card-body">
+
+
+                        <div class="card-header"><h5><center>Overzicht van uw gebeurtenis</center></h5></div>
+                        <div class="card-body">
                         <table class="table table-striped">
                             <thead>
                               <tr>
-                                <th></th>
-                                <th></th>
+                                <th colspan="2">
+                                <!-- Button to delete page of medicine -->
+                                <a href="{{ route('entries.delete', $entry->id) }}" onclick="return confirm('Weet je zeker dat je deze dagboekpagina wilt verwijderen?')"><span class="oi oi-trash icon"></span></a>
+                                <a href="{{ route('entries.edit', $entry->id) }}" ><span class="oi oi-pencil icon"></span></a>
+                              </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -54,7 +60,7 @@
                               <!-- Show date -->
                               <tr>
                                 <td><b>{{ __('Datum: ') }}</b></td>
-                                <td>{{ $entry->timespan_date }}</td>
+                                <td>{{ date('d-m-Y', strtotime($entry-> timespan_date ))}}</td>
                               </tr>
 
                               <!-- Show time  -->
@@ -93,13 +99,13 @@
                               <!-- Show klachtsduur -->
                               <tr>
                                   <td><b>{{ __('Klachtsduur: ') }}</b></td>
-                                  <td>{{ $entry-> complaint_time}}</td>
+                                  <td>{{ $days}} dagen</td>
                               </tr>
 
-                              <!-- Show hersteltijd -->
+                              <!-- Show length attack -->
                               <tr>
-                                  <td><b>{{ __('Hersteltijd: ') }}</b></td>
-                                  <td>{{ $entry-> recoverytime_time}}</td>
+                                  <td><b>{{ __('Duur van de aanval: ') }}</b></td>
+                                  <td>{{ $entry-> complaint_time}}</td>
                               </tr>
 
                               <!-- Show medicatie -->
@@ -129,14 +135,8 @@
                                   <td>{{ $entry-> comments}}</td>
                               </tr>
 
-
-
                         </table>
-
-                        <!-- Button to go to edit page of users account data-->
-                        <div class="form-group row mb-0">
-                            <em><a href="{{ route('entries.edit', $entry->id) }}">Pas pagina aan</a></em>
-                        </div>
+                      </div>
                 </div>
                 @endif
                 @endauth

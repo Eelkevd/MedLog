@@ -12,6 +12,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
 
+    <!-- Open Icons -->
+    <link href="{{ asset('open-iconic/font/css/open-iconic-bootstrap.css') }}" rel="stylesheet">
+
     <!-- Our Custom CSS -->
     <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
 
@@ -114,4 +117,5 @@
   @endif
 @endif
   </body>
+  @extends ('layouts.footer')
 </html>

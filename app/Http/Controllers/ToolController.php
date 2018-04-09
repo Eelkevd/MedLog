@@ -20,8 +20,19 @@ class ToolController extends Controller
 	public function home()
 	{
 		$user = Auth::user();
-		$tools = $user->diary->tools;
+		$tools = $user->diary->tools()->paginate(5);
 		return view('tool/tool', compact('tools'));
+	}
+
+	// Function to delete a medicine
+	public function delete($id)
+	{
+		if (Auth::check())
+		{
+			Tool::find($id)->diaries()->detach();
+			Tool::where('id', $id)->delete();
+		}
+		return redirect()->action('ToolController@home');
 	}
 
 	// Function to go to the create new tool page
@@ -45,11 +56,11 @@ class ToolController extends Controller
 
 			// add the tool into the tools entries
 			$tool = Tool::create(request([
-				'tool', 
-				'purpose', 
-				'origin', 
+				'tool',
+				'purpose',
+				'origin',
 				'return_date',
-				'price', 
+				'price',
 				'comment'
 			]));
 			$tool->diaries()->attach($request->diary_id);
@@ -63,5 +74,25 @@ class ToolController extends Controller
 	{
 		$tool= Tool::findOrFail($id);
     	return view('tool.show_tool', compact('tool'));
+	}
+
+	public function edittool($id)
+	{
+		$tool= Tool::findOrFail($id);
+		return view('tool/edit_tool', compact( 'tool', 'id'));
+	}
+
+	public function store_update (Request $request)
+	{
+		// Check if the user is logged in
+		if (Auth::check())
+		{
+			// find the corresponding diary
+			$id = $request->id;
+			$tool = Tool::findOrFail($id);
+			$toolnumber = $tool->id;
+			$updated_tool = Tool::where('id', $id)->update(request(['tool', 'purpose', 'origin', 'return_date', 'price', 'comment']));
+		}
+			return redirect()->action('ToolController@home');
 	}
 }
