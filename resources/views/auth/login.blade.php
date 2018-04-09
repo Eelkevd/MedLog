@@ -98,10 +98,6 @@
                         Registreer
                       </div>
                       <div class="card-body">
-                        Kies 'gebruiker' om een eigen dagboek aan te maken.
-                          <br />
-                          Kies 'hulpverlener' om een dagboek in te zien.
-                          <br />
                           <em>{{ __('Velden met een * zijn verplicht') }}</em>
                         </div>
                         <div class="card-body">
@@ -110,10 +106,10 @@
 
                               <!-- Register form choose role -->
                               <div class="form-group row">
-                                  <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Ik ben een: ') }}</label>
+                                  <!-- <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Ik ben een: ') }}</label> -->
 
-                                  <div class="col-md-6">
-                                    <select id="role" type="text" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" value="{{ old('role') }}" required>
+                                  <!-- <div class="col-md-6">
+                                    <select id="role" type="text" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" value="{{ old('role') }}">
                                       @foreach($roles as $id=>$role)
                                         <option value="{{ $id }}">{{ $role }} </option>
                                       @endforeach
@@ -124,7 +120,7 @@
                                               <strong>{{ $errors->first('role') }}</strong>
                                           </span>
                                       @endif
-                                  </div>
+                                  </div> -->
                               </div>
 
                               <!-- Register form firstname-->
