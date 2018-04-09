@@ -2,10 +2,12 @@
    <!-- Header -->
   <div class="title_app">
     <a href="{{route('homepage')}}" class="navbar-brand">
-      <img src="{{asset('img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedLog. Also return home button">
+      <img src="{{asset('/img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedLog. Also return home button">
       {{ config('app.subtitle') }}
     </a>
   </div>
+
+height="200" width="100"
 
   <!-- responsive button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
