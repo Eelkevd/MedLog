@@ -46,8 +46,8 @@
       </div>
 
 
-<hr>
-<!-- Toggles form to insert new appointment---->
+
+<!-- Toggles form to insert new appointment-->
 <div class="card">
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_event">
     Klik hier om een afspraak toe te voegen
@@ -67,6 +67,10 @@
             Datum:   *
             <br />
             <input type="text" name="start_date" class="date" required/>
+            <br />
+            Tijd:
+            <br />
+            <input type="time" name="event_time" id="event_time" class="time"><br><br>
             <input type="submit" class="btn btn-primary" value="Opslaan" /><br>
             </form>
 
@@ -98,7 +102,31 @@
         </div>
       </div>
     </div>
+<script>
+  function setTimeValues(x)
+{
+    var startHour = parseInt( $('#event_time').val());
 
+    //x = moment(x)
+    //            .set({ hour: parseInt(_startHour), minute: parseInt(_startMinutes), date: parseInt(_day), month: parseInt(_month), year: parseInt(_year) }) 
+    //            .toDate();
+
+    // y = moment(y)
+    //           .set({ hour: parseInt(_endHour), minute: parseInt(_endMinute), date: parseInt(_day), month: parseInt(_month), year: parseInt(_year) })
+    //           .toDate();
+
+
+
+    $("#calendar").fullCalendar('renderEvent',
+    {
+        title: $('#CustomerFullName :selected').text(),
+        description: $('#description').val(),
+        start: x,
+        allDay: false,  
+    },
+
+        true)
+</script>
 @endif
 @endauth
 
