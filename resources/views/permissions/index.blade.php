@@ -52,8 +52,6 @@
                       @endif
                       @if(Session::has('dataU'))
                           <div class="alert alert-danger">
-                            {{ __('Uw meelezer is succesvol toegevoegd.') }}
-                            <br />
                             {{ __('De meelezer heeft van ons een email ontvangen om een wachtwoord aan te maken') }}
                             <br />
                             {{ __('Met het emailadres dat u heeft opgegeven kan hij/zij vervolgnes inloggen om uw medisch dagboek te zien.')}}
