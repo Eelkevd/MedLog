@@ -150,8 +150,11 @@ class PermissionsController extends Controller
           'email',
           'password'
         ]));
+
           // Send an email with a verification link which redirects using the token
-        $reader->sendInviteMailNewUser();
+        //$reader->sendInviteMailNewUser();
+        //generate a password for the new users
+        User::sendWelcomeEmail($reader);
 
           return redirect ('permissions')
             ->with('succes', 'Inlog voor lezer aangemaakt en verzonden')

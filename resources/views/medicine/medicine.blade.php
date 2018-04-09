@@ -98,7 +98,7 @@
         		<div class="card-header">
         			<h5>Uw huidige medicatie</h5>
         		</div>
-
+            {{ $medicines->links() }}
         		<div class="card-body">
         			<!-- places all medicines from db -->
         			@foreach($medicines as $medicine)
@@ -107,9 +107,10 @@
         				<hr>
                 @endif
         			@endforeach()
+              
         		</div>
         	</div>
-
+          
           @endif
           @endauth
         </div>

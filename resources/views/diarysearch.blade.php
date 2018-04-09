@@ -27,7 +27,7 @@
               @endif
 
           <div class="card-header">
-            <h5><center>Zoekfuncties</center></h5>
+            <h5><center>Zoek of sorteer uw dagboek</center></h5>
           </div>
           <div class="card-body">
             <!-- Search function to search in events -->
@@ -52,9 +52,15 @@
             <form method="GET" id="intensityform" action="{{ action('OverviewController@sortintensity') }}" >
             <select form= 'intensityform' name="intensity" class="sort_intensity form-control">
                 <option value="" selected disabled hidden>Kies intensiteit</option>
-              @foreach($entries as $entry)
-                <option value="{{ $entry->intensity }}">{{ $entry->intensity }}</option>
-              @endforeach()
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>    
             </select>
             <button type="submit" class="btn btn-primary">Sorteer je dagboek op intensiteit</button>
             </form>
@@ -72,7 +78,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">
@@ -99,7 +105,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">
@@ -126,7 +132,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">

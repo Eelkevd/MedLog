@@ -117,4 +117,5 @@
   @endif
 @endif
   </body>
+  @extends ('layouts.footer')
 </html>

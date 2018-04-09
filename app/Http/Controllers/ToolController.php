@@ -20,7 +20,7 @@ class ToolController extends Controller
 	public function home()
 	{
 		$user = Auth::user();
-		$tools = $user->diary->tools;
+		$tools = $user->diary->tools()->paginate(5);
 		return view('tool/tool', compact('tools'));
 	}
 

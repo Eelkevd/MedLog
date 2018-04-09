@@ -17,7 +17,7 @@
 					<p>
 						Maak hier symptomen aan voor uw medisch dagboek.
 						Als u als ziektebeeld cholesterol heeft, zult u bijvoorbeeld de symptomen
-'hoge bloeddruk', 'ademhalingsproblemen', en 'darmkklachten' willen aanmaken.
+'hoge bloeddruk', 'ademhalingsproblemen' en 'darmklachten' willen aanmaken.
 					</p>
 					<input type="text" class="form-control" name="symptom" placeholder="naam symptoom">
 					<input type="submit" align="center" class="btn btn-primary" value="Voeg toe">

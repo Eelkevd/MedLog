@@ -117,12 +117,14 @@
 									<div class="card-header">
 									<h5>Uw huidige hulpmiddellen</h5>
 								</div>
+								{{ $tools->links() }}	
 								<div class="card-body">
 									<!-- places all tools from db -->
 									@foreach($tools as $tool)
 										<a href="{{ route('tool.show', $tool->id) }}">{{ $tool -> tool }}</a>
 										<hr>
 									@endforeach()
+
 								</div>
 							</div>
 							<br />

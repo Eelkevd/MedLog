@@ -94,7 +94,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/tool/{id}/show', 'ToolController@show')->name('tool.show');
   Route::get('/tool{id}/delete', 'ToolController@delete')->name('tool.delete');
   Route::get('/tool{id}/edit', 'ToolController@edittool')->name('tool.edit');
-  Route::post('/tool{id}/edit_tool', 'ToolController@store_update');
+  Route::post('/tool/{id}/edit_tool', 'ToolController@store_update');
 
 });
 

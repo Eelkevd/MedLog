@@ -8,7 +8,7 @@ use App\User;
 
 class Event extends Model
 {
-    protected $fillable = ['user_id', 'entry_id', 'title', 'description', 'start_date', 'end_date'];
+    protected $fillable = ['user_id', 'entry_id', 'title', 'description', 'event_time', 'start_date', 'end_date'];
 
     public static function appointments()
     {
@@ -23,7 +23,7 @@ class Event extends Model
           ))
           ->whereNull('entry_id')
           ->take(3)
-          ->orderBy('start_date', 'DESC')
+          ->orderBy('start_date', 'ASC')
           ->get();
         }
         else

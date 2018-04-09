@@ -46,8 +46,8 @@
       </div>
 
 
-<hr>
-<!-- Toggles form to insert new appointment---->
+
+<!-- Toggles form to insert new appointment-->
 <div class="card">
   <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_event">
     Klik hier om een afspraak toe te voegen
@@ -67,6 +67,10 @@
             Datum:   *
             <br />
             <input type="text" name="start_date" class="date" required/>
+            <br />
+            Tijd:
+            <br />
+            <input type="time" name="event_time" id="event_time" class="time"><br><br>
             <input type="submit" class="btn btn-primary" value="Opslaan" /><br>
             </form>
 
@@ -98,7 +102,6 @@
         </div>
       </div>
     </div>
-
 @endif
 @endauth
 

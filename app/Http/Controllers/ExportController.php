@@ -22,7 +22,7 @@ class ExportController extends Controller
     public function index()
     {
         $user = Auth::user();
-      	$illnesses = $user->diary->illnesses;
+      	$illnesses = $user->diary->illnesses->sortBy('illness', SORT_REGULAR, false);
         return view('export.export',  compact('illnesses'));
     }
 
@@ -31,7 +31,8 @@ class ExportController extends Controller
     {
         $user = Auth::user();
         $entries = $user->diary->entries()
-          ->orderBy('timespan_date', 'DESC')
+          ->orderBy('timespan_date', 'ASC')
+          ->orderBy('timespan_time', 'ASC')
           ->with('symptomes')
           ->with('medicines')
           ->get();
@@ -47,7 +48,8 @@ class ExportController extends Controller
         $illness_name = $request->input('illness');
         $entries = $user->diary->entries()
           ->where('illness', $illness_name)
-          ->orderBy('timespan_date', 'DESC')
+          ->orderBy('timespan_date', 'ASC')
+          ->orderBy('timespan_time', 'ASC')
           ->with('symptomes')
           ->with('medicines')
           ->get();
@@ -63,6 +65,8 @@ class ExportController extends Controller
         $end_date = $request->input('end_date');
         $entries = $user->diary->entries()
           ->where('timespan_date', '>=' ,$from_date)
+          ->orderBy('timespan_date', 'ASC')
+          ->orderBy('timespan_time', 'ASC')
           ->with('symptomes')
           ->with('medicines')
           ->get();

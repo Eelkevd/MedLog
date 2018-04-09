@@ -23,7 +23,7 @@
             <div class="alert alert-danger">
               <br /><strong>
                 Hartelijk dank voor uw registratie!<br />
-                Voor u verder kunt gaan, moet u uw email verificeren. <br />
+                Voor u verder kunt gaan, moet u uw email verifiëren. <br />
                 Bekijk uw email om uw account te activeren.
                     </strong>
             </div>
@@ -38,10 +38,10 @@
 
       </div>
 
-      <h5><center>Welcome bij MedLog, uw persoonlijk medisch dagboek!</center></h5>
-      Crieeër uw eigen medisch dosier. Begin door een nieuwe gebeurtenis aan te maken.
+      <h5><center>Welkom bij MedLog, uw persoonlijk medisch dagboek!</center></h5>
+      Creëer uw eigen medisch dossier. Begin door een nieuwe gebeurtenis aan te maken.
       Voeg onder andere een ziektebeeld en symptomen toe.
-      U kunt vervolgens meelezers aanmaken en u kunt uw gebeurtenissen downloaden als pdf.
+      U kunt vervolgens meelezers toevoegen en u kunt uw dagboek downloaden als pdf.
       Zo heeft u uw medische geschiedenis altijd bij de hand!
       <br /><br />
 
@@ -54,8 +54,13 @@
             @foreach($events as $event)
             <div class="card-body nopadding">
               <h4><small class="text-muted">{{ $event -> title }}</small></h4>
-              <ul class="list-unstyled">
-                <li>{{ date('d-m-Y', strtotime($event ->start_date ))}}</li>
+              <ul class="list-unstyled mt-3 mb-4">
+                <li>{{ date('F d, Y', strtotime($event ->start_date ))}}</li>
+                @if ($event->event_time)
+                        <li>{{ date('g:i', strtotime($event ->event_time))}}</li>
+                        @else
+                        Geen tijd geselecteerd <br>
+                @endif
               </ul>
               <hr>
             </div>
@@ -87,7 +92,8 @@
 
                 </small></h4>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>{{ date('d-m-Y', strtotime($entry-> timespan_date ))}}</li>
+                <li>{{ date('F d, Y', strtotime($entry-> timespan_date ))}}</li>
+                <br>  
               </ul>
               </a>
               <hr>
@@ -112,8 +118,8 @@
                   </div>
                   <div class="card-body">
                     <form method="GET" action="{{ action('EventController@search') }}" >
-                        <input type="text" name="search" placeholder="Zoekopdracht"><br>
-                        <button type="submit">zoek op afspraak of ziektebeeld</button>
+                        <input type="text" name="search" placeholder="Zoekopdracht" class="form-control">
+                        <button type="submit" class="btn btn-primary">zoek op afspraak of ziektebeeld</button>
                     </form><br>
 
                   </div>
