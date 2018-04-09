@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Medicijn pagina</div>
+                <div class="card-header">
 
                 <!-- check to see if user of page is guest, reader, user or validated user.
                       Only let validated user throug -->
@@ -40,11 +40,17 @@
                         @else
 
                       <div class="card-body">
+                        <div class="card-header">
+                        <h5><center>Medicijn pagina</center></h5>
+                        </div>
                         <table class="table table-striped">
                             <thead>
                               <tr>
-                                <th></th>
-                                <th></th>
+                                <th colspan="2">
+                                <!-- Button to delete page of medicine -->
+                                <a href="{{ route('medicine.delete', $medicine->id) }}" onclick="return confirm('Weet je zeker dat je dit medicijn wilt verwijderen?')" ><span class="oi oi-trash icon"></span></a>
+                                <a href="{{ route('medicine.edit', $medicine->id) }}" ><span class="oi oi-pencil icon"></span></a>
+                              </th>
                               </tr>
                             </thead>
                             <tbody>
@@ -76,32 +82,28 @@
                               <!-- Show side effects -->
                               <tr>
                                 <td><b>{{ __('Bijwerkingen: ') }}</b></td>
-                                <td>{{ $medicine-> side_effect}}</td>
-                              </tr>
-
-                              <!-- Show expire date -->
-                              <tr>
-                                  <td><b>{{ __('Houdbaarheidsdatum: ') }}</b></td>
-                                  <td>{{ $medicine-> expire_date }}</td>
+                                <td>{{ $medicine->side_effect}}</td>
                               </tr>
 
                               <!-- Show price -->
                               <tr>
                                   <td><b>{{ __('Prijs: ') }}</b></td>
-                                  <td>{{ $medicine-> price }}</td>
+                                  <td>{{ $medicine->price }}</td>
                               </tr>
 
                               <!-- Show comment -->
                               <tr>
                                   <td><b>{{ __('Overig: ') }}</b></td>
-                                  <td>{{ $medicine-> comment }}</td>
+                                  <td>{{ $medicine->comment }}</td>
                               </tr>
                         </table>
                 </div>
+
                 @endif
                 @endauth
             </div>
         </div>
     </div>
+</div>
 </div>
 @endsection

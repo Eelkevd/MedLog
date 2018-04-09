@@ -65,13 +65,7 @@
 			<hr>
 			<div>
 				<p>Mogelijke bijwerkingen:</p>
-				<textarea name="side_effects" placeholder="Vul hier de mogelijke bijwerkingen in"></textarea>
-			</div>
-			<hr>
-			<div>
-				<p>Houdbaarheidsdatum:</p>
-				<p>Tot wanneer is het medicijn houdbaar?</p>
-				<input type="date" name="expire_date">
+				<textarea name="side_effect" placeholder="Vul hier de mogelijke bijwerkingen in"></textarea>
 			</div>
 			<hr>
 			<div>

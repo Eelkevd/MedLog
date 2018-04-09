@@ -50,29 +50,16 @@ class AccountController extends Controller
 
         // Validate new edit data of user
         $request->validate([
-            'username' => 'required|string|max:190|unique:users,username,'.$id,
             'firstname' => 'required|string|max:190',
             'middlename' => 'max:190',
-            'lastname' => 'required|string|max:190',
-            'street' => 'required|string|max:190',
-            'housenumber' => 'required|digits_between:1,5',
-            'housenumbersuffix' => 'max:10',
-            'town' => 'required|string|max:190',
-            'postalcode' => 'required|max:6|regex:/^[1-9][0-9]{3}[\s]?[A-Za-z]{2}$/|min:6',
             'email' => 'required|string|email|max:190|confirmed|unique:users,email,'.$id,
         ]);
 
         // Update new edit data of user in database
         User::where('id', $id)->update([
-            'username' => $request['username'],
             'firstname' => encrypt($request['firstname']),
             'middlename' => encrypt($request['middlename']),
             'lastname' => encrypt($request['lastname']),
-            'street' => encrypt($request ['street']),
-            'housenumber' => encrypt($request ['housenumber']),
-            'housenumbersuffix' => encrypt($request ['housenumbersuffix']),
-            'town' => encrypt($request ['town']),
-            'postalcode' => encrypt($request ['postalcode']),
             'email' => $request['email'],
         ]);
 

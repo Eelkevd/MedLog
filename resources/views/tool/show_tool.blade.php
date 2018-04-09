@@ -6,7 +6,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Hulpmiddel pagina</div>
+                <div class="card-header">
 
                 <!-- check to see if user of page is guest, reader, user or validated user.
                       Only let validated user throug -->
@@ -38,14 +38,19 @@
                         </div>
 
                         @else
-
-                      <div class="card-body">
+              </div>
+              <div class="card-body">
+                <div class="card-header">
+                <h5><center>Hulpmiddel pagina</center></h5>
+                </div>
                         <table class="table table-striped">
                             <thead>
-                              <tr>
-                                <th></th>
-                                <th></th>
-                              </tr>
+                              <th colspan="2">
+                              <!-- Button to delete page of medicine -->
+                              <a href="{{ route('tool.delete', $tool->id) }}" onclick="return confirm('Weet je zeker dat je dit hulpmiddel wilt verwijderen?')" ><span class="oi oi-trash icon"></span></a>
+                              <a href="{{ route('tool.edit', $tool->id) }}"><span class="oi oi-pencil icon"></span></a>
+                            </th>
+                            </tr>
                             </thead>
                             <tbody>
 
@@ -67,22 +72,22 @@
                                 <td>{{ $tool->purpose }}</td>
                               </tr>
 
-                              <!-- Show side effects -->
+                              <!-- Show origin -->
                               <tr>
-                                <td><b>{{ __('Bijwerkingen: ') }}</b></td>
+                                <td><b>{{ __('Leverancier: ') }}</b></td>
                                 <td>{{ $tool-> origin}}</td>
                               </tr>
 
                               <!-- Show expire date -->
                               <tr>
-                                  <td><b>{{ __('Houdbaarheidsdatum: ') }}</b></td>
-                                  <td>{{ $tool-> return_date }}</td>
+                                  <td><b>{{ __('Leverdatum: ') }}</b></td>
+                                  <td> {{ date('d-m-Y', strtotime($tool-> return_date ))}}</td>
                               </tr>
 
                               <!-- Show price -->
                               <tr>
                                   <td><b>{{ __('Prijs: ') }}</b></td>
-                                  <td>{{ $tool-> price }}</td>
+                                  <td>€{{ $tool-> price }}</td>
                               </tr>
 
                               <!-- Show comment -->
@@ -92,6 +97,7 @@
                               </tr>
                         </table>
                 </div>
+
                 @endif
                 @endauth
             </div>

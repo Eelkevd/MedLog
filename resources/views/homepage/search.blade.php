@@ -36,8 +36,8 @@
                   </div>
                   <div class="card-body">
                     <form method="GET" action="{{ action('EventController@search') }}" >
-                        <input type="text" name="search" placeholder="Zoekopdracht">
-                        <button type="submit" class="btn btn-info btn-md" style="margin-top: 5px;">zoek op afspraak of ziektebeeld</button>
+                        <input type="text" name="search" placeholder="Zoekopdracht" class="form-control">
+                        <button type="submit" class="btn btn-primary btn-md" style="margin-top: 5px;">zoek op afspraak of ziektebeeld</button>
                     </form><br>
 
                     <table class="table table-striped">
@@ -50,7 +50,7 @@
                     <tr>
                       <td>
                         {{ $event -> title }} <br>
-                        {{ $event -> start_date }}
+                        {{ date('d-m-Y', strtotime($event ->start_date ))}}
                       </td>
                     </tr>
                     @endforeach

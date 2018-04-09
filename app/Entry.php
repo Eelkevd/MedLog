@@ -1,6 +1,11 @@
 <?php
 namespace App;
+
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
+use App\User;
+
+
 class Entry extends Model
 {
     protected $fillable = [
@@ -43,12 +48,24 @@ class Entry extends Model
 
     public static function recentEntries()
     {
-      $start = date('Y-m-d');
-      $end ="5999-12-31";
-      return static::whereBetween('timespan_date', array(
-        $start,
-        $end
-      ))->take(3)->orderBy('timespan_date')->get();
+      $user = Auth::user();
+      if(!empty($user->diary))
+      {
+        $start ="2000-12-31";
+        $end = date('Y-m-d');
+        $entries = $user->diary->entries()->whereBetween('timespan_date', array(
+            $start,
+            $end
+          ))
+          ->take(3)
+          ->orderBy('timespan_date', 'DESC')
+          ->get();
+        }
+        else
+        {
+            $entries=null;
+        }
+      return $entries;
     }
 
 }

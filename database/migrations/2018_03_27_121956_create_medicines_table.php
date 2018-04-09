@@ -19,7 +19,7 @@ class CreateMedicinesTable extends Migration
             $table->string('dose')->nullable();
             $table->string('purpose')->nullable();
             $table->string('side_effect')->nullable();
-            $table->date('expire_date')->nullable();
+            $table->string('deleted')->nullable();
             $table->decimal('price', 8, 2)->nullable();
             $table->string('comment')->nullable();
             $table->timestamps();

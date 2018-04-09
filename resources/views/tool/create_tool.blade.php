@@ -1,9 +1,13 @@
+<!-- Page for creating new tools -->
+
 @extends ('layouts.master')
 
 @section('content')
-
-<div class="card">
-	<div class="card-header">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+					<div class="card">
+						<div class="card-header">
 		<!-- check to see if user of page is guest, reader, user or validated user.
 		      Only let validated user throug -->
 					@guest
@@ -54,7 +58,7 @@
 			</div>
 			<hr>
 			<div>
-				<p>Herkomst:</p>
+				<p>Leverancier:</p>
 				<textarea name="origin" placeholder="Waar komt het vandaan"></textarea>
 			</div>
 			<hr>
