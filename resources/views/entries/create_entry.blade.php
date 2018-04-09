@@ -185,7 +185,7 @@
             @endif
               </ul>
             </div>
-      				</div>
+      		
       				<hr>
       				<div>
       					Wat waren de weersomstandigheden? <em><small>(optioneel)</small></em>

@@ -23,7 +23,7 @@ class Event extends Model
           ))
           ->whereNull('entry_id')
           ->take(3)
-          ->orderBy('start_date', 'DESC')
+          ->orderBy('start_date', 'ASC')
           ->get();
         }
         else
