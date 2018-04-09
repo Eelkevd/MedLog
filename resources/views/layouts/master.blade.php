@@ -31,9 +31,9 @@
 
         <div id="content">
           @yield('content')
+          <br />
+          <br />
         </div>
-        <br />
-        <br />
     </div>
 
 @if (Auth::check())
@@ -117,5 +117,4 @@
   @endif
 @endif
   </body>
-  @extends ('layouts.footer')
 </html>
