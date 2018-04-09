@@ -36,7 +36,7 @@ class OverviewController extends Controller
         $sortillness = $user->diary->entries()->where('illness', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
         $sortintensity = $user->diary->entries()->where('intensity', 'LIKE', '%' . $sortword . '%')->orderBy('timespan_date', 'DESC')->get();
         $illnesses = $user->diary->illnesses->sortByDesc('timespan_date');
-        $entries = $user->diary->entries()->orderBy('timespan_date', 'DESC')->paginate(5);
+        $entries = $user->diary->entries()->orderBy('timespan_date', 'DESC')->orderBy('timespan_time', 'DEC')->paginate(5);
         return view('overview', compact('sortillness','search', 'illnesses', 'sortintensity', 'entries'));
       }
       else
