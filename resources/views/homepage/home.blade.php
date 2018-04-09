@@ -55,7 +55,12 @@
             <div class="card-body nopadding">
               <h4><small class="text-muted">{{ $event -> title }}</small></h4>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>{{ date('d-m-Y', strtotime($event ->start_date ))}}</li>
+                <li>{{ date('F d, Y', strtotime($event ->start_date ))}}</li>
+                @if ($event->event_time)
+                        <li>{{ date('g:i', strtotime($event ->event_time))}}</li>
+                        @else
+                        Geen tijd geselecteerd <br>
+                @endif
               </ul>
               <hr>
             </div>
@@ -87,7 +92,8 @@
 
                 </small></h4>
               <ul class="list-unstyled mt-3 mb-4">
-                <li>{{ date('d-m-Y', strtotime($entry-> timespan_date ))}}</li>
+                <li>{{ date('F d, Y', strtotime($entry-> timespan_date ))}}</li>
+                <br>  
               </ul>
               </a>
               <hr>

@@ -62,8 +62,9 @@ class ReaderController extends Controller
         ->find($reader_id);
 
       $diary = $user->userDiaries->find($client);
+      $diary2 = $diary->entries()->paginate(5);
 
       //$user->userDiaries->user->firstname
-      return view('readers/show', compact('diary'));
+      return view('readers/show', compact('diary', 'diary2'));
     }
 }
