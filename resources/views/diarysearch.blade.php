@@ -72,7 +72,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">
@@ -99,7 +99,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">
@@ -126,7 +126,7 @@
               <b> {{ $entry -> illness }}</b>
               @if(!empty($entry->timespan_date))
                 {{ __(', ')}}
-                Datum: {{ $entry -> timespan_date }}
+                Datum: {{ date('d-m-Y', strtotime($entry-> timespan_date ))}}
               @endif
             </div>
             <div class="card-body">
