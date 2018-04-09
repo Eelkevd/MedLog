@@ -17,6 +17,7 @@ Password: @Insert12
 - https://www.codegorilla.nl/2018/03/19/medisch-dagboek-eindproject/
 
 ### Description
+MedLog is your online medical journal that gives you an overview of your diseases, symptoms and more. In the calendar you will find your appointments and medical history. Give your doctor quick and easy access to your medical diary by mail. Or download your medical journal as pdf for your own use. Register all important information about the development of your illness, including medicines, tools, intentsity, symptoms, etcetera. 
 
 ### Workflow Week 14 
 - tuesday: Reader functionality work in progress, updated sprintlog/trello, fixed bugs, user able to create and add medicines to diary entry;
