@@ -65,6 +65,8 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
       $username = Str::random(8);
+      $role = $data['role'];
+
       $user = User::create([
             'username' => $username,
             'firstname' => $data['firstname'],
@@ -75,9 +77,18 @@ class RegisterController extends Controller
             'verifyToken' => Str::random(40),
         ]);
         // Attach th role of the user in the pivot table role_user
-        $user->roles()->attach($data['role']);
-        // Send an email with a verification link which redirects using the token
-        $user->sendVerificationMail();
+
+        if($role == 2)
+        {
+          $user->roles()->attach($data['role']);
+          // Send an email with a verification link which redirects using the token
+          $user->sendVerificationMail();
+        }
+        else
+          {
+          $user->roles()->attach($data['role']);
+        }
+
         return $user;
     }
     /**

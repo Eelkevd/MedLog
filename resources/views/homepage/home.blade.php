@@ -28,7 +28,6 @@
                     </strong>
             </div>
 
-
             @elseif (auth()->user()->verified())
               @if (session('succes'))
                       <div class="alert alert-success">

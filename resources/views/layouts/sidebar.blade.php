@@ -22,7 +22,7 @@
 
   @auth
   <!-- menu items -->
-         @if (auth()->user()->reader())
+         @if (auth()->user()->role())
            <!-- topmenu for readers -->
            <li class="nav-item">
              <a href="/reader/index" class="nav-link">Uw clienten</a>

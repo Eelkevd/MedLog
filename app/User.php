@@ -112,12 +112,29 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
   *
   * @return string
   */
+  public function hulpverlener()
+  {
+    $user = Auth::user();
+    $role = $user->role()->first();
+    $role = $role->slug;
+    if($role === 'hulpverlener')
+    {
+      return true;
+    }
+    else{
+       return null;
+     }
+  }
+
+   /**
+  * Returns true if the user is a reader
+  *
+  * @return string
+  */
   public function role()
   {
-    $role = Role::findOrFail()
-    ->where('user_id', Auth::id())
-    ;
-
+    $user = Auth::user();
+    return $user->roles;
   }
 
     /**
