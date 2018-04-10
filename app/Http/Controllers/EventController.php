@@ -78,8 +78,12 @@ class EventController extends Controller
     // searches all titles of events in database with keyword in text
     public function search(Request $request)
     {
+      $user = Auth::user();
+      if($user->diary)
+      {
         $keyword = $request->input('search');
-        $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->paginate(5);;
+        $search = $user->events()->where('title', 'LIKE', '%' . $keyword . '%')->paginate(5);;
         return view('homepage.search', compact('search'));
+      }
    }
 }
