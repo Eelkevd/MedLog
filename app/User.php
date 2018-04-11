@@ -138,22 +138,22 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
 
     public function diary()
     {
-      return $this->hasOne('App\Diary');
+        return $this->hasOne('App\Diary');
     }
 
     public function events()
     {
-      return $this->hasMany('App\Event');
+        return $this->hasMany('App\Event');
     }
 
     public function userDiaries()
     {
-      return $this->belongsToMany(Diary::class, 'readers');
+        return $this->belongsToMany(Diary::class, 'readers');
     }
 
     public function clients()
     {
-      return $this->hasMany('App\Reader');
+        return $this->hasMany('App\Reader');
     }
 
     /**

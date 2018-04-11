@@ -1,3 +1,5 @@
+<!-- Model for event relations -->
+
 <?php
 
 namespace App;
