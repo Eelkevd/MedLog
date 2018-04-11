@@ -1,10 +1,12 @@
+<!-- Model for entry relations -->
+
 <?php
+
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\User;
-
 
 class Entry extends Model
 {
@@ -53,13 +55,14 @@ class Entry extends Model
       {
         $start ="2000-12-31";
         $end = date('Y-m-d');
-        $entries = $user->diary->entries()->whereBetween('timespan_date', array(
-            $start,
-            $end
-          ))
-          ->take(3)
-          ->orderBy('timespan_date', 'DESC')
-          ->get();
+        $entries = $user->diary->entries()
+            ->whereBetween('timespan_date', array(
+                $start,
+                $end
+            ))
+            ->take(3)
+            ->orderBy('timespan_date', 'DESC')
+            ->get();
         }
         else
         {
@@ -67,5 +70,4 @@ class Entry extends Model
         }
       return $entries;
     }
-
 }

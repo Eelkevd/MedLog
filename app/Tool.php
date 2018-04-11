@@ -1,3 +1,5 @@
+<!-- Model for tool relations -->
+
 <?php
 
 namespace App;

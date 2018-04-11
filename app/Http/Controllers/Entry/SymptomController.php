@@ -1,22 +1,33 @@
+<!-- Controller of (create) symptom section -->
+
 <?php
 
-// Controller of (create) symptom section
 namespace App\Http\Controllers\Entry;
-use App\Http\Controllers\Controller;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Symptom;
 use App\Diary;
+use App\Http\Controllers\Controller;
 
 class SymptomController extends Controller
 {
-	//authentication requirement
+	/**
+	 * authentication requirement
+	 *
+	 * @return void 
+	 */
 	public function __construct()
     {
         $this->middleware('auth');
     }
 
-  // stores symptomes into database
+  	/**
+  	 * stores symptomes into database
+  	 * 
+  	 * @param  Request
+  	 * @return redirect
+  	 */
 	public function store (Request $request)
 	{
 		// find the corresponding diary
@@ -27,8 +38,10 @@ class SymptomController extends Controller
 		$request->validate([
             'symptom'  => 'required',
         ]);
+
 		$symptom = Symptom::create(request(['symptom']));
 		$symptom->diaries()->attach($request->diary_id);
-    return redirect ('entries');
+		
+    	return redirect ('entries');
 	}
 }

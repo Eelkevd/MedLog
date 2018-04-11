@@ -1,15 +1,21 @@
+<!-- Controller for registering new users -->
+
 <?php
+
 namespace App\Http\Controllers\Auth;
+
 use App\User;
 use App\Diary;
-use Illuminate\Support\Facades\Input;
+use App\Mail;
 use App\Http\Controllers\Controller;
+use App\Notifications\VerifyEmail;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use App\Notifications\VerifyEmail;
 use Illuminate\Support\Str;
-use App\Mail;
+
+
 class RegisterController extends Controller
 {
     /*
@@ -29,6 +35,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
+    
     /**
      * Create a new controller instance.
      *
@@ -38,6 +45,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
+    
     /**
      * Get a validator for an incoming registration request.
      *
@@ -55,6 +63,7 @@ class RegisterController extends Controller
             'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/|confirmed',
         ]);
     }
+
     /**
      * Create a new user instance after a valid registration.
      * fill the token field in users to signify unverificated user
@@ -80,12 +89,13 @@ class RegisterController extends Controller
         $user->sendVerificationMail();
         return $user;
     }
+
     /**
      * Show the application registration form.
+     * add a role to the registration view in order to show the option to register as a reader
      *
      * @return \Illuminate\Http\Response
      */
-    // add a role to the registration view in order to show the option to register as a reader
     public function showRegistrationForm()
     {
       // checked, returns names of roles

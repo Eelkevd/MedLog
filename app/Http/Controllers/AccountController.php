@@ -1,7 +1,9 @@
+<!-- Controller of the account section -->
+
 <?php
 
-// Controller of the account section
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -14,36 +16,54 @@ use App\User;
 
 class AccountController extends Controller
 {
-    // authentication requirement
+    /**
+     * authentication requirement
+     *
+     * @return  void
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
     use Encryptable;
-    // Function to go to index page with users id if logged in
+
+    /**
+     * Function to go to index page with users id if logged in
+     * 
+     * @param  string
+     * @return view
+     */
     public function index(User $user)
     {
         // Check if the user is logged in
         if (Auth::check())
         {
-          $id = Auth::id();
-          $user = User::findOrFail($id);
-          return view('accounts.index', compact ('user'));
+            $id = Auth::id();
+            $user = User::findOrFail($id);
+            return view('accounts.index', compact ('user'));
         }
-
-        //
     }
 
-    // Function to show edit page of users data
+    /**
+     * Function to show edit page of users data
+     * 
+     * @param  string
+     * @return view
+     */
     public function edit(User $user)
     {
-      $id = Auth::id();
-      $user = User::findOrFail($id);
-      return view('accounts.edit', compact('user'));
+        $id = Auth::id();
+        $user = User::findOrFail($id);
+        return view('accounts.edit', compact('user'));
     }
 
-    // Function to update the database with the new edit data
+    /**
+     * Function to update the database with the new edit data
+     * 
+     * @param  Request
+     * @return view
+     */
     public function update(Request $request)
     {
         $id = Auth::id();
@@ -65,7 +85,5 @@ class AccountController extends Controller
 
         $user = User::findOrFail($id);
         return view('accounts.index', compact('user'));
-
     }
-
 }

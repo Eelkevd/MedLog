@@ -1,5 +1,9 @@
+<!-- Controller for verifying user account -->
+
 <?php
+
 namespace App\Http\Controllers\Auth;
+
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\User;
@@ -7,14 +11,31 @@ use Auth;
 
 class AdminLoginController extends Controller
 {
+    /**
+     * 
+     * @return  void
+     */
     public function __construct()
     {
         $this->middleware('guest:admin')->except('logout');
     }
+
+    /**
+     * Shows login form
+     * 
+     * @return view
+     */
     public function showLoginForm()
     {
         return view('auth.admin-login');
     }
+
+    /**
+     * Validates login
+     * 
+     * @param  Request
+     * @return redirect
+     */
     public function login(Request $request)
     {
         $this->validate($request, [
@@ -31,9 +52,14 @@ class AdminLoginController extends Controller
         //login fails
         return redirect()->back()->withInput($request->only('email', 'remember'));
     }
+
+    /**
+     * Logs out user
+     * 
+     * @return redirect
+     */
     public function logout()
     {
-        //dd("logging out admin");
         Auth::guard('admin')->logout();
         return redirect()->route('admin.dashboard');
     }

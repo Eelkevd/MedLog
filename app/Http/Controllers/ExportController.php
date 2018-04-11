@@ -1,7 +1,9 @@
+<!-- Controller of the Export section -->
+
 <?php
 
-// Controller of the Export section
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -12,21 +14,33 @@ use PDF;
 
 class ExportController extends Controller
 {
-    // authentication requirement
+    /**
+     * authentication requirement
+     *
+     * @return  void
+     */
     public function __construct()
     {
         $this->middleware('auth');
     }
 
-    // function to show export page
+    /**
+     * function to show export page
+     * 
+     * @return view
+     */
     public function index()
     {
         $user = Auth::user();
-      	$illnesses = $user->diary->illnesses->sortBy('illness', SORT_REGULAR, false);
+        $illnesses = $user->diary->illnesses->sortBy('illness', SORT_REGULAR, false);
         return view('export.export',  compact('illnesses'));
     }
 
-    // function to export complete diary
+    /**
+     * function to export complete diary
+     * 
+     * @return download
+     */
     public function getPDF()
     {
         $user = Auth::user();
@@ -40,7 +54,12 @@ class ExportController extends Controller
         return $pdf->download('dagboek.pdf');
     }
 
-    // function to export diary pages of certain illness
+    /**
+     * function to export diary pages of certain illness
+     * 
+     * @param  Request
+     * @return download
+     */
     public function getillnessPDF(Request $request)
     {
         $user = Auth::user();
@@ -57,7 +76,12 @@ class ExportController extends Controller
         return $pdf->download('dagboek.pdf');
     }
 
-    // function to export diary in certain period
+    /**
+     * function to export diary in certain period
+     * 
+     * @param  Request
+     * @return download
+     */
     public function getperiodPDF(Request $request)
     {
         $user = Auth::user();

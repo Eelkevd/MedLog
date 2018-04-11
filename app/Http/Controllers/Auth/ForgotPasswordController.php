@@ -1,3 +1,5 @@
+<!-- Controller for when a user forgot his/her password -->
+
 <?php
 
 namespace App\Http\Controllers\Auth;

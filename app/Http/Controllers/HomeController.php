@@ -1,7 +1,9 @@
+<!-- Controller of the home section -->
+
 <?php
 
-// Controller of the home section
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
@@ -11,25 +13,32 @@ use App\Entry;
 
 class HomeController extends Controller
 {
+    /**
+     * authentication requirement
+     *
+     * @return  void
+     */
     public function __construct()
     {
         // First check if user is logged in
         $this->middleware('auth');
-        // Alternatives:
-        // $this->middleware('auth', ['only' => 'index']);
-        // $this->middleware('auth', ['except' => 'index']);
     }
 
+    /**
+     * Function to show homepage
+     * 
+     * @return view
+     */
     public function index()
     {
         $user = Auth::user();
         $keyword = "nope";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
 
-        // haal de vijf laatste afspraken op en negeer de dagboekentries van vandaag (entry_id=0)
+        // Get the last five appoinments and don't show the diary entries of today (entry_id=0)  
         $events = Event::appointments();
 
-        // Haal de vijf recentste dagboekentries op
+        // Get the five most recent diary entries
         $entries = Entry::recentEntries();
 
         return view('homepage.home', compact('search', 'events', 'entries'));

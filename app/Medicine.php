@@ -1,3 +1,5 @@
+<!-- Model for medicine relations -->
+
 <?php
 
 namespace App;
