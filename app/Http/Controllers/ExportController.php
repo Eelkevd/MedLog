@@ -27,7 +27,7 @@ class ExportController extends Controller
     /**
      * function to show export page
      * 
-     * @return view
+     * @return view 
      */
     public function index()
     {
