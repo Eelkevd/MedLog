@@ -41,11 +41,7 @@ class ReaderController extends Controller
         // find the correct diary by token
         $verifiedDiary = Reader::where('verifyToken', $verifyToken)->firstOrFail();
         $reader_id = $verifiedReader->id;
-        // check to see if the time span is already been used
-        // empty the token if the timespan has been passed
-        //  $verifiedReader->update(['verifyToken' => null]);
-        //        return redirect('/reader/login')
-        //        ->with('error', 'Uw toegang is verlopen');
+
         return redirect('/reader/diary')
         ->with('succes', 'U kunt tijdelijk het dagboek inzien.');
     }
@@ -64,7 +60,6 @@ class ReaderController extends Controller
         $user = User::with('userDiaries', 'userDiaries.user')->find($reader_id);
         // get the diaries
         $diaries = $user->userDiaries;
-        //$user->userDiaries->user->firstname
         return view('readers/index', compact('diaries'));
     }
 
@@ -89,7 +84,6 @@ class ReaderController extends Controller
         $diary = $user->userDiaries->find($client);
         $diary2 = $diary->entries()->paginate(5);
 
-        //$user->userDiaries->user->firstname
         return view('readers/show', compact('diary', 'diary2'));
     }
 }

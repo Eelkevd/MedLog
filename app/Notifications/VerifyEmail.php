@@ -1,8 +1,8 @@
-<!-- Verification email -->
-
 <?php
 
 namespace App\Notifications;
+
+// Verification email 
 
 use App\User;
 use Illuminate\Bus\Queueable;

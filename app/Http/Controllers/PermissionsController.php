@@ -167,9 +167,6 @@ class PermissionsController extends Controller
                     'password'
                 ]));
 
-                // Send an email with a verification link which redirects using the token
-                //$reader->sendInviteMailNewUser();
-
                 //generate a password for the new users
                 User::sendWelcomeEmail($reader);
 
