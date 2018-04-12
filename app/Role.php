@@ -9,6 +9,11 @@ use App\User;
 
 class Role extends Model
 {
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
     protected $fillable = [
         'name',
         'slug',
@@ -19,6 +24,7 @@ class Role extends Model
     {
         return $this->belongsToMany(User::class, 'role_user');
     }
+    
     /**
     * Returns true if the user is a hulpverlener (reader)
     *

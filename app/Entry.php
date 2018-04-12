@@ -9,6 +9,11 @@ use App\User;
 
 class Entry extends Model
 {
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
     protected $fillable = [
         'entry_id',
         'medicine_id',
@@ -47,6 +52,11 @@ class Entry extends Model
         return $this->belongsToMany('App\Medicine');
     }
 
+    /**
+     * Get 3 most recent entries in a users diary
+     *
+     * @return entries
+     */
     public static function recentEntries()
     {
       $user = Auth::user();

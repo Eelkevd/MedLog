@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Symptom extends Model
 {
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
     protected $fillable = [
         'diary_id',
         'user_id',

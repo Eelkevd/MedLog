@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tool extends Model
 {
+	/**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
 	protected $fillable = [
 		'tool_id',
 		'diary_id',

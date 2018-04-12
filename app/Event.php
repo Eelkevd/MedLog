@@ -9,6 +9,11 @@ use App\User;
 
 class Event extends Model
 {
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
     protected $fillable = [
         'user_id',
         'entry_id',
@@ -19,6 +24,11 @@ class Event extends Model
         'end_date'
     ];
 
+    /**
+     * Get three upcoming appointments
+     *
+     * @return events
+     */
     public static function appointments()
     {
         $user = Auth::user();
@@ -43,7 +53,6 @@ class Event extends Model
         {
             $events=null;
         }
-
         return $events;
     }
 
