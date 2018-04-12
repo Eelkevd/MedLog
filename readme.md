@@ -34,6 +34,10 @@ MedLog is your online medical journal that gives you an overview of your disease
 ## Inspired by 
 - https://medapp.nu/
 
+# The Team
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/team_medlog.jpg?raw=true "the teammembers of Medlog")
+
+
 # Screenshots
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/overzichtspaginaMedLog.png?raw=true "Overzichtspagina")
 
