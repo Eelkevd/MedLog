@@ -1,8 +1,7 @@
-<!-- Controller of the Reader section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of the Reader section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Crypt;
@@ -53,7 +52,7 @@ class ReaderController extends Controller
 
     /**
      * get all diaries that are available to the reader
-     * 
+     *
      * @return view
      */
     public function index()
@@ -71,7 +70,7 @@ class ReaderController extends Controller
 
     /**
      * returns the user data who the reader is invited to read
-     * 
+     *
      * @param  string
      * @return view
      */
@@ -81,8 +80,8 @@ class ReaderController extends Controller
         $reader_id= Auth::id();
         // add the symptoms and entries to the array
         $user = User::with(
-            'userDiaries', 
-            'userDiaries.user', 
+            'userDiaries',
+            'userDiaries.user',
             'userDiaries.entries.symptomes'
         )
         ->find($reader_id);

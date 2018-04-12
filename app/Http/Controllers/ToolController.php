@@ -1,8 +1,7 @@
-<!-- Controller for medical tools -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller for medical tools
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -13,7 +12,7 @@ use App\Diary;
 class ToolController extends Controller
 {
 	/**
-	 * @return  void 
+	 * @return  void
 	 */
 	public function __construct()
 	{
@@ -22,7 +21,7 @@ class ToolController extends Controller
 
   	/**
   	 * Function to go to te tool page on nav btn click
-  	 * 
+  	 *
   	 * @return view
   	 */
 	public function home()
@@ -34,7 +33,7 @@ class ToolController extends Controller
 
 	/**
 	 * Function to delete a tool
-	 * 
+	 *
 	 * @param  int
 	 * @return redirect
 	 */
@@ -50,7 +49,7 @@ class ToolController extends Controller
 
 	/**
 	 * Function to go to the create new tool page
-	 * 
+	 *
 	 * @return view
 	 */
 	public function create()
@@ -60,7 +59,7 @@ class ToolController extends Controller
 
 	/**
 	 * Function to store newly created tool into the db
-	 *  
+	 *
 	 * @param  Request
 	 * @return redirect
 	 */
@@ -92,7 +91,7 @@ class ToolController extends Controller
 
 	/**
 	 * Function to show selected tools
-	 * 
+	 *
 	 * @param  int
 	 * @return view
 	 */
@@ -104,7 +103,7 @@ class ToolController extends Controller
 
 	/**
 	 * Function to edit the selected tool
-	 * 
+	 *
 	 * @param  int
 	 * @return view
 	 */
@@ -116,7 +115,7 @@ class ToolController extends Controller
 
 	/**
 	 * Function to update the db-stored tools
-	 * 
+	 *
 	 * @param  Request
 	 * @return redirect
 	 */
@@ -130,15 +129,15 @@ class ToolController extends Controller
 			$tool = Tool::findOrFail($id);
 			$toolnumber = $tool->id;
 			$updated_tool = Tool::where('id', $id)->update(request([
-				'tool', 
-				'purpose', 
-				'origin', 
-				'return_date', 
-				'price', 
+				'tool',
+				'purpose',
+				'origin',
+				'return_date',
+				'price',
 				'comment'
 			]));
 		}
-		
+
 		return redirect()->action('ToolController@home');
 	}
 }

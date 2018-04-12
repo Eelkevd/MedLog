@@ -1,8 +1,7 @@
-<!-- Controller for when a user forgot his/her password -->
-
 <?php
 
 namespace App\Http\Controllers\Auth;
+// Controller for when a user forgot his/her password
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;

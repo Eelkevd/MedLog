@@ -1,8 +1,7 @@
-<!-- Model for reader relations -->
-
 <?php
 
 namespace App;
+// Model for reader relations
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -14,10 +13,10 @@ class Reader extends Model
     * @var array
     */
     protected $fillable = [
-        'user_id', 
-        'diary_id', 
-        'timeframe', 
-        'email', 
+        'user_id',
+        'diary_id',
+        'timeframe',
+        'email',
         'password'
     ];
 

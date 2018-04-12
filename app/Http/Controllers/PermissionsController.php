@@ -1,8 +1,7 @@
-<!-- Controller of the permission section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of the permission section
 
 use Auth;
 use App\User;
@@ -26,7 +25,7 @@ class PermissionsController extends Controller
 
     /**
      * Function to go to te medicine page on nav btn click
-     * 
+     *
      * @return view
      */
     public function index()
@@ -41,7 +40,7 @@ class PermissionsController extends Controller
 
     /**
      * Function to go to the create new medicine page
-     * 
+     *
      * @return view
      */
     public function create()
@@ -51,7 +50,7 @@ class PermissionsController extends Controller
 
     /**
      * Function to go to the create new medicine page
-     * 
+     *
      * @param  int
      * @return redirect
      */
@@ -71,7 +70,7 @@ class PermissionsController extends Controller
 
     /**
      * Function to store the reader persmission into the db
-     * 
+     *
      * @param  Request
      * @return redirect
      */
@@ -170,7 +169,7 @@ class PermissionsController extends Controller
 
                 // Send an email with a verification link which redirects using the token
                 //$reader->sendInviteMailNewUser();
-                
+
                 //generate a password for the new users
                 User::sendWelcomeEmail($reader);
 

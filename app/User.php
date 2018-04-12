@@ -1,8 +1,7 @@
-<!-- Model for user relation -->
-
 <?php
 
 namespace App;
+// Model for user relation
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -26,12 +25,12 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      * @var array
      */
     protected $fillable = [
-        'username', 
-        'firstname', 
-        'middlename', 
-        'lastname', 
-        'email', 
-        'password', 
+        'username',
+        'firstname',
+        'middlename',
+        'lastname',
+        'email',
+        'password',
         'verifyToken',
     ];
 
@@ -41,7 +40,7 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      * @var array
      */
     protected $hidden = [
-        'password', 
+        'password',
         'remember_token',
     ];
 

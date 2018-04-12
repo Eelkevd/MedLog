@@ -1,8 +1,7 @@
-<!-- Controller of (create) symptom section -->
-
 <?php
 
 namespace App\Http\Controllers\Entry;
+// Controller of (create) symptom section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +14,7 @@ class SymptomController extends Controller
 	/**
 	 * authentication requirement
 	 *
-	 * @return void 
+	 * @return void
 	 */
 	public function __construct()
     {
@@ -24,7 +23,7 @@ class SymptomController extends Controller
 
   	/**
   	 * stores symptomes into database
-  	 * 
+  	 *
   	 * @param  Request
   	 * @return redirect
   	 */
@@ -41,7 +40,7 @@ class SymptomController extends Controller
 
 		$symptom = Symptom::create(request(['symptom']));
 		$symptom->diaries()->attach($request->diary_id);
-		
+
     	return redirect ('entries');
 	}
 }

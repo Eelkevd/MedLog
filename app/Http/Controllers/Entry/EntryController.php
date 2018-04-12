@@ -1,8 +1,7 @@
-<!-- Controller of (create) entry section -->
-
 <?php
 
 namespace App\Http\Controllers\Entry;
+// Controller of (create) entry section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -21,7 +20,7 @@ class EntryController extends Controller
 	/**
 	 * authentication requirement
 	 *
-	 * @return void 
+	 * @return void
 	 */
 	public function __construct()
 	{
@@ -30,7 +29,7 @@ class EntryController extends Controller
 
 	/**
   	 * Shows entry
-  	 * 
+  	 *
   	 * @param  int
   	 * @return view
   	 */
@@ -46,7 +45,7 @@ class EntryController extends Controller
 
   	/**
   	 * Gives data on symptomes and illnesses when user goes to the medform page
-  	 * 
+  	 *
   	 * @return view
   	 */
 	public function create()
@@ -61,7 +60,7 @@ class EntryController extends Controller
 
 	/**
 	 * Delete entry
-	 * 
+	 *
 	 * @param  int
 	 * @return redirect
 	 */
@@ -81,7 +80,7 @@ class EntryController extends Controller
 
 	/**
 	 * Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
-	 * 
+	 *
 	 * @param  Request
 	 * @return redirect
 	 */
@@ -92,24 +91,24 @@ class EntryController extends Controller
 		{
 			// find the corresponding diary
 			$user = Auth::user();
-			
+
 			// add the diary_id to the request array
 			$request->request->add(['diary_id' => $user->diary->id]);
 
 			// add the entry into the tabel entries
 			$entry = Entry::create(request([
-				'diary_id', 
-				'illness', 
-				'timespan_date', 
-				'timespan_time', 
+				'diary_id',
+				'illness',
+				'timespan_date',
+				'timespan_time',
 				'location',
-				'intensity', 
-				'complaint_startdate', 
-				'complaint_enddate', 
-				'complaint_time', 
+				'intensity',
+				'complaint_startdate',
+				'complaint_enddate',
+				'complaint_time',
 				'recoverytime_time',
 				'weather',
-				'witness_report', 
+				'witness_report',
 				'comments'
 				]));
 

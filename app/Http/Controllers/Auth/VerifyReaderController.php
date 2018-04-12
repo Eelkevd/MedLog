@@ -1,8 +1,7 @@
-<!-- Controller for verifying reader -->
-
 <?php
 
 namespace App\Http\Controllers\Auth;
+// Controller for verifying reader
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +11,7 @@ use Auth;
 class VerifyReaderController extends Controller
 {
     /**
-     * 
+     *
      * @return void
      */
     public function __construct()
@@ -22,7 +21,7 @@ class VerifyReaderController extends Controller
 
     /**
      * Shows login form
-     * 
+     *
      * @return view
      */
     public function showLoginForm()
@@ -32,7 +31,7 @@ class VerifyReaderController extends Controller
 
     /**
      * Validates login
-     * 
+     *
      * @param  Request
      * @return redirect
      */
@@ -55,7 +54,7 @@ class VerifyReaderController extends Controller
 
     /**
      * Logs out reader
-     * 
+     *
      * @return redirect
      */
     public function logout()

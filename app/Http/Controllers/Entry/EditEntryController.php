@@ -1,8 +1,7 @@
-<!-- Controller of edit entry section -->
-
 <?php
 
 namespace App\Http\Controllers\Entry;
+// Controller of edit entry section
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
@@ -29,7 +28,7 @@ class EditEntryController extends Controller
 
   	/**
   	 * Gives data on symptomes and illnesses when user goes to the medform page
-  	 * 
+  	 *
   	 * @param  id
   	 * @return view
   	 */
@@ -45,7 +44,7 @@ class EditEntryController extends Controller
 
 	/**
 	 * Stores entry fieldinput into 'entries' database, places selected symptom_id's into 'entry_symptomes'
-	 * 
+	 *
 	 * @param  Request
 	 * @return redirect
 	 */
@@ -66,17 +65,17 @@ class EditEntryController extends Controller
 			$test = DB::table('events')->where('entry_id', $entrynumber)->delete();
 
 			$entry = Entry::where('id', $id)->update(request([
-				'illness', 
-				'timespan_date', 
-				'timespan_time', 
-				'location', 
+				'illness',
+				'timespan_date',
+				'timespan_time',
+				'location',
 				'intensity',
-				'complaint_startdate', 
-				'complaint_enddate', 
-				'complaint_time', 
+				'complaint_startdate',
+				'complaint_enddate',
+				'complaint_time',
 				'recoverytime_time',
-				'weather', 
-				'witness_report', 
+				'weather',
+				'witness_report',
 				'comments'
 			]));
 
