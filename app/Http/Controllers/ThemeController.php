@@ -1,8 +1,7 @@
-<!-- Controller of theme section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of theme section
 
 use Illuminate\Support\Facades\Auth;
 use App\User;
@@ -28,8 +27,8 @@ class ThemeController extends Controller
     }
 
     /**
-     * function to update default theme 
-     * 
+     * function to update default theme
+     *
      * @param  Request
      * @return back
      */
@@ -45,8 +44,8 @@ class ThemeController extends Controller
     }
 
     /**
-     * function to update contrast theme 
-     * 
+     * function to update contrast theme
+     *
      * @param  Request
      * @return back
      */
@@ -61,8 +60,8 @@ class ThemeController extends Controller
     }
 
     /**
-     * function to update happy ('vrolijk') theme 
-     * 
+     * function to update happy ('vrolijk') theme
+     *
      * @param  Request
      * @return back
      */

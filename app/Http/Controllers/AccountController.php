@@ -1,8 +1,7 @@
-<!-- Controller of the account section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of the account section 
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -30,7 +29,7 @@ class AccountController extends Controller
 
     /**
      * Function to go to index page with users id if logged in
-     * 
+     *
      * @param  string
      * @return view
      */
@@ -47,7 +46,7 @@ class AccountController extends Controller
 
     /**
      * Function to show edit page of users data
-     * 
+     *
      * @param  string
      * @return view
      */
@@ -60,7 +59,7 @@ class AccountController extends Controller
 
     /**
      * Function to update the database with the new edit data
-     * 
+     *
      * @param  Request
      * @return view
      */

@@ -1,8 +1,7 @@
-<!-- Model for medicine relations -->
-
 <?php
 
 namespace App;
+// Model for medicine relations
 
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,7 +15,7 @@ class Medicine extends Model
 		'dose',
 		'purpose',
 		'side_effect',
-		'deleted', 
+		'deleted',
 		'price',
 		'comment'
 	];

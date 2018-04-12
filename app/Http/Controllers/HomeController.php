@@ -1,8 +1,7 @@
-<!-- Controller of the home section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of the home section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +25,7 @@ class HomeController extends Controller
 
     /**
      * Function to show homepage
-     * 
+     *
      * @return view
      */
     public function index()
@@ -35,7 +34,7 @@ class HomeController extends Controller
         $keyword = "nope";
         $search = Event::where('title', 'LIKE', '%' . $keyword . '%')->get();
 
-        // Get the last five appoinments and don't show the diary entries of today (entry_id=0)  
+        // Get the last five appoinments and don't show the diary entries of today (entry_id=0)
         $events = Event::appointments();
 
         // Get the five most recent diary entries

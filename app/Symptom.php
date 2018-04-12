@@ -1,16 +1,15 @@
-<!-- Model for symptom relations -->
-
 <?php
 
 namespace App;
+// Model for symptom relations
 
 use Illuminate\Database\Eloquent\Model;
 
 class Symptom extends Model
 {
     protected $fillable = [
-        'diary_id', 
-        'user_id', 
+        'diary_id',
+        'user_id',
         'symptom',
         'start_date',
         'end_date'

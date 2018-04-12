@@ -1,8 +1,7 @@
-<!-- Controller for verifying user account -->
-
 <?php
 
 namespace App\Http\Controllers\Auth;
+// Controller for verifying user account
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -12,7 +11,7 @@ use Auth;
 class AdminLoginController extends Controller
 {
     /**
-     * 
+     *
      * @return  void
      */
     public function __construct()
@@ -22,7 +21,7 @@ class AdminLoginController extends Controller
 
     /**
      * Shows login form
-     * 
+     *
      * @return view
      */
     public function showLoginForm()
@@ -32,7 +31,7 @@ class AdminLoginController extends Controller
 
     /**
      * Validates login
-     * 
+     *
      * @param  Request
      * @return redirect
      */
@@ -55,7 +54,7 @@ class AdminLoginController extends Controller
 
     /**
      * Logs out user
-     * 
+     *
      * @return redirect
      */
     public function logout()

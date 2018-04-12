@@ -1,8 +1,7 @@
-<!-- Controller for registering new users -->
-
 <?php
 
 namespace App\Http\Controllers\Auth;
+// Controller for registering new users
 
 use App\User;
 use App\Diary;
@@ -35,7 +34,7 @@ class RegisterController extends Controller
      * @var string
      */
     protected $redirectTo = '/';
-    
+
     /**
      * Create a new controller instance.
      *
@@ -45,7 +44,7 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-    
+
     /**
      * Get a validator for an incoming registration request.
      *

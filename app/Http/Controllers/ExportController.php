@@ -1,8 +1,7 @@
-<!-- Controller of the Export section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of the Export section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -26,7 +25,7 @@ class ExportController extends Controller
 
     /**
      * function to show export page
-     * 
+     *
      * @return view
      */
     public function index()
@@ -38,7 +37,7 @@ class ExportController extends Controller
 
     /**
      * function to export complete diary
-     * 
+     *
      * @return download
      */
     public function getPDF()
@@ -56,7 +55,7 @@ class ExportController extends Controller
 
     /**
      * function to export diary pages of certain illness
-     * 
+     *
      * @param  Request
      * @return download
      */
@@ -78,7 +77,7 @@ class ExportController extends Controller
 
     /**
      * function to export diary in certain period
-     * 
+     *
      * @param  Request
      * @return download
      */

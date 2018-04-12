@@ -1,7 +1,7 @@
-<!-- Controller of the event section -->
-
 <?php
+
 namespace App\Http\Controllers;
+// Controller of the event section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -13,7 +13,7 @@ class EventController extends Controller
 {
     /**
      * Show aboutus page/view
-     * 
+     *
      * @return view
      */
     public function __construct()
@@ -23,7 +23,7 @@ class EventController extends Controller
 
     /**
      * Requires data from database to fill in and show calendar
-     * 
+     *
      * @return view
      */
     public function index()
@@ -49,7 +49,7 @@ class EventController extends Controller
 
     /**
     * goes to create a new event page/view
-    * 
+    *
     * @return view
     */
     public function create()
@@ -59,7 +59,7 @@ class EventController extends Controller
 
     /**
     * adds new event to the event database to show later in calendar
-    * 
+    *
     * @param  Request
     * @return Redirect
     */
@@ -96,11 +96,11 @@ class EventController extends Controller
 
     /**
      * searches all titles of events in database with keyword in text
-     * 
+     *
      * @param  Request
      * @return view
      */
-    
+
     public function search(Request $request)
     {
         $user = Auth::user();

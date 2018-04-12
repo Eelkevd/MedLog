@@ -1,8 +1,7 @@
-<!-- Model for diary relations -->
-
 <?php
 
 namespace App;
+// Model for diary relations
 
 use Illuminate\Database\Eloquent\Model;
 

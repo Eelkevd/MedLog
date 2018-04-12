@@ -1,8 +1,7 @@
-<!-- Model for entry relations -->
-
 <?php
 
 namespace App;
+// Model for entry relations
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;

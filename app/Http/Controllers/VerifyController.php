@@ -1,8 +1,7 @@
-<!-- Controller for verifying new users -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller for verifying new users
 
 use Illuminate\Http\Request;
 use App\Diary;
@@ -35,7 +34,7 @@ class VerifyController extends Controller
 
     /**
      * Return view when succesfully verified
-     * 
+     *
      * @return redirect
      */
     public function invite()

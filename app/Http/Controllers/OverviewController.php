@@ -1,8 +1,7 @@
-<!-- Controller of the overview section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of the overview section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -21,7 +20,7 @@ class OverviewController extends Controller
     /**
      * authentication requirement
      *
-     *  @return void 
+     *  @return void
      */
     public function __construct()
     {
@@ -30,7 +29,7 @@ class OverviewController extends Controller
 
     /**
      * function to show overview page with all diary entries
-     * 
+     *
      * @return view
      */
     public function index()
@@ -61,9 +60,9 @@ class OverviewController extends Controller
 
             return view('overview', compact(
                 'sortillness',
-                'search', 
-                'illnesses', 
-                'sortintensity', 
+                'search',
+                'illnesses',
+                'sortintensity',
                 'entries'
             ));
         }else
@@ -74,7 +73,7 @@ class OverviewController extends Controller
 
     /**
      * function to make search function work
-     * 
+     *
      * @param  Request
      * @return view
      */
@@ -100,16 +99,16 @@ class OverviewController extends Controller
 
         return view('diarysearch', compact(
             'sortillness',
-            'search', 
-            'illnesses', 
-            'sortintensity', 
+            'search',
+            'illnesses',
+            'sortintensity',
             'entries'
         ));
     }
 
     /**
      * function to make sort function for illnesses work
-     * 
+     *
      * @param  Request
      * @return view
      */
@@ -135,17 +134,17 @@ class OverviewController extends Controller
         $entries = $user->diary->entries->sortByDesc('timespan_date');
 
         return view('diarysearch', compact(
-            'sortillness', 
-            'search', 
-            'illnesses', 
-            'sortintensity', 
+            'sortillness',
+            'search',
+            'illnesses',
+            'sortintensity',
             'entries'
         ));
     }
 
     /**
      * function to make sort intensity function for illnesses work
-     * 
+     *
      * @param  Request
      * @return view
      */
@@ -171,10 +170,10 @@ class OverviewController extends Controller
         $entries = $user->diary->entries->sortByDesc('timespan_date');
 
         return view('diarysearch', compact(
-            'sortillness', 
-            'search', 
-            'illnesses', 
-            'sortintensity', 
+            'sortillness',
+            'search',
+            'illnesses',
+            'sortintensity',
             'entries'
         ));
     }

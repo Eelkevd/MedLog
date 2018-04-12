@@ -1,8 +1,7 @@
-<!-- Model for role relations -->
-
 <?php
 
 namespace App;
+// Model for role relations
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
@@ -35,7 +34,7 @@ class Role extends Model
         }
         return false;
     }
-    
+
     protected function hasPermission(string $permission)
     {
         $permissions = json_decode($this->permissions,true);

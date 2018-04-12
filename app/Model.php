@@ -1,8 +1,7 @@
-<!-- Model -->
-
 <?php
 
 namespace App;
+// Model
 
 use Illuminate\Database\Eloquent\Model as Eloquent;
 use Illuminate\Support\Facades\Crypt;

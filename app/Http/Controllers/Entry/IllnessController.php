@@ -1,8 +1,7 @@
-<!-- Controller of (create) illness section -->
-
 <?php
 
 namespace App\Http\Controllers\Entry;
+// Controller of (create) illness section
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -15,7 +14,7 @@ class IllnessController extends Controller
 	/**
 	 * authentication requirement
 	 *
-	 * @return void 
+	 * @return void
 	 */
 	public function __construct()
     {
@@ -24,7 +23,7 @@ class IllnessController extends Controller
 
 	/**
 	 * Stores illness into database
-	 * 
+	 *
 	 * @param  Request
 	 * @return redirect
 	 */
@@ -38,7 +37,7 @@ class IllnessController extends Controller
 		$request->validate([
 			'illness'  => 'required',
 		]);
-		
+
 		$illness = Illness::create(request(['illness']));
 		$illness->diary()->attach($request->diary_id);
 

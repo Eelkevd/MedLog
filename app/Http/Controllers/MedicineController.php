@@ -1,8 +1,7 @@
-<!-- Controller of the medicine section -->
-
 <?php
 
 namespace App\Http\Controllers;
+// Controller of the medicine section
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
@@ -24,7 +23,7 @@ class MedicineController extends Controller
 
   	/**
   	 * Function to go to te medicine page on nav btn click
-  	 * 
+  	 *
   	 * @return view
   	 */
 	public function home()
@@ -36,7 +35,7 @@ class MedicineController extends Controller
 
 	/**
 	 * Function to delete a medicine
-	 * 
+	 *
 	 * @param  int
 	 * @return redirect
 	 */
@@ -51,7 +50,7 @@ class MedicineController extends Controller
 
 	/**
 	 * Function to go to the create new medicine page
-	 * 
+	 *
 	 * @return view
 	 */
 	public function create()
@@ -61,7 +60,7 @@ class MedicineController extends Controller
 
 	/**
 	 * Function to store newly created medicine into the db
-	 * 
+	 *
 	 * @param  Request
 	 * @return redirect
 	 */
@@ -93,7 +92,7 @@ class MedicineController extends Controller
 
 	/**
 	 * Function to show selected medicine
-	 * 
+	 *
 	 * @param  int
 	 * @return [type]
 	 */
@@ -105,7 +104,7 @@ class MedicineController extends Controller
 
 	/**
 	 * returns the selected medicine view you want to edit
-	 * 
+	 *
 	 * @param  int
 	 * @return view
 	 */
@@ -117,7 +116,7 @@ class MedicineController extends Controller
 
 	/**
 	 * updates the medicine in the db
-	 * 
+	 *
 	 * @param  Request
 	 * @return redirect
 	 */
@@ -131,11 +130,11 @@ class MedicineController extends Controller
 			$medicine = Medicine::findOrFail($id);
 			$medicinenumber = $medicine->id;
 			$updated_medicine = Medicine::where('id', $id)->update(request([
-				'medicine', 
-				'dose', 
+				'medicine',
+				'dose',
 				'purpose',
 				'side_effect',
-				'price', 
+				'price',
 				'comment'
 			]));
 		}
