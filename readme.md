@@ -7,7 +7,9 @@ A pair programming collaboration of Eelke, Jorik & Esmeralda during week 11, 12,
 
 A medical website build with laravel based on the userstories as described in the Backlog (see Trello link) and a working online demo.
 
-## Check our tutorial! Esmeralda shows what you can do with Medlog in a video: https://youtu.be/XZw2ouIB9Wg 
+## Check our tutorial! https://youtu.be/XZw2ouIB9Wg 
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/XZw2ouIB9Wg/0.jpg)](http://www.youtube.com/watch?v=XZw2ouIB9Wg)
+
 
 ## Follow the progression: https://trello.com/b/0KKvNyAv/medlog
 
