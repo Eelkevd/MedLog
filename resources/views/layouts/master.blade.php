@@ -1,46 +1,36 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
-<head>
-  	<meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Includes csrf-token -->
-    <meta name="csrf-token" content="{{csrf_token()}}">
-
-    <!-- Link to npm css and js -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
-
-    <!-- Open Icons -->
-    <link href="{{ asset('open-iconic/font/css/open-iconic-bootstrap.css') }}" rel="stylesheet">
-
-    <!-- Our Custom CSS -->
-    <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
-
-    <!-- Our own flavicon -->
-    <link rel="icon" type="/img/ico" href="/img/favicon.ico">
-    <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
-</head>
-
-<body>
-
-    <div id="container">
-        <!-- Top Menu -->
-        @include('layouts.sidebar')
-
-        <div id="content">
-          @yield('content')
-          <br />
-          <br />
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Includes csrf-token -->
+        <meta name="csrf-token" content="{{csrf_token()}}">
+        <!-- Link to npm css and js -->
+        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+        <!-- Open Icons -->
+        <link href="{{ asset('open-iconic/font/css/open-iconic-bootstrap.css') }}" rel="stylesheet">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
+        <!-- Our own flavicon -->
+        <link rel="icon" type="/img/ico" href="/img/favicon.ico">
+        <title>{{ config('app.name') }} - {{ config('app.subtitle') }}</title>
+    </head>
+    <body>
+        <div id="container">
+            <!-- Top Menu -->
+            @include('layouts.sidebar')
+            <div id="content">
+                @yield('content')
+                <br />
+                <br />
+            </div>
         </div>
-    </div>
-
-@if (Auth::check())
-  <!-- implement the default theme -->
-  @if (Auth::user()->theme === 'default')
-
-       <script>
+        @if (Auth::check())
+        <!-- implement the default theme -->
+        @if (Auth::user()->theme === 'default')
+        <script>
        src="jquery-3.3.1.min.js"
        $().ready(function() {
 

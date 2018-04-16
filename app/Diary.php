@@ -1,9 +1,17 @@
 <?php
+
 namespace App;
+// Model for diary relations
+
 use Illuminate\Database\Eloquent\Model;
+
 class Diary extends Model
 {
-
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
     protected $fillable = [
         'user_id',
     ];
@@ -24,7 +32,7 @@ class Diary extends Model
     }
 
     // might be used in controllers as symptom
-   // when bugs appear, check spelling in view and controllers
+    // when bugs appear, check spelling in view and controllers
     public function symptomes()
     {
     	return $this->belongsToMany('App\Symptom');
@@ -32,11 +40,11 @@ class Diary extends Model
 
     public function illnesses()
     {
-      return $this->belongsToMany('App\Illness');
+        return $this->belongsToMany('App\Illness');
     }
 
-  // might be used in controllers as medicine
-   // when bugs appear, check spelling in view and controllers
+    // might be used in controllers as medicine
+    // when bugs appear, check spelling in view and controllers
     public function medicines()
     {
     	return $this->belongsToMany('App\Medicine');
@@ -46,5 +54,4 @@ class Diary extends Model
     {
     	return $this->belongsToMany('App\Tool');
     }
-
 }

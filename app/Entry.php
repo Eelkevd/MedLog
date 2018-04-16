@@ -1,13 +1,19 @@
 <?php
+
 namespace App;
+// Model for entry relations
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Auth;
 use App\User;
 
-
 class Entry extends Model
 {
+    /**
+    * The attributes that are mass assignable.
+    *
+    * @var array
+    */
     protected $fillable = [
         'entry_id',
         'medicine_id',
@@ -46,6 +52,11 @@ class Entry extends Model
         return $this->belongsToMany('App\Medicine');
     }
 
+    /**
+     * Get 3 most recent entries in a users diary
+     *
+     * @return entries
+     */
     public static function recentEntries()
     {
       $user = Auth::user();
@@ -53,13 +64,14 @@ class Entry extends Model
       {
         $start ="2000-12-31";
         $end = date('Y-m-d');
-        $entries = $user->diary->entries()->whereBetween('timespan_date', array(
-            $start,
-            $end
-          ))
-          ->take(3)
-          ->orderBy('timespan_date', 'DESC')
-          ->get();
+        $entries = $user->diary->entries()
+            ->whereBetween('timespan_date', array(
+                $start,
+                $end
+            ))
+            ->take(3)
+            ->orderBy('timespan_date', 'DESC')
+            ->get();
         }
         else
         {
@@ -67,5 +79,4 @@ class Entry extends Model
         }
       return $entries;
     }
-
 }

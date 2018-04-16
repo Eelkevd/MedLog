@@ -2,6 +2,8 @@
 
 namespace App\Notifications;
 
+// Verification email 
+
 use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Notifications\Notification;
@@ -44,9 +46,9 @@ class VerifyEmail extends Notification
     public function toMail($notifiable)
     {
         return (new MailMessage)
-                    ->line('Bedankt voor het registreren bij MedLog. Bevestig uw email om het dagboek te activeren.')
-                    ->action('Bestig mijn email adres', route('verify', $this->user->verifyToken))
-                    ->line('Thank you for using our application!');
+        ->line('Bedankt voor het registreren bij MedLog. Bevestig uw email om het dagboek te activeren.')
+        ->action('Bestig mijn email adres', route('verify', $this->user->verifyToken))
+        ->line('Thank you for using our application!');
     }
 
     /**

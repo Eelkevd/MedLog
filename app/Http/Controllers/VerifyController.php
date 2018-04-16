@@ -1,9 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+// Controller for verifying new users
 
-use App\Diary;
 use Illuminate\Http\Request;
+use App\Diary;
 use App\User;
 
 class VerifyController extends Controller
@@ -14,7 +15,6 @@ class VerifyController extends Controller
     * @param string $token
     * @return response
     */
-
     public function verify($verifyToken)
     {
         // find the correct user by token
@@ -32,6 +32,11 @@ class VerifyController extends Controller
         ->with('succes', 'Dagboek geactiveerd');
     }
 
+    /**
+     * Return view when succesfully verified
+     *
+     * @return redirect
+     */
     public function invite()
     {
         return redirect('/')

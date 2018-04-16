@@ -1,3 +1,5 @@
+<!-- Email for reader when he is invited -->
+
 <?php
 
 namespace App\Notifications;
@@ -46,10 +48,10 @@ class InviteEmail extends Notification
     {
         // sends an email invite
         return (new MailMessage)
-                    ->line('Iemand heeft u uitgenodigd om zijn medisch dagboek te bekijken op Medlog!')
-                    ->line('In deze email vindt u uw accountgegevens. U kunt een wachtwoord aanmaken via onderstaande email.')
-                    ->action('Maak een wachtwoord aan', url('/password/reset'))
-                    ->line('Dank u voor het gebruik van MedLog!');
+        ->line('Iemand heeft u uitgenodigd om zijn medisch dagboek te bekijken op Medlog!')
+        ->line('In deze email vindt u uw accountgegevens. U kunt een wachtwoord aanmaken via onderstaande email.')
+        ->action('Maak een wachtwoord aan', url('/password/reset'))
+        ->line('Dank u voor het gebruik van MedLog!');
     }
 
     /**
