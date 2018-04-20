@@ -23,8 +23,6 @@ MedLog is your online medical journal that gives you an overview of your disease
 
 ## Follow the progression: https://trello.com/b/0KKvNyAv/medlog
 
-## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
-
 ## The Team
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/team_medlog.jpg?raw=true "the teammembers of Medlog")
 
