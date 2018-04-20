@@ -90,6 +90,32 @@ class MedicineController extends Controller
 		}
 	}
 
+	public function popup(Request $request)
+	{
+		// Check if user is logged in
+		if (Auth::check())
+		{
+			// find the corresponding diary
+			$user = Auth::user();
+
+			// add the diary_id to the request array
+			$request->request->add(['diary_id' => $user->diary->id]);
+
+			// add the entry into the tabel entries
+			$medicine = Medicine::create(request([
+				'medicine',
+				'dose',
+				'purpose',
+				'side_effect',
+				'expire_date',
+				'price',
+				'comment'
+			]));
+			$medicine->diaries()->attach($request->diary_id);
+			return redirect ('entries');
+		}
+	}
+
 	/**
 	 * Function to show selected medicine
 	 *

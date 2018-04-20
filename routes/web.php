@@ -76,6 +76,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/medicine', 'MedicineController@home');
   Route::get('/medicine/create_medicine', 'MedicineController@create');
   Route::post('/medicine/create_medicine', 'MedicineController@store');
+  Route::post('/medicine/create_medicine_popup', 'MedicineController@popup');
   Route::get('/medicine/{id}/show', 'MedicineController@show')->name('medicine.show');
   Route::get('/medicine/{id}/delete', 'MedicineController@delete')->name('medicine.delete');
   Route::get('/medicine/{id}/edit', 'MedicineController@editmedicine')->name('medicine.edit');

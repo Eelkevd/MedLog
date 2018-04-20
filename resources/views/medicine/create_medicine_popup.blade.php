@@ -6,7 +6,7 @@
 					<h4 class="modal-title">Nieuwe medicatie</h4>
 				</div>
 				<div class="modal-body">
-					<form method="POST" action="/medicine/create_medicine">
+					<form method="POST" action="/medicine/create_medicine_popup">
 						{{ csrf_field() }}
 						<div>
 							<p>
