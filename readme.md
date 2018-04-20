@@ -2,47 +2,33 @@
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/MedLogo.png?raw=true "MedLogo")
 
 ### MedLog
-A medical website to store daily medical updates in your own online medical diary!
-A pair programming collaboration of Eelke, Jorik & Esmeralda during week 11, 12, 13 and 14 of 2018. 
+Medlog is a medical website to store your daily medical updates in your own online medical diary!
+A pair programming collaboration of Eelke, Jorik & Esmeralda since March 2018. 
+Medlog is a medical website build with laravel based on the userstories as described in the Backlog (see Trello link) and a working online demo. See for more information about the possibilities of the website the description below!
 
-A medical website build with laravel based on the userstories as described in the Backlog (see Trello link) and a working online demo.
-
-## Check our tutorial! https://youtu.be/XZw2ouIB9Wg 
+## Check our tutorial video! https://youtu.be/XZw2ouIB9Wg 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/XZw2ouIB9Wg/0.jpg)](http://www.youtube.com/watch?v=XZw2ouIB9Wg)
 
-
-## Follow the progression: https://trello.com/b/0KKvNyAv/medlog
-
-## Testaccount for the live version:
+# Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
+# Testaccount for the live version:
 Email: jorik@testmail.com
 Password: @Insert12
 
 ## Media:
 - https://www.codegorilla.nl/2018/03/19/medisch-dagboek-eindproject/
+- http://www.dvhn.nl/economie/Bloed-zweet-en-tranen-voor-een-baan-in-de-ict-23090845.html
 
 ### Description
 MedLog is your online medical journal that gives you an overview of your diseases, symptoms and more. In the calendar you will find your appointments and medical history. Give your doctor quick and easy access to your medical diary by mail. Or download your medical journal as pdf for your own use. Register all important information about the development of your illness, including medicines, tools, intentsity, symptoms, etcetera. 
 
-### Workflow Week 14 
-- tuesday: Reader functionality work in progress, updated sprintlog/trello, fixed bugs, user able to create and add medicines to diary entry;
-- wednesday: userstory 11b work in progress, reader functionality updated, meeting with coaches, new frontend format, user able to create   tool list;
-- thursday: finished userstory 11b, Patient-26, new frontend format improved with feedback, reader functionality updated: password included in mail; 
-- friday: finished usersotry 11a, added edit and delete functions medicines and tools, feedback testers sorted and implemented, made photo for layout;
+## Follow the progression: https://trello.com/b/0KKvNyAv/medlog
 
 ## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
-
-## Used php packages
-- maddhatter/laravel-fullcalendar https://packagist.org/packages/maddhatter/laravel-fullcalendar
-- barryvdh/laravel-dompdf https://packagist.org/packages/barryvdh/laravel-dompdf
-
-## Inspired by 
-- https://medapp.nu/
 
 # The Team
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/team_medlog.jpg?raw=true "the teammembers of Medlog")
 
-
-# Screenshots
+# Screenshots 05-04-2018
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/overzichtspaginaMedLog.png?raw=true "Overzichtspagina")
 
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/KalenderMedLog.png?raw=true "Kalender pagina")
@@ -50,6 +36,13 @@ MedLog is your online medical journal that gives you an overview of your disease
 # Sketches
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchhomepage.png?raw=true "Homepage sketch")
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchdagboekoverzicht.png?raw=true "Dagboek overzicht sketch")
+
+## Used php packages
+- maddhatter/laravel-fullcalendar https://packagist.org/packages/maddhatter/laravel-fullcalendar
+- barryvdh/laravel-dompdf https://packagist.org/packages/barryvdh/laravel-dompdf
+
+## Inspired by 
+- https://medapp.nu/
 
 ### Archive
 ### Workflow Week 11
@@ -72,3 +65,9 @@ MedLog is your online medical journal that gives you an overview of your disease
 - wednesday: Restructing database, finished userstories Patient-10-2, 10-3, Reader-1, Patient 11-2 work in progress
 - thursday: Made Rework section Trello, checked if old functionalities work with new database structure
 - friday: Reader functionality work in progress, added seeders, fixed bugs and finished most of Rework section
+
+### Workflow Week 14 
+- tuesday: Reader functionality work in progress, updated sprintlog/trello, fixed bugs, user able to create and add medicines to diary entry;
+- wednesday: userstory 11b work in progress, reader functionality updated, meeting with coaches, new frontend format, user able to create   tool list;
+- thursday: finished userstory 11b, Patient-26, new frontend format improved with feedback, reader functionality updated: password included in mail; 
+- friday: finished usersotry 11a, added edit and delete functions medicines and tools, feedback testers sorted and implemented, made photo for layout;
