@@ -112,7 +112,8 @@
                         <form method="GET" action="{{ action('EventController@search') }}" >
                             <input type="text" name="search" placeholder="Zoekopdracht" class="form-control">
                             <button type="submit" class="btn btn-primary">zoek op afspraak of ziektebeeld</button>
-                        </form><br>
+                        </form>
+                        <br>
                     </div>
                 </div>
                 <br>
