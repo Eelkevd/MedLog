@@ -3,14 +3,14 @@
 
 ### MedLog
 Medlog is a medical website to store your daily medical updates in your own online medical diary!
-A pair programming collaboration of Eelke, Jorik & Esmeralda since March 2018. 
-Medlog is a medical website build with laravel based on the userstories as described in the Backlog (see Trello link) and a working online demo. See for more information about the possibilities of the website the description below!
+The website is a pair programming collaboration of Eelke, Jorik & Esmeralda since March 2018. 
+Medlog is build with laravel based on the userstories as described in the Backlog (see Trello link) and a working online demo. See for more information about the possibilities of the website in the description below!
 
 ## Check our tutorial video! https://youtu.be/XZw2ouIB9Wg 
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/XZw2ouIB9Wg/0.jpg)](http://www.youtube.com/watch?v=XZw2ouIB9Wg)
 
-# Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
-# Testaccount for the live version:
+## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
+## Testaccount for the live version:
 Email: jorik@testmail.com
 Password: @Insert12
 
@@ -25,15 +25,15 @@ MedLog is your online medical journal that gives you an overview of your disease
 
 ## Look for the latest online demo at: https://mycare.vps.codegorilla.nl/
 
-# The Team
+## The Team
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/team_medlog.jpg?raw=true "the teammembers of Medlog")
 
-# Screenshots 05-04-2018
+## Screenshots 05-04-2018
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/overzichtspaginaMedLog.png?raw=true "Overzichtspagina")
 
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/KalenderMedLog.png?raw=true "Kalender pagina")
 
-# Sketches
+## Sketches
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchhomepage.png?raw=true "Homepage sketch")
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchdagboekoverzicht.png?raw=true "Dagboek overzicht sketch")
 
