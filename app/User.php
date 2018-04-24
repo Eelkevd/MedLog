@@ -94,8 +94,8 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
 
         // Send email
         Mail::send('mails.welcome', ['user' => $user, 'token' => $token], function ($m) use ($user) {
-        $m->from('info@medlog.com', 'MedLog');
-        $m->to($user->email)->subject('Welcome to MedLog');
+        $m->from('info@medboek.com', 'MedBoek');
+        $m->to($user->email)->subject('Welcome to MedBoek');
         });
     }
 
