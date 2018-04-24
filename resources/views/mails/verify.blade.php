@@ -7,7 +7,7 @@
         <h2>Activeer jouw uitnodiging</h2>
 
         <div>
-            Je hebt je geregistreerd op MedLog, de webapplicatie waarmee je jouw medisch dagboek kunt bijhouden.
+            Je hebt je geregistreerd op MedBoek, de webapplicatie waarmee je jouw medisch dagboek kunt bijhouden.
             Volg onderstaande link om jouw dagboek te activeren.
             {{ URL::to('register/verify/' . $confirmation_code) }}.<br/>
 

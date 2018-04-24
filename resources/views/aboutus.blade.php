@@ -18,16 +18,16 @@
             <div class="card">
                 <div class="card-header"><h5><center>Over ons</center></h5></div>
                 <div class="card-body">
-                    <h2 class="about">Over MedLog</h2>
+                    <h2 class="about">Over MedBoek</h2>
                     <p>
-                        MedLog is jouw online medisch dagboek dat jou een overzicht geeft van jouw ziektebeelden en symptomen.
+                        MedBoek is jouw online medisch dagboek dat jou een overzicht geeft van jouw ziektebeelden en symptomen.
                         In de kalender vind je jouw afspraken en medische geschiedenis.
                         Geef je arts snel en gemakkelijk een uittreksel van je medische veranderingen.
                         Download je medisch dagboek voor eigen gebruik.<br><br>
-                        Het idee voor MedLog is ontstaan en ontwikkeld gedurende de eerste
+                        Het idee voor MedBoek is ontstaan en ontwikkeld gedurende de eerste
                         <a href="https://www.codegorilla.nl/">CodeGorilla</a> bootcamp in de gemeente Groningen.
                     </p>
-                    <q><em>De MedLog website geeft gehoor aan de vraag van patiënten en hun verzorgers naar een toegankelijke website
+                    <q><em>De MedBoek website geeft gehoor aan de vraag van patiënten en hun verzorgers naar een toegankelijke website
                     voor een zo breed mogelijke groep gebruikers met uiteenlopende ziektebeelden.
                     </em></q>
                     <hr>
@@ -40,13 +40,13 @@
                     <hr>
                     <h2 class="about">Contact</h2>
                     <p>Heb je een tip, verbetering of aanvulling voor onze website?
-                        Mail dan jouw voorstel naar <a href="mailto:tip@medlog.nl">tip@medlog.nl</a> met jouw persoonlijke gegevens
+                        Mail dan jouw voorstel naar <a href="mailto:tip@medboek.nl">tip@medboek.nl</a> met jouw persoonlijke gegevens
                         en wellicht passen we je voorstel toe of nemen we contact met je op voor meer
                         informatie. Heb je vragen over de website of wil je meer informatie over ons project,
-                        mail dan naar <a href="mailto:info@medlog.nl">info@medlog.nl</a>.</p>
+                        mail dan naar <a href="mailto:info@medboek.nl">info@medboek.nl</a>.</p>
                         <strong>Adres</strong>
                         <ul class="list-unstyled">
-                            <li>MedLog. CodeGorilla</li>
+                            <li>MedBoek. CodeGorilla</li>
                             <li>Achterweg 1</li>
                             <li>9725 BM Groningen</li>
                         </ul>

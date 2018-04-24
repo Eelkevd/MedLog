@@ -34,11 +34,9 @@ nav{
 }
 
 nav img.logo{
-  border-radius: 10%;
   height:100px;
   margin: 0 20px 0 20px;
   padding:0;
-  box-shadow: 2px 3px 3px rgba(0,0,0,0.3);
 }
 
 nav ul{
