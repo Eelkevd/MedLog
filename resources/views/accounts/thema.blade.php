@@ -13,7 +13,8 @@
                     @endguest
                     <div class="card">
                         <div class="card-header">
-                            <h5><center>Kies hier het thema van uw layout</center></h5>
+                            <h5><center>Uw thema</center></h5>
+                            <p><center><em>Kies hier een thema van uw layout</em></center></p>
                         </div>
                         <!-- layouts buttons to choose a theme -->
                         <table class="table table-striped">

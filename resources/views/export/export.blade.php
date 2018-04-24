@@ -35,8 +35,7 @@
                     <div class="card">
                         <div class="card-header"><h5><center>Download uw dagboek</center></h5>
                         </div>
-                        <br />
-                    </div>
+                    
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">Selecteer een ziektebeeld om te downloaden</div>
@@ -49,7 +48,7 @@
                                         <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
                                         @endforeach()
                                     </select>
-                                    <input type="submit" class="btn btn-primary" value="Download" /><br>
+                                    <input type="submit" class="btn btn-primary" style="margin-top: 5px;" value="Download" /><br>
                                 </form>
                             </div>
                         </div><br>
@@ -66,7 +65,7 @@
                                             <input type="text" name="end_date" class="date form-control" placeholder="tot en met"required/>
                                         </div>
                                     </div>
-                                    <input type="submit" class="btn btn-primary" value="Download" /><br>
+                                    <input type="submit" class="btn btn-primary" style="margin-top: 5px;" value="Download" /><br>
                                 </form>
                                 <script>
                                 $('.date').datepicker({
@@ -77,13 +76,15 @@
                             </div>
                         </div><br>
                         <div class="card">
+                            <div class="card-header">Download al jouw gebeurtenissen</div>
                             <div class="card-body">
                                 <form method="POST" action="/export/getPDF">
                                     {{ csrf_field() }}
-                                    <input type="submit" class="btn btn-primary btn-md" style="width:300px;" value="Download al je gebeurtenissen" /><br>
+                                    <input type="submit" class="btn btn-primary btn-md" value="Download" /><br>
                                 </form>
                             </div>
                         </div>
+                    </div>
                         @endif
                         @endauth
                     </div>

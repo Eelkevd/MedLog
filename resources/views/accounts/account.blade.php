@@ -1,11 +1,11 @@
 <!-- View for the account page (loads users account data) -->
 <table class="table table-striped">
-    <thead>
+<!--     <thead>
         <tr>
             <th></th>
             <th></th>
         </tr>
-    </thead>
+    </thead> -->
     <tbody>
         <!-- Show email -->
         <tr>
@@ -21,4 +21,5 @@
                 @endif
             {{ $user -> lastname }}</td>
         </tr>
+    </tbody>
 </table>

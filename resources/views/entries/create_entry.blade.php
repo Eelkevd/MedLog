@@ -48,7 +48,7 @@
                                     <h5>Onder welk ziektebeeld valt de gebeurtenis? *</h5>
                                     <div class="card-deck mb-4 text-center">
                                         <div class="card mb-4 box-shadow">
-                                            <div class="card-header">
+                                            <div class="card-header" style="border-bottom: none;">
                                                 Selecteer uw ziektebeeld
                                                 <div class="card-body nopadding">
                                                     @if (!$illnesses->isEmpty())
@@ -68,17 +68,14 @@
                                         <div class="card mb-4 box-shadow">
                                             <div class="card-header">
                                                 Of voeg eerst een nieuw ziektebeeld toe
-                                            </div>
-                                            <div class="card-body nopadding">
+                                            
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                                 <hr>
-                                <div class="card-header">
-                                    <h5>Welke symptomen had u?</h5>
-                                </div>
+                                    Welke symptomen had u?
                                 <!-- places all symptomes from db of that user -->
                                 <div class="symptoms form-check">
                                     <ul class="list-unstyled">
@@ -114,7 +111,7 @@
                                     <span class="oi oi-chevron-bottom"></span>
                                     </button>
                                     <div class="collapse" class="card-body"  id="form_optional_times">
-                                        <div>
+                                        <div><br />
                                             Startdatum klacht <em><small>(optioneel)</small></em>
                                             <br>
                                             <input type="date" id='complaint_startdate' name="complaint_startdate" value="{{ old('complaint-startdate') }}">
@@ -129,11 +126,10 @@
                                             <br>
                                             <input type="time" name="complaint_time" value="{{ old('complaint-time') }}">
                                         </div>
-                                        <hr>
                                     </div>
                                 </div> <!-- end first toggle> -->
                                 <br />
-                                    <div class="card">
+                                    <div class="card" style="background-color: #edf1f9; border: none;">
                                         <button type="button" class="btn btn-info" data-toggle="collapse" data-target="#form_optional">
                                         Klik hier om meer details toe te voegen
                                         <span class="oi oi-chevron-bottom"></span>
@@ -185,9 +181,9 @@
                                                     Wat zagen anderen? <em><small>(optioneel)</small></em>
                                                     <textarea name="witness_report" placeholder="..." value="{{ old('witness_report') }}"></textarea>
                                                 </div>
-                                                <hr>
                                             </div>
                                         </div>
+                                    </div>
                                     <!-- end second toggle -->
                                 <br />
                                 <div>
