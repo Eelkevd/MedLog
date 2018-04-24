@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
+                <div class="card-header">
                 <!-- check to see if user of page is guest, reader, user or validated user.
                 Only let validated user throug -->
                 @guest
@@ -31,8 +32,14 @@
                     </div>
                 </div>
                 @else
+                <div class="card">
+                        <!-- <div class="card-header">
+                            <h5><center>Nieuwe gebeurtenis voor in uw <br />medisch dagboek</center></h5>
+                            <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
+                        </div> -->
                 <div class="card-header">
-                    <h4>Maak afspraak</h4> <p>Velden met een sterretje (*) zijn verplicht</p>
+                    <h5><center>Nieuwe afspraak</center></h5>
+                    <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
                 </div>
                 <div class="card-body">
                     <form action= "/home/store_event" method="post">
@@ -45,6 +52,7 @@
                         <br />
                         <input type="date" name="start_date" class="date" required/>
                         <br />
+                        <br />
                         Tijd:
                         <br />
                         <input type="time" name="event_time" id="event_time" class="time"><br><br>
@@ -52,6 +60,8 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
             @endif
             @endauth
         </div>

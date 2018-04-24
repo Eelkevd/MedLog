@@ -84,6 +84,11 @@ class OverviewController extends Controller
         $keyword = $request->input('search');
         $search = $user->diary->entries()
             ->where('illness', 'LIKE', '%' . $keyword . '%')
+            ->orwhere('intensity', 'LIKE', '%' . $keyword . '%')
+            ->orwhere('location', 'LIKE', '%' . $keyword . '%')
+            ->orwhere('weather', 'LIKE', '%' . $keyword . '%')
+            ->orwhere('witness_report', 'LIKE', '%' . $keyword . '%')
+            ->orwhere('comments', 'LIKE', '%' . $keyword . '%')
             ->orderBy('timespan_date', 'DESC')->orderBy('timespan_time', 'DESC')
             ->get();
         $sortillness = $user->diary->entries()

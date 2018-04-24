@@ -26,7 +26,7 @@
     </head>
     <body>
         <table>
-            <caption><h1> Medlog dagboek pagina's</h1></caption>
+            <caption><h1> MedBoek dagboek pagina's</h1></caption>
             <thead>
                 <tr>
                     <th>Datum & Tijd</th>

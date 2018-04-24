@@ -9,7 +9,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-body">
-                    <strong>Een medisch dossier in eigen hand begint bij MedLog.</strong>
+                    <strong>Een medisch dossier in eigen hand begint bij MedBoek.</strong>
                     <br />
                     <br />
                         <ul class="index">
