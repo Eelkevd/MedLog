@@ -56,8 +56,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'info@medlog.nl'),
-        'name' => env('MAIL_FROM_NAME', 'MedLog'),
+        'address' => env('MAIL_FROM_ADDRESS', 'info@medboek.nl'),
+        'name' => env('MAIL_FROM_NAME', 'MedBoek'),
     ],
 
     /*

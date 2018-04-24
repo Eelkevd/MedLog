@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'name' => 'MedLog',
+    'name' => 'MedBoek',
 
     'subtitle' => 'Jouw medisch dagboek',
 
