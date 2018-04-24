@@ -31,7 +31,7 @@
                 </div>
                 @endif
             </div>
-            <h5><center>Welkom bij MedLog, uw persoonlijk medisch dagboek!</center></h5>
+            <h5><center>Welkom bij MedBoek, uw persoonlijk medisch dagboek!</center></h5>
             Creëer uw eigen medisch dossier. Begin door een nieuwe gebeurtenis aan te maken.
             Voeg onder andere een ziektebeeld en symptomen toe.
             U kunt vervolgens meelezers toevoegen en u kunt uw dagboek downloaden als pdf.

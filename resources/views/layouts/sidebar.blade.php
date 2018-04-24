@@ -2,7 +2,7 @@
     <!-- Header -->
     <div class="title_app">
         <a href="{{route('homepage')}}" class="navbar-brand">
-            <img src="{{asset('/img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedLog. Also return home button">
+            <img src="{{asset('/img/MedLogo.svg')}}" class="d-inline-block align-top logo" alt="logo MedBoek. Also return home button">
             {{ config('app.subtitle') }}
         </a>
     </div>
@@ -14,7 +14,7 @@
         <ul class="navbar-nav" style="position: absolute; bottom:0; right:0px;">
             @guest
             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login of registreer') }}</a></li>
-            <li class="nav-item"><a class="nav-link" href="/about">Over MedLog</a></li>
+            <li class="nav-item"><a class="nav-link" href="/about">Over MedBoek</a></li>
         </ul>
         @endguest
         @auth
@@ -71,7 +71,7 @@
                 <div class="dropdown-divider"></div>
                 <a href="/permissions" class="dropdown-item">Meelezers</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/about">Over MedLog</a>
+                <a class="dropdown-item" href="/about">Over MedBoek</a>
             </div>
         </li>
         @endif
