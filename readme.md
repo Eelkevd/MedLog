@@ -1,5 +1,5 @@
 # MedBoek Eelke, Jorik & Esmeralda 
-![Alt text](https://github.com/Eelkevd/MedLog/blob/master/MedBoek_logo_purple.svg?raw=true "MedLogo")
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/MedBoek_logo_purple.png?raw=true "MedLogo")
 
 ### MedBoek
 MedBoek (formerly called MedLog) is a medical website to store your daily medical updates in your own online medical diary!
