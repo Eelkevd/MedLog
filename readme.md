@@ -27,8 +27,8 @@ MedBoek is your online medical journal that gives you an overview of your diseas
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/team_medlog.jpg?raw=true "the teammembers of Medboek")
 
 ## Screenshots 05-04-2018
-![Alt text](https://github.com/Eelkevd/MedLog/blob/master/OverzichtspaginaMedBoek.png?raw=true "Overzichtspagina")
-![Alt text](https://github.com/Eelkevd/MedLog/blob/master/KalenderMedBoek.png?raw=true "Kalender pagina")
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/OverzichtspaginaMedboek.png?raw=true "Overzichtspagina")
+![Alt text](https://github.com/Eelkevd/MedLog/blob/master/KalenderMedboek.png?raw=true "Kalender pagina")
 
 ## Sketches
 ![Alt text](https://github.com/Eelkevd/MedLog/blob/master/Sketchhomepage.png?raw=true "Homepage sketch")
