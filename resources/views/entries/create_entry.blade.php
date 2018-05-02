@@ -68,9 +68,16 @@
                                         <div class="card mb-4 box-shadow">
                                             <div class="card-header">
                                                 Of voeg eerst een nieuw ziektebeeld toe
-                                            
+
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="card mb-4 box-shadow">
+                                        <div class="card-header">
+                                            verwijder een ziekte uit uw lijst
+
+                                            <button type="button" class="btn" data-toggle="modal" data-target="#illness_remove_pop">verwijder ziektebeeld</button>
                                         </div>
                                     </div>
                                 </div>
@@ -143,7 +150,7 @@
                                             <div>
                                             Nam u medicijnen in vanwege de gebeurtenis? <em><small>(optioneel)</small></em><br />
                                             <br />
-                                            
+
                                             <div class="card-body nopadding">
                                                 <button type="button" class="btn" data-toggle="modal" data-target="#medicine_pop">Nieuwe medicatie</button>
                                             </div>
@@ -151,7 +158,7 @@
                                             @if (!$medicines->isEmpty())
                                                 <div class="symptoms form-check">
 
-                                                    <ul class="list-unstyled">                                                    
+                                                    <ul class="list-unstyled">
                                                         @foreach($medicines as $medicine)
                                                         @if($medicine->deleted != 'removed')
                                                         <li><label>

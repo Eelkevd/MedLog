@@ -43,4 +43,23 @@ class IllnessController extends Controller
 
     	return redirect ('entries');
 	}
+
+	/**
+	 * Function to delete an illness
+	 *
+	 * @param  int
+	 * @return redirect
+	 */
+	public function delete($id)
+	{
+		if (Auth::check())
+		{
+			Illness::where('id', $id)->update(['deleted' => 'removed']);
+		}
+		return redirect ('entries');
+	}
+
+
+
+
 }
