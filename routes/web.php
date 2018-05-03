@@ -56,8 +56,7 @@ Route::middleware('auth')->group(function () {
   // Page to delete diary entry page
   Route::get('/entries/{id}/delete', 'Entry\EntryController@delete')->name('entries.delete');
   // Page to delete illness
-  Route::get('/entries/{id}/delete_illness', 'Entry\IllnessController@delete')->name('entries.delete_illness');
-
+  Route::post('/entries/delete_illness', 'Entry\IllnessController@delete');
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');

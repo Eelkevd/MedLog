@@ -22,7 +22,7 @@
 					</form>
 				</div>
 				<div class="modal-footer">
-					<button type="button"  data-dismiss="modal">Close</button>
+					<button type="button"  data-dismiss="modal">Terug</button>
 				</div>
 			</div>
 		</div>

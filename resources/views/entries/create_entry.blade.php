@@ -55,7 +55,9 @@
                                                     <select class="custom-select custom-select-lg mb-3 form-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" name="illness" required>
                                                         <option selected></option>
                                                         @foreach($illnesses as $illness)
-                                                        <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                                            @if($illness->deleted != 'removed')
+                                                            <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                                            @endif
                                                         @endforeach()
                                                     </select>
                                                     @else
@@ -205,6 +207,7 @@
                         </div>
                         @include ('entries.create_symptom')
                         @include ('entries.create_illness')
+                        @include ('entries.remove_illness')
                         @include ('medicine.create_medicine_popup')
                     </div>
                     @endif

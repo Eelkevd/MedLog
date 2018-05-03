@@ -36,7 +36,9 @@
                             <select form= 'illnessform' name="illness" class="sort_illness form-control">
                                 <option value="" selected disabled hidden>Kies ziekte</option>
                                 @foreach($illnesses as $illness)
-                                <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                    @if($illness->deleted != 'removed')
+                                    <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                    @endif
                                 @endforeach()
                             </select>
                             <button type="submit" class="btn btn-primary">Sorteer je dagboek op ziekte</button>
