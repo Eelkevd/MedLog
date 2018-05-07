@@ -35,7 +35,7 @@
                     <div class="card">
                         <div class="card-header"><h5><center>Download uw dagboek</center></h5>
                         </div>
-                    
+
                     <div class="card-body">
                         <div class="card">
                             <div class="card-header">Selecteer een ziektebeeld om te downloaden</div>
@@ -45,7 +45,9 @@
                                     <select name="illness" class="form-control medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
                                         <option selected></option>
                                         @foreach($illnesses as $illness)
-                                        <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                                @if($illness->deleted != 'removed')
+                                                <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                                @endif
                                         @endforeach()
                                     </select>
                                     <input type="submit" class="btn btn-primary" style="margin-top: 5px;" value="Download" /><br>
