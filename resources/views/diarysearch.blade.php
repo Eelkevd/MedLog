@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <!-- Search function to search in events -->
                         <form method="GET" action="{{ action('OverviewController@search') }}" >
-                            <input type="text" name="search" placeholder="Zoekopdracht" class="form-control">
+                            <input type="text" name="search" placeholder="Zoek op ziekte, locatie, intensiteit of getuigen " class="form-control">
                             <button type="submit" class="btn btn-primary">Zoek in je dagboek</button>
                         </form><br>
                         <!-- sort function to sort by illness-->
