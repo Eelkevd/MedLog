@@ -69,6 +69,9 @@ class EventController extends Controller
         $user_id = Auth::id();
         $request->request->add(['user_id' => $user_id]);
 
+        // add start_date as end_date
+        $request->request->add(['end_date' => $request->start_date]);
+
         // send the request information through the model to store
         Event::create($request->all());
             $events = [];
@@ -85,7 +88,7 @@ class EventController extends Controller
                     $value->title,
                     $value->description,
                     new \DateTime($value->start_date),
-                    new \DateTime($value->start_date)
+                    new \DateTime($value->end_date)
                 );
             }
         }

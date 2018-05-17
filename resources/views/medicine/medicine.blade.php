@@ -93,7 +93,7 @@
                         </div>
                         {{ $medicines->links() }}
                         <div class="card-body">
-                            <a href="">Nieuwe medicatie?</a>
+                            
                             <!-- places all medicines from db -->
                             @foreach($medicines as $medicine)
                             @if($medicine->deleted != 'removed')

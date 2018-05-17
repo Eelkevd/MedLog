@@ -29,7 +29,6 @@ Route::get('/verify_invite', 'VerifyController@invite');
 Route::get('/aboutus', 'AboutusController@aboutus');
 Route::get('/about', 'AboutusController@aboutus');
 
-
 // validated routers for users with a diary
 Route::middleware('auth')->group(function () {
   // Routes to do show, search in or create event in calendar
@@ -56,6 +55,8 @@ Route::middleware('auth')->group(function () {
   Route::post('/entries/{id}/edit_entry', 'Entry\EditEntryController@store_update');
   // Page to delete diary entry page
   Route::get('/entries/{id}/delete', 'Entry\EntryController@delete')->name('entries.delete');
+  // Page to delete illness
+  Route::post('/entries/delete_illness', 'Entry\IllnessController@delete');
 
   // Route to diary overview page
   Route::get('/overview', 'OverviewController@index');

@@ -16,6 +16,7 @@ class CreateIllnessesTable extends Migration
         Schema::create('illnesses', function (Blueprint $table) {
             $table->increments('id')->unsigned();
             $table->string('illness');
+            $table->string('deleted')->nullable();
             $table->timestamps();
         });
     }

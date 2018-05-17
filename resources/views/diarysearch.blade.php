@@ -28,7 +28,7 @@
                     <div class="card-body">
                         <!-- Search function to search in events -->
                         <form method="GET" action="{{ action('OverviewController@search') }}" >
-                            <input type="text" name="search" placeholder="Zoekopdracht" class="form-control">
+                            <input type="text" name="search" placeholder="Zoek op ziekte, locatie, intensiteit of getuigen " class="form-control">
                             <button type="submit" class="btn btn-primary">Zoek in je dagboek</button>
                         </form><br>
                         <!-- sort function to sort by illness-->
@@ -36,7 +36,9 @@
                             <select form= 'illnessform' name="illness" class="sort_illness form-control">
                                 <option value="" selected disabled hidden>Kies ziekte</option>
                                 @foreach($illnesses as $illness)
-                                <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                    @if($illness->deleted != 'removed')
+                                    <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                    @endif
                                 @endforeach()
                             </select>
                             <button type="submit" class="btn btn-primary">Sorteer je dagboek op ziekte</button>
