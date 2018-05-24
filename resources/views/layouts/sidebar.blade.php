@@ -69,8 +69,8 @@
                 <a class="dropdown-item" href="/account">Uw gegevens</a>
                 <a class="dropdown-item" href="/account/thema">Uw thema</a>
                 <div class="dropdown-divider"></div>
-                <a href="/permissions" class="dropdown-item">Meelezers</a>
-                <div class="dropdown-divider"></div>
+                <!-- <a href="/permissions" class="dropdown-item">Meelezers</a>
+                <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item" href="/about">Over MedBoek</a>
             </div>
         </li>

@@ -84,10 +84,10 @@ Route::middleware('auth')->group(function () {
   Route::post('/medicine/{id}/edit_medicine', 'MedicineController@store_update');
 
   // Routes for User-Reader communications
-  Route::get('/permissions', 'PermissionsController@index');
-  Route::get('/permissions/givepermission', 'PermissionsController@create');
-  Route::post('/permissions/givepermission', 'PermissionsController@store');
-  Route::delete('/permissions/delete/{id}', 'PermissionsController@delete');
+  // Route::get('/permissions', 'PermissionsController@index');
+  // Route::get('/permissions/givepermission', 'PermissionsController@create');
+  // Route::post('/permissions/givepermission', 'PermissionsController@store');
+  // Route::delete('/permissions/delete/{id}', 'PermissionsController@delete');
 
   // Route to tool and pages
   Route::get('/tool', 'ToolController@home');

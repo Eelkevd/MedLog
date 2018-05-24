@@ -34,7 +34,8 @@
             <h5><center>Welkom bij MedBoek, uw persoonlijk medisch dagboek!</center></h5>
             Creëer uw eigen medisch dossier. Begin door een nieuwe gebeurtenis aan te maken.
             Voeg onder andere een ziektebeeld en symptomen toe.
-            U kunt vervolgens meelezers toevoegen en u kunt uw dagboek downloaden als pdf.
+            <!-- U kunt vervolgens meelezers toevoegen en u kunt uw dagboek downloaden als pdf. -->
+            U kunt vervolgens uw dagboek downloaden als pdf.
             Zo heeft u uw medische geschiedenis altijd bij de hand!
             <br /><br />
             <div class="card-deck mb-4 text-center">

@@ -15,7 +15,7 @@
                         <ul class="index">
                             <li>Organiseer uw dagboek zoals u dat zelf wilt met uw eigen ziektebeelden en symptomen.</li>
                             <li>Houd uw afspraken overzichtelijk bij in de kalender.</li>
-                            <li>Voeg uw behandelaars en mantelzorgers toe als meelezers.</li>
+                            <!-- <li>Voeg uw behandelaars en mantelzorgers toe als meelezers.</li> -->
                             <li>Sorteer en download uw dagboek als pdf.</li>
                             <li>Kies uw eigen layout, bijvoorbeeld "Hoog Contrast".</li>
                         </ul>
@@ -95,7 +95,7 @@
                             <form method="POST" action="{{ route('register') }}">
                                 @csrf
                                 <!-- Register form choose role -->
-                                <div class="form-group row">
+                                <!-- <div class="form-group row">
                                     <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Ik ben een: ') }}</label>
                                     <div class="col-md-6">
                                         <select id="role" type="text" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" value="{{ old('role') }}" required>
@@ -109,7 +109,7 @@
                                             </span>
                                         @endif
                                     </div>
-                                </div>
+                                </div> -->
                                 <!-- Register form firstname-->
                                 <div class="form-group row">
                                     <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam *') }}</label>
