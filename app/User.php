@@ -26,10 +26,6 @@ class User extends Authenticatable implements \Illuminate\Contracts\Auth\Authent
      */
     protected $fillable = [
         'username',
-        'firstname',
-        'middlename',
-        'lastname',
-        'email',
         'password',
         'verifyToken',
     ];

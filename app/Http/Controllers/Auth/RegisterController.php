@@ -54,11 +54,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            // 'role' => 'required',
-            'firstname' => 'required|string|max:35',
-            'middlename' => 'max:35',
-            'lastname' => 'required|string|max:35',
-            'email' => 'required|string|email|max:35|unique:users|confirmed',
+            // // 'role' => 'required',
+            // 'firstname' => 'required|string|max:35',
+            // 'middlename' => 'max:35',
+            // 'lastname' => 'required|string|max:35',
+            // 'email' => 'required|string|email|max:35|unique:users|confirmed',
             'password' => 'required|min:6|regex:/^.*(?=.{3,})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[\d\X])(?=.*[!$#%@]).*$/|confirmed',
         ]);
     }
@@ -73,20 +73,16 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         $data['role'] = '1';
-        $username = Str::random(8);
+        $username = Str::random(6);
         $user = User::create([
             'username' => $username,
-            'firstname' => $data['firstname'],
-            'middlename' => $data['middlename'],
-            'lastname' => $data['lastname'],
-            'email' => $data['email'],
             'password' => Hash::make($data['password']),
             'verifyToken' => Str::random(40),
         ]);
         // Attach th role of the user in the pivot table role_user
         $user->roles()->attach($data['role']);
         // Send an email with a verification link which redirects using the token
-        $user->sendVerificationMail();
+        // $user->sendVerificationMail();
         return $user;
     }
 

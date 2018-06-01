@@ -28,14 +28,14 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <!-- Login form email-->
+                            <!-- Login form username-->
                             <div class="form-group row">
-                                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('E-Mailadres') }}</label>
+                                <label for="username" class="col-sm-4 col-form-label text-md-right">{{ __('Gebruikersnaam') }}</label>
                                 <div class="col-md-6">
-                                    <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
-                                    @if ($errors->has('email'))
+                                    <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
+                                    @if ($errors->has('username'))
                                         <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('email') }}</strong>
+                                            <strong>{{ $errors->first('username') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -90,95 +90,6 @@
                         <div class="card-body">
                           <form method="POST" action="{{ route('register') }}">
                               @csrf
-
-                              <!-- Register form choose role -->
-                              <div class="form-group row">
-                                  <label for="role" class="col-md-4 col-form-label text-md-right">{{ __('Ik ben een: ') }}</label>
-
-                                  <div class="col-md-6">
-                                    <select id="role" type="text" class="form-control{{ $errors->has('role') ? ' is-invalid' : '' }}" name="role" value="{{ old('role') }}">
-                                      @foreach($roles as $id=>$role)
-                                        <option value="{{ $id }}">{{ $role }} </option>
-                                      @endforeach
-                                    </select>
-
-                                      @if ($errors->has('role'))
-                                          <span class="invalid-feedback">
-                                              <strong>{{ $errors->first('role') }}</strong>
-                                          </span>
-                                      @endif
-                                  </div>
-                              </div>
-
-                              <!-- Register form firstname-->
-                              <div class="form-group row">
-                                  <label for="firstname" class="col-md-4 col-form-label text-md-right">{{ __('Voornaam *') }}</label>
-
-                                  <div class="col-md-6">
-                                      <input id="firstname" type="text" class="form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" required autofocus>
-
-                                      @if ($errors->has('firstname'))
-                                          <span class="invalid-feedback">
-                                              <strong>{{ $errors->first('firstname') }}</strong>
-                                          </span>
-                                      @endif
-                                  </div>
-                              </div>
-
-                              <!-- Register form middlename-->
-                              <div class="form-group row">
-                                  <label for="middlename" class="col-md-4 col-form-label text-md-right">{{ __('Tussenvoegsel') }}</label>
-
-                                  <div class="col-md-6">
-                                      <input id="middlename" type="text" class="form-control{{ $errors->has('middlename') ? ' is-invalid' : '' }}" name="middlename" value="{{ old('middlename') }}" autofocus>
-
-                                      @if ($errors->has('middlename'))
-                                          <span class="invalid-feedback">
-                                              <strong>{{ $errors->first('middlename') }}</strong>
-                                          </span>
-                                      @endif
-                                  </div>
-                              </div>
-
-                              <!-- Register form lastname-->
-                              <div class="form-group row">
-                                  <label for="lastname" class="col-md-4 col-form-label text-md-right">{{ __('Achternaam *') }}</label>
-
-                                  <div class="col-md-6">
-                                      <input id="lastname" type="text" class="form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="{{ old('lastname') }}" required autofocus>
-
-                                      @if ($errors->has('lastname'))
-                                          <span class="invalid-feedback">
-                                              <strong>{{ $errors->first('lastname') }}</strong>
-                                          </span>
-                                      @endif
-                                  </div>
-                              </div>
-
-                              <!-- Register form email-->
-                              <div class="form-group row">
-                                  <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mailadres *') }}</label>
-
-                                  <div class="col-md-6">
-                                      <input id="email" type="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required>
-
-                                      @if ($errors->has('email'))
-                                          <span class="invalid-feedback">
-                                              <strong>{{ $errors->first('email') }}</strong>
-                                          </span>
-                                      @endif
-                                  </div>
-                              </div>
-
-                              <!-- Register form confirm email-->
-                              <div class="form-group row">
-                                  <label for="email-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Herhaal E-Mailadres *') }}</label>
-
-                                  <div class="col-md-6">
-                                      <input id="email-confirm" type="email" class="form-control" name="email_confirmation" required>
-                                  </div>
-                              </div>
-
                               <!-- Register form password-->
                               <div class="form-group row">
                                   <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Wachtwoord *') }}</label>

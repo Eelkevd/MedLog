@@ -32,6 +32,25 @@ class IllnessController extends Controller
 		// find the corresponding diary
 		$user = Auth::user();
 
+		// flash session
+		$request->session()->flash(
+			'entry_id',
+	        'medicine_id',
+	        'diary_id',
+	        'illness',
+	        'timespan_date',
+	        'timespan_time',
+	        'location',
+	        'intensity',
+	        'complaint_startdate',
+	        'complaint_enddate',
+	        'complaint_time',
+	        'recoverytime_time',
+	        'weather',
+	        'witness_report',
+	        'comments'
+	    );
+
 		// add the diary_id to the request array
 		$request->request->add(['diary_id' => $user->diary->id]);
 		$request->validate([
