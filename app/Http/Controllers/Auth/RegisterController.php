@@ -75,12 +75,29 @@ class RegisterController extends Controller
         $data['role'] = '1';
         $username = Str::random(6);
         $user = User::create([
-            'username' => $username,
+            'email' => $username,
             'password' => Hash::make($data['password']),
             'verifyToken' => Str::random(40),
         ]);
+        
+
+        // $user = Auth::user();
+
+        $user_id = $user->id;
+
+        // insert a new diary in the database for the user
+        $diary = new Diary(['user_id' => $user_id]);
+        $diary->save();
+
+        // empty the token to verify the user
+        $user->update(['verifyToken' => null]);
+
+        // return redirect('/home')
+        // ->with('succes', 'Dagboek geactiveerd');
+
+
         // Attach th role of the user in the pivot table role_user
-        $user->roles()->attach($data['role']);
+        //$user->roles()->attach($data['role']);
         // Send an email with a verification link which redirects using the token
         // $user->sendVerificationMail();
         return $user;

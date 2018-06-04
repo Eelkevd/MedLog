@@ -38,18 +38,18 @@ class AdminLoginController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            'username' => 'required',
+            'email' => 'required',
             'token' => 'required',
             'password' => 'required'
         ]);
 
-        if (Auth::guard('admin')->attempt(['username'=> $request->username, 'token'=> $request->token, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard('admin')->attempt(['email'=> $request->email, 'token'=> $request->token, 'password' => $request->password], $request->remember)) {
             //login successful
             return redirect()->intended(route('admin.dashboard'));
         }
 
         //login fails
-        return redirect()->back()->withInput($request->only('username', 'remember'));
+        return redirect()->back()->withInput($request->only('email', 'remember'));
     }
 
     /**

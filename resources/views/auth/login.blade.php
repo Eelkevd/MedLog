@@ -28,14 +28,14 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
-                            <!-- Login form username-->
+                            <!-- Login form email-->
                             <div class="form-group row">
-                                <label for="username" class="col-sm-4 col-form-label text-md-right">{{ __('Gebruikersnaam') }}</label>
+                                <label for="email" class="col-sm-4 col-form-label text-md-right">{{ __('Gebruikersnaam') }}</label>
                                 <div class="col-md-6">
-                                    <input id="username" type="username" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ old('username') }}" required autofocus>
-                                    @if ($errors->has('username'))
+                                    <input id="email" type="text" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" required autofocus>
+                                    @if ($errors->has('email'))
                                         <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('username') }}</strong>
+                                            <strong>{{ $errors->first('email') }}</strong>
                                         </span>
                                     @endif
                                 </div>
@@ -65,10 +65,7 @@
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary">
                                         {{ __('Login') }}
-                                    </button>
-                                    <a class="btn btn-link" href="{{ route('password.request') }}">
-                                        {{ __('Wachtwoord vergeten?') }}
-                                    </a>
+                                    </button>                                  
                                 </div>
                             </div>
                         </form>
