@@ -19,8 +19,8 @@
                 <div class="card-header"><h5><center>Privacystatement</center></h5></div>
                 <div class="card-body">
                     <h2 class="about">MedBoek Algemeen</h2>
-                    <p> MedBoek, gevestigd aan Bedumerweg 78 Groningen 9716AG, is verantwoordelijk voor de verwerking van persoonsgegevens
-                        zoals weergegeven in deze privacyverklaring. Voor de contactgegevens, kijk bij bovenstaand kopje "adres".
+                    <p> MedBoek, gevestigd aan Bedumerweg 78 Groningen 9716 AG, is verantwoordelijk voor de verwerking van persoonsgegevens
+                        zoals weergegeven in deze privacyverklaring. Voor verdere contactgegevens, kijk onder het kopje "Over MedBoek".
                     </p>
 
                     <h2 class="about">Persoonsgegevens die wij verwerken</h2>
