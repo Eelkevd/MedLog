@@ -29,6 +29,9 @@ Route::get('/verify_invite', 'VerifyController@invite');
 Route::get('/aboutus', 'AboutusController@aboutus');
 Route::get('/about', 'AboutusController@aboutus');
 
+// Route to about us page
+Route::get('/privacy', 'AboutusController@privacystatement');
+
 // validated routers for users with a diary
 Route::middleware('auth')->group(function () {
   // Routes to do show, search in or create event in calendar

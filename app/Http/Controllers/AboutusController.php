@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-// Controller of the about us section 
+// Controller of the about us section
 
 use Illuminate\Http\Request;
 
@@ -15,5 +15,15 @@ class AboutusController extends Controller
     public function aboutus()
     {
         return view('aboutus');
+    }
+
+    /**
+     * Show privacystatement page/view
+     *
+     * @return view
+     */
+    public function privacystatement()
+    {
+        return view('privacystatement');
     }
 }

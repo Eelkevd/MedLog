@@ -15,6 +15,7 @@
             @guest
             <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">{{ __('Login of registreer') }}</a></li>
             <li class="nav-item"><a class="nav-link" href="/about">Over MedBoek</a></li>
+            <li class="nav-item"><a class="nav-link" href="/privacy">Privacystatement</a></li>
         </ul>
         @endguest
         @auth
@@ -72,6 +73,7 @@
                 <!-- <a href="/permissions" class="dropdown-item">Meelezers</a>
                 <div class="dropdown-divider"></div> -->
                 <a class="dropdown-item" href="/about">Over MedBoek</a>
+                <a class="dropdown-item" href="/privacy">Privacystatement</a>
             </div>
         </li>
         @endif
