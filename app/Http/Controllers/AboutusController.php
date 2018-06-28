@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use PDF;
 // Controller of the about us section
 
 use Illuminate\Http\Request;
@@ -25,5 +26,11 @@ class AboutusController extends Controller
     public function privacystatement()
     {
         return view('privacystatement');
+    }
+
+    public function getPDF()
+    {
+        $pdf=PDF::loadView('privacystatementMedBoek');
+        return $pdf->download('privacystatementMedBoek.pdf');
     }
 }

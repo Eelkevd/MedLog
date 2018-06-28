@@ -18,9 +18,13 @@
             <div class="card">
                 <div class="card-header"><h5><center>Privacystatement</center></h5></div>
                 <div class="card-body">
+                    <form method="POST" action="/getPDF">
+                        {{ csrf_field() }}
+                        <input type="submit" class="btn btn-primary btn-md" value="Download ons privacystatement als pdf" /><br>
+                    </form>
                     <h2 class="about">MedBoek Algemeen</h2>
                     <p> MedBoek, gevestigd aan Bedumerweg 78 Groningen 9716 AG, is verantwoordelijk voor de verwerking van persoonsgegevens
-                        zoals weergegeven in deze privacyverklaring. Voor verdere contactgegevens, kijk onder het kopje "Over MedBoek".
+                        zoals weergegeven in deze privacyverklaring.
                     </p>
 
                     <h2 class="about">Persoonsgegevens die wij verwerken</h2>

@@ -31,6 +31,7 @@ Route::get('/about', 'AboutusController@aboutus');
 
 // Route to about us page
 Route::get('/privacy', 'AboutusController@privacystatement');
+Route::post('/getPDF', 'AboutusController@getPDF');
 
 // validated routers for users with a diary
 Route::middleware('auth')->group(function () {
@@ -75,6 +76,7 @@ Route::middleware('auth')->group(function () {
   Route::post('/export/getillnessPDF', 'ExportController@getillnessPDF');
   Route::post('/export/getdatePDF', 'ExportController@getperiodPDF');
   Route::post('/export/getPDF', 'ExportController@getPDF');
+
 
   // Route to medicine pages
   Route::get('/medicine', 'MedicineController@home');
