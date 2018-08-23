@@ -69,16 +69,16 @@ class AccountController extends Controller
 
         // Validate new edit data of user
         $request->validate([
-            'firstname' => 'required|string|max:190',
-            'middlename' => 'max:190',
-            'email' => 'required|string|email|max:190|confirmed|unique:users,email,'.$id,
+            'email' => 'required|string|max:190|unique:users,email,'.$id,
+            // 'middlename' => 'max:190',
+            // 'email' => 'required|string|email|max:190|confirmed|unique:users,email,'.$id,
         ]);
 
         // Update new edit data of user in database
         User::where('id', $id)->update([
-            'firstname' => encrypt($request['firstname']),
-            'middlename' => encrypt($request['middlename']),
-            'lastname' => encrypt($request['lastname']),
+            // 'firstname' => encrypt($request['firstname']),
+            // 'middlename' => encrypt($request['middlename']),
+            // 'lastname' => encrypt($request['lastname']),
             'email' => $request['email'],
         ]);
 

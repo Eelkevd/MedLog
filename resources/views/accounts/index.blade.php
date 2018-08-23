@@ -17,17 +17,9 @@
                             @endguest
                             @if (auth()->user()->reader())
                             {{ __('Account van betrokkene: ') }}
-                            {{ $user -> firstname }}
+                            {{ $user -> email }}
                             {{ __(' ') }}
-                            {{ $user -> middlename }}
-                            {{ __(' ') }}
-                            {{ $user -> lastname }}
                         </div>
-                        @elseif (!(auth()->user()->reader()))
-                        <p><center>{{ __('Medisch dagboek van :  ') }}
-                        {{ $user -> middlename }}
-                        {{ __(' ')}}
-                        {{ $user -> lastname }}</center></p>
                     </div>
                     @elseif (!(auth()->user()->verified()))
                 </div>
