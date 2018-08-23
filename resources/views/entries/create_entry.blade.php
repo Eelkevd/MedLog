@@ -41,13 +41,15 @@
                             <p><center><em>Velden met een sterretje (*) zijn verplicht</em></center></p>
                         </div>
                         <div class="card-body">
+                            
                             <form method="POST" action="/entries/create_entry">
                                 {{ csrf_field() }}
                                 <!-- places all illnesses from db -->
-                                <div>
-                                    <h5>Onder welk ziektebeeld valt de gebeurtenis? *</h5>
-                                    <div class="card-deck mb-4 text-center">
-                                        <div class="card mb-4 box-shadow">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <p><center><b>Onder welk ziektebeeld valt de gebeurtenis? *</b></center></p>
+                                    </div>
+                                    <div class="card mb-4 box-shadow">
                                             <div class="card-header" style="border-bottom: none;">
                                                 Selecteer uw ziektebeeld
                                                 <div class="card-body nopadding">
@@ -67,50 +69,66 @@
                                                 </div>
                                             </div>
                                         </div>
+                                    <div class="card-deck mb-4 text-center">
+                                        
                                         <div class="card mb-4 box-shadow">
                                             <div class="card-header">
-                                                Of voeg eerst een nieuw ziektebeeld toe
+                                                Ziektebeeld toevoegen?
 
-                                                <button type="button" class="btn" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#illness_pop">Nieuw ziektebeeld</button>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="card mb-4 box-shadow">
-                                        <div class="card-header">
-                                            verwijder een ziekte uit uw lijst
-
-                                            <button type="button" class="btn" data-toggle="modal" data-target="#illness_remove_pop">verwijder ziektebeeld</button>
+                                        <div class="card mb-4 box-shadow">
+                                            <div class="card-header">
+                                                Ziektebeeld verwijderen?
+                                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#illness_remove_pop">verwijder ziektebeeld</button>
+                                            </div>
                                         </div>
+                                    </div>                                    
+                                </div>
+                                <br>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <p><center><b>Welke symptomen had u?</b></center></p>
+                                    </div>
+                                    
+                                    <!-- places all symptomes from db of that user -->
+                                    <div class="card-body" class="symptoms form-check">
+                                        <ul class="list-unstyled">
+                                            @foreach($symptomes as $symptom)
+                                            <li><label>
+                                                <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
+                                                <span class="label-text">{{ $symptom->symptom }}</span>
+                                            </label></li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    <div class="card-body">
+                                        <br /><small><em>Staat uw symptoom er niet bij?</em></small><br />
+                                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#symptom_pop">
+                                        Nieuw symptoom
+                                        </button>
+                                    </div>                                    
+                                </div>
+                                <hr>
+                                <div class="card">
+                                    <div class="card-header">
+                                        <p><center><b> Hoe erg was het?</b></center></p>
+                                    </div>
+                                    <div class="card-body">                                    
+                                        <input type="range" name="intensity" min="1" value="{{ old('intensity', '5')}};"  max="9" class="slider" id="intensityRange">
+                                        <span id="intensityValue"></span>
                                     </div>
                                 </div>
                                 <hr>
-                                    Welke symptomen had u?
-                                <!-- places all symptomes from db of that user -->
-                                <div class="symptoms form-check">
-                                    <ul class="list-unstyled">
-                                        @foreach($symptomes as $symptom)
-                                        <li><label>
-                                            <input type="checkbox" name="symptom[]" value="{{ $symptom->id }}" enctype="multipart/form-data">
-                                            <span class="label-text">{{ $symptom->symptom }}</span>
-                                        </label></li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                                <br /><small><em>Staat uw symptoom er niet bij? Voeg deze dan toe met de onderstaande knop.</em></small>
-                                <button type="button" class="btn" data-toggle="modal" data-target="#symptom_pop">
-                                Nieuw symptoom
-                                </button>
-                                <hr>
-                                <div>
-                                    Hoe erg was het?<br /><br />
-                                    <input type="range" name="intensity" min="1" value="{{ old('intensity', '5')}};"  max="9" class="slider" id="intensityRange">
-                                    <span id="intensityValue"></span>
-                                </div>
-                                <hr>
-                                <div>
-                                    Wanneer gebeurde het?<br />
+                                <div class="card">
+                                    <div class="card-header">
+                                        <p><center><b>Wanneer gebeurde het?</b></center></p>
+                                    </div>
+                                    <div class="card-body">
                                     <input type="date" id='timespan_date' name="timespan_date" value="{{ old('timespan_date') }}" >
                                     <input type="time" name="timespan_time" value="{{ old('timespan_time', 'now') }}">
+                                </div>
                                 </div>
                                 <hr>
                                 <!-- Toggles the rest of the  form -->
@@ -204,7 +222,7 @@
                                     <input type="submit"  class="btn btn-info btn-md" style="width:200px;" value="Opslaan">
                                 </div>
                             </form>
-                        </div>
+                    
                         @include ('entries.create_symptom')
                         @include ('entries.create_illness')
                         @include ('entries.remove_illness')

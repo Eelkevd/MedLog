@@ -33,60 +33,60 @@
                     </div>
                     @else
                     <div class="card">
-                        <div class="card-header"><h5><center>Download uw dagboek</center></h5>
+                        <div class="card-header">
+                            <h5><center>Download uw dagboek</center></h5>
                         </div>
-
-                    <div class="card-body">
-                        <div class="card">
-                            <div class="card-header">Selecteer een ziektebeeld om te downloaden</div>
-                            <div class="card-body">
-                                <form method="POST" action="/export/getillnessPDF">
-                                    {{ csrf_field() }}
-                                    <select name="illness" class="form-control medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
-                                        <option selected></option>
-                                        @foreach($illnesses as $illness)
-                                                @if($illness->deleted != 'removed')
-                                                <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
-                                                @endif
-                                        @endforeach()
-                                    </select>
-                                    <input type="submit" class="btn btn-primary" style="margin-top: 5px;" value="Download" /><br>
-                                </form>
-                            </div>
-                        </div><br>
-                        <div class="card">
-                            <div class="card-header">Download je gebeurtenissen in de periode:</div>
-                            <div class="card-body">
-                                <form method="POST" action="/export/getdatePDF">
-                                    {{ csrf_field() }}
-                                    <div class="row">
-                                        <div class="col">
-                                            <input type="text" name="start_date" class="date form-control" placeholder="vanaf" required/>
+                        <div class="card-body">
+                            <div class="card">
+                                <div class="card-header"><center>Selecteer een ziektebeeld om te downloaden</center></div>
+                                <div class="card-body">
+                                    <form method="POST" action="/export/getillnessPDF">
+                                        {{ csrf_field() }}
+                                        <select name="illness" class="form-control medform-control{{ $errors->has('illness') ? ' is-invalid' : '' }}" required>
+                                            <option selected></option>
+                                            @foreach($illnesses as $illness)
+                                                    @if($illness->deleted != 'removed')
+                                                    <option value="{{ $illness->illness }}">{{ $illness->illness }}</option>
+                                                    @endif
+                                            @endforeach()
+                                        </select>
+                                        <input type="submit" class="btn btn-primary" style="margin-top: 5px;" value="Download" /><br>
+                                    </form>
+                                </div>
+                            </div><br>
+                            <div class="card">
+                                <div class="card-header">Download je gebeurtenissen in de periode:</div>
+                                <div class="card-body">
+                                    <form method="POST" action="/export/getdatePDF">
+                                        {{ csrf_field() }}
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" name="start_date" class="date form-control" placeholder="vanaf" required/>
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" name="end_date" class="date form-control" placeholder="tot en met"required/>
+                                            </div>
                                         </div>
-                                        <div class="col">
-                                            <input type="text" name="end_date" class="date form-control" placeholder="tot en met"required/>
-                                        </div>
-                                    </div>
-                                    <input type="submit" class="btn btn-primary" style="margin-top: 5px;" value="Download" /><br>
-                                </form>
-                                <script>
-                                $('.date').datepicker({
-                                autoclose: true,
-                                dateFormat: "yy-mm-dd"
-                                });
-                                </script>
-                            </div>
-                        </div><br>
-                        <div class="card">
-                            <div class="card-header">Download al jouw gebeurtenissen</div>
-                            <div class="card-body">
-                                <form method="POST" action="/export/getPDF">
-                                    {{ csrf_field() }}
-                                    <input type="submit" class="btn btn-primary btn-md" value="Download" /><br>
-                                </form>
+                                        <input type="submit" class="btn btn-primary" style="margin-top: 5px;" value="Download" /><br>
+                                    </form>
+                                    <script>
+                                    $('.date').datepicker({
+                                    autoclose: true,
+                                    dateFormat: "yy-mm-dd"
+                                    });
+                                    </script>
+                                </div>
+                            </div><br>
+                            <div class="card">
+                                <div class="card-header">Download al jouw gebeurtenissen</div>
+                                <div class="card-body">
+                                    <form method="POST" action="/export/getPDF">
+                                        {{ csrf_field() }}
+                                        <input type="submit" class="btn btn-primary btn-md" value="Download" /><br>
+                                    </form>
+                                </div>
                             </div>
                         </div>
-                    </div>
                         @endif
                         @endauth
                     </div>
